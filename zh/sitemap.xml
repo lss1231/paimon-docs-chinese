@@ -2,1312 +2,1312 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/zh/concepts/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/filesystems/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/filesystems/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/filesystems/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/filesystems/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/filesystems/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/filesystems/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/program-api/flink-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/program-api/flink-api/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/program-api/flink-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/program-api/flink-api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/program-api/flink-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/program-api/flink-api/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/migration/migration-from-hive/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/migration/migration-from-hive/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/migration/migration-from-hive/"
+                href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/migration/migration-from-hive/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/migration/migration-from-hive/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/migration/migration-from-iceberg/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/migration/migration-from-iceberg/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/migration/migration-from-iceberg/"
+                href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/migration/migration-from-iceberg/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/migration/migration-from-iceberg/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/append-table/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/append-table/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/append-table/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/append-table/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/append-table/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/rest/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/rest/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/rest/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/ecosystem/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/ecosystem/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/ecosystem/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/merge-engine/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/merge-engine/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/merge-engine/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/overview/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/overview/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/overview/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/quick-start/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/quick-start/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/quick-start/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/quick-start/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/quick-start/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/quick-start/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/quick-start/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/quick-start/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/quick-start/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/quick-start/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/project/roadmap/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/project/roadmap/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/project/roadmap/"
+                href="https://lss1231.github.io/paimon-docs-chinese/project/roadmap/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/project/roadmap/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/project/roadmap/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/learn-paimon/understand-files/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/learn-paimon/understand-files/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/learn-paimon/understand-files/"
+                href="https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/learn-paimon/understand-files/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/learn-paimon/understand-files/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/migration/upsert-to-partitioned/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/migration/upsert-to-partitioned/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/migration/upsert-to-partitioned/"
+                href="https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/migration/upsert-to-partitioned/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/migration/upsert-to-partitioned/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/basic-concepts/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/basic-concepts/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/basic-concepts/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/basic-concepts/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/basic-concepts/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/rest/bear/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/bear/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/rest/bear/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/bear/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/rest/bear/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/bear/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/data-distribution/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/data-distribution/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/data-distribution/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/data-distribution/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/data-distribution/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/project/download/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/project/download/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/project/download/"
+                href="https://lss1231.github.io/paimon-docs-chinese/project/download/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/project/download/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/project/download/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/program-api/java-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/program-api/java-api/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/program-api/java-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/program-api/java-api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/program-api/java-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/program-api/java-api/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/mysql-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/mysql-cdc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/mysql-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mysql-cdc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/mysql-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/mysql-cdc/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/merge-engine/partial-update/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/partial-update/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/merge-engine/partial-update/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/merge-engine/partial-update/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/partial-update/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/postgres-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/postgres-cdc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/postgres-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/postgres-cdc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/postgres-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/postgres-cdc/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/schema/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/schema/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/schema/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/schema/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/schema/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/sql-ddl/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-ddl/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/sql-ddl/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-ddl/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/sql-ddl/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-ddl/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/sql-ddl/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-ddl/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/sql-ddl/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/sql-ddl/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-ddl/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/sql-functions/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-functions/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/sql-functions/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-functions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/sql-functions/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-functions/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/sql-write/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-write/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/sql-write/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/sql-write/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-write/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/sql-write/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-write/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/sql-write/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/sql-write/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-write/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/ecosystem/starrocks/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/starrocks/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/ecosystem/starrocks/"
+                href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/ecosystem/starrocks/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/starrocks/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/append-table/streaming/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/append-table/streaming/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/append-table/streaming/"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/append-table/streaming/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/append-table/streaming/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/merge-engine/aggregation/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/aggregation/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/merge-engine/aggregation/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/merge-engine/aggregation/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/aggregation/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/program-api/catalog-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/program-api/catalog-api/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/program-api/catalog-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/program-api/catalog-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/program-api/catalog-api/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/concurrency-control/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/concurrency-control/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/concurrency-control/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/concurrency-control/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/concurrency-control/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/project/contributing/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/project/contributing/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/project/contributing/"
+                href="https://lss1231.github.io/paimon-docs-chinese/project/contributing/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/project/contributing/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/project/contributing/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/rest/dlf/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/dlf/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/rest/dlf/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/dlf/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/rest/dlf/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/dlf/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/ecosystem/doris/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/doris/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/ecosystem/doris/"
+                href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/doris/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/ecosystem/doris/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/doris/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/kafka-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/kafka-cdc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/kafka-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/kafka-cdc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/kafka-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/kafka-cdc/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/append-table/query-performance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/append-table/query-performance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/append-table/query-performance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/append-table/query-performance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/append-table/query-performance/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/snapshot/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/snapshot/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/snapshot/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/snapshot/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/snapshot/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/table-mode/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/table-mode/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/table-mode/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/table-mode/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/table-mode/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/append-table/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/append-table/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/append-table/"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/append-table/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/append-table/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/write-performance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/write-performance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/write-performance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/write-performance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/write-performance/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/catalog/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/catalog/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/catalog/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/catalog/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/catalog/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/project/committer/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/project/committer/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/project/committer/"
+                href="https://lss1231.github.io/paimon-docs-chinese/project/committer/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/project/committer/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/project/committer/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/dedicated-compaction/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/dedicated-compaction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/dedicated-compaction/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/dedicated-compaction/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/dedicated-compaction/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/merge-engine/first-row/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/first-row/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/merge-engine/first-row/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/merge-engine/first-row/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/first-row/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/ecosystem/hive/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/hive/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/ecosystem/hive/"
+                href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/hive/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/ecosystem/hive/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/hive/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/migration/iceberg-compatibility/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/migration/iceberg-compatibility/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/migration/iceberg-compatibility/"
+                href="https://lss1231.github.io/paimon-docs-chinese/migration/iceberg-compatibility/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/migration/iceberg-compatibility/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/migration/iceberg-compatibility/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/manifest/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/manifest/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/manifest/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/manifest/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/manifest/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/merge-engine/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/merge-engine/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/merge-engine/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/merge-engine/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/mongo-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/mongo-cdc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/mongo-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/mongo-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/mongo-cdc/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/program-api/python-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/program-api/python-api/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/program-api/python-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/program-api/python-api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/program-api/python-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/program-api/python-api/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/sql-query/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-query/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/sql-query/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-query/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/sql-query/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-query/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/sql-query/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-query/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/sql-query/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-query/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/sql-query/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-query/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/append-table/update/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/append-table/update/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/append-table/update/"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/append-table/update/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/append-table/update/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/append-table/bucketed/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/append-table/bucketed/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/append-table/bucketed/"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/append-table/bucketed/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/append-table/bucketed/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/changelog-producer/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/changelog-producer/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/changelog-producer/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/changelog-producer/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/changelog-producer/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/consumer-id/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/consumer-id/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/consumer-id/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/consumer-id/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/consumer-id/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/datafile/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/datafile/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/datafile/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/datafile/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/datafile/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/manage-snapshots/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-snapshots/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/manage-snapshots/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-snapshots/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/manage-snapshots/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-snapshots/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/pulsar-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/pulsar-cdc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/pulsar-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/pulsar-cdc/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/pulsar-cdc/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/rest/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/rest/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/rest/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/ecosystem/trino/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/trino/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/ecosystem/trino/"
+                href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/trino/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/ecosystem/trino/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/trino/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/ecosystem/amoro/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/amoro/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/ecosystem/amoro/"
+                href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/amoro/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/ecosystem/amoro/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/amoro/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/debezium-bson/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/debezium-bson/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/debezium-bson/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/debezium-bson/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/debezium-bson/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/debezium-bson/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/sequence-rowkind/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/sequence-rowkind/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/sequence-rowkind/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/sequence-rowkind/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/sequence-rowkind/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/sequence-rowkind/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/sql-alter/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-alter/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/sql-alter/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-alter/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/sql-alter/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-alter/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/sql-lookup/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-lookup/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/sql-lookup/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-lookup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/sql-lookup/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-lookup/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/tableindex/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/tableindex/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/tableindex/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/tableindex/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/tableindex/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/table-types/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/table-types/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/table-types/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/table-types/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/table-types/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/auxiliary/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/auxiliary/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/auxiliary/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/auxiliary/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/auxiliary/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/auxiliary/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/compaction/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/compaction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/compaction/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/compaction/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/compaction/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/fileindex/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/fileindex/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/fileindex/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/fileindex/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/fileindex/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/rescale-bucket/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/rescale-bucket/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/rescale-bucket/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/rescale-bucket/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/rescale-bucket/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/sql-alter/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-alter/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/sql-alter/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-alter/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/sql-alter/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-alter/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/system-tables/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/system-tables/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/system-tables/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/system-tables/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/system-tables/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/data-types/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/data-types/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/data-types/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/data-types/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/data-types/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/manage-tags/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/manage-tags/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/manage-tags/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/primary-key-table/query-performance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/query-performance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/primary-key-table/query-performance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/query-performance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/primary-key-table/query-performance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/primary-key-table/query-performance/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/metrics/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/metrics/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/metrics/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/metrics/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/metrics/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/metrics/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/spec/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/spec/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/spec/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/spec/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/manage-privileges/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-privileges/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/manage-privileges/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-privileges/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/manage-privileges/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-privileges/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/manage-branches/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-branches/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/manage-branches/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-branches/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/manage-branches/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-branches/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/manage-partitions/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-partitions/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/manage-partitions/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-partitions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/manage-partitions/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/manage-partitions/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/ecosystem/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/ecosystem/"
+                href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/ecosystem/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/ecosystem/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/cdc-ingestion/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/cdc-ingestion/"
+                href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/cdc-ingestion/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/clone-tables/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/clone-tables/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/clone-tables/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/clone-tables/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/clone-tables/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/clone-tables/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/program-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/program-api/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/program-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/program-api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/program-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/program-api/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/migration/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/migration/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/migration/"
+                href="https://lss1231.github.io/paimon-docs-chinese/migration/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/migration/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/migration/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/procedures/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/procedures/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/procedures/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/procedures/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/procedures/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/action-jars/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/action-jars/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/action-jars/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/action-jars/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/action-jars/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/action-jars/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/project/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/project/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/project/"
+                href="https://lss1231.github.io/paimon-docs-chinese/project/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/project/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/project/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/learn-paimon/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/learn-paimon/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/learn-paimon/"
+                href="https://lss1231.github.io/paimon-docs-chinese/learn-paimon/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/learn-paimon/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/learn-paimon/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/spark/procedures/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/spark/procedures/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/spark/procedures/"
+                href="https://lss1231.github.io/paimon-docs-chinese/spark/procedures/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/spark/procedures/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/procedures/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/flink/savepoint/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/flink/savepoint/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/flink/savepoint/"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/savepoint/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/flink/savepoint/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/savepoint/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/maintenance/configurations/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/configurations/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/maintenance/configurations/"
+                href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/maintenance/configurations/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/maintenance/configurations/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/"
+                href="https://lss1231.github.io/paimon-docs-chinese/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/categories/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/categories/"
+                href="https://lss1231.github.io/paimon-docs-chinese/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/categories/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/concepts/rest/rest-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/rest-api/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/concepts/rest/rest-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/rest-api/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/concepts/rest/rest-api/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/concepts/rest/rest-api/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/tags/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/"
+                href="https://lss1231.github.io/paimon-docs-chinese/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/tags/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/versions/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/zh/versions/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/versions/"
+                href="https://lss1231.github.io/paimon-docs-chinese/versions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/versions/"
+                href="https://lss1231.github.io/paimon-docs-chinese/zh/versions/"
                 />
   </url>
 </urlset>

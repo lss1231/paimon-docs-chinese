@@ -1,14 +1,14 @@
 {
   "name": "Paimon Docs",
   "short_name": "Paimon Docs",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/paimon-docs-chinese/",
+  "scope": "/paimon-docs-chinese/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/paimon-docs-chinese/favicon.svg",
       "sizes": "512x512"
     }
   ]

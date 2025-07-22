@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Table w/o PK on Paimon Docs</title>
-    <link>http://localhost:1313/append-table/</link>
+    <link>https://lss1231.github.io/paimon-docs-chinese/append-table/</link>
     <description>Recent content in Table w/o PK on Paimon Docs</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/append-table/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/append-table/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overview</title>
-      <link>http://localhost:1313/append-table/overview/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/append-table/overview/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;overview&#34;&gt;&#xD;&#xA;  Overview&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#overview&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;If a table does not have a primary key defined, it is an append table. Compared to the primary key table, it does not&#xA;have the ability to directly receive changelogs. It cannot be directly updated with data through upsert. It can only&#xA;receive incoming data from append data.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Streaming</title>
-      <link>http://localhost:1313/append-table/streaming/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/append-table/streaming/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;streaming&#34;&gt;&#xD;&#xA;  Streaming&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#streaming&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;You can stream write to the Append table in a very flexible way through Flink, or read the Append table through&#xA;Flink, using it like a queue. The only difference is that its latency is in minutes. Its advantages are very low cost&#xA;and the ability to push down filters and projection.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Query Performance</title>
-      <link>http://localhost:1313/append-table/query-performance/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/append-table/query-performance/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;query-performance&#34;&gt;&#xD;&#xA;  Query Performance&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#query-performance&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;data-skipping-by-order&#34;&gt;&#xD;&#xA;  Data Skipping By Order&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#data-skipping-by-order&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;Paimon by default records the maximum and minimum values of each field in the manifest file.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Update</title>
-      <link>http://localhost:1313/append-table/update/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/append-table/update/</guid>
-      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;update&#34;&gt;&#xD;&#xA;  Update&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#update&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Now, only Spark SQL supports DELETE &amp;amp; UPDATE, you can take a look at &lt;a href=&#34;http://localhost:1313/spark/sql-write/&#34;&gt;Spark Write&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;update&#34;&gt;&#xD;&#xA;  Update&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#update&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Now, only Spark SQL supports DELETE &amp;amp; UPDATE, you can take a look at &lt;a href=&#34;https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/&#34;&gt;Spark Write&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bucketed</title>
-      <link>http://localhost:1313/append-table/bucketed/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/append-table/bucketed/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;bucketed-append&#34;&gt;&#xD;&#xA;  Bucketed Append&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#bucketed-append&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;You can define the &lt;code&gt;bucket&lt;/code&gt; and &lt;code&gt;bucket-key&lt;/code&gt; to get a bucketed append table.&lt;/p&gt;</description>
     </item>
   </channel>
