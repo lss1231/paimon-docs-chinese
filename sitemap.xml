@@ -2,222 +2,222 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/concepts/</loc>
+    <loc>https://example.org/concepts/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/filesystems/</loc>
+    <loc>https://example.org/maintenance/filesystems/</loc>
   </url><url>
-    <loc>http://localhost:1313/program-api/flink-api/</loc>
+    <loc>https://example.org/program-api/flink-api/</loc>
   </url><url>
-    <loc>http://localhost:1313/migration/migration-from-hive/</loc>
+    <loc>https://example.org/migration/migration-from-hive/</loc>
   </url><url>
-    <loc>http://localhost:1313/migration/migration-from-iceberg/</loc>
+    <loc>https://example.org/migration/migration-from-iceberg/</loc>
   </url><url>
-    <loc>http://localhost:1313/append-table/overview/</loc>
+    <loc>https://example.org/append-table/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/overview/</loc>
+    <loc>https://example.org/cdc-ingestion/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/overview/</loc>
+    <loc>https://example.org/concepts/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/rest/overview/</loc>
+    <loc>https://example.org/concepts/rest/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/overview/</loc>
+    <loc>https://example.org/concepts/spec/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/ecosystem/overview/</loc>
+    <loc>https://example.org/ecosystem/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/merge-engine/overview/</loc>
+    <loc>https://example.org/primary-key-table/merge-engine/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/overview/</loc>
+    <loc>https://example.org/primary-key-table/overview/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/quick-start/</loc>
+    <loc>https://example.org/flink/quick-start/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/quick-start/</loc>
+    <loc>https://example.org/spark/quick-start/</loc>
   </url><url>
-    <loc>http://localhost:1313/project/roadmap/</loc>
+    <loc>https://example.org/project/roadmap/</loc>
   </url><url>
-    <loc>http://localhost:1313/learn-paimon/understand-files/</loc>
+    <loc>https://example.org/learn-paimon/understand-files/</loc>
   </url><url>
-    <loc>http://localhost:1313/migration/upsert-to-partitioned/</loc>
+    <loc>https://example.org/migration/upsert-to-partitioned/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/basic-concepts/</loc>
+    <loc>https://example.org/concepts/basic-concepts/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/rest/bear/</loc>
+    <loc>https://example.org/concepts/rest/bear/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/data-distribution/</loc>
+    <loc>https://example.org/primary-key-table/data-distribution/</loc>
   </url><url>
-    <loc>http://localhost:1313/project/download/</loc>
+    <loc>https://example.org/project/download/</loc>
   </url><url>
-    <loc>http://localhost:1313/program-api/java-api/</loc>
+    <loc>https://example.org/program-api/java-api/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/mysql-cdc/</loc>
+    <loc>https://example.org/cdc-ingestion/mysql-cdc/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/merge-engine/partial-update/</loc>
+    <loc>https://example.org/primary-key-table/merge-engine/partial-update/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/postgres-cdc/</loc>
+    <loc>https://example.org/cdc-ingestion/postgres-cdc/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/schema/</loc>
+    <loc>https://example.org/concepts/spec/schema/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/sql-ddl/</loc>
+    <loc>https://example.org/flink/sql-ddl/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/sql-ddl/</loc>
+    <loc>https://example.org/spark/sql-ddl/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/sql-functions/</loc>
+    <loc>https://example.org/spark/sql-functions/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/sql-write/</loc>
+    <loc>https://example.org/flink/sql-write/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/sql-write/</loc>
+    <loc>https://example.org/spark/sql-write/</loc>
   </url><url>
-    <loc>http://localhost:1313/ecosystem/starrocks/</loc>
+    <loc>https://example.org/ecosystem/starrocks/</loc>
   </url><url>
-    <loc>http://localhost:1313/append-table/streaming/</loc>
+    <loc>https://example.org/append-table/streaming/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/</loc>
+    <loc>https://example.org/primary-key-table/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/merge-engine/aggregation/</loc>
+    <loc>https://example.org/primary-key-table/merge-engine/aggregation/</loc>
   </url><url>
-    <loc>http://localhost:1313/program-api/catalog-api/</loc>
+    <loc>https://example.org/program-api/catalog-api/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/concurrency-control/</loc>
+    <loc>https://example.org/concepts/concurrency-control/</loc>
   </url><url>
-    <loc>http://localhost:1313/project/contributing/</loc>
+    <loc>https://example.org/project/contributing/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/rest/dlf/</loc>
+    <loc>https://example.org/concepts/rest/dlf/</loc>
   </url><url>
-    <loc>http://localhost:1313/ecosystem/doris/</loc>
+    <loc>https://example.org/ecosystem/doris/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/kafka-cdc/</loc>
+    <loc>https://example.org/cdc-ingestion/kafka-cdc/</loc>
   </url><url>
-    <loc>http://localhost:1313/append-table/query-performance/</loc>
+    <loc>https://example.org/append-table/query-performance/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/snapshot/</loc>
+    <loc>https://example.org/concepts/spec/snapshot/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/table-mode/</loc>
+    <loc>https://example.org/primary-key-table/table-mode/</loc>
   </url><url>
-    <loc>http://localhost:1313/append-table/</loc>
+    <loc>https://example.org/append-table/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/write-performance/</loc>
+    <loc>https://example.org/maintenance/write-performance/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/catalog/</loc>
+    <loc>https://example.org/concepts/catalog/</loc>
   </url><url>
-    <loc>http://localhost:1313/project/committer/</loc>
+    <loc>https://example.org/project/committer/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/dedicated-compaction/</loc>
+    <loc>https://example.org/maintenance/dedicated-compaction/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/merge-engine/first-row/</loc>
+    <loc>https://example.org/primary-key-table/merge-engine/first-row/</loc>
   </url><url>
-    <loc>http://localhost:1313/ecosystem/hive/</loc>
+    <loc>https://example.org/ecosystem/hive/</loc>
   </url><url>
-    <loc>http://localhost:1313/migration/iceberg-compatibility/</loc>
+    <loc>https://example.org/migration/iceberg-compatibility/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/manifest/</loc>
+    <loc>https://example.org/concepts/spec/manifest/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/merge-engine/</loc>
+    <loc>https://example.org/primary-key-table/merge-engine/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/mongo-cdc/</loc>
+    <loc>https://example.org/cdc-ingestion/mongo-cdc/</loc>
   </url><url>
-    <loc>http://localhost:1313/program-api/python-api/</loc>
+    <loc>https://example.org/program-api/python-api/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/sql-query/</loc>
+    <loc>https://example.org/flink/sql-query/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/sql-query/</loc>
+    <loc>https://example.org/spark/sql-query/</loc>
   </url><url>
-    <loc>http://localhost:1313/append-table/update/</loc>
+    <loc>https://example.org/append-table/update/</loc>
   </url><url>
-    <loc>http://localhost:1313/append-table/bucketed/</loc>
+    <loc>https://example.org/append-table/bucketed/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/changelog-producer/</loc>
+    <loc>https://example.org/primary-key-table/changelog-producer/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/consumer-id/</loc>
+    <loc>https://example.org/flink/consumer-id/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/datafile/</loc>
+    <loc>https://example.org/concepts/spec/datafile/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/</loc>
+    <loc>https://example.org/flink/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/manage-snapshots/</loc>
+    <loc>https://example.org/maintenance/manage-snapshots/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/pulsar-cdc/</loc>
+    <loc>https://example.org/cdc-ingestion/pulsar-cdc/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/rest/</loc>
+    <loc>https://example.org/concepts/rest/</loc>
   </url><url>
-    <loc>http://localhost:1313/ecosystem/trino/</loc>
+    <loc>https://example.org/ecosystem/trino/</loc>
   </url><url>
-    <loc>http://localhost:1313/ecosystem/amoro/</loc>
+    <loc>https://example.org/ecosystem/amoro/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/debezium-bson/</loc>
+    <loc>https://example.org/cdc-ingestion/debezium-bson/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/</loc>
+    <loc>https://example.org/spark/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/sequence-rowkind/</loc>
+    <loc>https://example.org/primary-key-table/sequence-rowkind/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/sql-alter/</loc>
+    <loc>https://example.org/spark/sql-alter/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/sql-lookup/</loc>
+    <loc>https://example.org/flink/sql-lookup/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/tableindex/</loc>
+    <loc>https://example.org/concepts/spec/tableindex/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/table-types/</loc>
+    <loc>https://example.org/concepts/table-types/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/auxiliary/</loc>
+    <loc>https://example.org/spark/auxiliary/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/compaction/</loc>
+    <loc>https://example.org/primary-key-table/compaction/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/fileindex/</loc>
+    <loc>https://example.org/concepts/spec/fileindex/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/rescale-bucket/</loc>
+    <loc>https://example.org/maintenance/rescale-bucket/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/sql-alter/</loc>
+    <loc>https://example.org/flink/sql-alter/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/system-tables/</loc>
+    <loc>https://example.org/concepts/system-tables/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/data-types/</loc>
+    <loc>https://example.org/concepts/data-types/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/manage-tags/</loc>
+    <loc>https://example.org/maintenance/manage-tags/</loc>
   </url><url>
-    <loc>http://localhost:1313/primary-key-table/query-performance/</loc>
+    <loc>https://example.org/primary-key-table/query-performance/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/metrics/</loc>
+    <loc>https://example.org/maintenance/metrics/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/spec/</loc>
+    <loc>https://example.org/concepts/spec/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/manage-privileges/</loc>
+    <loc>https://example.org/maintenance/manage-privileges/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/manage-branches/</loc>
+    <loc>https://example.org/maintenance/manage-branches/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/manage-partitions/</loc>
+    <loc>https://example.org/maintenance/manage-partitions/</loc>
   </url><url>
-    <loc>http://localhost:1313/ecosystem/</loc>
+    <loc>https://example.org/ecosystem/</loc>
   </url><url>
-    <loc>http://localhost:1313/cdc-ingestion/</loc>
+    <loc>https://example.org/cdc-ingestion/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/clone-tables/</loc>
+    <loc>https://example.org/flink/clone-tables/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/</loc>
+    <loc>https://example.org/maintenance/</loc>
   </url><url>
-    <loc>http://localhost:1313/program-api/</loc>
+    <loc>https://example.org/program-api/</loc>
   </url><url>
-    <loc>http://localhost:1313/migration/</loc>
+    <loc>https://example.org/migration/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/procedures/</loc>
+    <loc>https://example.org/flink/procedures/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/action-jars/</loc>
+    <loc>https://example.org/flink/action-jars/</loc>
   </url><url>
-    <loc>http://localhost:1313/project/</loc>
+    <loc>https://example.org/project/</loc>
   </url><url>
-    <loc>http://localhost:1313/learn-paimon/</loc>
+    <loc>https://example.org/learn-paimon/</loc>
   </url><url>
-    <loc>http://localhost:1313/spark/procedures/</loc>
+    <loc>https://example.org/spark/procedures/</loc>
   </url><url>
-    <loc>http://localhost:1313/flink/savepoint/</loc>
+    <loc>https://example.org/flink/savepoint/</loc>
   </url><url>
-    <loc>http://localhost:1313/maintenance/configurations/</loc>
+    <loc>https://example.org/maintenance/configurations/</loc>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://example.org/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://example.org/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/concepts/rest/rest-api/</loc>
+    <loc>https://example.org/concepts/rest/rest-api/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://example.org/tags/</loc>
   </url><url>
-    <loc>http://localhost:1313/versions/</loc>
+    <loc>https://example.org/versions/</loc>
   </url>
 </urlset>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -11,7 +11,7 @@
 This section will describe the management and behavior related to snapshots.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/maintenance/manage-snapshots/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/maintenance/manage-snapshots/">
   <meta property="og:site_name" content="Apache Paimon">
   <meta property="og:title" content="Manage Snapshots">
   <meta property="og:description" content="Manage Snapshots#This section will describe the management and behavior related to snapshots.">
@@ -21,10 +21,10 @@ This section will describe the management and behavior related to snapshots.">
 <title>Manage Snapshots | Apache Paimon</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/maintenance/manage-snapshots/">
+<link rel="canonical" href="https://example.org/maintenance/manage-snapshots/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8e866478944a5c9bf1b56d57e841c7fe2748afd65915a6f729dd332db70f7b.js" integrity="sha256-7Y6GZHiUSlyb8bVtV&#43;hBx/4nSK/WWRWm9yndMy23D3s=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1647,7 +1647,7 @@ under the License.
   Expire Snapshots
   <a class="anchor" href="#expire-snapshots">#</a>
 </h2>
-<p>Paimon writers generate one or two <a href="http://localhost:1313/concepts/basic-concepts/#snapshot">snapshot</a> per commit. Each snapshot may add some new data files or mark some old data files as deleted. However, the marked data files are not truly deleted because Paimon also supports time traveling to an earlier snapshot. They are only deleted when the snapshot expires.</p>
+<p>Paimon writers generate one or two <a href="https://example.org/concepts/basic-concepts/#snapshot">snapshot</a> per commit. Each snapshot may add some new data files or mark some old data files as deleted. However, the marked data files are not truly deleted because Paimon also supports time traveling to an earlier snapshot. They are only deleted when the snapshot expires.</p>
 <p>Currently, expiration is automatically performed by Paimon writers when committing new changes. By expiring old snapshots, old data files and metadata files that are no longer used can be deleted to release disk space.</p>
 <p>Snapshot expiration is controlled by the following table properties.</p>
 <table class="table table-bordered">
@@ -1828,7 +1828,7 @@ the batch query takes 10 minutes to read, but the snapshot from 10 minutes ago
 expires, at which point the batch query will read a deleted snapshot.</li>
 <li>Streaming reading jobs on table files fail to restart.
 When the job restarts, the snapshot it recorded may have expired. (You can use
-<a href="http://localhost:1313/flink/sql-query/#consumer-id">Consumer Id</a> to protect streaming reading
+<a href="https://example.org/flink/sql-query/#consumer-id">Consumer Id</a> to protect streaming reading
 in a small retain time of snapshot expiration).</li>
 </ul>
 <p>By default, paimon will delete expired snapshots synchronously. When there are too

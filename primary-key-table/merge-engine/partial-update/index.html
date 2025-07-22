@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -13,7 +13,7 @@ multiple updates until the record is complete. This is achieved by updating the 
 latest data under the same primary key. However, null values are not overwritten in the process.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/primary-key-table/merge-engine/partial-update/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/primary-key-table/merge-engine/partial-update/">
   <meta property="og:site_name" content="Apache Paimon">
   <meta property="og:title" content="Partial Update">
   <meta property="og:description" content="Partial Update#By specifying &#39;merge-engine&#39; = &#39;partial-update&#39;, users have the ability to update columns of a record through multiple updates until the record is complete. This is achieved by updating the value fields one by one, using the latest data under the same primary key. However, null values are not overwritten in the process.">
@@ -23,10 +23,10 @@ latest data under the same primary key. However, null values are not overwritten
 <title>Partial Update | Apache Paimon</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/primary-key-table/merge-engine/partial-update/">
+<link rel="canonical" href="https://example.org/primary-key-table/merge-engine/partial-update/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8e866478944a5c9bf1b56d57e841c7fe2748afd65915a6f729dd332db70f7b.js" integrity="sha256-7Y6GZHiUSlyb8bVtV&#43;hBx/4nSK/WWRWm9yndMy23D3s=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1656,7 +1656,7 @@ latest data under the same primary key. However, null values are not overwritten
 <blockquote class="book-hint info">
   
 For streaming queries, `partial-update` merge engine must be used together with `lookup` or `full-compaction`
-[changelog producer](http://localhost:1313/primary-key-table/changelog-producer/). ('input' changelog producer is also supported,
+[changelog producer](https://example.org/primary-key-table/changelog-producer/). ('input' changelog producer is also supported,
 but only returns input records.)
 
 </blockquote>
@@ -1762,7 +1762,7 @@ like <code>fields.&lt;field-name1&gt;,&lt;field-name2&gt;.sequence-group</code>,
   <a class="anchor" href="#aggregation-for-partial-update">#</a>
 </h2>
 <p>You can specify aggregation function for the input field, all the functions in the
-<a href="http://localhost:1313/primary-key-table/merge-engine/aggregation/">Aggregation</a> are supported.</p>
+<a href="https://example.org/primary-key-table/merge-engine/aggregation/">Aggregation</a> are supported.</p>
 <p>See example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> t
 </span></span><span style="display:flex;"><span>(

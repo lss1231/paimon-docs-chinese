@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -12,7 +12,7 @@ This article is specifically designed to clarify
 the impact that various file operations have on files.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/learn-paimon/understand-files/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/learn-paimon/understand-files/">
   <meta property="og:site_name" content="Apache Paimon">
   <meta property="og:title" content="Understand Files">
   <meta property="og:description" content="Understand Files#This article is specifically designed to clarify the impact that various file operations have on files.">
@@ -22,10 +22,10 @@ the impact that various file operations have on files.">
 <title>Understand Files | Apache Paimon</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/learn-paimon/understand-files/">
+<link rel="canonical" href="https://example.org/learn-paimon/understand-files/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8e866478944a5c9bf1b56d57e841c7fe2748afd65915a6f729dd332db70f7b.js" integrity="sha256-7Y6GZHiUSlyb8bVtV&#43;hBx/4nSK/WWRWm9yndMy23D3s=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1676,9 +1676,9 @@ we aim to offer insights into the creation and updates of files.</p>
 <p>Before delving further into this page, please ensure that you have read through the
 following sections:</p>
 <ol>
-<li><a href="http://localhost:1313/concepts/basic-concepts/">Basic Concepts</a>,</li>
-<li><a href="http://localhost:1313/primary-key-table/overview/">Primary Key Table</a> and <a href="http://localhost:1313/append-table/overview/">Append Table</a></li>
-<li>How to use Paimon in <a href="http://localhost:1313/flink/">Flink</a>.</li>
+<li><a href="https://example.org/concepts/basic-concepts/">Basic Concepts</a>,</li>
+<li><a href="https://example.org/primary-key-table/overview/">Primary Key Table</a> and <a href="https://example.org/append-table/overview/">Append Table</a></li>
+<li>How to use Paimon in <a href="https://example.org/flink/">Flink</a>.</li>
 </ol>
 <h2 id="understand-file-operations">
   Understand File Operations
@@ -1723,7 +1723,7 @@ The commit process creates a snapshot located at the path <code>/tmp/paimon/defa
 The resulting file layout at snapshot-1 is as described below:</p>
 
 <img 
-  src="http://localhost:1313//img/file-operations-0.png"
+  src="https://example.org//img/file-operations-0.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1821,7 +1821,7 @@ following physical file layout:</p>
 </span></span></code></pre></div><p>The new file layout as of snapshot-2 looks like
 
 <img 
-  src="http://localhost:1313//img/file-operations-1.png"
+  src="https://example.org//img/file-operations-1.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1851,7 +1851,7 @@ the record in the third commit. Executing <code>SELECT * FROM T</code> will retu
 </code></pre><p>The new file layout as of snapshot-3 looks like
 
 <img 
-  src="http://localhost:1313//img/file-operations-2.png"
+  src="https://example.org//img/file-operations-2.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1973,7 +1973,7 @@ made and contains the following information:</p>
 </span></span></code></pre></div><p>The new file layout as of snapshot-4 looks like
 
 <img 
-  src="http://localhost:1313//img/file-operations-3.png"
+  src="https://example.org//img/file-operations-3.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1999,7 +1999,7 @@ has actually used this schema yet until the next commit.</p>
   <a class="anchor" href="#expire-snapshots">#</a>
 </h3>
 <p>Remind that the marked data files are not truly deleted until the snapshot expires and
-no consumer depends on the snapshot. For more information, see <a href="http://localhost:1313/maintenance/manage-snapshots/#expiring-snapshots">Expiring Snapshots</a>.</p>
+no consumer depends on the snapshot. For more information, see <a href="https://example.org/maintenance/manage-snapshots/#expiring-snapshots">Expiring Snapshots</a>.</p>
 <p>During the process of snapshot expiration, the range of snapshots is initially determined, and then data files within these snapshots are marked for deletion.
 A data file is <code>marked</code> for deletion only when there is a manifest entry of kind <code>DELETE</code> that references that specific data file.
 This marking ensures that the file will not be utilized by subsequent snapshots and can be safely removed.</p>
@@ -2021,7 +2021,7 @@ to be deleted. For simplicity, we will only focus on files from previous snapsho
 expiration looks like:</p>
 
 <img 
-  src="http://localhost:1313//img/file-operations-4.png"
+  src="https://example.org//img/file-operations-4.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2040,7 +2040,7 @@ and snapshot commit and expiration.</p>
 the unique roles played by each component involved.</p>
 
 <img 
-  src="http://localhost:1313//img/cdc-ingestion-topology.png"
+  src="https://example.org//img/cdc-ingestion-topology.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2056,7 +2056,7 @@ asynchronously.</li>
 <p>Next, we will go over end-to-end data flow.</p>
 
 <img 
-  src="http://localhost:1313//img/cdc-ingestion-source.png"
+  src="https://example.org//img/cdc-ingestion-source.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2065,7 +2065,7 @@ asynchronously.</li>
 <p><code>MySQL Cdc Source</code> read snapshot and incremental data and emit them to downstream after normalization.</p>
 
 <img 
-  src="http://localhost:1313//img/cdc-ingestion-write.png"
+  src="https://example.org//img/cdc-ingestion-write.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2077,7 +2077,7 @@ is created. Right before Flink checkpoint takes places, <code>Paimon Sink</code>
 to downstream, which is read and committed by <code>Committer Operator</code> during checkpoint.</p>
 
 <img 
-  src="http://localhost:1313//img/cdc-ingestion-commit.png"
+  src="https://example.org//img/cdc-ingestion-commit.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2087,7 +2087,7 @@ to downstream, which is read and committed by <code>Committer Operator</code> du
 contains information about all data files in the table.</p>
 
 <img 
-  src="http://localhost:1313//img/cdc-ingestion-compact.png"
+  src="https://example.org//img/cdc-ingestion-compact.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2130,7 +2130,7 @@ spilled files in writer to generate bigger files in DFS.</p>
 </h3>
 
 <img 
-  src="http://localhost:1313//img/file-operations-3.png"
+  src="https://example.org//img/file-operations-3.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2139,7 +2139,7 @@ spilled files in writer to generate bigger files in DFS.</p>
 <p>Paimon maintains multiple versions of files, compaction and deletion of files are logical and do not actually
 delete files. Files are only really deleted when Snapshot is expired, so the first way to reduce files is to
 reduce the time it takes for snapshot to be expired. Flink writer will automatically expire snapshots.</p>
-<p>See <a href="http://localhost:1313/maintenance/manage-snapshots/#expire-snapshots">Expire Snapshots</a>.</p>
+<p>See <a href="https://example.org/maintenance/manage-snapshots/#expire-snapshots">Expire Snapshots</a>.</p>
 <h3 id="understand-partitions-and-buckets">
   Understand Partitions and Buckets
   <a class="anchor" href="#understand-partitions-and-buckets">#</a>
@@ -2148,7 +2148,7 @@ reduce the time it takes for snapshot to be expired. Flink writer will automatic
 from a snapshot file, Paimon readers can recursively access all records from the table.</p>
 
 <img 
-  src="http://localhost:1313//img/file-layout.png"
+  src="https://example.org//img/file-layout.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -2176,13 +2176,13 @@ of buckets, otherwise there will be quite a few small files as well.</p>
 file belongs to exactly one sorted run.</p>
 
 <img 
-  src="http://localhost:1313//img/sorted-runs.png"
+  src="https://example.org//img/sorted-runs.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
 >
 
-<p>By default, sorted runs number depends on <code>num-sorted-run.compaction-trigger</code>, see <a href="http://localhost:1313/maintenance/write-performance/#compaction">Compaction for Primary Key Table</a>,
+<p>By default, sorted runs number depends on <code>num-sorted-run.compaction-trigger</code>, see <a href="https://example.org/maintenance/write-performance/#compaction">Compaction for Primary Key Table</a>,
 this means that there are at least 5 files in a bucket. If you want to reduce this number, you can keep fewer files, but write performance may suffer.</p>
 <h3 id="understand-files-for-bucketed-append-table">
   Understand Files for Bucketed Append Table
@@ -2190,7 +2190,7 @@ this means that there are at least 5 files in a bucket. If you want to reduce th
 </h3>
 <p>By default, Append also does automatic compaction to reduce the number of small files.</p>
 <p>However, for Bucketed Append table, it will only compact the files within the Bucket for sequential
-purposes, which may keep more small files. See <a href="http://localhost:1313/append-table/streaming/#bucketed-append">Bucketed Append</a>.</p>
+purposes, which may keep more small files. See <a href="https://example.org/append-table/streaming/#bucketed-append">Bucketed Append</a>.</p>
 <h3 id="understand-full-compaction">
   Understand Full-Compaction
   <a class="anchor" href="#understand-full-compaction">#</a>

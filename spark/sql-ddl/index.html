@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -19,7 +19,7 @@
 Paimon catalogs currently support three types of metastores:">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/spark/sql-ddl/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/spark/sql-ddl/">
   <meta property="og:site_name" content="Apache Paimon">
   <meta property="og:title" content="SQL DDL">
   <meta property="og:description" content="SQL DDL#Catalog#Create Catalog#Paimon catalogs currently support three types of metastores:">
@@ -29,10 +29,10 @@ Paimon catalogs currently support three types of metastores:">
 <title>SQL DDL | Apache Paimon</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/spark/sql-ddl/">
+<link rel="canonical" href="https://example.org/spark/sql-ddl/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8e866478944a5c9bf1b56d57e841c7fe2748afd65915a6f729dd332db70f7b.js" integrity="sha256-7Y6GZHiUSlyb8bVtV&#43;hBx/4nSK/WWRWm9yndMy23D3s=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1687,7 +1687,7 @@ under the License.
 <li><code>hive</code> metastore, which additionally stores metadata in Hive metastore. Users can directly access the tables from Hive.</li>
 <li><code>jdbc</code> metastore, which additionally stores metadata in relational databases such as MySQL, Postgres, etc.</li>
 </ul>
-<p>See <a href="http://localhost:1313/maintenance/configurations/#catalogoptions">CatalogOptions</a> for detailed options when creating a catalog.</p>
+<p>See <a href="https://example.org/maintenance/configurations/#catalogoptions">CatalogOptions</a> for detailed options when creating a catalog.</p>
 <h4 id="create-filesystem-catalog">
   Create Filesystem Catalog
   <a class="anchor" href="#create-filesystem-catalog">#</a>
@@ -1716,10 +1716,10 @@ under the License.
 </span></span></code></pre></div><p>You can define any default table options with the prefix <code>spark.sql.catalog.paimon.table-default.</code> for tables created in the catalog.</p>
 <p>After <code>spark-sql</code> is started, you can switch to the <code>default</code> database of the <code>paimon</code> catalog with the following SQL.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>USE paimon.<span style="color:#66d9ef">default</span>;
-</span></span></code></pre></div><p>Also, you can create <a href="http://localhost:1313/spark/quick-start/">SparkGenericCatalog</a>.</p>
+</span></span></code></pre></div><p>Also, you can create <a href="https://example.org/spark/quick-start/">SparkGenericCatalog</a>.</p>
 <p><strong>Synchronizing Partitions into Hive Metastore</strong></p>
 <p>By default, Paimon does not synchronize newly created partitions into Hive metastore. Users will see an unpartitioned table in Hive. Partition push-down will be carried out by filter push-down instead.</p>
-<p>If you want to see a partitioned table in Hive and also synchronize newly created partitions into Hive metastore, please set the table property <code>metastore.partitioned-table</code> to true. Also see <a href="http://localhost:1313/maintenance/configurations/#coreoptions">CoreOptions</a>.</p>
+<p>If you want to see a partitioned table in Hive and also synchronize newly created partitions into Hive metastore, please set the table property <code>metastore.partitioned-table</code> to true. Also see <a href="https://example.org/maintenance/configurations/#coreoptions">CoreOptions</a>.</p>
 <h4 id="creating-jdbc-catalog">
   Creating JDBC Catalog
   <a class="anchor" href="#creating-jdbc-catalog">#</a>

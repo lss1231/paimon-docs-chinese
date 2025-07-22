@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -15,7 +15,7 @@
 Paimon by default records the maximum and minimum values of each field in the manifest file.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/append-table/query-performance/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/append-table/query-performance/">
   <meta property="og:site_name" content="Apache Paimon">
   <meta property="og:title" content="Query Performance">
   <meta property="og:description" content="Query Performance#Data Skipping By Order#Paimon by default records the maximum and minimum values of each field in the manifest file.">
@@ -25,10 +25,10 @@ Paimon by default records the maximum and minimum values of each field in the ma
 <title>Query Performance | Apache Paimon</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/append-table/query-performance/">
+<link rel="canonical" href="https://example.org/append-table/query-performance/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8e866478944a5c9bf1b56d57e841c7fe2748afd65915a6f729dd332db70f7b.js" integrity="sha256-7Y6GZHiUSlyb8bVtV&#43;hBx/4nSK/WWRWm9yndMy23D3s=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1654,8 +1654,8 @@ under the License.
 perform file filtering. If the filtering effect is good, the query that would have cost minutes will be accelerated to
 milliseconds to complete the execution.</p>
 <p>Often the data distribution is not always ideal for filtering, so can we sort the data by the field in <code>WHERE</code> condition?
-You can take a look at <a href="http://localhost:1313/maintenance/dedicated-compaction/#sort-compact">Flink COMPACT Action</a>,
-<a href="http://localhost:1313/flink/procedures/">Flink COMPACT Procedure</a> or <a href="http://localhost:1313/spark/procedures/">Spark COMPACT Procedure</a>.</p>
+You can take a look at <a href="https://example.org/maintenance/dedicated-compaction/#sort-compact">Flink COMPACT Action</a>,
+<a href="https://example.org/flink/procedures/">Flink COMPACT Procedure</a> or <a href="https://example.org/spark/procedures/">Spark COMPACT Procedure</a>.</p>
 <h2 id="data-skipping-by-file-index">
   Data Skipping By File Index
   <a class="anchor" href="#data-skipping-by-file-index">#</a>
@@ -1679,7 +1679,7 @@ scenario. Using a bitmap may consume more space but can result in greater accura
 </ul>
 <p><code>Bitmap</code>:</p>
 <ul>
-<li><code>file-index.bitmap.columns</code>: specify the columns that need bitmap index. See <a href="http://localhost:1313/concepts/spec/fileindex/#index-bitmap">Index Bitmap</a>.</li>
+<li><code>file-index.bitmap.columns</code>: specify the columns that need bitmap index. See <a href="https://example.org/concepts/spec/fileindex/#index-bitmap">Index Bitmap</a>.</li>
 </ul>
 <p><code>Bit-Slice Index Bitmap</code></p>
 <ul>
@@ -1689,7 +1689,7 @@ scenario. Using a bitmap may consume more space but can result in greater accura
 <p>If you want to add file index to existing table, without any rewrite, you can use <code>rewrite_file_index</code> procedure. Before
 we use the procedure, you should config appropriate configurations in target table. You can use ALTER clause to config
 <code>file-index.&lt;filter-type&gt;.columns</code> to the table.</p>
-<p>How to invoke: see <a href="http://localhost:1313/flink/procedures/#procedures">flink procedures</a></p>
+<p>How to invoke: see <a href="https://example.org/flink/procedures/#procedures">flink procedures</a></p>
 </article>
  
       

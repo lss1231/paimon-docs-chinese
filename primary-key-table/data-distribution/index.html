@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -11,7 +11,7 @@
 A bucket is the smallest storage unit for reads and writes, each bucket directory contains an LSM tree.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/primary-key-table/data-distribution/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/primary-key-table/data-distribution/">
   <meta property="og:site_name" content="Apache Paimon">
   <meta property="og:title" content="Data Distribution">
   <meta property="og:description" content="Data Distribution#A bucket is the smallest storage unit for reads and writes, each bucket directory contains an LSM tree.">
@@ -21,10 +21,10 @@ A bucket is the smallest storage unit for reads and writes, each bucket director
 <title>Data Distribution | Apache Paimon</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/primary-key-table/data-distribution/">
+<link rel="canonical" href="https://example.org/primary-key-table/data-distribution/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8e866478944a5c9bf1b56d57e841c7fe2748afd65915a6f729dd332db70f7b.js" integrity="sha256-7Y6GZHiUSlyb8bVtV&#43;hBx/4nSK/WWRWm9yndMy23D3s=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1648,14 +1648,14 @@ under the License.
   Data Distribution
   <a class="anchor" href="#data-distribution">#</a>
 </h1>
-<p>A bucket is the smallest storage unit for reads and writes, each bucket directory contains an <a href="http://localhost:1313/primary-key-table/overview/#lsm-trees">LSM tree</a>.</p>
+<p>A bucket is the smallest storage unit for reads and writes, each bucket directory contains an <a href="https://example.org/primary-key-table/overview/#lsm-trees">LSM tree</a>.</p>
 <h2 id="fixed-bucket">
   Fixed Bucket
   <a class="anchor" href="#fixed-bucket">#</a>
 </h2>
 <p>Configure a bucket greater than 0, using Fixed Bucket mode, according to <code>Math.abs(key_hashcode % numBuckets)</code> to compute
 the bucket of record.</p>
-<p>Rescaling buckets can only be done through offline processes, see <a href="http://localhost:1313/maintenance/rescale-bucket/">Rescale Bucket</a>.
+<p>Rescaling buckets can only be done through offline processes, see <a href="https://example.org/maintenance/rescale-bucket/">Rescale Bucket</a>.
 A too large number of buckets leads to too many small files, and a too small number of buckets leads to poor write performance.</p>
 <h2 id="dynamic-bucket">
   Dynamic Bucket
@@ -1690,7 +1690,7 @@ Bucket mode uses HASH index to maintain mapping from key to bucket, it requires 
 entries in a partition takes up <strong>1 GB</strong> more memory, partitions that are no longer active do not take up memory.</li>
 <li>For tables with low update rates, this mode is recommended to significantly improve performance.</li>
 </ol>
-<p><code>Normal Dynamic Bucket Mode</code> supports sort-compact to speed up queries. See <a href="http://localhost:1313/maintenance/dedicated-compaction/#sort-compact">Sort Compact</a>.</p>
+<p><code>Normal Dynamic Bucket Mode</code> supports sort-compact to speed up queries. See <a href="https://example.org/maintenance/dedicated-compaction/#sort-compact">Sort Compact</a>.</p>
 <h3 id="cross-partitions-upsert-dynamic-bucket-mode">
   Cross Partitions Upsert Dynamic Bucket Mode
   <a class="anchor" href="#cross-partitions-upsert-dynamic-bucket-mode">#</a>
@@ -1723,12 +1723,12 @@ all records will first be stored in the <code>bucket-postpone</code> directory o
 and are not available to readers.</p>
 <p>To move the records into the correct bucket and make them readable,
 you need to run a compaction job.
-See <code>compact</code> <a href="http://localhost:1313/flink/procedures/">procedure</a>.
+See <code>compact</code> <a href="https://example.org/flink/procedures/">procedure</a>.
 The bucket number for the partitions compacted for the first time
 is configured by the option <code>postpone.default-bucket-num</code>, whose default value is <code>4</code>.</p>
 <p>Finally, when you feel that the bucket number of some partition is too small,
 you can also run a rescale job.
-See <code>rescale</code> <a href="http://localhost:1313/flink/procedures/">procedure</a>.</p>
+See <code>rescale</code> <a href="https://example.org/flink/procedures/">procedure</a>.</p>
 <h2 id="pick-partition-fields">
   Pick Partition Fields
   <a class="anchor" href="#pick-partition-fields">#</a>

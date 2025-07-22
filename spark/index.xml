@@ -2,65 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Engine Spark on Apache Paimon</title>
-    <link>http://localhost:1313/spark/</link>
+    <link>https://example.org/spark/</link>
     <description>Recent content in Engine Spark on Apache Paimon</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/spark/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/spark/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Start</title>
-      <link>http://localhost:1313/spark/quick-start/</link>
+      <link>https://example.org/spark/quick-start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/quick-start/</guid>
+      <guid>https://example.org/spark/quick-start/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;quick-start&#34;&gt;&#xD;&#xA;  Quick Start&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;preparation&#34;&gt;&#xD;&#xA;  Preparation&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#preparation&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;Paimon currently supports Spark 3.5, 3.4, 3.3, and 3.2. We recommend the latest Spark version for a better experience.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SQL DDL</title>
-      <link>http://localhost:1313/spark/sql-ddl/</link>
+      <link>https://example.org/spark/sql-ddl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/sql-ddl/</guid>
+      <guid>https://example.org/spark/sql-ddl/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;sql-ddl&#34;&gt;&#xD;&#xA;  SQL DDL&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#sql-ddl&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;catalog&#34;&gt;&#xD;&#xA;  Catalog&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#catalog&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;h3 id=&#34;create-catalog&#34;&gt;&#xD;&#xA;  Create Catalog&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#create-catalog&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;Paimon catalogs currently support three types of metastores:&lt;/p&gt;</description>
     </item>
     <item>
       <title>SQL Functions</title>
-      <link>http://localhost:1313/spark/sql-functions/</link>
+      <link>https://example.org/spark/sql-functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/sql-functions/</guid>
+      <guid>https://example.org/spark/sql-functions/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;sql-functions&#34;&gt;&#xD;&#xA;  SQL Functions&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#sql-functions&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;This section introduce all available Paimon Spark functions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SQL Write</title>
-      <link>http://localhost:1313/spark/sql-write/</link>
+      <link>https://example.org/spark/sql-write/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/sql-write/</guid>
+      <guid>https://example.org/spark/sql-write/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;sql-write&#34;&gt;&#xD;&#xA;  SQL Write&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#sql-write&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;insert-table&#34;&gt;&#xD;&#xA;  Insert Table&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#insert-table&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;The &lt;code&gt;INSERT&lt;/code&gt; statement inserts new rows into a table or overwrites the existing data in the table. The inserted rows can be specified by value expressions or result from a query.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SQL Query</title>
-      <link>http://localhost:1313/spark/sql-query/</link>
+      <link>https://example.org/spark/sql-query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/sql-query/</guid>
+      <guid>https://example.org/spark/sql-query/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;sql-query&#34;&gt;&#xD;&#xA;  SQL Query&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#sql-query&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Just like all other tables, Paimon tables can be queried with &lt;code&gt;SELECT&lt;/code&gt; statement.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SQL Alter</title>
-      <link>http://localhost:1313/spark/sql-alter/</link>
+      <link>https://example.org/spark/sql-alter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/sql-alter/</guid>
+      <guid>https://example.org/spark/sql-alter/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;altering-tables&#34;&gt;&#xD;&#xA;  Altering Tables&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#altering-tables&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;changingadding-table-properties&#34;&gt;&#xD;&#xA;  Changing/Adding Table Properties&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#changingadding-table-properties&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;The following SQL sets &lt;code&gt;write-buffer-size&lt;/code&gt; table property to &lt;code&gt;256 MB&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Auxiliary</title>
-      <link>http://localhost:1313/spark/auxiliary/</link>
+      <link>https://example.org/spark/auxiliary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/auxiliary/</guid>
+      <guid>https://example.org/spark/auxiliary/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;auxiliary-statements&#34;&gt;&#xD;&#xA;  Auxiliary Statements&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#auxiliary-statements&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;set--reset&#34;&gt;&#xD;&#xA;  Set / Reset&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#set--reset&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;The SET command sets a property, returns the value of an existing property or returns all SQLConf properties with value and meaning.&#xA;The RESET command resets runtime configurations specific to the current session which were set via the SET command to their default values.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Procedures</title>
-      <link>http://localhost:1313/spark/procedures/</link>
+      <link>https://example.org/spark/procedures/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/spark/procedures/</guid>
+      <guid>https://example.org/spark/procedures/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;procedures&#34;&gt;&#xD;&#xA;  Procedures&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#procedures&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;This section introduce all available spark procedures about paimon.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -15,7 +15,7 @@ The file structure of the primary key table is roughly shown in the above figure
 multiple buckets, and each bucket is a separate LSM tree structure that contains multiple files.">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/primary-key-table/table-mode/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://example.org/primary-key-table/table-mode/">
   <meta property="og:site_name" content="Apache Paimon">
   <meta property="og:title" content="Table Mode">
   <meta property="og:description" content="Table Mode#The file structure of the primary key table is roughly shown in the above figure. The table or partition contains multiple buckets, and each bucket is a separate LSM tree structure that contains multiple files.">
@@ -25,10 +25,10 @@ multiple buckets, and each bucket is a separate LSM tree structure that contains
 <title>Table Mode | Apache Paimon</title>
 <link rel="icon" href="/favicon.png" >
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="http://localhost:1313/primary-key-table/table-mode/">
+<link rel="canonical" href="https://example.org/primary-key-table/table-mode/">
 <link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
   <script defer src="/fuse.min.js"></script>
-  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ed8e866478944a5c9bf1b56d57e841c7fe2748afd65915a6f729dd332db70f7b.js" integrity="sha256-7Y6GZHiUSlyb8bVtV&#43;hBx/4nSK/WWRWm9yndMy23D3s=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1649,7 +1649,7 @@ under the License.
 </h1>
 
 <img 
-  src="http://localhost:1313//img/lsm-inside-bucket.png"
+  src="https://example.org//img/lsm-inside-bucket.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1674,7 +1674,7 @@ the deletion vector file for the data file, which directly filters out unnecessa
 <p>MOR is the default mode of primary key table.</p>
 
 <img 
-  src="http://localhost:1313//img/mor.png"
+  src="https://example.org//img/mor.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1703,7 +1703,7 @@ to the highest level. When reading, merging is not necessary at this time, and t
 But every write requires full merging, and write amplification is very severe.</p>
 
 <img 
-  src="http://localhost:1313//img/cow.png"
+  src="https://example.org//img/cow.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1723,7 +1723,7 @@ files when writing, representing which data in the file has been deleted. This d
 during reading, which is equivalent to merging and does not affect reading performance.</p>
 
 <img 
-  src="http://localhost:1313//img/mow.png"
+  src="https://example.org//img/mow.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1732,7 +1732,7 @@ during reading, which is equivalent to merging and does not affect reading perfo
 <p>A simple example just like:</p>
 
 <img 
-  src="http://localhost:1313//img/mow-example.png"
+  src="https://example.org//img/mow-example.png"
   alt=""
   width=""
   style="display:block;margin-left:auto;margin-right:auto"
@@ -1758,7 +1758,7 @@ So by default, compaction is synchronous, and if asynchronous is turned on, ther
 older data, you can also:</p>
 <ol>
 <li>Configure &lsquo;compaction.optimization-interval&rsquo; when writing data.</li>
-<li>Query from <a href="http://localhost:1313/concepts/system-tables/#read-optimized-table">read-optimized system table</a>. Reading from
+<li>Query from <a href="https://example.org/concepts/system-tables/#read-optimized-table">read-optimized system table</a>. Reading from
 results of optimized files avoids merging records with the same key, thus improving reading performance.</li>
 </ol>
 <p>You can flexibly balance query performance and data latency when reading.</p>
