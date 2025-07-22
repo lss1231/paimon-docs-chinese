@@ -1,0 +1,2266 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Java-based Implementation For Python API
+  #
+
+Python SDK  has defined Python API for Paimon. Currently, there is only a Java-based implementation.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/zh/program-api/python-api/">
+  <meta property="og:site_name" content="Paimon文档">
+  <meta property="og:title" content="Python API">
+  <meta property="og:description" content="Java-based Implementation For Python API#Python SDK has defined Python API for Paimon. Currently, there is only a Java-based implementation.">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="program-api">
+<title>Python API | Paimon文档</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/zh/program-api/python-api/">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/program-api/python-api/" title="Python API">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/zh.search.min.0259e16e01f9bf9e62c7f824fe0ec1c165324ea4e5322593215979fa1cca1c0d.js" integrity="sha256-AlnhbgH5v55ix/gk/g7BwWUyTqTlMiWTIVl5&#43;hzKHA0=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/zh/"><span>Paimon文档</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex">
+      <a role="button" class="flex flex-auto">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        简体中文
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/program-api/python-api/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d9be75c8909d789e72921d17acf02ea8" class="toggle"  />
+    <label for="section-d9be75c8909d789e72921d17acf02ea8" class="flex">
+      <a href="/zh/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-deae667da60265cc05d140a12e0f56bc" class="toggle"  />
+    <label for="section-deae667da60265cc05d140a12e0f56bc" class="flex">
+      <a href="/zh/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6649d7358937a7911f214fa195e4d514" class="toggle"  />
+    <label for="section-6649d7358937a7911f214fa195e4d514" class="flex">
+      <a href="/zh/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-116493b962a7709b96d887a67410ae2c" class="toggle"  />
+    <label for="section-116493b962a7709b96d887a67410ae2c" class="flex">
+      <a href="/zh/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e2b73115efcda305a99daf2e913ad177" class="toggle"  />
+    <label for="section-e2b73115efcda305a99daf2e913ad177" class="flex">
+      <a href="/zh/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b0736f3589d2982eb8482a699fc8a2eb" class="toggle"  />
+    <label for="section-b0736f3589d2982eb8482a699fc8a2eb" class="flex">
+      <a href="/zh/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f8931a786680e7034fab37b5fdb5d7f1" class="toggle"  />
+    <label for="section-f8931a786680e7034fab37b5fdb5d7f1" class="flex">
+      <a href="/zh/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ace04d93fdf5d66516b62035c9f23d2f" class="toggle"  />
+    <label for="section-ace04d93fdf5d66516b62035c9f23d2f" class="flex">
+      <a href="/zh/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0c8962b835a7e7ba77e51210ab81d8ab" class="toggle"  />
+    <label for="section-0c8962b835a7e7ba77e51210ab81d8ab" class="flex">
+      <a href="/zh/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9b9cc7978eec312dbf5ff8e6fae0a484" class="toggle"  />
+    <label for="section-9b9cc7978eec312dbf5ff8e6fae0a484" class="flex">
+      <a href="/zh/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce3634687657a9574119215326eb830f" class="toggle"  />
+    <label for="section-ce3634687657a9574119215326eb830f" class="flex">
+      <a href="/zh/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6216b0bad2d424854c2ce0b7a340342a" class="toggle" checked />
+    <label for="section-6216b0bad2d424854c2ce0b7a340342a" class="flex">
+      <a href="/zh/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/python-api/" class="active">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3826503c745210e7c6185ec4dbaf177c" class="toggle"  />
+    <label for="section-3826503c745210e7c6185ec4dbaf177c" class="flex">
+      <a href="/zh/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7c447417aa4a80b01c649e7072bc024" class="toggle"  />
+    <label for="section-c7c447417aa4a80b01c649e7072bc024" class="flex">
+      <a href="/zh/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cce788b521038a23eeb70f4fdc430011" class="toggle"  />
+    <label for="section-cce788b521038a23eeb70f4fdc430011" class="flex">
+      <a href="/zh/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Python API</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#environment-settings">Environment Settings</a>
+      <ul>
+        <li><a href="#sdk-installing">SDK Installing</a></li>
+        <li><a href="#java-runtime-environment">Java Runtime Environment</a></li>
+        <li><a href="#set-environment-variables">Set Environment Variables</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-catalog">Create Catalog</a></li>
+    <li><a href="#create-database--table">Create Database &amp; Table</a>
+      <ul>
+        <li><a href="#create-database-optional">Create Database (optional)</a></li>
+        <li><a href="#create-schema">Create Schema</a></li>
+        <li><a href="#create-table">Create Table</a></li>
+      </ul>
+    </li>
+    <li><a href="#get-table">Get Table</a></li>
+    <li><a href="#batch-read">Batch Read</a>
+      <ul>
+        <li><a href="#set-read-parallelism">Set Read Parallelism</a></li>
+        <li><a href="#get-readbuilder-and-perform-pushdown">Get ReadBuilder and Perform pushdown</a></li>
+        <li><a href="#scan-plan">Scan Plan</a></li>
+        <li><a href="#read-splits">Read Splits</a></li>
+      </ul>
+    </li>
+    <li><a href="#batch-write">Batch Write</a></li>
+    <li><a href="#data-types">Data Types</a></li>
+    <li><a href="#predicate">Predicate</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="java-based-implementation-for-python-api">
+  Java-based Implementation For Python API
+  <a class="anchor" href="#java-based-implementation-for-python-api">#</a>
+</h1>
+<p><a href="https://github.com/apache/paimon-python">Python SDK </a> has defined Python API for Paimon. Currently, there is only a Java-based implementation.</p>
+<p>Java-based implementation will launch a JVM and use <code>py4j</code> to execute Java code to read and write Paimon table.</p>
+<h2 id="environment-settings">
+  Environment Settings
+  <a class="anchor" href="#environment-settings">#</a>
+</h2>
+<h3 id="sdk-installing">
+  SDK Installing
+  <a class="anchor" href="#sdk-installing">#</a>
+</h3>
+<p>SDK is published at <a href="https://pypi.org/project/pypaimon/">pypaimon</a>. You can install by</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pip install pypaimon
+</span></span></code></pre></div><h3 id="java-runtime-environment">
+  Java Runtime Environment
+  <a class="anchor" href="#java-runtime-environment">#</a>
+</h3>
+<p>This SDK needs JRE 1.8. After installing JRE, make sure that at least one of the following conditions is met:</p>
+<ol>
+<li><code>java</code> command is available. You can verify it by <code>java -version</code>.</li>
+<li><code>JAVA_HOME</code> and <code>PATH</code> variables are set correctly. For example, you can set:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export JAVA_HOME<span style="color:#f92672">=</span>/path/to/java-directory
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>$JAVA_HOME/bin:$PATH
+</span></span></code></pre></div><h3 id="set-environment-variables">
+  Set Environment Variables
+  <a class="anchor" href="#set-environment-variables">#</a>
+</h3>
+<p>Because we need to launch a JVM to access Java code, JVM environment need to be set. Besides, the java code need Hadoop
+dependencies, so hadoop environment should be set.</p>
+<h4 id="java-classpath">
+  Java classpath
+  <a class="anchor" href="#java-classpath">#</a>
+</h4>
+<p>The package has set necessary paimon core dependencies (Local/Hadoop FileIO, Avro/Orc/Parquet format support and
+FileSystem/Jdbc/Hive catalog), so If you just test codes in local or in hadoop environment, you don&rsquo;t need to set classpath.</p>
+<p>If you need other dependencies such as OSS/S3 filesystem jars, or special format and catalog ,please prepare jars and set
+classpath via one of the following ways:</p>
+<ol>
+<li>Set system environment variable: <code>export _PYPAIMON_JAVA_CLASSPATH=/path/to/jars/*</code></li>
+<li>Set environment variable in Python code:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pypaimon.py4j <span style="color:#f92672">import</span> constants
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[constants<span style="color:#f92672">.</span>PYPAIMON_JAVA_CLASSPATH] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/path/to/jars/*&#39;</span>
+</span></span></code></pre></div><h4 id="jvm-args-optional">
+  JVM args (optional)
+  <a class="anchor" href="#jvm-args-optional">#</a>
+</h4>
+<p>You can set JVM args via one of the following ways:</p>
+<ol>
+<li>Set system environment variable: <code>export _PYPAIMON_JVM_ARGS='arg1 arg2 ...'</code></li>
+<li>Set environment variable in Python code:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pypaimon.py4j <span style="color:#f92672">import</span> constants
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[constants<span style="color:#f92672">.</span>PYPAIMON_JVM_ARGS] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;arg1 arg2 ...&#39;</span>
+</span></span></code></pre></div><h4 id="hadoop-classpath">
+  Hadoop classpath
+  <a class="anchor" href="#hadoop-classpath">#</a>
+</h4>
+<p>If the machine is in a hadoop environment, please ensure the value of the environment variable HADOOP_CLASSPATH include
+path to the common Hadoop libraries, then you don&rsquo;t need to set hadoop.</p>
+<p>Otherwise, you should set hadoop classpath via one of the following ways:</p>
+<ol>
+<li>Set system environment variable: <code>export _PYPAIMON_HADOOP_CLASSPATH=/path/to/jars/*</code></li>
+<li>Set environment variable in Python code:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pypaimon.py4j <span style="color:#f92672">import</span> constants
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[constants<span style="color:#f92672">.</span>PYPAIMON_HADOOP_CLASSPATH] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/path/to/jars/*&#39;</span>
+</span></span></code></pre></div><p>If you just want to test codes in local, we recommend to use <a href="https://flink.apache.org/downloads/#additional-components">Flink Pre-bundled hadoop jar</a>.</p>
+<h2 id="create-catalog">
+  Create Catalog
+  <a class="anchor" href="#create-catalog">#</a>
+</h2>
+<p>Before coming into contact with the Table, you need to create a Catalog.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> pypaimon.py4j <span style="color:#f92672">import</span> Catalog
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Note that keys and values are all string</span>
+</span></span><span style="display:flex;"><span>catalog_options <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metastore&#39;</span>: <span style="color:#e6db74">&#39;filesystem&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;warehouse&#39;</span>: <span style="color:#e6db74">&#39;file:///path/to/warehouse&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>catalog <span style="color:#f92672">=</span> Catalog<span style="color:#f92672">.</span>create(catalog_options)
+</span></span></code></pre></div><h2 id="create-database--table">
+  Create Database &amp; Table
+  <a class="anchor" href="#create-database--table">#</a>
+</h2>
+<p>You can use the catalog to create table for writing data.</p>
+<h3 id="create-database-optional">
+  Create Database (optional)
+  <a class="anchor" href="#create-database-optional">#</a>
+</h3>
+<p>Table is located in a database. If you want to create table in a new database, you should create it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>catalog<span style="color:#f92672">.</span>create_database(
+</span></span><span style="display:flex;"><span>  name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;database_name&#39;</span>, 
+</span></span><span style="display:flex;"><span>  ignore_if_exists<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,    <span style="color:#75715e"># If you want to raise error if the database exists, set False</span>
+</span></span><span style="display:flex;"><span>  properties<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;key&#39;</span>: <span style="color:#e6db74">&#39;value&#39;</span>} <span style="color:#75715e"># optional database properties</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="create-schema">
+  Create Schema
+  <a class="anchor" href="#create-schema">#</a>
+</h3>
+<p>Table schema contains fields definition, partition keys, primary keys, table options and comment.
+The field definition is described by <code>pyarrow.Schema</code>. All arguments except fields definition are optional.</p>
+<p>Generally, there are two ways to build <code>pyarrow.Schema</code>.</p>
+<p>First, you can use <code>pyarrow.schema</code> method directly, for example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pyarrow <span style="color:#66d9ef">as</span> pa
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pypaimon <span style="color:#f92672">import</span> Schema
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pa_schema <span style="color:#f92672">=</span> pa<span style="color:#f92672">.</span>schema([
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;dt&#39;</span>, pa<span style="color:#f92672">.</span>string()),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;hh&#39;</span>, pa<span style="color:#f92672">.</span>string()),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;pk&#39;</span>, pa<span style="color:#f92672">.</span>int64()),
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;value&#39;</span>, pa<span style="color:#f92672">.</span>string())
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>schema <span style="color:#f92672">=</span> Schema(
+</span></span><span style="display:flex;"><span>    pa_schema<span style="color:#f92672">=</span>pa_schema, 
+</span></span><span style="display:flex;"><span>    partition_keys<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;dt&#39;</span>, <span style="color:#e6db74">&#39;hh&#39;</span>],
+</span></span><span style="display:flex;"><span>    primary_keys<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;dt&#39;</span>, <span style="color:#e6db74">&#39;hh&#39;</span>, <span style="color:#e6db74">&#39;pk&#39;</span>],
+</span></span><span style="display:flex;"><span>    options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;bucket&#39;</span>: <span style="color:#e6db74">&#39;2&#39;</span>},
+</span></span><span style="display:flex;"><span>    comment<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;my test table&#39;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>See <a href="http://localhost:1313/zh/program-api/python-api/#data-types">Data Types</a> for all supported <code>pyarrow-to-paimon</code> data types mapping.</p>
+<p>Second, if you have some Pandas data, the <code>pa_schema</code> can be extracted from <code>DataFrame</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyarrow <span style="color:#66d9ef">as</span> pa
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pypaimon <span style="color:#f92672">import</span> Schema
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example DataFrame data</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;dt&#39;</span>: [<span style="color:#e6db74">&#39;2024-01-01&#39;</span>, <span style="color:#e6db74">&#39;2024-01-01&#39;</span>, <span style="color:#e6db74">&#39;2024-01-02&#39;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;hh&#39;</span>: [<span style="color:#e6db74">&#39;12&#39;</span>, <span style="color:#e6db74">&#39;15&#39;</span>, <span style="color:#e6db74">&#39;20&#39;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;pk&#39;</span>: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;value&#39;</span>: [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>],
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>dataframe <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get Paimon Schema</span>
+</span></span><span style="display:flex;"><span>record_batch <span style="color:#f92672">=</span> pa<span style="color:#f92672">.</span>RecordBatch<span style="color:#f92672">.</span>from_pandas(dataframe)
+</span></span><span style="display:flex;"><span>schema <span style="color:#f92672">=</span> Schema(
+</span></span><span style="display:flex;"><span>    pa_schema<span style="color:#f92672">=</span>record_batch<span style="color:#f92672">.</span>schema, 
+</span></span><span style="display:flex;"><span>    partition_keys<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;dt&#39;</span>, <span style="color:#e6db74">&#39;hh&#39;</span>], 
+</span></span><span style="display:flex;"><span>    primary_keys<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;dt&#39;</span>, <span style="color:#e6db74">&#39;hh&#39;</span>, <span style="color:#e6db74">&#39;pk&#39;</span>],
+</span></span><span style="display:flex;"><span>    options<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;bucket&#39;</span>: <span style="color:#e6db74">&#39;2&#39;</span>},
+</span></span><span style="display:flex;"><span>    comment<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;my test table&#39;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="create-table">
+  Create Table
+  <a class="anchor" href="#create-table">#</a>
+</h3>
+<p>After building table schema, you can create corresponding table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>schema <span style="color:#f92672">=</span> <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>catalog<span style="color:#f92672">.</span>create_table(
+</span></span><span style="display:flex;"><span>    identifier<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;database_name.table_name&#39;</span>,
+</span></span><span style="display:flex;"><span>    schema<span style="color:#f92672">=</span>schema, 
+</span></span><span style="display:flex;"><span>    ignore_if_exists<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span> <span style="color:#75715e"># If you want to raise error if the table exists, set False</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h2 id="get-table">
+  Get Table
+  <a class="anchor" href="#get-table">#</a>
+</h2>
+<p>The Table interface provides tools to read and write table.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table <span style="color:#f92672">=</span> catalog<span style="color:#f92672">.</span>get_table(<span style="color:#e6db74">&#39;database_name.table_name&#39;</span>)
+</span></span></code></pre></div><h2 id="batch-read">
+  Batch Read
+  <a class="anchor" href="#batch-read">#</a>
+</h2>
+<h3 id="set-read-parallelism">
+  Set Read Parallelism
+  <a class="anchor" href="#set-read-parallelism">#</a>
+</h3>
+<p>TableRead interface provides parallelly reading for multiple splits. You can set <code>'max-workers': 'N'</code> in <code>catalog_options</code>
+to set thread numbers for reading splits. <code>max-workers</code> is 1 by default, that means TableRead will read splits sequentially
+if you doesn&rsquo;t set <code>max-workers</code>.</p>
+<h3 id="get-readbuilder-and-perform-pushdown">
+  Get ReadBuilder and Perform pushdown
+  <a class="anchor" href="#get-readbuilder-and-perform-pushdown">#</a>
+</h3>
+<p>A <code>ReadBuilder</code> is used to build reading utils and perform filter and projection pushdown.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table <span style="color:#f92672">=</span> catalog<span style="color:#f92672">.</span>get_table(<span style="color:#e6db74">&#39;database_name.table_name&#39;</span>)
+</span></span><span style="display:flex;"><span>read_builder <span style="color:#f92672">=</span> table<span style="color:#f92672">.</span>new_read_builder()
+</span></span></code></pre></div><p>You can use <code>PredicateBuilder</code> to build filters and pushdown them by <code>ReadBuilder</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Example filter: (&#39;f0&#39; &lt; 3 OR &#39;f1&#39; &gt; 6) AND &#39;f3&#39; = &#39;A&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predicate_builder <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>new_predicate_builder()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predicate1 <span style="color:#f92672">=</span> predicate_builder<span style="color:#f92672">.</span>less_than(<span style="color:#e6db74">&#39;f0&#39;</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>predicate2 <span style="color:#f92672">=</span> predicate_builder<span style="color:#f92672">.</span>greater_than(<span style="color:#e6db74">&#39;f1&#39;</span>, <span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>predicate3 <span style="color:#f92672">=</span> predicate_builder<span style="color:#f92672">.</span>or_predicates([predicate1, predicate2])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predicate4 <span style="color:#f92672">=</span> predicate_builder<span style="color:#f92672">.</span>equal(<span style="color:#e6db74">&#39;f3&#39;</span>, <span style="color:#e6db74">&#39;A&#39;</span>)
+</span></span><span style="display:flex;"><span>predicate_5 <span style="color:#f92672">=</span> predicate_builder<span style="color:#f92672">.</span>and_predicates([predicate3, predicate4])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>read_builder <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>with_filter(predicate_5)
+</span></span></code></pre></div><p>See <a href="http://localhost:1313/zh/program-api/python-api/#predicate">Predicate</a> for all supported filters and building methods.</p>
+<p>You can also pushdown projection by <code>ReadBuilder</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># select f3 and f2 columns</span>
+</span></span><span style="display:flex;"><span>read_builder <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>with_projection([<span style="color:#e6db74">&#39;f3&#39;</span>, <span style="color:#e6db74">&#39;f2&#39;</span>])
+</span></span></code></pre></div><h3 id="scan-plan">
+  Scan Plan
+  <a class="anchor" href="#scan-plan">#</a>
+</h3>
+<p>Then you can step into Scan Plan stage to get <code>splits</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table_scan <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>new_scan()
+</span></span><span style="display:flex;"><span>splits <span style="color:#f92672">=</span> table_scan<span style="color:#f92672">.</span>plan()<span style="color:#f92672">.</span>splits()
+</span></span></code></pre></div><h3 id="read-splits">
+  Read Splits
+  <a class="anchor" href="#read-splits">#</a>
+</h3>
+<p>Finally, you can read data from the <code>splits</code> to various data format.</p>
+<h4 id="apache-arrow">
+  Apache Arrow
+  <a class="anchor" href="#apache-arrow">#</a>
+</h4>
+<p>This requires <code>pyarrow</code> to be installed.</p>
+<p>You can read all the data into a <code>pyarrow.Table</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table_read <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>new_read()
+</span></span><span style="display:flex;"><span>pa_table <span style="color:#f92672">=</span> table_read<span style="color:#f92672">.</span>to_arrow(splits)
+</span></span><span style="display:flex;"><span>print(pa_table)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pyarrow.Table</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f0: int32</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f1: string</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ----</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f0: [[1,2,3],[4,5,6],...]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f1: [[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;],[&#34;d&#34;,&#34;e&#34;,&#34;f&#34;],...]</span>
+</span></span></code></pre></div><p>You can also read data into a <code>pyarrow.RecordBatchReader</code> and iterate record batches:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table_read <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>new_read()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> batch <span style="color:#f92672">in</span> table_read<span style="color:#f92672">.</span>to_arrow_batch_reader(splits):
+</span></span><span style="display:flex;"><span>    print(batch)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pyarrow.RecordBatch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f0: int32</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f1: string</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ----</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f0: [1,2,3]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f1: [&#34;a&#34;,&#34;b&#34;,&#34;c&#34;]</span>
+</span></span></code></pre></div><h4 id="pandas">
+  Pandas
+  <a class="anchor" href="#pandas">#</a>
+</h4>
+<p>This requires <code>pandas</code> to be installed.</p>
+<p>You can read all the data into a <code>pandas.DataFrame</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table_read <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>new_read()
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> table_read<span style="color:#f92672">.</span>to_pandas(splits)
+</span></span><span style="display:flex;"><span>print(df)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    f0 f1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 0   1  a</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1   2  b</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2   3  c</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3   4  d</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ...</span>
+</span></span></code></pre></div><h4 id="duckdb">
+  DuckDB
+  <a class="anchor" href="#duckdb">#</a>
+</h4>
+<p>This requires <code>duckdb</code> to be installed.</p>
+<p>You can convert the splits into an in-memory DuckDB table and query it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table_read <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>new_read()
+</span></span><span style="display:flex;"><span>duckdb_con <span style="color:#f92672">=</span> table_read<span style="color:#f92672">.</span>to_duckdb(splits, <span style="color:#e6db74">&#39;duckdb_table&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(duckdb_con<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;SELECT * FROM duckdb_table&#34;</span>)<span style="color:#f92672">.</span>fetchdf())
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    f0 f1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 0   1  a</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1   2  b</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2   3  c</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3   4  d</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(duckdb_con<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;SELECT * FROM duckdb_table WHERE f0 = 1&#34;</span>)<span style="color:#f92672">.</span>fetchdf())
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    f0 f1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 0   1  a</span>
+</span></span></code></pre></div><h4 id="ray">
+  Ray
+  <a class="anchor" href="#ray">#</a>
+</h4>
+<p>This requires <code>ray</code> to be installed.</p>
+<p>You can convert the splits into a Ray dataset and handle it by Ray API:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table_read <span style="color:#f92672">=</span> read_builder<span style="color:#f92672">.</span>new_read()
+</span></span><span style="display:flex;"><span>ray_dataset <span style="color:#f92672">=</span> table_read<span style="color:#f92672">.</span>to_ray(splits)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(ray_dataset)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MaterializedDataset(num_blocks=1, num_rows=9, schema={f0: int32, f1: string})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(ray_dataset<span style="color:#f92672">.</span>take(<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># [{&#39;f0&#39;: 1, &#39;f1&#39;: &#39;a&#39;}, {&#39;f0&#39;: 2, &#39;f1&#39;: &#39;b&#39;}, {&#39;f0&#39;: 3, &#39;f1&#39;: &#39;c&#39;}]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(ray_dataset<span style="color:#f92672">.</span>to_pandas())
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    f0 f1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 0   1  a</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1   2  b</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2   3  c</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3   4  d</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ...</span>
+</span></span></code></pre></div><h2 id="batch-write">
+  Batch Write
+  <a class="anchor" href="#batch-write">#</a>
+</h2>
+<p>Paimon table write is Two-Phase Commit, you can write many times, but once committed, no more data can be written.</p>
+<blockquote class="book-hint warning">
+  
+Currently, Python SDK doesn't support writing primary key table with `bucket=-1`.
+
+</blockquote>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>table <span style="color:#f92672">=</span> catalog<span style="color:#f92672">.</span>get_table(<span style="color:#e6db74">&#39;database_name.table_name&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1. Create table write and commit</span>
+</span></span><span style="display:flex;"><span>write_builder <span style="color:#f92672">=</span> table<span style="color:#f92672">.</span>new_batch_write_builder()
+</span></span><span style="display:flex;"><span>table_write <span style="color:#f92672">=</span> write_builder<span style="color:#f92672">.</span>new_write()
+</span></span><span style="display:flex;"><span>table_commit <span style="color:#f92672">=</span> write_builder<span style="color:#f92672">.</span>new_commit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Write data. Support 3 methods:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2.1 Write pandas.DataFrame</span>
+</span></span><span style="display:flex;"><span>dataframe <span style="color:#f92672">=</span> <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>table_write<span style="color:#f92672">.</span>write_pandas(dataframe)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2.2 Write pyarrow.Table</span>
+</span></span><span style="display:flex;"><span>pa_table <span style="color:#f92672">=</span> <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>table_write<span style="color:#f92672">.</span>write_arrow(pa_table)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2.3 Write pyarrow.RecordBatch</span>
+</span></span><span style="display:flex;"><span>record_batch <span style="color:#f92672">=</span> <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>table_write<span style="color:#f92672">.</span>write_arrow_batch(record_batch)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Commit data</span>
+</span></span><span style="display:flex;"><span>commit_messages <span style="color:#f92672">=</span> table_write<span style="color:#f92672">.</span>prepare_commit()
+</span></span><span style="display:flex;"><span>table_commit<span style="color:#f92672">.</span>commit(commit_messages)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4. Close resources</span>
+</span></span><span style="display:flex;"><span>table_write<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>table_commit<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>By default, the data will be appended to table. If you want to overwrite table, you should use <code>TableWrite#overwrite</code> API:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># overwrite whole table</span>
+</span></span><span style="display:flex;"><span>write_builder<span style="color:#f92672">.</span>overwrite()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># overwrite partition &#39;dt=2024-01-01&#39;</span>
+</span></span><span style="display:flex;"><span>write_builder<span style="color:#f92672">.</span>overwrite({<span style="color:#e6db74">&#39;dt&#39;</span>: <span style="color:#e6db74">&#39;2024-01-01&#39;</span>})
+</span></span></code></pre></div><h2 id="data-types">
+  Data Types
+  <a class="anchor" href="#data-types">#</a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">pyarrow</th>
+          <th style="text-align: left">Paimon</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">pyarrow.int8()</td>
+          <td style="text-align: left">TINYINT</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyarrow.int16()</td>
+          <td style="text-align: left">SMALLINT</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyarrow.int32()</td>
+          <td style="text-align: left">INT</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyarrow.int64()</td>
+          <td style="text-align: left">BIGINT</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyarrow.float16() <br/>pyarrow.float32()</td>
+          <td style="text-align: left">FLOAT</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyarrow.float64()</td>
+          <td style="text-align: left">DOUBLE</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyarrow.string()</td>
+          <td style="text-align: left">STRING</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyarrow.boolean()</td>
+          <td style="text-align: left">BOOLEAN</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="predicate">
+  Predicate
+  <a class="anchor" href="#predicate">#</a>
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Predicate kind</th>
+          <th style="text-align: left">Predicate method</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">p1 and p2</td>
+          <td style="text-align: left">PredicateBuilder.and_predicates([p1, p2])</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">p1 or p2</td>
+          <td style="text-align: left">PredicateBuilder.or_predicates([p1, p2])</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f = literal</td>
+          <td style="text-align: left">PredicateBuilder.equal(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f != literal</td>
+          <td style="text-align: left">PredicateBuilder.not_equal(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f &lt; literal</td>
+          <td style="text-align: left">PredicateBuilder.less_than(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f &lt;= literal</td>
+          <td style="text-align: left">PredicateBuilder.less_or_equal(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f &gt; literal</td>
+          <td style="text-align: left">PredicateBuilder.greater_than(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f &gt;= literal</td>
+          <td style="text-align: left">PredicateBuilder.greater_or_equal(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f is null</td>
+          <td style="text-align: left">PredicateBuilder.is_null(f)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f is not null</td>
+          <td style="text-align: left">PredicateBuilder.is_not_null(f)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f.startswith(literal)</td>
+          <td style="text-align: left">PredicateBuilder.startswith(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f.endswith(literal)</td>
+          <td style="text-align: left">PredicateBuilder.endswith(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f.contains(literal)</td>
+          <td style="text-align: left">PredicateBuilder.contains(f, literal)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f is in [l1, l2]</td>
+          <td style="text-align: left">PredicateBuilder.is_in(f, [l1, l2])</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">f is not in [l1, l2]</td>
+          <td style="text-align: left">PredicateBuilder.is_not_in(f, [l1, l2])</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">lower &lt;= f &lt;= upper</td>
+          <td style="text-align: left">PredicateBuilder.between(f, lower, upper)</td>
+      </tr>
+  </tbody>
+</table>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#environment-settings">Environment Settings</a>
+      <ul>
+        <li><a href="#sdk-installing">SDK Installing</a></li>
+        <li><a href="#java-runtime-environment">Java Runtime Environment</a></li>
+        <li><a href="#set-environment-variables">Set Environment Variables</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-catalog">Create Catalog</a></li>
+    <li><a href="#create-database--table">Create Database &amp; Table</a>
+      <ul>
+        <li><a href="#create-database-optional">Create Database (optional)</a></li>
+        <li><a href="#create-schema">Create Schema</a></li>
+        <li><a href="#create-table">Create Table</a></li>
+      </ul>
+    </li>
+    <li><a href="#get-table">Get Table</a></li>
+    <li><a href="#batch-read">Batch Read</a>
+      <ul>
+        <li><a href="#set-read-parallelism">Set Read Parallelism</a></li>
+        <li><a href="#get-readbuilder-and-perform-pushdown">Get ReadBuilder and Perform pushdown</a></li>
+        <li><a href="#scan-plan">Scan Plan</a></li>
+        <li><a href="#read-splits">Read Splits</a></li>
+      </ul>
+    </li>
+    <li><a href="#batch-write">Batch Write</a></li>
+    <li><a href="#data-types">Data Types</a></li>
+    <li><a href="#predicate">Predicate</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,14 +1,14 @@
 {
-  "name": "Apache Paimon",
-  "short_name": "Apache Paimon",
-  "start_url": "/paimon-docs-chinese/",
-  "scope": "/paimon-docs-chinese/",
+  "name": "Paimon Docs",
+  "short_name": "Paimon Docs",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/paimon-docs-chinese/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]

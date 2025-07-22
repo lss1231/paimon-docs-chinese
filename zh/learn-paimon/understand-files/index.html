@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Understand Files
+  #
+
+This article is specifically designed to clarify
+the impact that various file operations have on files.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/zh/learn-paimon/understand-files/">
+  <meta property="og:site_name" content="Paimon文档">
+  <meta property="og:title" content="Understand Files">
+  <meta property="og:description" content="Understand Files#This article is specifically designed to clarify the impact that various file operations have on files.">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="learn-paimon">
+<title>Understand Files | Paimon文档</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/zh/learn-paimon/understand-files/">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/learn-paimon/understand-files/" title="Understand Files">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/zh.search.min.0259e16e01f9bf9e62c7f824fe0ec1c165324ea4e5322593215979fa1cca1c0d.js" integrity="sha256-AlnhbgH5v55ix/gk/g7BwWUyTqTlMiWTIVl5&#43;hzKHA0=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/zh/"><span>Paimon文档</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex">
+      <a role="button" class="flex flex-auto">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        简体中文
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/learn-paimon/understand-files/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d9be75c8909d789e72921d17acf02ea8" class="toggle"  />
+    <label for="section-d9be75c8909d789e72921d17acf02ea8" class="flex">
+      <a href="/zh/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-deae667da60265cc05d140a12e0f56bc" class="toggle"  />
+    <label for="section-deae667da60265cc05d140a12e0f56bc" class="flex">
+      <a href="/zh/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6649d7358937a7911f214fa195e4d514" class="toggle"  />
+    <label for="section-6649d7358937a7911f214fa195e4d514" class="flex">
+      <a href="/zh/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-116493b962a7709b96d887a67410ae2c" class="toggle"  />
+    <label for="section-116493b962a7709b96d887a67410ae2c" class="flex">
+      <a href="/zh/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e2b73115efcda305a99daf2e913ad177" class="toggle"  />
+    <label for="section-e2b73115efcda305a99daf2e913ad177" class="flex">
+      <a href="/zh/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b0736f3589d2982eb8482a699fc8a2eb" class="toggle"  />
+    <label for="section-b0736f3589d2982eb8482a699fc8a2eb" class="flex">
+      <a href="/zh/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f8931a786680e7034fab37b5fdb5d7f1" class="toggle"  />
+    <label for="section-f8931a786680e7034fab37b5fdb5d7f1" class="flex">
+      <a href="/zh/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ace04d93fdf5d66516b62035c9f23d2f" class="toggle"  />
+    <label for="section-ace04d93fdf5d66516b62035c9f23d2f" class="flex">
+      <a href="/zh/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0c8962b835a7e7ba77e51210ab81d8ab" class="toggle"  />
+    <label for="section-0c8962b835a7e7ba77e51210ab81d8ab" class="flex">
+      <a href="/zh/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9b9cc7978eec312dbf5ff8e6fae0a484" class="toggle"  />
+    <label for="section-9b9cc7978eec312dbf5ff8e6fae0a484" class="flex">
+      <a href="/zh/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce3634687657a9574119215326eb830f" class="toggle"  />
+    <label for="section-ce3634687657a9574119215326eb830f" class="flex">
+      <a href="/zh/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6216b0bad2d424854c2ce0b7a340342a" class="toggle"  />
+    <label for="section-6216b0bad2d424854c2ce0b7a340342a" class="flex">
+      <a href="/zh/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3826503c745210e7c6185ec4dbaf177c" class="toggle"  />
+    <label for="section-3826503c745210e7c6185ec4dbaf177c" class="flex">
+      <a href="/zh/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7c447417aa4a80b01c649e7072bc024" class="toggle"  />
+    <label for="section-c7c447417aa4a80b01c649e7072bc024" class="flex">
+      <a href="/zh/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cce788b521038a23eeb70f4fdc430011" class="toggle" checked />
+    <label for="section-cce788b521038a23eeb70f4fdc430011" class="flex">
+      <a href="/zh/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/learn-paimon/understand-files/" class="active">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Understand Files</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisite">Prerequisite</a></li>
+    <li><a href="#understand-file-operations">Understand File Operations</a>
+      <ul>
+        <li><a href="#create-catalog">Create Catalog</a></li>
+        <li><a href="#create-table">Create Table</a></li>
+        <li><a href="#insert-records-into-table">Insert Records Into Table</a></li>
+        <li><a href="#delete-records-from-table">Delete Records From Table</a></li>
+        <li><a href="#compact-table">Compact Table</a></li>
+        <li><a href="#alter-table">Alter Table</a></li>
+        <li><a href="#expire-snapshots">Expire Snapshots</a></li>
+        <li><a href="#flink-stream-write">Flink Stream Write</a></li>
+      </ul>
+    </li>
+    <li><a href="#understand-small-files">Understand Small Files</a>
+      <ul>
+        <li><a href="#understand-checkpoints">Understand Checkpoints</a></li>
+        <li><a href="#understand-snapshots">Understand Snapshots</a></li>
+        <li><a href="#understand-partitions-and-buckets">Understand Partitions and Buckets</a></li>
+        <li><a href="#understand-lsm-for-primary-table">Understand LSM for Primary Table</a></li>
+        <li><a href="#understand-files-for-bucketed-append-table">Understand Files for Bucketed Append Table</a></li>
+        <li><a href="#understand-full-compaction">Understand Full-Compaction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="understand-files">
+  Understand Files
+  <a class="anchor" href="#understand-files">#</a>
+</h1>
+<p>This article is specifically designed to clarify
+the impact that various file operations have on files.</p>
+<p>This page provides concrete examples and practical tips for
+effectively managing them. Furthermore, through an in-depth
+exploration of operations such as commit and compact,
+we aim to offer insights into the creation and updates of files.</p>
+<h2 id="prerequisite">
+  Prerequisite
+  <a class="anchor" href="#prerequisite">#</a>
+</h2>
+<p>Before delving further into this page, please ensure that you have read through the
+following sections:</p>
+<ol>
+<li><a href="http://localhost:1313/zh/concepts/basic-concepts/">Basic Concepts</a>,</li>
+<li><a href="http://localhost:1313/zh/primary-key-table/overview/">Primary Key Table</a> and <a href="http://localhost:1313/zh/append-table/overview/">Append Table</a></li>
+<li>How to use Paimon in <a href="http://localhost:1313/zh/flink/">Flink</a>.</li>
+</ol>
+<h2 id="understand-file-operations">
+  Understand File Operations
+  <a class="anchor" href="#understand-file-operations">#</a>
+</h2>
+<h3 id="create-catalog">
+  Create Catalog
+  <a class="anchor" href="#create-catalog">#</a>
+</h3>
+<p>Start Flink SQL client via <code>./sql-client.sh</code> and execute the following
+statements one by one to create a Paimon catalog.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> paimon <span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;paimon&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;warehouse&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;file:///tmp/paimon&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>USE <span style="color:#66d9ef">CATALOG</span> paimon;
+</span></span></code></pre></div><p>This will only create a directory at given path <code>file:///tmp/paimon</code>.</p>
+<h3 id="create-table">
+  Create Table
+  <a class="anchor" href="#create-table">#</a>
+</h3>
+<p>Execute the following create table statement will create a Paimon table with 3 fields:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> T (
+</span></span><span style="display:flex;"><span>  id BIGINT,
+</span></span><span style="display:flex;"><span>  a INT,
+</span></span><span style="display:flex;"><span>  b STRING,
+</span></span><span style="display:flex;"><span>  dt STRING <span style="color:#66d9ef">COMMENT</span> <span style="color:#e6db74">&#39;timestamp string in format yyyyMMdd&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>(id, dt) <span style="color:#66d9ef">NOT</span> ENFORCED
+</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt);
+</span></span></code></pre></div><p>This will create Paimon table <code>T</code> under the path <code>/tmp/paimon/default.db/T</code>,
+with its schema stored in <code>/tmp/paimon/default.db/T/schema/schema-0</code></p>
+<h3 id="insert-records-into-table">
+  Insert Records Into Table
+  <a class="anchor" href="#insert-records-into-table">#</a>
+</h3>
+<p>Run the following insert statement in Flink SQL:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> T <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10001</span>, <span style="color:#e6db74">&#39;varchar00001&#39;</span>, <span style="color:#e6db74">&#39;20230501&#39;</span>);
+</span></span></code></pre></div><p>Once the Flink job is completed, the records are written to the Paimon table through a successful <code>commit</code>.
+Users can verify the visibility of these records by executing the query <code>SELECT * FROM T</code> which will return a single row.
+The commit process creates a snapshot located at the path <code>/tmp/paimon/default.db/T/snapshot/snapshot-1</code>.
+The resulting file layout at snapshot-1 is as described below:</p>
+
+<img 
+  src="http://localhost:1313//img/file-operations-0.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p>The content of snapshot-1 contains metadata of the snapshot, such as manifest list and schema id:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;schemaId&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;baseManifestList&#34;</span> : <span style="color:#e6db74">&#34;manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;deltaManifestList&#34;</span> : <span style="color:#e6db74">&#34;manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;changelogManifestList&#34;</span> : <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;commitUser&#34;</span> : <span style="color:#e6db74">&#34;7d758485-981d-4b1a-a0c6-d34c3eb254bf&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;commitIdentifier&#34;</span> : <span style="color:#ae81ff">9223372036854775807</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;commitKind&#34;</span> : <span style="color:#e6db74">&#34;APPEND&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timeMillis&#34;</span> : <span style="color:#ae81ff">1684155393354</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;logOffsets&#34;</span> : { },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;totalRecordCount&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;deltaRecordCount&#34;</span> : <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;changelogRecordCount&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;watermark&#34;</span> : <span style="color:#ae81ff">-9223372036854775808</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Remind that a manifest list contains all changes of the snapshot, <code>baseManifestList</code> is the base
+file upon which the changes in <code>deltaManifestList</code> is applied.
+The first commit will result in 1 manifest file, and 2 manifest lists are
+created (the file names might differ from those in your experiment):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./T/manifest:
+</span></span><span style="display:flex;"><span>manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-1	
+</span></span><span style="display:flex;"><span>manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-0
+</span></span><span style="display:flex;"><span>manifest-2b833ea4-d7dc-4de0-ae0d-ad76eced75cc-0
+</span></span></code></pre></div><p><code>manifest-2b833ea4-d7dc-4de0-ae0d-ad76eced75cc-0</code> is the manifest
+file (manifest-1-0 in the above graph), which stores the information about the data files in the snapshot.</p>
+<p><code>manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-0</code> is the
+baseManifestList (manifest-list-1-base in the above graph), which is effectively empty.</p>
+<p><code>manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-1</code> is the
+deltaManifestList (manifest-list-1-delta in the above graph), which
+contains a list of manifest entries that perform operations on data
+files, which, in this case, is <code>manifest-1-0</code>.</p>
+<p>Now let&rsquo;s insert a batch of records across different partitions and
+see what happens. In Flink SQL, execute the following statement:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> T <span style="color:#66d9ef">VALUES</span> 
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10002</span>, <span style="color:#e6db74">&#39;varchar00002&#39;</span>, <span style="color:#e6db74">&#39;20230502&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10003</span>, <span style="color:#e6db74">&#39;varchar00003&#39;</span>, <span style="color:#e6db74">&#39;20230503&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">10004</span>, <span style="color:#e6db74">&#39;varchar00004&#39;</span>, <span style="color:#e6db74">&#39;20230504&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10005</span>, <span style="color:#e6db74">&#39;varchar00005&#39;</span>, <span style="color:#e6db74">&#39;20230505&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">10006</span>, <span style="color:#e6db74">&#39;varchar00006&#39;</span>, <span style="color:#e6db74">&#39;20230506&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">10007</span>, <span style="color:#e6db74">&#39;varchar00007&#39;</span>, <span style="color:#e6db74">&#39;20230507&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">10008</span>, <span style="color:#e6db74">&#39;varchar00008&#39;</span>, <span style="color:#e6db74">&#39;20230508&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10009</span>, <span style="color:#e6db74">&#39;varchar00009&#39;</span>, <span style="color:#e6db74">&#39;20230509&#39;</span>),
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10010</span>, <span style="color:#e6db74">&#39;varchar00010&#39;</span>, <span style="color:#e6db74">&#39;20230510&#39;</span>);
+</span></span></code></pre></div><p>The second <code>commit</code> takes place and executing <code>SELECT * FROM T</code> will return
+10 rows. A new snapshot, namely <code>snapshot-2</code>, is created and gives us the
+following physical file layout:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> % ls -1tR . 
+</span></span><span style="display:flex;"><span>./T:
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span><span style="color:#ae81ff">20230501</span>
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230502	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230503	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230504	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230505	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230506	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230507	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230508	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230509	
+</span></span><span style="display:flex;"><span>dt<span style="color:#f92672">=</span>20230510	
+</span></span><span style="display:flex;"><span>snapshot
+</span></span><span style="display:flex;"><span>schema
+</span></span><span style="display:flex;"><span>manifest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>./T/snapshot:
+</span></span><span style="display:flex;"><span>LATEST
+</span></span><span style="display:flex;"><span>snapshot-2
+</span></span><span style="display:flex;"><span>EARLIEST
+</span></span><span style="display:flex;"><span>snapshot-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>./T/manifest:
+</span></span><span style="display:flex;"><span>manifest-list-9ac2-5e79-4978-a3bc-86c25f1a303f-1 <span style="color:#75715e"># delta manifest list for snapshot-2</span>
+</span></span><span style="display:flex;"><span>manifest-list-9ac2-5e79-4978-a3bc-86c25f1a303f-0 <span style="color:#75715e"># base manifest list for snapshot-2	</span>
+</span></span><span style="display:flex;"><span>manifest-f1267033-e246-4470-a54c-5c27fdbdd074-0	 <span style="color:#75715e"># manifest file for snapshot-2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-1 <span style="color:#75715e"># delta manifest list for snapshot-1 </span>
+</span></span><span style="display:flex;"><span>manifest-list-4ccc-c07f-4090-958c-cfe3ce3889e5-0 <span style="color:#75715e"># base manifest list for snapshot-1</span>
+</span></span><span style="display:flex;"><span>manifest-2b833ea4-d7dc-4de0-ae0d-ad76eced75cc-0  <span style="color:#75715e"># manifest file for snapshot-1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>./T/dt<span style="color:#f92672">=</span>20230501/bucket-0:
+</span></span><span style="display:flex;"><span>data-b75b7381-7c8b-430f-b7e5-a204cb65843c-0.orc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># each partition has the data written to bucket-0</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>./T/schema:
+</span></span><span style="display:flex;"><span>schema-0
+</span></span></code></pre></div><p>The new file layout as of snapshot-2 looks like
+
+<img 
+  src="http://localhost:1313//img/file-operations-1.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+</p>
+<h3 id="delete-records-from-table">
+  Delete Records From Table
+  <a class="anchor" href="#delete-records-from-table">#</a>
+</h3>
+<p>Now let&rsquo;s delete records that meet the condition <code>dt&gt;=20230503</code>.
+In Flink SQL, execute the following statement:</p>
+
+<span class="label">Batch</span>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> T <span style="color:#66d9ef">WHERE</span> dt <span style="color:#f92672">&gt;=</span> <span style="color:#e6db74">&#39;20230503&#39;</span>;
+</span></span></code></pre></div><p>The third <code>commit</code> takes place and it gives us <code>snapshot-3</code>. Now, listing the files
+under the table and your will find out no partition is dropped. Instead, a new data
+file is created for partition <code>20230503</code> to <code>20230510</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./T/dt<span style="color:#f92672">=</span>20230510/bucket-0:
+</span></span><span style="display:flex;"><span>data-b93f468c-b56f-4a93-adc4-b250b3aa3462-0.orc <span style="color:#75715e"># newer data file created by the delete statement </span>
+</span></span><span style="display:flex;"><span>data-0fcacc70-a0cb-4976-8c88-73e92769a762-0.orc <span style="color:#75715e"># older data file created by the insert statement</span>
+</span></span></code></pre></div><p>This make sense since we insert a record in the second commit (represented by
+<code>+I[10, 10010, 'varchar00010', '20230510']</code>) and then delete
+the record in the third commit. Executing <code>SELECT * FROM T</code> will return 2 rows, namely:</p>
+<pre tabindex="0"><code>+I[1, 10001, &#39;varchar00001&#39;, &#39;20230501&#39;]
++I[2, 10002, &#39;varchar00002&#39;, &#39;20230502&#39;]
+</code></pre><p>The new file layout as of snapshot-3 looks like
+
+<img 
+  src="http://localhost:1313//img/file-operations-2.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+</p>
+<p>Note that <code>manifest-3-0</code> contains 8 manifest entries of <code>ADD</code> operation type,
+corresponding to 8 newly written data files.</p>
+<h3 id="compact-table">
+  Compact Table
+  <a class="anchor" href="#compact-table">#</a>
+</h3>
+<p>As you may have noticed, the number of small files will augment over successive
+snapshots, which may lead to decreased read performance. Therefore, a full-compaction
+is needed in order to reduce the number of small files.</p>
+<p>Let&rsquo;s trigger the full-compaction now, and run a dedicated compaction job through <code>flink run</code>:</p>
+
+<span class="label">Batch</span>
+
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink SQL"
+    name="tabs-compact"
+    id="tabs-compact-0"
+    checked="checked" 
+    onclick="onSwitch('Flink SQL')"
+  />
+  <label for="tabs-compact-0">Flink SQL</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CALL</span> sys.compact(
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">`</span><span style="color:#66d9ef">table</span><span style="color:#f92672">`</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;database_name.table_name&#39;</span>, 
+</span></span><span style="display:flex;"><span>   partitions <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;partition_name&#39;</span>, 
+</span></span><span style="display:flex;"><span>   order_strategy <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;order_strategy&#39;</span>,
+</span></span><span style="display:flex;"><span>   order_by <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;order_by&#39;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">options</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;paimon_table_dynamic_conf&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div></div><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink Action"
+    name="tabs-compact"
+    id="tabs-compact-1"
+     
+    onclick="onSwitch('Flink Action')"
+  />
+  <label for="tabs-compact-1">Flink Action</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -D execution.runtime-mode<span style="color:#f92672">=</span>batch <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    compact <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\ </span>
+</span></span><span style="display:flex;"><span>    --table &lt;table-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--partition &lt;partition-name&gt;<span style="color:#f92672">]</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; ...<span style="color:#f92672">]]</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--table_conf &lt;paimon-table-dynamic-conf&gt; <span style="color:#f92672">[</span>--table_conf &lt;paimon-table-dynamic-conf&gt;<span style="color:#f92672">]</span> ...<span style="color:#f92672">]</span>
+</span></span></code></pre></div></div></div>
+
+<p>an example would be (suppose you&rsquo;re already in Flink home)</p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink SQL"
+    name="tabs-compact example"
+    id="tabs-compact example-0"
+    checked="checked" 
+    onclick="onSwitch('Flink SQL')"
+  />
+  <label for="tabs-compact example-0">Flink SQL</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CALL</span> sys.compact(<span style="color:#e6db74">&#39;T&#39;</span>);
+</span></span></code></pre></div></div><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink Action"
+    name="tabs-compact example"
+    id="tabs-compact example-1"
+     
+    onclick="onSwitch('Flink Action')"
+  />
+  <label for="tabs-compact example-1">Flink Action</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ./lib/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    compact <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --path file:///tmp/paimon/default.db/T
+</span></span></code></pre></div></div></div>
+
+<p>All current table files will be compacted and a new snapshot, namely <code>snapshot-4</code>, is
+made and contains the following information:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;version&#34;</span> : <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span> : <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;schemaId&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;baseManifestList&#34;</span> : <span style="color:#e6db74">&#34;manifest-list-9be16-82e7-4941-8b0a-7ce1c1d0fa6d-0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;deltaManifestList&#34;</span> : <span style="color:#e6db74">&#34;manifest-list-9be16-82e7-4941-8b0a-7ce1c1d0fa6d-1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;changelogManifestList&#34;</span> : <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;commitUser&#34;</span> : <span style="color:#e6db74">&#34;a3d951d5-aa0e-4071-a5d4-4c72a4233d48&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;commitIdentifier&#34;</span> : <span style="color:#ae81ff">9223372036854775807</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;commitKind&#34;</span> : <span style="color:#e6db74">&#34;COMPACT&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timeMillis&#34;</span> : <span style="color:#ae81ff">1684163217960</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;logOffsets&#34;</span> : { },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;totalRecordCount&#34;</span> : <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;deltaRecordCount&#34;</span> : <span style="color:#ae81ff">-16</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;changelogRecordCount&#34;</span> : <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;watermark&#34;</span> : <span style="color:#ae81ff">-9223372036854775808</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The new file layout as of snapshot-4 looks like
+
+<img 
+  src="http://localhost:1313//img/file-operations-3.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+</p>
+<p>Note that <code>manifest-4-0</code> contains 20 manifest entries (18 <code>DELETE</code> operations and 2 <code>ADD</code> operations)</p>
+<ol>
+<li>For partition <code>20230503</code> to <code>20230510</code>, two <code>DELETE</code> operations for two data files</li>
+<li>For partition <code>20230501</code> to <code>20230502</code>, one <code>DELETE</code> operation and one <code>ADD</code> operation for the same data file.
+This is because there has been an upgrade of the file from level 0 to the highest level. Please rest assured that
+this is only a change in metadata, and the file is still the same.</li>
+</ol>
+<h3 id="alter-table">
+  Alter Table
+  <a class="anchor" href="#alter-table">#</a>
+</h3>
+<p>Execute the following statement to configure full-compaction:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">SET</span> (<span style="color:#e6db74">&#39;full-compaction.delta-commits&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>);
+</span></span></code></pre></div><p>It will create a new schema for Paimon table, namely <code>schema-1</code>, but no snapshot
+has actually used this schema yet until the next commit.</p>
+<h3 id="expire-snapshots">
+  Expire Snapshots
+  <a class="anchor" href="#expire-snapshots">#</a>
+</h3>
+<p>Remind that the marked data files are not truly deleted until the snapshot expires and
+no consumer depends on the snapshot. For more information, see <a href="http://localhost:1313/zh/maintenance/manage-snapshots/#expiring-snapshots">Expiring Snapshots</a>.</p>
+<p>During the process of snapshot expiration, the range of snapshots is initially determined, and then data files within these snapshots are marked for deletion.
+A data file is <code>marked</code> for deletion only when there is a manifest entry of kind <code>DELETE</code> that references that specific data file.
+This marking ensures that the file will not be utilized by subsequent snapshots and can be safely removed.</p>
+<p>Let&rsquo;s say all 4 snapshots in the above diagram are about to expire. The expire process is as follows:</p>
+<ol>
+<li>
+<p>It first deletes all marked data files, and records any changed buckets.</p>
+</li>
+<li>
+<p>It then deletes any changelog files and associated manifests.</p>
+</li>
+<li>
+<p>Finally, it deletes the snapshots themselves and writes the earliest hint file.</p>
+</li>
+</ol>
+<p>If any directories are left empty after the deletion process, they will be deleted as well.</p>
+<p>Let&rsquo;s say another snapshot, <code>snapshot-5</code> is created and snapshot expiration is triggered. <code>snapshot-1</code> to <code>snapshot-4</code> are<br>
+to be deleted. For simplicity, we will only focus on files from previous snapshots, the final layout after snapshot
+expiration looks like:</p>
+
+<img 
+  src="http://localhost:1313//img/file-operations-4.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p>As a result, partition <code>20230503</code> to <code>20230510</code> are physically deleted.</p>
+<h3 id="flink-stream-write">
+  Flink Stream Write
+  <a class="anchor" href="#flink-stream-write">#</a>
+</h3>
+<p>Finally, we will examine Flink Stream Write by utilizing the example
+of CDC ingestion. This section will address the capturing and writing of
+change data into Paimon, as well as the mechanisms behind asynchronous compact
+and snapshot commit and expiration.</p>
+<p>To begin, let&rsquo;s take a closer look at the CDC ingestion workflow and
+the unique roles played by each component involved.</p>
+
+<img 
+  src="http://localhost:1313//img/cdc-ingestion-topology.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<ol>
+<li><code>MySQL CDC Source</code> uniformly reads snapshot and incremental data, with <code>SnapshotReader</code> reading snapshot data
+and <code>BinlogReader</code> reading incremental data, respectively.</li>
+<li><code>Paimon Sink</code> writes data into Paimon table in bucket level. The <code>CompactManager</code> within it will trigger compaction
+asynchronously.</li>
+<li><code>Committer Operator</code> is a singleton responsible for committing and expiring snapshots.</li>
+</ol>
+<p>Next, we will go over end-to-end data flow.</p>
+
+<img 
+  src="http://localhost:1313//img/cdc-ingestion-source.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p><code>MySQL Cdc Source</code> read snapshot and incremental data and emit them to downstream after normalization.</p>
+
+<img 
+  src="http://localhost:1313//img/cdc-ingestion-write.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p><code>Paimon Sink</code> first buffers new records in a heap-based LSM tree, and flushes them to disk when
+the memory buffer is full. Note that each data file written is a sorted run. At this point, no manifest file and snapshot
+is created. Right before Flink checkpoint takes places, <code>Paimon Sink</code> will flush all buffered records and send committable message
+to downstream, which is read and committed by <code>Committer Operator</code> during checkpoint.</p>
+
+<img 
+  src="http://localhost:1313//img/cdc-ingestion-commit.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p>During checkpoint, <code>Committer Operator</code> will create a new snapshot and associate it with manifest lists so that the snapshot<br>
+contains information about all data files in the table.</p>
+
+<img 
+  src="http://localhost:1313//img/cdc-ingestion-compact.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p>At later point asynchronous compaction might take place, and the committable produced by <code>CompactManager</code> contains information
+about previous files and merged files so that <code>Committer Operator</code> can construct corresponding manifest entries. In this case
+<code>Committer Operator</code> might produce two snapshot during Flink checkpoint, one for data written (snapshot of kind <code>Append</code>) and the
+other for compact (snapshot of kind <code>Compact</code>). If no data file is written during checkpoint interval, only snapshot of kind <code>Compact</code>
+will be created. <code>Committer Operator</code> will check against snapshot expiration and perform
+physical deletion of marked data files.</p>
+<h2 id="understand-small-files">
+  Understand Small Files
+  <a class="anchor" href="#understand-small-files">#</a>
+</h2>
+<p>Many users are concerned about small files, which can lead to:</p>
+<ol>
+<li>Stability issue: Too many small files in HDFS, NameNode will be overstressed.</li>
+<li>Cost issue: A small file in HDFS will temporarily use the size of a minimum of one Block, for example 128 MB.</li>
+<li>Query efficiency: The efficiency of querying too many small files will be affected.</li>
+</ol>
+<h3 id="understand-checkpoints">
+  Understand Checkpoints
+  <a class="anchor" href="#understand-checkpoints">#</a>
+</h3>
+<p>Assuming you are using Flink Writer, each checkpoint generates 1-2 snapshots, and the checkpoint forces the files to be
+generated on DFS, so the smaller the checkpoint interval the more small files will be generated.</p>
+<ol>
+<li>So first thing is increase checkpoint interval.</li>
+</ol>
+<p>By default, not only checkpoint will cause the file to be generated, but writer&rsquo;s memory (write-buffer-size) exhaustion
+will also flush data to DFS and generate the corresponding file. You can enable <code>write-buffer-spillable</code> to generate
+spilled files in writer to generate bigger files in DFS.</p>
+<ol start="2">
+<li>So second thing is increase <code>write-buffer-size</code> or enable <code>write-buffer-spillable</code>.</li>
+</ol>
+<h3 id="understand-snapshots">
+  Understand Snapshots
+  <a class="anchor" href="#understand-snapshots">#</a>
+</h3>
+
+<img 
+  src="http://localhost:1313//img/file-operations-3.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p>Paimon maintains multiple versions of files, compaction and deletion of files are logical and do not actually
+delete files. Files are only really deleted when Snapshot is expired, so the first way to reduce files is to
+reduce the time it takes for snapshot to be expired. Flink writer will automatically expire snapshots.</p>
+<p>See <a href="http://localhost:1313/zh/maintenance/manage-snapshots/#expire-snapshots">Expire Snapshots</a>.</p>
+<h3 id="understand-partitions-and-buckets">
+  Understand Partitions and Buckets
+  <a class="anchor" href="#understand-partitions-and-buckets">#</a>
+</h3>
+<p>Paimon files are organized in a layered style. The following image illustrates the file layout. Starting
+from a snapshot file, Paimon readers can recursively access all records from the table.</p>
+
+<img 
+  src="http://localhost:1313//img/file-layout.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p>For example, the following table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> MyTable (
+</span></span><span style="display:flex;"><span>    user_id BIGINT,
+</span></span><span style="display:flex;"><span>    item_id BIGINT,
+</span></span><span style="display:flex;"><span>    behavior STRING,
+</span></span><span style="display:flex;"><span>    dt STRING,
+</span></span><span style="display:flex;"><span>    hh STRING,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (dt, hh, user_id) <span style="color:#66d9ef">NOT</span> ENFORCED
+</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt, hh) <span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;bucket&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;10&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>The table data will be physically sliced into different partitions, and different buckets inside, so if the overall
+data volume is too small, there is at least one file in a single bucket, I suggest you configure a smaller number
+of buckets, otherwise there will be quite a few small files as well.</p>
+<h3 id="understand-lsm-for-primary-table">
+  Understand LSM for Primary Table
+  <a class="anchor" href="#understand-lsm-for-primary-table">#</a>
+</h3>
+<p>LSM tree organizes files into several sorted runs. A sorted run consists of one or multiple data files and each data
+file belongs to exactly one sorted run.</p>
+
+<img 
+  src="http://localhost:1313//img/sorted-runs.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p>By default, sorted runs number depends on <code>num-sorted-run.compaction-trigger</code>, see <a href="http://localhost:1313/zh/maintenance/write-performance/#compaction">Compaction for Primary Key Table</a>,
+this means that there are at least 5 files in a bucket. If you want to reduce this number, you can keep fewer files, but write performance may suffer.</p>
+<h3 id="understand-files-for-bucketed-append-table">
+  Understand Files for Bucketed Append Table
+  <a class="anchor" href="#understand-files-for-bucketed-append-table">#</a>
+</h3>
+<p>By default, Append also does automatic compaction to reduce the number of small files.</p>
+<p>However, for Bucketed Append table, it will only compact the files within the Bucket for sequential
+purposes, which may keep more small files. See <a href="http://localhost:1313/zh/append-table/streaming/#bucketed-append">Bucketed Append</a>.</p>
+<h3 id="understand-full-compaction">
+  Understand Full-Compaction
+  <a class="anchor" href="#understand-full-compaction">#</a>
+</h3>
+<p>Maybe you think the 5 files for the primary key table are actually okay, but the Append table (bucket)
+may have 50 small files in a single bucket, which is very difficult to accept. Worse still, partitions that
+are no longer active also keep so many small files.</p>
+<p>Configure ‘full-compaction.delta-commits’ perform full-compaction periodically in Flink writing. And it can ensure
+that partitions are full compacted before writing ends.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisite">Prerequisite</a></li>
+    <li><a href="#understand-file-operations">Understand File Operations</a>
+      <ul>
+        <li><a href="#create-catalog">Create Catalog</a></li>
+        <li><a href="#create-table">Create Table</a></li>
+        <li><a href="#insert-records-into-table">Insert Records Into Table</a></li>
+        <li><a href="#delete-records-from-table">Delete Records From Table</a></li>
+        <li><a href="#compact-table">Compact Table</a></li>
+        <li><a href="#alter-table">Alter Table</a></li>
+        <li><a href="#expire-snapshots">Expire Snapshots</a></li>
+        <li><a href="#flink-stream-write">Flink Stream Write</a></li>
+      </ul>
+    </li>
+    <li><a href="#understand-small-files">Understand Small Files</a>
+      <ul>
+        <li><a href="#understand-checkpoints">Understand Checkpoints</a></li>
+        <li><a href="#understand-snapshots">Understand Snapshots</a></li>
+        <li><a href="#understand-partitions-and-buckets">Understand Partitions and Buckets</a></li>
+        <li><a href="#understand-lsm-for-primary-table">Understand LSM for Primary Table</a></li>
+        <li><a href="#understand-files-for-bucketed-append-table">Understand Files for Bucketed Append Table</a></li>
+        <li><a href="#understand-full-compaction">Understand Full-Compaction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

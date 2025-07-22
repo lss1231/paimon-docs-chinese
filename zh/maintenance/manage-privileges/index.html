@@ -1,0 +1,2089 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Manage Privileges
+  #
+
+Paimon provides a privilege system on catalogs.
+Privileges determine which users can perform which operations on which objects,
+so that you can manage table access in a fine-grained manner.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/zh/maintenance/manage-privileges/">
+  <meta property="og:site_name" content="Paimon文档">
+  <meta property="og:title" content="Manage Privileges">
+  <meta property="og:description" content="Manage Privileges#Paimon provides a privilege system on catalogs. Privileges determine which users can perform which operations on which objects, so that you can manage table access in a fine-grained manner.">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="maintenance">
+<title>Manage Privileges | Paimon文档</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/zh/maintenance/manage-privileges/">
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/maintenance/manage-privileges/" title="Manage Privileges">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/zh.search.min.0259e16e01f9bf9e62c7f824fe0ec1c165324ea4e5322593215979fa1cca1c0d.js" integrity="sha256-AlnhbgH5v55ix/gk/g7BwWUyTqTlMiWTIVl5&#43;hzKHA0=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/zh/"><span>Paimon文档</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex">
+      <a role="button" class="flex flex-auto">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        简体中文
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/maintenance/manage-privileges/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d9be75c8909d789e72921d17acf02ea8" class="toggle"  />
+    <label for="section-d9be75c8909d789e72921d17acf02ea8" class="flex">
+      <a href="/zh/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-deae667da60265cc05d140a12e0f56bc" class="toggle"  />
+    <label for="section-deae667da60265cc05d140a12e0f56bc" class="flex">
+      <a href="/zh/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6649d7358937a7911f214fa195e4d514" class="toggle"  />
+    <label for="section-6649d7358937a7911f214fa195e4d514" class="flex">
+      <a href="/zh/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-116493b962a7709b96d887a67410ae2c" class="toggle"  />
+    <label for="section-116493b962a7709b96d887a67410ae2c" class="flex">
+      <a href="/zh/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e2b73115efcda305a99daf2e913ad177" class="toggle"  />
+    <label for="section-e2b73115efcda305a99daf2e913ad177" class="flex">
+      <a href="/zh/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b0736f3589d2982eb8482a699fc8a2eb" class="toggle"  />
+    <label for="section-b0736f3589d2982eb8482a699fc8a2eb" class="flex">
+      <a href="/zh/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f8931a786680e7034fab37b5fdb5d7f1" class="toggle"  />
+    <label for="section-f8931a786680e7034fab37b5fdb5d7f1" class="flex">
+      <a href="/zh/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ace04d93fdf5d66516b62035c9f23d2f" class="toggle"  />
+    <label for="section-ace04d93fdf5d66516b62035c9f23d2f" class="flex">
+      <a href="/zh/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0c8962b835a7e7ba77e51210ab81d8ab" class="toggle"  />
+    <label for="section-0c8962b835a7e7ba77e51210ab81d8ab" class="flex">
+      <a href="/zh/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9b9cc7978eec312dbf5ff8e6fae0a484" class="toggle"  />
+    <label for="section-9b9cc7978eec312dbf5ff8e6fae0a484" class="flex">
+      <a href="/zh/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce3634687657a9574119215326eb830f" class="toggle" checked />
+    <label for="section-ce3634687657a9574119215326eb830f" class="flex">
+      <a href="/zh/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-privileges/" class="active">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6216b0bad2d424854c2ce0b7a340342a" class="toggle"  />
+    <label for="section-6216b0bad2d424854c2ce0b7a340342a" class="flex">
+      <a href="/zh/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3826503c745210e7c6185ec4dbaf177c" class="toggle"  />
+    <label for="section-3826503c745210e7c6185ec4dbaf177c" class="flex">
+      <a href="/zh/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7c447417aa4a80b01c649e7072bc024" class="toggle"  />
+    <label for="section-c7c447417aa4a80b01c649e7072bc024" class="flex">
+      <a href="/zh/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-cce788b521038a23eeb70f4fdc430011" class="toggle"  />
+    <label for="section-cce788b521038a23eeb70f4fdc430011" class="flex">
+      <a href="/zh/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/zh/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Manage Privileges</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#basic-concepts">Basic Concepts</a>
+      <ul>
+        <li><a href="#object">Object</a></li>
+        <li><a href="#privilege">Privilege</a></li>
+        <li><a href="#user">User</a></li>
+      </ul>
+    </li>
+    <li><a href="#enable-privileges">Enable Privileges</a></li>
+    <li><a href="#accessing-privileged-catalogs">Accessing Privileged Catalogs</a></li>
+    <li><a href="#creating-users">Creating Users</a></li>
+    <li><a href="#dropping-users">Dropping Users</a></li>
+    <li><a href="#granting-privileges-to-users">Granting Privileges to Users</a></li>
+    <li><a href="#revoking-privileges-to-users">Revoking Privileges to Users</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="manage-privileges">
+  Manage Privileges
+  <a class="anchor" href="#manage-privileges">#</a>
+</h1>
+<p>Paimon provides a privilege system on catalogs.
+Privileges determine which users can perform which operations on which objects,
+so that you can manage table access in a fine-grained manner.</p>
+<p>Currently, Paimon adopts the identity-based access control (IBAC) privilege model.
+That is, privileges are directly assigned to users.</p>
+<blockquote class="book-hint warning">
+  
+This privilege system only prevents unwanted users from accessing tables through catalogs.
+It does not block access through temporary table (by specifying table path on filesystem),
+nor does it prevent user from directly modifying data files on filesystem.
+If you need more serious protection, use a filesystem with access management instead.
+
+</blockquote>
+
+<h2 id="basic-concepts">
+  Basic Concepts
+  <a class="anchor" href="#basic-concepts">#</a>
+</h2>
+<p>We now introduce the basic concepts of the privilege system.</p>
+<h3 id="object">
+  Object
+  <a class="anchor" href="#object">#</a>
+</h3>
+<p>An object is an entity to which access can be granted. Unless allowed by a grant, access is denied.</p>
+<p>Currently, the privilege system in Paimon has three types of objects: CATALOG, DATABASE and TABLE.
+Objects have a logical hierarchy, which is related to the concept they represent.
+For example:</p>
+<ul>
+<li>If a user is granted a privilege on the catalog,
+he will also have this privilege on all databases and all tables in the catalog.</li>
+<li>If a user is granted a privilege on the database,
+he will also have this privilege on all tables in that database.</li>
+<li>If a user is revoked a privilege from the catalog,
+he will also lose this privilege on all databases and all tables in the catalog.</li>
+<li>If a user is revoked a privilege from the database,
+he will also lose this privilege on all tables in that database.</li>
+</ul>
+<h3 id="privilege">
+  Privilege
+  <a class="anchor" href="#privilege">#</a>
+</h3>
+<p>A privilege is a defined level of access to an object.
+Multiple privileges can be used to control the granularity of access granted on an object.
+Privileges are object-specific. Different objects may have different privileges.</p>
+<p>Currently, we support the following privileges.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Privilege</th>
+          <th>Description</th>
+          <th>Can be Granted on</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SELECT</td>
+          <td>Queries data in a table.</td>
+          <td>TABLE, DATABASE, CATALOG</td>
+      </tr>
+      <tr>
+          <td>INSERT</td>
+          <td>Inserts, updates or drops data in a table. Creates or drops tags and branches in a table.</td>
+          <td>TABLE, DATABASE, CATALOG</td>
+      </tr>
+      <tr>
+          <td>ALTER_TABLE</td>
+          <td>Alters metadata of a table, including table name, column names, table options, etc.</td>
+          <td>TABLE, DATABASE, CATALOG</td>
+      </tr>
+      <tr>
+          <td>DROP_TABLE</td>
+          <td>Drops a table.</td>
+          <td>TABLE, DATABASE, CATALOG</td>
+      </tr>
+      <tr>
+          <td>CREATE_TABLE</td>
+          <td>Creates a table in a database.</td>
+          <td>DATABASE, CATALOG</td>
+      </tr>
+      <tr>
+          <td>DROP_DATABASE</td>
+          <td>Drops a database.</td>
+          <td>DATABASE, CATALOG</td>
+      </tr>
+      <tr>
+          <td>CREATE_DATABASE</td>
+          <td>Creates a database in the catalog.</td>
+          <td>CATALOG</td>
+      </tr>
+      <tr>
+          <td>ADMIN</td>
+          <td>Creates or drops privileged users, grants or revokes privileges from users in a catalog.</td>
+          <td>CATALOG</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="user">
+  User
+  <a class="anchor" href="#user">#</a>
+</h3>
+<p>The entity to which privileges can be granted. Users are authenticated by their password.</p>
+<p>When the privilege system is enabled, two special users will be created automatically.</p>
+<ul>
+<li>The <code>root</code> user,
+which is identified by the provided root password when enabling the privilege system.
+This user always has all privileges in the catalog.</li>
+<li>The <code>anonymous</code> user.
+This is the default user if no username and password is provided when creating the catalog.</li>
+</ul>
+<h2 id="enable-privileges">
+  Enable Privileges
+  <a class="anchor" href="#enable-privileges">#</a>
+</h2>
+<p>Paimon currently only supports file-based privilege system.
+Only catalogs with <code>'metastore' = 'filesystem'</code> (the default value) or <code>'metastore' = 'hive'</code> support such privilege system.</p>
+<p>To enable the privilege system on a filesystem / Hive catalog, do the following steps.</p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink 1.18&#43;"
+    name="tabs-enable-privileges"
+    id="tabs-enable-privileges-0"
+    checked="checked" 
+    onclick="onSwitch('Flink 1.18\u002b')"
+  />
+  <label for="tabs-enable-privileges-0">Flink 1.18&#43;</label>
+  <div class="book-tabs-content markdown-inner"><p>Run the following Flink SQL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- use the catalog where you want to enable the privilege system
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>USE <span style="color:#66d9ef">CATALOG</span> <span style="color:#f92672">`</span>my<span style="color:#f92672">-</span><span style="color:#66d9ef">catalog</span><span style="color:#f92672">`</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- initialize privilege system by providing a root password
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- change &#39;root-password&#39; to the password you want
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.init_file_based_privilege(<span style="color:#e6db74">&#39;root-password&#39;</span>);
+</span></span></code></pre></div></div></div>
+
+<p>After the privilege system is enabled,
+please re-create the catalog and authenticate as <code>root</code> to create other users and grant them privileges.</p>
+<blockquote class="book-hint info">
+  
+Privilege system does not affect existing catalogs.
+That is, these catalogs can still access and modify the tables freely.
+Please drop and re-create all catalogs with the desired warehouse path
+if you want to use the privilege system in these catalogs.
+
+</blockquote>
+
+<h2 id="accessing-privileged-catalogs">
+  Accessing Privileged Catalogs
+  <a class="anchor" href="#accessing-privileged-catalogs">#</a>
+</h2>
+<p>To access a privileged catalog and to be authenticated as a user,
+you need to define <code>user</code> and <code>password</code> catalog options when creating the catalog.
+For example, the following SQL creates a catalog while trying to be authenticated as <code>root</code>,
+whose password is <code>mypassword</code>.</p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink"
+    name="tabs-access-catalog"
+    id="tabs-access-catalog-0"
+    checked="checked" 
+    onclick="onSwitch('Flink')"
+  />
+  <label for="tabs-access-catalog-0">Flink</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> <span style="color:#f92672">`</span>my<span style="color:#f92672">-</span><span style="color:#66d9ef">catalog</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;paimon&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#39;user&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;root&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;password&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mypassword&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div></div></div>
+
+<h2 id="creating-users">
+  Creating Users
+  <a class="anchor" href="#creating-users">#</a>
+</h2>
+<p>You must be authenticated as a user with <code>ADMIN</code> privilege (for example, <code>root</code>) to perform this operation.</p>
+<p>Do the following steps to create a user in the privilege system.</p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink 1.18&#43;"
+    name="tabs-create-users"
+    id="tabs-create-users-0"
+    checked="checked" 
+    onclick="onSwitch('Flink 1.18\u002b')"
+  />
+  <label for="tabs-create-users-0">Flink 1.18&#43;</label>
+  <div class="book-tabs-content markdown-inner"><p>Run the following Flink SQL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- use the catalog where you want to create a user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- you must be authenticated as a user with ADMIN privilege in this catalog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>USE <span style="color:#66d9ef">CATALOG</span> <span style="color:#f92672">`</span>my<span style="color:#f92672">-</span><span style="color:#66d9ef">catalog</span><span style="color:#f92672">`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a user authenticated by the specified password
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- change &#39;user&#39; and &#39;password&#39; to the username and password you want
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.create_privileged_user(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;password&#39;</span>);
+</span></span></code></pre></div></div></div>
+
+<h2 id="dropping-users">
+  Dropping Users
+  <a class="anchor" href="#dropping-users">#</a>
+</h2>
+<p>You must be authenticated as a user with <code>ADMIN</code> privilege (for example, <code>root</code>) to perform this operation.</p>
+<p>Do the following steps to drop a user in the privilege system.</p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink 1.18&#43;"
+    name="tabs-drop-users"
+    id="tabs-drop-users-0"
+    checked="checked" 
+    onclick="onSwitch('Flink 1.18\u002b')"
+  />
+  <label for="tabs-drop-users-0">Flink 1.18&#43;</label>
+  <div class="book-tabs-content markdown-inner"><p>Run the following Flink SQL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- use the catalog where you want to drop a user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- you must be authenticated as a user with ADMIN privilege in this catalog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>USE <span style="color:#66d9ef">CATALOG</span> <span style="color:#f92672">`</span>my<span style="color:#f92672">-</span><span style="color:#66d9ef">catalog</span><span style="color:#f92672">`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- change &#39;user&#39; to the username you want to drop
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.drop_privileged_user(<span style="color:#e6db74">&#39;user&#39;</span>);
+</span></span></code></pre></div></div></div>
+
+<h2 id="granting-privileges-to-users">
+  Granting Privileges to Users
+  <a class="anchor" href="#granting-privileges-to-users">#</a>
+</h2>
+<p>You must be authenticated as a user with <code>ADMIN</code> privilege (for example, <code>root</code>) to perform this operation.</p>
+<p>Do the following steps to grant a user with privilege in the privilege system.</p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink 1.18&#43;"
+    name="tabs-grant-to-users"
+    id="tabs-grant-to-users-0"
+    checked="checked" 
+    onclick="onSwitch('Flink 1.18\u002b')"
+  />
+  <label for="tabs-grant-to-users-0">Flink 1.18&#43;</label>
+  <div class="book-tabs-content markdown-inner"><p>Run the following Flink SQL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- use the catalog where you want to drop a user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- you must be authenticated as a user with ADMIN privilege in this catalog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>USE <span style="color:#66d9ef">CATALOG</span> <span style="color:#f92672">`</span>my<span style="color:#f92672">-</span><span style="color:#66d9ef">catalog</span><span style="color:#f92672">`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- you can change &#39;user&#39; to the username you want, and &#39;SELECT&#39; to other privilege you want
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- grant &#39;user&#39; with privilege &#39;SELECT&#39; on the whole catalog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.grant_privilege_to_user(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;SELECT&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- grant &#39;user&#39; with privilege &#39;SELECT&#39; on database my_db
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.grant_privilege_to_user(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;SELECT&#39;</span>, <span style="color:#e6db74">&#39;my_db&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- grant &#39;user&#39; with privilege &#39;SELECT&#39; on table my_db.my_tbl
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.grant_privilege_to_user(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;SELECT&#39;</span>, <span style="color:#e6db74">&#39;my_db&#39;</span>, <span style="color:#e6db74">&#39;my_tbl&#39;</span>);
+</span></span></code></pre></div></div></div>
+
+<h2 id="revoking-privileges-to-users">
+  Revoking Privileges to Users
+  <a class="anchor" href="#revoking-privileges-to-users">#</a>
+</h2>
+<p>You must be authenticated as a user with <code>ADMIN</code> privilege (for example, <code>root</code>) to perform this operation.</p>
+<p>Do the following steps to revoke a privilege from user in the privilege system.</p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Flink 1.18&#43;"
+    name="tabs-revoke-from-users"
+    id="tabs-revoke-from-users-0"
+    checked="checked" 
+    onclick="onSwitch('Flink 1.18\u002b')"
+  />
+  <label for="tabs-revoke-from-users-0">Flink 1.18&#43;</label>
+  <div class="book-tabs-content markdown-inner"><p>Run the following Flink SQL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- use the catalog where you want to drop a user
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- you must be authenticated as a user with ADMIN privilege in this catalog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>USE <span style="color:#66d9ef">CATALOG</span> <span style="color:#f92672">`</span>my<span style="color:#f92672">-</span><span style="color:#66d9ef">catalog</span><span style="color:#f92672">`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- you can change &#39;user&#39; to the username you want, and &#39;SELECT&#39; to other privilege you want
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- revoke &#39;user&#39; with privilege &#39;SELECT&#39; on the whole catalog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.revoke_privilege_from_user(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;SELECT&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- revoke &#39;user&#39; with privilege &#39;SELECT&#39; on database my_db
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.revoke_privilege_from_user(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;SELECT&#39;</span>, <span style="color:#e6db74">&#39;my_db&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- revoke &#39;user&#39; with privilege &#39;SELECT&#39; on table my_db.my_tbl
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CALL</span> sys.revoke_privilege_from_user(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#e6db74">&#39;SELECT&#39;</span>, <span style="color:#e6db74">&#39;my_db&#39;</span>, <span style="color:#e6db74">&#39;my_tbl&#39;</span>);
+</span></span></code></pre></div></div></div>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#basic-concepts">Basic Concepts</a>
+      <ul>
+        <li><a href="#object">Object</a></li>
+        <li><a href="#privilege">Privilege</a></li>
+        <li><a href="#user">User</a></li>
+      </ul>
+    </li>
+    <li><a href="#enable-privileges">Enable Privileges</a></li>
+    <li><a href="#accessing-privileged-catalogs">Accessing Privileged Catalogs</a></li>
+    <li><a href="#creating-users">Creating Users</a></li>
+    <li><a href="#dropping-users">Dropping Users</a></li>
+    <li><a href="#granting-privileges-to-users">Granting Privileges to Users</a></li>
+    <li><a href="#revoking-privileges-to-users">Revoking Privileges to Users</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

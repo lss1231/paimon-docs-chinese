@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Merge Engine on Apache Paimon</title>
-    <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/</link>
-    <description>Recent content in Merge Engine on Apache Paimon</description>
+    <title>Merge Engine on Paimon Docs</title>
+    <link>http://localhost:1313/primary-key-table/merge-engine/</link>
+    <description>Recent content in Merge Engine on Paimon Docs</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="http://localhost:1313/primary-key-table/merge-engine/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/</link>
+      <link>http://localhost:1313/primary-key-table/merge-engine/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/</guid>
+      <guid>http://localhost:1313/primary-key-table/merge-engine/overview/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;overview&#34;&gt;&#xD;&#xA;  Overview&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#overview&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;When Paimon sink receives two or more records with the same primary keys, it will merge them into one record to keep&#xA;primary keys unique. By specifying the &lt;code&gt;merge-engine&lt;/code&gt; table property, users can choose how records are merged together.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Partial Update</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/</link>
+      <link>http://localhost:1313/primary-key-table/merge-engine/partial-update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/</guid>
+      <guid>http://localhost:1313/primary-key-table/merge-engine/partial-update/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;partial-update&#34;&gt;&#xD;&#xA;  Partial Update&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#partial-update&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;By specifying &lt;code&gt;&#39;merge-engine&#39; = &#39;partial-update&#39;&lt;/code&gt;, users have the ability to update columns of a record through&#xA;multiple updates until the record is complete. This is achieved by updating the value fields one by one, using the&#xA;latest data under the same primary key. However, null values are not overwritten in the process.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Aggregation</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/</link>
+      <link>http://localhost:1313/primary-key-table/merge-engine/aggregation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/</guid>
+      <guid>http://localhost:1313/primary-key-table/merge-engine/aggregation/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;aggregation&#34;&gt;&#xD;&#xA;  Aggregation&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#aggregation&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;blockquote class=&#34;book-hint info&#34;&gt;&#xD;&#xA;  &#xD;&#xA;NOTE: Always set `table.exec.sink.upsert-materialize` to `NONE` in Flink SQL TableConfig.&#xD;&#xA;&#xD;&#xA;&lt;/blockquote&gt;&#xD;&#xA;&#xA;&lt;p&gt;Sometimes users only care about aggregated results. The &lt;code&gt;aggregation&lt;/code&gt; merge engine aggregates each value field with the latest data one by one under the same primary key according to the aggregate function.&lt;/p&gt;</description>
     </item>
     <item>
       <title>First Row</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/</link>
+      <link>http://localhost:1313/primary-key-table/merge-engine/first-row/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/</guid>
+      <guid>http://localhost:1313/primary-key-table/merge-engine/first-row/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;first-row&#34;&gt;&#xD;&#xA;  First Row&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#first-row&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;By specifying &lt;code&gt;&#39;merge-engine&#39; = &#39;first-row&#39;&lt;/code&gt;, users can keep the first row of the same primary key. It differs from the&#xA;&lt;code&gt;deduplicate&lt;/code&gt; merge engine that in the &lt;code&gt;first-row&lt;/code&gt; merge engine, it will generate insert only changelog.&lt;/p&gt;</description>
     </item>
   </channel>
