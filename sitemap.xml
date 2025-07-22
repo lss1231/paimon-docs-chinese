@@ -2,222 +2,222 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/concepts/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/filesystems/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/filesystems/</loc>
   </url><url>
-    <loc>https://example.org/program-api/flink-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/program-api/flink-api/</loc>
   </url><url>
-    <loc>https://example.org/migration/migration-from-hive/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/</loc>
   </url><url>
-    <loc>https://example.org/migration/migration-from-iceberg/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/</loc>
   </url><url>
-    <loc>https://example.org/append-table/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/</loc>
   </url><url>
-    <loc>https://example.org/concepts/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/overview/</loc>
   </url><url>
-    <loc>https://example.org/concepts/rest/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/overview/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/</loc>
   </url><url>
-    <loc>https://example.org/ecosystem/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/ecosystem/overview/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/merge-engine/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/overview/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/</loc>
   </url><url>
-    <loc>https://example.org/flink/quick-start/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</loc>
   </url><url>
-    <loc>https://example.org/spark/quick-start/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/</loc>
   </url><url>
-    <loc>https://example.org/project/roadmap/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/project/roadmap/</loc>
   </url><url>
-    <loc>https://example.org/learn-paimon/understand-files/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/</loc>
   </url><url>
-    <loc>https://example.org/migration/upsert-to-partitioned/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/</loc>
   </url><url>
-    <loc>https://example.org/concepts/basic-concepts/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</loc>
   </url><url>
-    <loc>https://example.org/concepts/rest/bear/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/bear/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/data-distribution/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/</loc>
   </url><url>
-    <loc>https://example.org/project/download/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/project/download/</loc>
   </url><url>
-    <loc>https://example.org/program-api/java-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/program-api/java-api/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/mysql-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mysql-cdc/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/merge-engine/partial-update/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/postgres-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/postgres-cdc/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/schema/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/</loc>
   </url><url>
-    <loc>https://example.org/flink/sql-ddl/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/sql-ddl/</loc>
   </url><url>
-    <loc>https://example.org/spark/sql-ddl/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/</loc>
   </url><url>
-    <loc>https://example.org/spark/sql-functions/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/sql-functions/</loc>
   </url><url>
-    <loc>https://example.org/flink/sql-write/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/</loc>
   </url><url>
-    <loc>https://example.org/spark/sql-write/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/</loc>
   </url><url>
-    <loc>https://example.org/ecosystem/starrocks/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/</loc>
   </url><url>
-    <loc>https://example.org/append-table/streaming/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/merge-engine/aggregation/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/</loc>
   </url><url>
-    <loc>https://example.org/program-api/catalog-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/</loc>
   </url><url>
-    <loc>https://example.org/concepts/concurrency-control/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/</loc>
   </url><url>
-    <loc>https://example.org/project/contributing/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/project/contributing/</loc>
   </url><url>
-    <loc>https://example.org/concepts/rest/dlf/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/dlf/</loc>
   </url><url>
-    <loc>https://example.org/ecosystem/doris/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/ecosystem/doris/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/kafka-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/kafka-cdc/</loc>
   </url><url>
-    <loc>https://example.org/append-table/query-performance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/snapshot/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/table-mode/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/</loc>
   </url><url>
-    <loc>https://example.org/append-table/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/write-performance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/</loc>
   </url><url>
-    <loc>https://example.org/concepts/catalog/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/</loc>
   </url><url>
-    <loc>https://example.org/project/committer/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/project/committer/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/dedicated-compaction/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/merge-engine/first-row/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/</loc>
   </url><url>
-    <loc>https://example.org/ecosystem/hive/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/ecosystem/hive/</loc>
   </url><url>
-    <loc>https://example.org/migration/iceberg-compatibility/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/migration/iceberg-compatibility/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/manifest/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/merge-engine/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/mongo-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/</loc>
   </url><url>
-    <loc>https://example.org/program-api/python-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/program-api/python-api/</loc>
   </url><url>
-    <loc>https://example.org/flink/sql-query/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/sql-query/</loc>
   </url><url>
-    <loc>https://example.org/spark/sql-query/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/sql-query/</loc>
   </url><url>
-    <loc>https://example.org/append-table/update/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</loc>
   </url><url>
-    <loc>https://example.org/append-table/bucketed/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/changelog-producer/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/</loc>
   </url><url>
-    <loc>https://example.org/flink/consumer-id/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/datafile/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/</loc>
   </url><url>
-    <loc>https://example.org/flink/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/manage-snapshots/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-snapshots/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/pulsar-cdc/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/</loc>
   </url><url>
-    <loc>https://example.org/concepts/rest/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/</loc>
   </url><url>
-    <loc>https://example.org/ecosystem/trino/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/ecosystem/trino/</loc>
   </url><url>
-    <loc>https://example.org/ecosystem/amoro/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/ecosystem/amoro/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/debezium-bson/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/debezium-bson/</loc>
   </url><url>
-    <loc>https://example.org/spark/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/sequence-rowkind/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/sequence-rowkind/</loc>
   </url><url>
-    <loc>https://example.org/spark/sql-alter/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/sql-alter/</loc>
   </url><url>
-    <loc>https://example.org/flink/sql-lookup/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/sql-lookup/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/tableindex/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/</loc>
   </url><url>
-    <loc>https://example.org/concepts/table-types/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/</loc>
   </url><url>
-    <loc>https://example.org/spark/auxiliary/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/auxiliary/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/compaction/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/fileindex/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/rescale-bucket/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/</loc>
   </url><url>
-    <loc>https://example.org/flink/sql-alter/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/sql-alter/</loc>
   </url><url>
-    <loc>https://example.org/concepts/system-tables/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/</loc>
   </url><url>
-    <loc>https://example.org/concepts/data-types/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/manage-tags/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/</loc>
   </url><url>
-    <loc>https://example.org/primary-key-table/query-performance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/query-performance/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/metrics/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/metrics/</loc>
   </url><url>
-    <loc>https://example.org/concepts/spec/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/manage-privileges/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-privileges/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/manage-branches/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-branches/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/manage-partitions/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-partitions/</loc>
   </url><url>
-    <loc>https://example.org/ecosystem/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/ecosystem/</loc>
   </url><url>
-    <loc>https://example.org/cdc-ingestion/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/</loc>
   </url><url>
-    <loc>https://example.org/flink/clone-tables/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/clone-tables/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/</loc>
   </url><url>
-    <loc>https://example.org/program-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/program-api/</loc>
   </url><url>
-    <loc>https://example.org/migration/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/migration/</loc>
   </url><url>
-    <loc>https://example.org/flink/procedures/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/procedures/</loc>
   </url><url>
-    <loc>https://example.org/flink/action-jars/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/action-jars/</loc>
   </url><url>
-    <loc>https://example.org/project/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/project/</loc>
   </url><url>
-    <loc>https://example.org/learn-paimon/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/learn-paimon/</loc>
   </url><url>
-    <loc>https://example.org/spark/procedures/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/spark/procedures/</loc>
   </url><url>
-    <loc>https://example.org/flink/savepoint/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/savepoint/</loc>
   </url><url>
-    <loc>https://example.org/maintenance/configurations/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/</loc>
   </url><url>
-    <loc>https://example.org/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/</loc>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/categories/</loc>
   </url><url>
-    <loc>https://example.org/concepts/rest/rest-api/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/rest-api/</loc>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/tags/</loc>
   </url><url>
-    <loc>https://example.org/versions/</loc>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/versions/</loc>
   </url>
 </urlset>

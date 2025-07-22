@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project on Apache Paimon</title>
-    <link>https://example.org/project/</link>
+    <link>https://lss1231.github.io/paimon-docs-chinese/project/</link>
     <description>Recent content in Project on Apache Paimon</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://example.org/project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Roadmap</title>
-      <link>https://example.org/project/roadmap/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/roadmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/project/roadmap/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/roadmap/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;roadmap&#34;&gt;&#xD;&#xA;  Roadmap&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#roadmap&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;flink-lookup-join&#34;&gt;&#xD;&#xA;  Flink Lookup Join&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#flink-lookup-join&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;Support Flink Custom Data Distribution Lookup Join to reach large-scale data lookup join.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Download</title>
-      <link>https://example.org/project/download/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/download/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/project/download/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/download/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;download&#34;&gt;&#xD;&#xA;  Download&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#download&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;This documentation is a guide for downloading Paimon Jars.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Contributing</title>
-      <link>https://example.org/project/contributing/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/contributing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/project/contributing/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/contributing/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;contributing&#34;&gt;&#xD;&#xA;  Contributing&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#contributing&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Apache Paimon is developed by an open and friendly community. Everybody is cordially welcome to join&#xA;the community and contribute to Apache Paimon. There are several ways to interact with the community and contribute&#xA;to Paimon including asking questions, filing bug reports, proposing new features, joining discussions on the mailing&#xA;lists, contributing code or documentation, improving website, testing release candidates and writing corresponding blog etc.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Committer</title>
-      <link>https://example.org/project/committer/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/committer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/project/committer/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/committer/</guid>
       <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;committer&#34;&gt;&#xD;&#xA;  Committer&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#committer&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;become-a-committer&#34;&gt;&#xD;&#xA;  Become a Committer&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#become-a-committer&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;h4 id=&#34;how-to-become-a-committer&#34;&gt;&#xD;&#xA;  How to become a committer&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#how-to-become-a-committer&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h4&gt;&#xD;&#xA;&lt;p&gt;There is no strict protocol for becoming a committer. Candidates for new committers are typically people that are&#xA;active contributors and community members. Candidates are suggested by current committers or PPMC members, and&#xA;voted upon by the PPMC.&lt;/p&gt;</description>
     </item>
   </channel>
