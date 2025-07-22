@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concepts on Apache Paimon</title>
+    <link>http://localhost:1313/concepts/</link>
+    <description>Recent content in Concepts on Apache Paimon</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/concepts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overview</title>
+      <link>http://localhost:1313/concepts/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/concepts/overview/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;overview&#34;&gt;&#xD;&#xA;  Overview&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#overview&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Apache Paimon&amp;rsquo;s Architecture:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Basic Concepts</title>
+      <link>http://localhost:1313/concepts/basic-concepts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/concepts/basic-concepts/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;basic-concepts&#34;&gt;&#xD;&#xA;  Basic Concepts&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#basic-concepts&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;h2 id=&#34;file-layouts&#34;&gt;&#xD;&#xA;  File Layouts&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#file-layouts&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h2&gt;&#xD;&#xA;&lt;p&gt;All files of a table are stored under one base directory. Paimon files are organized in a layered style. The following image illustrates the file layout. Starting from a snapshot file, Paimon readers can recursively access all records from the table.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Concurrency Control</title>
+      <link>http://localhost:1313/concepts/concurrency-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/concepts/concurrency-control/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;concurrency-control&#34;&gt;&#xD;&#xA;  Concurrency Control&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#concurrency-control&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Paimon supports optimistic concurrency for multiple concurrent write jobs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Catalog</title>
+      <link>http://localhost:1313/concepts/catalog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/concepts/catalog/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;catalog&#34;&gt;&#xD;&#xA;  Catalog&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#catalog&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Paimon provides a Catalog abstraction to manage the table of contents and metadata. The Catalog abstraction provides&#xA;a series of ways to help you better integrate with computing engines. We always recommend that you use Catalog to&#xA;access the Paimon table.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Table Types</title>
+      <link>http://localhost:1313/concepts/table-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/concepts/table-types/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;table-types&#34;&gt;&#xD;&#xA;  Table Types&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#table-types&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Paimon supports table types:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>System Tables</title>
+      <link>http://localhost:1313/concepts/system-tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/concepts/system-tables/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;system-tables&#34;&gt;&#xD;&#xA;  System Tables&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#system-tables&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Paimon provides a very rich set of system tables to help users better analyze and query the status of Paimon tables:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Data Types</title>
+      <link>http://localhost:1313/concepts/data-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/concepts/data-types/</guid>
+      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;data-types&#34;&gt;&#xD;&#xA;  Data Types&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#data-types&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;A data type describes the logical type of a value in the table ecosystem. It can be used to declare input and/or output types of operations.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

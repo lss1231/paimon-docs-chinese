@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Trino
+  #
+
+This documentation is a guide for using Paimon in Trino.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/ecosystem/trino/">
+  <meta property="og:site_name" content="Apache Paimon">
+  <meta property="og:title" content="Trino">
+  <meta property="og:description" content="Trino#This documentation is a guide for using Paimon in Trino.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ecosystem">
+<title>Trino | Apache Paimon</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/ecosystem/trino/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Apache Paimon</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="toggle"  />
+    <label for="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="flex">
+      <a href="/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="toggle"  />
+    <label for="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="flex">
+      <a href="/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7a94b41156194ecee1e09c684d748e5" class="toggle"  />
+    <label for="section-c7a94b41156194ecee1e09c684d748e5" class="flex">
+      <a href="/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="toggle"  />
+    <label for="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="flex">
+      <a href="/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-04d66c05043a350c14fa1d446df94a79" class="toggle"  />
+    <label for="section-04d66c05043a350c14fa1d446df94a79" class="flex">
+      <a href="/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7c7495e5c54b216316cbd6cefc4966a1" class="toggle"  />
+    <label for="section-7c7495e5c54b216316cbd6cefc4966a1" class="flex">
+      <a href="/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bc2280284fce30dc9cfe001c4d4f308" class="toggle"  />
+    <label for="section-2bc2280284fce30dc9cfe001c4d4f308" class="flex">
+      <a href="/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11bc7fef43a73cd8f67282a4f805f959" class="toggle"  />
+    <label for="section-11bc7fef43a73cd8f67282a4f805f959" class="flex">
+      <a href="/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c279f1a47f0df5c590de69874c1f87c3" class="toggle" checked />
+    <label for="section-c279f1a47f0df5c590de69874c1f87c3" class="flex">
+      <a href="/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/trino/" class="active">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8c1a2c4fbac828568029fe095ebb072" class="toggle"  />
+    <label for="section-e8c1a2c4fbac828568029fe095ebb072" class="flex">
+      <a href="/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8745d48ca93ee7946abd46b8e0d32417" class="toggle"  />
+    <label for="section-8745d48ca93ee7946abd46b8e0d32417" class="flex">
+      <a href="/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-855b9d3470d29baa3d9ac155f1cbb17e" class="toggle"  />
+    <label for="section-855b9d3470d29baa3d9ac155f1cbb17e" class="flex">
+      <a href="/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0ffde0363b026afda7ad294c5d18c71a" class="toggle"  />
+    <label for="section-0ffde0363b026afda7ad294c5d18c71a" class="flex">
+      <a href="/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85fae8232c6bd11576e7262da56e3922" class="toggle"  />
+    <label for="section-85fae8232c6bd11576e7262da56e3922" class="flex">
+      <a href="/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-263d088534eb62bb6fabbdb4626879a6" class="toggle"  />
+    <label for="section-263d088534eb62bb6fabbdb4626879a6" class="flex">
+      <a href="/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Trino</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#version">Version</a></li>
+    <li><a href="#filesystem">Filesystem</a></li>
+    <li><a href="#preparing-paimon-jar-file">Preparing Paimon Jar File</a></li>
+    <li><a href="#configure-paimon-catalog">Configure Paimon Catalog</a>
+      <ul>
+        <li><a href="#install-paimon-connector">Install Paimon Connector</a></li>
+        <li><a href="#configure">Configure</a></li>
+      </ul>
+    </li>
+    <li><a href="#kerberos">Kerberos</a></li>
+    <li><a href="#create-schema">Create Schema</a></li>
+    <li><a href="#create-table">Create Table</a></li>
+    <li><a href="#add-column">Add Column</a></li>
+    <li><a href="#query">Query</a></li>
+    <li><a href="#query-with-time-traveling">Query with Time Traveling</a></li>
+    <li><a href="#insert">Insert</a></li>
+    <li><a href="#trino-to-paimon-type-mapping">Trino to Paimon type mapping</a></li>
+    <li><a href="#tmp-dir">Tmp Dir</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="trino">
+  Trino
+  <a class="anchor" href="#trino">#</a>
+</h1>
+<p>This documentation is a guide for using Paimon in Trino.</p>
+<h2 id="version">
+  Version
+  <a class="anchor" href="#version">#</a>
+</h2>
+<p>Paimon currently supports Trino 440.</p>
+<h2 id="filesystem">
+  Filesystem
+  <a class="anchor" href="#filesystem">#</a>
+</h2>
+<p>From version 0.8, Paimon share Trino filesystem for all actions, which means, you should
+config Trino filesystem before using trino-paimon. You can find information about how to config
+filesystems for Trino on Trino official website.</p>
+<h2 id="preparing-paimon-jar-file">
+  Preparing Paimon Jar File
+  <a class="anchor" href="#preparing-paimon-jar-file">#</a>
+</h2>
+<p><a href="http://localhost:1313/project/download/">Download</a></p>
+<p>You can also manually build a bundled jar from the source code. However, there are a few preliminary steps that need to be taken before compiling:</p>
+<ul>
+<li>To build from the source code, <a href="https://github.com/apache/paimon-trino.git">clone the git repository</a>.</li>
+<li>Install JDK21 locally, and configure JDK21 as a global environment variable;</li>
+</ul>
+<p>Then,you can build bundled jar with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn clean install -DskipTests
+</span></span></code></pre></div><p>You can find Trino connector jar in <code>./paimon-trino-&lt;trino-version&gt;/target/paimon-trino-&lt;trino-version&gt;-1.1.1-plugin.tar.gz</code>.</p>
+<p>We use <a href="https://mvnrepository.com/artifact/io.trino.hadoop/hadoop-apache">hadoop-apache</a> as a dependency for Hadoop,
+and the default Hadoop dependency typically supports both Hadoop 2 and Hadoop 3.
+If you encounter an unsupported scenario, you can specify the corresponding Apache Hadoop version.</p>
+<p>For example, if you want to use Hadoop 3.3.5-1, you can use the following command to build the jar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn clean install -DskipTests -Dhadoop.apache.version<span style="color:#f92672">=</span>3.3.5-1
+</span></span></code></pre></div><h2 id="configure-paimon-catalog">
+  Configure Paimon Catalog
+  <a class="anchor" href="#configure-paimon-catalog">#</a>
+</h2>
+<h3 id="install-paimon-connector">
+  Install Paimon Connector
+  <a class="anchor" href="#install-paimon-connector">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar -zxf paimon-trino-&lt;trino-version&gt;-1.1.1-plugin.tar.gz -C <span style="color:#e6db74">${</span>TRINO_HOME<span style="color:#e6db74">}</span>/plugin
+</span></span></code></pre></div><blockquote>
+<p>NOTE: For JDK 21, when Deploying Trino, should add jvm options: <code>--add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED</code></p></blockquote>
+<h3 id="configure">
+  Configure
+  <a class="anchor" href="#configure">#</a>
+</h3>
+<p>Catalogs are registered by creating a catalog properties file in the etc/catalog directory. For example, create etc/catalog/paimon.properties with the following contents to mount the paimon connector as the paimon catalog:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">connector.name</span><span style="color:#f92672">=</span><span style="color:#e6db74">paimon</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">warehouse</span><span style="color:#f92672">=</span><span style="color:#e6db74">file:/tmp/warehouse</span>
+</span></span></code></pre></div><p>If you are using HDFS, choose one of the following ways to configure your HDFS:</p>
+<ul>
+<li>set environment variable HADOOP_HOME.</li>
+<li>set environment variable HADOOP_CONF_DIR.</li>
+<li>configure <code>hadoop-conf-dir</code> in the properties.</li>
+</ul>
+<p>If you are using a Hadoop filesystem, you can still use trino-hdfs and trino-hive to config it.
+For example, if you use oss as a storage, you can write in <code>paimon.properties</code> according to <a href="https://trino.io/docs/current/connector/hive.html#hdfs-configuration">Trino Reference</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">hive.config.resources</span><span style="color:#f92672">=</span><span style="color:#e6db74">/path/to/core-site.xml</span>
+</span></span></code></pre></div><p>Then, config core-site.xml according to <a href="https://github.com/aliyun/alibabacloud-jindodata/blob/master/docs/user/4.x/4.6.x/4.6.12/oss/presto/jindosdk_on_presto.md">Jindo Reference</a></p>
+<h2 id="kerberos">
+  Kerberos
+  <a class="anchor" href="#kerberos">#</a>
+</h2>
+<p>You can configure kerberos keytab file when using KERBEROS authentication in the properties.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#a6e22e">security.kerberos.login.principal</span><span style="color:#f92672">=</span><span style="color:#e6db74">hadoop-user</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">security.kerberos.login.keytab</span><span style="color:#f92672">=</span><span style="color:#e6db74">/etc/trino/hdfs.keytab</span>
+</span></span></code></pre></div><p>Keytab files must be distributed to every node in the cluster that runs Trino.</p>
+<h2 id="create-schema">
+  Create Schema
+  <a class="anchor" href="#create-schema">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">SCHEMA</span> paimon.test_db;
+</span></span></code></pre></div><h2 id="create-table">
+  Create Table
+  <a class="anchor" href="#create-table">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon.test_db.orders (
+</span></span><span style="display:flex;"><span>    order_key bigint,
+</span></span><span style="display:flex;"><span>    orders_tatus varchar,
+</span></span><span style="display:flex;"><span>    total_price decimal(<span style="color:#ae81ff">18</span>,<span style="color:#ae81ff">4</span>),
+</span></span><span style="display:flex;"><span>    order_date date
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    file_format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ORC&#39;</span>,
+</span></span><span style="display:flex;"><span>    primary_key <span style="color:#f92672">=</span> ARRAY[<span style="color:#e6db74">&#39;order_key&#39;</span>,<span style="color:#e6db74">&#39;order_date&#39;</span>],
+</span></span><span style="display:flex;"><span>    partitioned_by <span style="color:#f92672">=</span> ARRAY[<span style="color:#e6db74">&#39;order_date&#39;</span>],
+</span></span><span style="display:flex;"><span>    bucket <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2&#39;</span>,
+</span></span><span style="display:flex;"><span>    bucket_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;order_key&#39;</span>,
+</span></span><span style="display:flex;"><span>    changelog_producer <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h2 id="add-column">
+  Add Column
+  <a class="anchor" href="#add-column">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon.test_db.orders (
+</span></span><span style="display:flex;"><span>    order_key bigint,
+</span></span><span style="display:flex;"><span>    orders_tatus varchar,
+</span></span><span style="display:flex;"><span>    total_price decimal(<span style="color:#ae81ff">18</span>,<span style="color:#ae81ff">4</span>),
+</span></span><span style="display:flex;"><span>    order_date date
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    file_format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ORC&#39;</span>,
+</span></span><span style="display:flex;"><span>    primary_key <span style="color:#f92672">=</span> ARRAY[<span style="color:#e6db74">&#39;order_key&#39;</span>,<span style="color:#e6db74">&#39;order_date&#39;</span>],
+</span></span><span style="display:flex;"><span>    partitioned_by <span style="color:#f92672">=</span> ARRAY[<span style="color:#e6db74">&#39;order_date&#39;</span>],
+</span></span><span style="display:flex;"><span>    bucket <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2&#39;</span>,
+</span></span><span style="display:flex;"><span>    bucket_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;order_key&#39;</span>,
+</span></span><span style="display:flex;"><span>    changelog_producer <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> paimon.test_db.orders <span style="color:#66d9ef">ADD</span> <span style="color:#66d9ef">COLUMN</span> shipping_address varchar;
+</span></span></code></pre></div><h2 id="query">
+  Query
+  <a class="anchor" href="#query">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> paimon.test_db.orders;
+</span></span></code></pre></div><h2 id="query-with-time-traveling">
+  Query with Time Traveling
+  <a class="anchor" href="#query-with-time-traveling">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- read the snapshot from specified timestamp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> t <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">TIMESTAMP</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">OF</span> <span style="color:#66d9ef">TIMESTAMP</span> <span style="color:#e6db74">&#39;2023-01-01 00:00:00 Asia/Shanghai&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- read the snapshot with id 1L (use snapshot id as version)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> t <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">VERSION</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">OF</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- read tag &#39;my-tag&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> t <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">VERSION</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">OF</span> <span style="color:#e6db74">&#39;my-tag&#39;</span>;
+</span></span></code></pre></div><blockquote class="book-hint warning">
+  
+If tag's name is a number and equals to a snapshot id, the VERSION AS OF syntax will consider tag first. For example, if
+you have a tag named '1' based on snapshot 2, the statement `SELECT * FROM paimon.test_db.orders FOR VERSION AS OF '1'` actually queries snapshot 2
+instead of snapshot 1.
+
+</blockquote>
+
+<h2 id="insert">
+  Insert
+  <a class="anchor" href="#insert">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon.test_db.orders <span style="color:#66d9ef">VALUES</span> (.....);
+</span></span></code></pre></div><p>Supports:</p>
+<ul>
+<li>primary key table with fixed bucket.</li>
+<li>non-primary-key table with bucket -1.</li>
+</ul>
+<h2 id="trino-to-paimon-type-mapping">
+  Trino to Paimon type mapping
+  <a class="anchor" href="#trino-to-paimon-type-mapping">#</a>
+</h2>
+<p>This section lists all supported type conversion between Trino and Paimon.
+All Trino&rsquo;s data types are available in package <code>io.trino.spi.type</code>.</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="text-left" style="width: 10%">Trino Data Type</th>
+      <th class="text-left" style="width: 10%">Paimon Data Type</th>
+      <th class="text-left" style="width: 5%">Atomic Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><code>RowType</code></td>
+      <td><code>RowType</code></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code>MapType</code></td>
+      <td><code>MapType</code></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code>ArrayType</code></td>
+      <td><code>ArrayType</code></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code>BooleanType</code></td>
+      <td><code>BooleanType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>TinyintType</code></td>
+      <td><code>TinyIntType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>SmallintType</code></td>
+      <td><code>SmallIntType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>IntegerType</code></td>
+      <td><code>IntType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>BigintType</code></td>
+      <td><code>BigIntType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>RealType</code></td>
+      <td><code>FloatType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>DoubleType</code></td>
+      <td><code>DoubleType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>CharType(length)</code></td>
+      <td><code>CharType(length)</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>VarCharType(VarCharType.MAX_LENGTH)</code></td>
+      <td><code>VarCharType(VarCharType.MAX_LENGTH)</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>VarCharType(length)</code></td>
+      <td><code>VarCharType(length), length is less than VarCharType.MAX_LENGTH</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>DateType</code></td>
+      <td><code>DateType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>TimestampType</code></td>
+      <td><code>TimestampType</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>DecimalType(precision, scale)</code></td>
+      <td><code>DecimalType(precision, scale)</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>VarBinaryType(length)</code></td>
+      <td><code>VarBinaryType(length)</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code>TimestampWithTimeZoneType</code></td>
+      <td><code>LocalZonedTimestampType</code></td>
+      <td>true</td>
+    </tr>
+    </tbody>
+</table>
+<h2 id="tmp-dir">
+  Tmp Dir
+  <a class="anchor" href="#tmp-dir">#</a>
+</h2>
+<p>Paimon will unzip some jars to the tmp directory for codegen. By default, Trino will use <code>'/tmp'</code> as the temporary
+directory, but <code>'/tmp'</code> may be periodically deleted.</p>
+<p>You can configure this environment variable when Trino starts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>-Djava.io.tmpdir<span style="color:#f92672">=</span>/path/to/other/tmpdir
+</span></span></code></pre></div><p>Let Paimon use a secure temporary directory.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#version">Version</a></li>
+    <li><a href="#filesystem">Filesystem</a></li>
+    <li><a href="#preparing-paimon-jar-file">Preparing Paimon Jar File</a></li>
+    <li><a href="#configure-paimon-catalog">Configure Paimon Catalog</a>
+      <ul>
+        <li><a href="#install-paimon-connector">Install Paimon Connector</a></li>
+        <li><a href="#configure">Configure</a></li>
+      </ul>
+    </li>
+    <li><a href="#kerberos">Kerberos</a></li>
+    <li><a href="#create-schema">Create Schema</a></li>
+    <li><a href="#create-table">Create Table</a></li>
+    <li><a href="#add-column">Add Column</a></li>
+    <li><a href="#query">Query</a></li>
+    <li><a href="#query-with-time-traveling">Query with Time Traveling</a></li>
+    <li><a href="#insert">Insert</a></li>
+    <li><a href="#trino-to-paimon-type-mapping">Trino to Paimon type mapping</a></li>
+    <li><a href="#tmp-dir">Tmp Dir</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

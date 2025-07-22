@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Quick Start
+  #
+
+This documentation is a guide for using Paimon in Flink.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/flink/quick-start/">
+  <meta property="og:site_name" content="Apache Paimon">
+  <meta property="og:title" content="Quick Start">
+  <meta property="og:description" content="Quick Start#This documentation is a guide for using Paimon in Flink.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="flink">
+<title>Quick Start | Apache Paimon</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/flink/quick-start/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Apache Paimon</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="toggle"  />
+    <label for="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="flex">
+      <a href="/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="toggle"  />
+    <label for="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="flex">
+      <a href="/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7a94b41156194ecee1e09c684d748e5" class="toggle"  />
+    <label for="section-c7a94b41156194ecee1e09c684d748e5" class="flex">
+      <a href="/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="toggle"  />
+    <label for="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="flex">
+      <a href="/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-04d66c05043a350c14fa1d446df94a79" class="toggle"  />
+    <label for="section-04d66c05043a350c14fa1d446df94a79" class="flex">
+      <a href="/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7c7495e5c54b216316cbd6cefc4966a1" class="toggle"  />
+    <label for="section-7c7495e5c54b216316cbd6cefc4966a1" class="flex">
+      <a href="/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bc2280284fce30dc9cfe001c4d4f308" class="toggle" checked />
+    <label for="section-2bc2280284fce30dc9cfe001c4d4f308" class="flex">
+      <a href="/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/quick-start/" class="active">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11bc7fef43a73cd8f67282a4f805f959" class="toggle"  />
+    <label for="section-11bc7fef43a73cd8f67282a4f805f959" class="flex">
+      <a href="/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c279f1a47f0df5c590de69874c1f87c3" class="toggle"  />
+    <label for="section-c279f1a47f0df5c590de69874c1f87c3" class="flex">
+      <a href="/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8c1a2c4fbac828568029fe095ebb072" class="toggle"  />
+    <label for="section-e8c1a2c4fbac828568029fe095ebb072" class="flex">
+      <a href="/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8745d48ca93ee7946abd46b8e0d32417" class="toggle"  />
+    <label for="section-8745d48ca93ee7946abd46b8e0d32417" class="flex">
+      <a href="/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-855b9d3470d29baa3d9ac155f1cbb17e" class="toggle"  />
+    <label for="section-855b9d3470d29baa3d9ac155f1cbb17e" class="flex">
+      <a href="/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0ffde0363b026afda7ad294c5d18c71a" class="toggle"  />
+    <label for="section-0ffde0363b026afda7ad294c5d18c71a" class="flex">
+      <a href="/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85fae8232c6bd11576e7262da56e3922" class="toggle"  />
+    <label for="section-85fae8232c6bd11576e7262da56e3922" class="flex">
+      <a href="/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-263d088534eb62bb6fabbdb4626879a6" class="toggle"  />
+    <label for="section-263d088534eb62bb6fabbdb4626879a6" class="flex">
+      <a href="/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Quick Start</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#jars">Jars</a></li>
+    <li><a href="#start">Start</a></li>
+    <li><a href="#use-flink-managed-memory">Use Flink Managed Memory</a></li>
+    <li><a href="#setting-dynamic-options">Setting dynamic options</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="quick-start">
+  Quick Start
+  <a class="anchor" href="#quick-start">#</a>
+</h1>
+<p>This documentation is a guide for using Paimon in Flink.</p>
+<h2 id="jars">
+  Jars
+  <a class="anchor" href="#jars">#</a>
+</h2>
+<p>Paimon currently supports Flink 1.20, 1.19, 1.18, 1.17, 1.16, 1.15. We recommend the latest Flink version for a better experience.</p>
+<p>Download the jar file with corresponding version.</p>
+<blockquote>
+<p>Currently, paimon provides two types jar: one of which(the bundled jar) is used for read/write data, and the other(action jar) for operations such as manually compaction,
+<table>
+  <thead>
+      <tr>
+          <th>Version</th>
+          <th>Type</th>
+          <th>Jar</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Flink 2.0</td>
+          <td>Bundled Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-2.0/1.1.1/paimon-flink-2.0-1.1.1.jar">paimon-flink-2.0-1.1.1.jar</a></td>
+      </tr>
+      <tr>
+          <td>Flink 1.20</td>
+          <td>Bundled Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-1.20/1.1.1/paimon-flink-1.20-1.1.1.jar">paimon-flink-1.20-1.1.1.jar</a></td>
+      </tr>
+      <tr>
+          <td>Flink 1.19</td>
+          <td>Bundled Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-1.19/1.1.1/paimon-flink-1.19-1.1.1.jar">paimon-flink-1.19-1.1.1.jar</a></td>
+      </tr>
+      <tr>
+          <td>Flink 1.18</td>
+          <td>Bundled Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-1.18/1.1.1/paimon-flink-1.18-1.1.1.jar">paimon-flink-1.18-1.1.1.jar</a></td>
+      </tr>
+      <tr>
+          <td>Flink 1.17</td>
+          <td>Bundled Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-1.17/1.1.1/paimon-flink-1.17-1.1.1.jar">paimon-flink-1.17-1.1.1.jar</a></td>
+      </tr>
+      <tr>
+          <td>Flink 1.16</td>
+          <td>Bundled Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-1.16/1.1.1/paimon-flink-1.16-1.1.1.jar">paimon-flink-1.16-1.1.1.jar</a></td>
+      </tr>
+      <tr>
+          <td>Flink 1.15</td>
+          <td>Bundled Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-1.15/1.1.1/paimon-flink-1.15-1.1.1.jar">paimon-flink-1.15-1.1.1.jar</a></td>
+      </tr>
+      <tr>
+          <td>Flink Action</td>
+          <td>Action Jar</td>
+          <td><a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-action/1.1.1/paimon-flink-action-1.1.1.jar">paimon-flink-action-1.1.1.jar</a></td>
+      </tr>
+  </tbody>
+</table>
+
+</p></blockquote>
+
+
+<p>You can also manually build bundled jar from the source code.</p>
+<p>To build from source code, <a href="https://github.com/apache/paimon.git">clone the git repository</a>.</p>
+<p>Build bundled jar with the following command.</p>
+<ul>
+<li><code>mvn clean install -DskipTests</code></li>
+</ul>
+<p>You can find the bundled jar in <code>./paimon-flink/paimon-flink-&lt;flink-version&gt;/target/paimon-flink-&lt;flink-version&gt;-1.1.1.jar</code>, and the action jar in <code>./paimon-flink/paimon-flink-action/target/paimon-flink-action-1.1.1.jar</code>.</p>
+<h2 id="start">
+  Start
+  <a class="anchor" href="#start">#</a>
+</h2>
+<p><strong>Step 1: Download Flink</strong></p>
+<p>If you haven&rsquo;t downloaded Flink, you can <a href="https://flink.apache.org/downloads.html">download Flink</a>, then extract the archive with the following command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar -xzf flink-*.tgz
+</span></span></code></pre></div><p><strong>Step 2: Copy Paimon Bundled Jar</strong></p>
+<p>Copy paimon bundled jar to the <code>lib</code> directory of your Flink home.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp paimon-flink-*.jar &lt;FLINK_HOME&gt;/lib/
+</span></span></code></pre></div><p><strong>Step 3: Copy Hadoop Bundled Jar</strong></p>
+<blockquote class="book-hint info">
+  
+If the machine is in a hadoop environment, please ensure the value of the environment variable `HADOOP_CLASSPATH` include path to the common Hadoop libraries, you do not need to use the following pre-bundled Hadoop jar.
+
+</blockquote>
+
+<p><a href="https://flink.apache.org/downloads.html">Download</a> Pre-bundled Hadoop jar and copy the jar file to the <code>lib</code> directory of your Flink home.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp flink-shaded-hadoop-2-uber-*.jar &lt;FLINK_HOME&gt;/lib/
+</span></span></code></pre></div><p><strong>Step 4: Start a Flink Local Cluster</strong></p>
+<p>In order to run multiple Flink jobs at the same time, you need to modify the cluster configuration in <code>&lt;FLINK_HOME&gt;/conf/flink-conf.yaml</code>(Flink version &lt; 1.19) or <code>&lt;FLINK_HOME&gt;/conf/config.yaml</code>(Flink version &gt;= 1.19).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">taskmanager.numberOfTaskSlots</span>: <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><p>To start a local cluster, run the bash script that comes with Flink:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/start-cluster.sh
+</span></span></code></pre></div><p>You should be able to navigate to the web UI at <a href="http://localhost:8081">localhost:8081</a> to view
+the Flink dashboard and see that the cluster is up and running.</p>
+<p>You can now start Flink SQL client to execute SQL scripts.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/sql-client.sh
+</span></span></code></pre></div><p><strong>Step 5: Create a Catalog and a Table</strong></p>
+
+
+
+
+
+<div class="book-tabs"><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Catalog"
+    name="tabs-Create Flink Catalog"
+    id="tabs-Create Flink Catalog-0"
+    checked="checked" 
+    onclick="onSwitch('Catalog')"
+  />
+  <label for="tabs-Create Flink Catalog-0">Catalog</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- if you&#39;re trying out Paimon in a distributed environment,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- the warehouse path should be set to a shared file system, such as HDFS or OSS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> my_catalog <span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;paimon&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;warehouse&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;file:/tmp/paimon&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>USE <span style="color:#66d9ef">CATALOG</span> my_catalog;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a word count table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> word_count (
+</span></span><span style="display:flex;"><span>    word STRING <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> <span style="color:#66d9ef">NOT</span> ENFORCED,
+</span></span><span style="display:flex;"><span>    cnt BIGINT
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div></div><input 
+    type="radio"
+    class="toggle"
+    data-tab-group="flink-tabs"
+    data-tab-item="Generic-Catalog"
+    name="tabs-Create Flink Catalog"
+    id="tabs-Create Flink Catalog-1"
+     
+    onclick="onSwitch('Generic-Catalog')"
+  />
+  <label for="tabs-Create Flink Catalog-1">Generic-Catalog</label>
+  <div class="book-tabs-content markdown-inner"><p>Using FlinkGenericCatalog, you need to use Hive metastore. Then, you can use all the tables from Paimon, Hive, and
+Flink Generic Tables (Kafka and other tables)!</p>
+<p>In this mode, you should use &lsquo;connector&rsquo; option for creating tables.</p>
+<blockquote class="book-hint info">
+<p>Paimon will use <code>hive.metastore.warehouse.dir</code> in your <code>hive-site.xml</code>, please use path with scheme.
+For example, <code>hdfs://...</code>. Otherwise, Paimon will use the local path.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> my_catalog <span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;paimon-generic&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;hive-conf-dir&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;...&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;hadoop-conf-dir&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;...&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>USE <span style="color:#66d9ef">CATALOG</span> my_catalog;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a word count table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> word_count (
+</span></span><span style="display:flex;"><span>    word STRING <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> <span style="color:#66d9ef">NOT</span> ENFORCED,
+</span></span><span style="display:flex;"><span>    cnt BIGINT
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;connector&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;paimon&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div></div></div>
+
+<p><strong>Step 6: Write Data</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- create a word data generator table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TEMPORARY</span> <span style="color:#66d9ef">TABLE</span> word_table (
+</span></span><span style="display:flex;"><span>    word STRING
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">WITH</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;connector&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;datagen&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;fields.word.length&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- paimon requires checkpoint interval in streaming mode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;execution.checkpointing.interval&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;10 s&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- write streaming data to dynamic table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> word_count <span style="color:#66d9ef">SELECT</span> word, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">FROM</span> word_table <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> word;
+</span></span></code></pre></div><p><strong>Step 7: OLAP Query</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- use tableau result mode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;sql-client.execution.result-mode&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;tableau&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- switch to batch mode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">RESET</span> <span style="color:#e6db74">&#39;execution.checkpointing.interval&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;execution.runtime-mode&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;batch&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- olap query the table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> word_count;
+</span></span></code></pre></div><p>You can execute the query multiple times and observe the changes in the results.</p>
+<p><strong>Step 8: Streaming Query</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- switch to streaming mode
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;execution.runtime-mode&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;streaming&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- track the changes of table and calculate the count interval statistics
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">`</span>interval<span style="color:#f92672">`</span>, <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> interval_cnt <span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">SELECT</span> cnt <span style="color:#f92672">/</span> <span style="color:#ae81ff">10000</span> <span style="color:#66d9ef">AS</span> <span style="color:#f92672">`</span>interval<span style="color:#f92672">`</span> <span style="color:#66d9ef">FROM</span> word_count) <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#f92672">`</span>interval<span style="color:#f92672">`</span>;
+</span></span></code></pre></div><p><strong>Step 9: Exit</strong></p>
+<p>Cancel streaming job in <a href="http://localhost:8081">localhost:8081</a>, then execute the following SQL script to exit Flink SQL client.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- uncomment the following line if you want to drop the dynamic table and clear the files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- DROP TABLE word_count;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- exit sql-client
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>EXIT;
+</span></span></code></pre></div><p>Stop the Flink local cluster.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/stop-cluster.sh
+</span></span></code></pre></div><h2 id="use-flink-managed-memory">
+  Use Flink Managed Memory
+  <a class="anchor" href="#use-flink-managed-memory">#</a>
+</h2>
+<p>Paimon tasks can create memory pools based on executor memory which will be managed by Flink executor, such as managed memory in Flink task manager. It will improve the stability and performance of sinks by managing writer buffers for multiple tasks through executor.</p>
+<p>The following properties can be set if using Flink managed memory:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Option</th>
+          <th>Default</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>sink.use-managed-memory-allocator</td>
+          <td>false</td>
+          <td>If true, flink sink will use managed memory for merge tree; otherwise, it will create an independent memory allocator, which means each task allocates and manages its own memory pool (heap memory), if there are too many tasks in one Executor, it may cause performance issues and even OOM.</td>
+      </tr>
+      <tr>
+          <td>sink.managed.writer-buffer-memory</td>
+          <td>256M</td>
+          <td>Weight of writer buffer in managed memory, Flink will compute the memory size, for writer according to the weight, the actual memory used depends on the running environment. Now the memory size defined in this property are equals to the exact memory allocated to write buffer in runtime.</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Use In SQL</strong>
+Users can set memory weight in SQL for Flink Managed Memory, then Flink sink operator will get the memory pool size and create allocator for Paimon writer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_table <span style="color:#75715e">/*+ OPTIONS(&#39;sink.use-managed-memory-allocator&#39;=&#39;true&#39;, &#39;sink.managed.writer-buffer-memory&#39;=&#39;256M&#39;) */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> ....;
+</span></span></code></pre></div><h2 id="setting-dynamic-options">
+  Setting dynamic options
+  <a class="anchor" href="#setting-dynamic-options">#</a>
+</h2>
+<p>When interacting with the Paimon table, table options can be tuned without changing the options in the catalog. Paimon will extract job-level dynamic options and take effect in the current session.
+The dynamic table option&rsquo;s key format is <code>paimon.${catalogName}.${dbName}.${tableName}.${config_key}</code>. The catalogName/dbName/tableName can be <code>*</code>, which means matching all the specific parts.
+The dynamic global option&rsquo;s key format is <code>${config_key}</code>. Global options will take effect for all the tables. Table options will override global options if there are conflicts.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- set scan.timestamp-millis=1697018249001 for all tables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;scan.timestamp-millis&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1697018249001&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> T;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- set scan.timestamp-millis=1697018249000 for the table mycatalog.default.T
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;paimon.mycatalog.default.T.scan.timestamp-millis&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1697018249000&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> T;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- set scan.timestamp-millis=1697018249000 for the table default.T in any catalog
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;paimon.*.default.T.scan.timestamp-millis&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1697018249000&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> T;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- set scan.timestamp-millis=1697018249000 for the table mycatalog.default.T1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- set scan.timestamp-millis=1697018249001 for others tables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;paimon.mycatalog.default.T1.scan.timestamp-millis&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1697018249000&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> <span style="color:#e6db74">&#39;scan.timestamp-millis&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1697018249001&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> T1 <span style="color:#66d9ef">JOIN</span> T2 <span style="color:#66d9ef">ON</span> xxxx;
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#jars">Jars</a></li>
+    <li><a href="#start">Start</a></li>
+    <li><a href="#use-flink-managed-memory">Use Flink Managed Memory</a></li>
+    <li><a href="#setting-dynamic-options">Setting dynamic options</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Compaction
+  #
+
+When more and more records are written into the LSM tree, the number of sorted runs will increase. Because querying an
+LSM tree requires all sorted runs to be combined, too many sorted runs will result in a poor query performance, or even
+out of memory.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/primary-key-table/compaction/">
+  <meta property="og:site_name" content="Apache Paimon">
+  <meta property="og:title" content="Compaction">
+  <meta property="og:description" content="Compaction#When more and more records are written into the LSM tree, the number of sorted runs will increase. Because querying an LSM tree requires all sorted runs to be combined, too many sorted runs will result in a poor query performance, or even out of memory.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="primary-key-table">
+<title>Compaction | Apache Paimon</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/primary-key-table/compaction/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Apache Paimon</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="toggle"  />
+    <label for="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="flex">
+      <a href="/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="toggle"  />
+    <label for="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="flex">
+      <a href="/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7a94b41156194ecee1e09c684d748e5" class="toggle"  />
+    <label for="section-c7a94b41156194ecee1e09c684d748e5" class="flex">
+      <a href="/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="toggle" checked />
+    <label for="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="flex">
+      <a href="/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-04d66c05043a350c14fa1d446df94a79" class="toggle"  />
+    <label for="section-04d66c05043a350c14fa1d446df94a79" class="flex">
+      <a href="/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/compaction/" class="active">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7c7495e5c54b216316cbd6cefc4966a1" class="toggle"  />
+    <label for="section-7c7495e5c54b216316cbd6cefc4966a1" class="flex">
+      <a href="/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bc2280284fce30dc9cfe001c4d4f308" class="toggle"  />
+    <label for="section-2bc2280284fce30dc9cfe001c4d4f308" class="flex">
+      <a href="/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11bc7fef43a73cd8f67282a4f805f959" class="toggle"  />
+    <label for="section-11bc7fef43a73cd8f67282a4f805f959" class="flex">
+      <a href="/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c279f1a47f0df5c590de69874c1f87c3" class="toggle"  />
+    <label for="section-c279f1a47f0df5c590de69874c1f87c3" class="flex">
+      <a href="/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8c1a2c4fbac828568029fe095ebb072" class="toggle"  />
+    <label for="section-e8c1a2c4fbac828568029fe095ebb072" class="flex">
+      <a href="/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8745d48ca93ee7946abd46b8e0d32417" class="toggle"  />
+    <label for="section-8745d48ca93ee7946abd46b8e0d32417" class="flex">
+      <a href="/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-855b9d3470d29baa3d9ac155f1cbb17e" class="toggle"  />
+    <label for="section-855b9d3470d29baa3d9ac155f1cbb17e" class="flex">
+      <a href="/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0ffde0363b026afda7ad294c5d18c71a" class="toggle"  />
+    <label for="section-0ffde0363b026afda7ad294c5d18c71a" class="flex">
+      <a href="/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85fae8232c6bd11576e7262da56e3922" class="toggle"  />
+    <label for="section-85fae8232c6bd11576e7262da56e3922" class="flex">
+      <a href="/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-263d088534eb62bb6fabbdb4626879a6" class="toggle"  />
+    <label for="section-263d088534eb62bb6fabbdb4626879a6" class="flex">
+      <a href="/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Compaction</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#asynchronous-compaction">Asynchronous Compaction</a></li>
+    <li><a href="#dedicated-compaction-job">Dedicated compaction job</a></li>
+    <li><a href="#record-level-expire">Record-Level expire</a></li>
+    <li><a href="#full-compaction">Full Compaction</a></li>
+    <li><a href="#lookup-compaction">Lookup Compaction</a></li>
+    <li><a href="#compaction-options">Compaction Options</a>
+      <ul>
+        <li><a href="#number-of-sorted-runs-to-pause-writing">Number of Sorted Runs to Pause Writing</a></li>
+        <li><a href="#number-of-sorted-runs-to-trigger-compaction">Number of Sorted Runs to Trigger Compaction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="compaction">
+  Compaction
+  <a class="anchor" href="#compaction">#</a>
+</h1>
+<p>When more and more records are written into the LSM tree, the number of sorted runs will increase. Because querying an
+LSM tree requires all sorted runs to be combined, too many sorted runs will result in a poor query performance, or even
+out of memory.</p>
+<p>To limit the number of sorted runs, we have to merge several sorted runs into one big sorted run once in a while. This
+procedure is called compaction.</p>
+<p>However, compaction is a resource intensive procedure which consumes a certain amount of CPU time and disk IO, so too
+frequent compaction may in turn result in slower writes. It is a trade-off between query and write performance. Paimon
+currently adopts a compaction strategy similar to Rocksdb&rsquo;s <a href="https://github.com/facebook/rocksdb/wiki/Universal-Compaction">universal compaction</a>.</p>
+<p>Compaction solves:</p>
+<ol>
+<li>Reduce Level 0 files to avoid poor query performance.</li>
+<li>Produce changelog via <a href="http://localhost:1313/primary-key-table/changelog-producer/">changelog-producer</a>.</li>
+<li>Produce deletion vectors for <a href="http://localhost:1313/primary-key-table/table-mode/#merge-on-write">MOW mode</a>.</li>
+<li>Snapshot Expiration, Tag Expiration, Partitions Expiration.</li>
+</ol>
+<p>Limitation:</p>
+<ul>
+<li>There can only be one job working on the same partition&rsquo;s compaction, otherwise it will cause conflicts and one side will throw an exception failure.</li>
+</ul>
+<p>Writing performance is almost always affected by compaction, so its tuning is crucial.</p>
+<h2 id="asynchronous-compaction">
+  Asynchronous Compaction
+  <a class="anchor" href="#asynchronous-compaction">#</a>
+</h2>
+<p>Compaction is inherently asynchronous, but if you want it to be completely asynchronous without blocking writes,
+expecting a mode for maximum writing throughput, the compaction can be done slowly and not in a hurry.
+You can use the following strategies for your table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>num-sorted-run.stop-trigger <span style="color:#f92672">=</span> <span style="color:#ae81ff">2147483647</span>
+</span></span><span style="display:flex;"><span>sort-spill-threshold <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>lookup-wait <span style="color:#f92672">=</span> false
+</span></span></code></pre></div><p>This configuration will generate more files during peak write periods and gradually merge them for optimal read
+performance during low write periods.</p>
+<h2 id="dedicated-compaction-job">
+  Dedicated compaction job
+  <a class="anchor" href="#dedicated-compaction-job">#</a>
+</h2>
+<p>In general, if you expect multiple jobs to be written to the same table, you need to separate the compaction. You can
+use <a href="http://localhost:1313/maintenance/dedicated-compaction/#dedicated-compaction-job">dedicated compaction job</a>.</p>
+<h2 id="record-level-expire">
+  Record-Level expire
+  <a class="anchor" href="#record-level-expire">#</a>
+</h2>
+<p>In compaction, you can configure record-Level expire time to expire records, you should configure:</p>
+<ol>
+<li><code>'record-level.expire-time'</code>: time retain for records.</li>
+<li><code>'record-level.time-field'</code>: time field for record level expire.</li>
+</ol>
+<p>Expiration happens in compaction, and there is no strong guarantee to expire records in time.
+You can trigger a full compaction manually to expire records which were not expired in time.</p>
+<h2 id="full-compaction">
+  Full Compaction
+  <a class="anchor" href="#full-compaction">#</a>
+</h2>
+<p>Paimon Compaction uses <a href="https://github.com/facebook/rocksdb/wiki/Universal-Compaction">Universal-Compaction</a>.
+By default, when there is too much incremental data, Full Compaction will be automatically performed. You don&rsquo;t usually
+have to worry about it.</p>
+<p>Paimon also provides a configuration that allows for regular execution of Full Compaction.</p>
+<ol>
+<li>&lsquo;compaction.optimization-interval&rsquo;: Implying how often to perform an optimization full compaction, this
+configuration is used to ensure the query timeliness of the read-optimized system table.</li>
+<li>&lsquo;full-compaction.delta-commits&rsquo;: Full compaction will be constantly triggered after delta commits. Its disadvantage
+is that it can only perform compaction synchronously, which will affect writing efficiency.</li>
+</ol>
+<h2 id="lookup-compaction">
+  Lookup Compaction
+  <a class="anchor" href="#lookup-compaction">#</a>
+</h2>
+<p>When primary key table is configured with <code>lookup</code> <a href="http://localhost:1313/primary-key-table/changelog-producer/">changelog producer</a>
+or <code>first-row</code> <a href="http://localhost:1313/primary-key-table/merge-engine/">merge-engine</a>
+or has enabled <code>deletion vectors</code> for <a href="http://localhost:1313/primary-key-table/table-mode/#merge-on-write">MOW mode</a>, Paimon will
+use a radical compaction strategy to force compacting level 0 files to higher levels for every compaction trigger.</p>
+<p>Paimon also provides configurations to optimize the frequency of this compaction.</p>
+<ol>
+<li>&rsquo;lookup-compact&rsquo;: compact mode used for lookup compaction. Possible values: <code>radical</code>, will use
+<code>ForceUpLevel0Compaction</code> strategy to radically compact new files; <code>gentle</code>, will use <code>UniversalCompaction</code> strategy
+to gently compact new files;</li>
+<li>&rsquo;lookup-compact.max-interval&rsquo;: The max interval for a forced L0 lookup compaction to be triggered in <code>gentle</code> mode.
+This option is only valid when <code>lookup-compact</code> mode is <code>gentle</code>.</li>
+</ol>
+<p>By configuring &rsquo;lookup-compact&rsquo; as <code>gentle</code>, new files in L0 will not be compacted immediately, this may greatly
+reduce the overall resource usage at the expense of worse data freshness in certain cases.</p>
+<h2 id="compaction-options">
+  Compaction Options
+  <a class="anchor" href="#compaction-options">#</a>
+</h2>
+<h3 id="number-of-sorted-runs-to-pause-writing">
+  Number of Sorted Runs to Pause Writing
+  <a class="anchor" href="#number-of-sorted-runs-to-pause-writing">#</a>
+</h3>
+<p>When the number of sorted runs is small, Paimon writers will perform compaction asynchronously in separated threads, so
+records can be continuously written into the table. However, to avoid unbounded growth of sorted runs, writers will
+pause writing when the number of sorted runs hits the threshold. The following table property determines
+the threshold.</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="text-left" style="width: 20%">Option</th>
+      <th class="text-left" style="width: 5%">Required</th>
+      <th class="text-left" style="width: 5%">Default</th>
+      <th class="text-left" style="width: 10%">Type</th>
+      <th class="text-left" style="width: 60%">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><h5>num-sorted-run.stop-trigger</h5></td>
+      <td>No</td>
+      <td style="word-wrap: break-word;">(none)</td>
+      <td>Integer</td>
+      <td>The number of sorted runs that trigger the stopping of writes, the default value is 'num-sorted-run.compaction-trigger' + 3.</td>
+    </tr>
+    </tbody>
+</table>
+<p>Write stalls will become less frequent when <code>num-sorted-run.stop-trigger</code> becomes larger, thus improving writing
+performance. However, if this value becomes too large, more memory and CPU time will be needed when querying the
+table. If you are concerned about the OOM problem, please configure the following option.
+Its value depends on your memory size.</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="text-left" style="width: 20%">Option</th>
+      <th class="text-left" style="width: 5%">Required</th>
+      <th class="text-left" style="width: 5%">Default</th>
+      <th class="text-left" style="width: 10%">Type</th>
+      <th class="text-left" style="width: 60%">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><h5>sort-spill-threshold</h5></td>
+      <td>No</td>
+      <td style="word-wrap: break-word;">(none)</td>
+      <td>Integer</td>
+      <td>If the maximum number of sort readers exceeds this value, a spill will be attempted. This prevents too many readers from consuming too much memory and causing OOM.</td>
+    </tr>
+    </tbody>
+</table>
+<h3 id="number-of-sorted-runs-to-trigger-compaction">
+  Number of Sorted Runs to Trigger Compaction
+  <a class="anchor" href="#number-of-sorted-runs-to-trigger-compaction">#</a>
+</h3>
+<p>Paimon uses <a href="http://localhost:1313/primary-key-table/overview/#lsm-trees">LSM tree</a> which supports a large number of updates. LSM organizes files in several <a href="http://localhost:1313/primary-key-table/overview/#sorted-runs">sorted runs</a>. When querying records from an LSM tree, all sorted runs must be combined to produce a complete view of all records.</p>
+<p>One can easily see that too many sorted runs will result in poor query performance. To keep the number of sorted runs in a reasonable range, Paimon writers will automatically perform <a href="http://localhost:1313/primary-key-table/compaction/">compactions</a>. The following table property determines the minimum number of sorted runs to trigger a compaction.</p>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="text-left" style="width: 20%">Option</th>
+      <th class="text-left" style="width: 5%">Required</th>
+      <th class="text-left" style="width: 5%">Default</th>
+      <th class="text-left" style="width: 10%">Type</th>
+      <th class="text-left" style="width: 60%">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><h5>num-sorted-run.compaction-trigger</h5></td>
+      <td>No</td>
+      <td style="word-wrap: break-word;">5</td>
+      <td>Integer</td>
+      <td>The sorted run number to trigger compaction. Includes level0 files (one file one sorted run) and high-level runs (one level one sorted run).</td>
+    </tr>
+    </tbody>
+</table>
+<p>Compaction will become less frequent when <code>num-sorted-run.compaction-trigger</code> becomes larger, thus improving writing performance. However, if this value becomes too large, more memory and CPU time will be needed when querying the table. This is a trade-off between writing and query performance.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#asynchronous-compaction">Asynchronous Compaction</a></li>
+    <li><a href="#dedicated-compaction-job">Dedicated compaction job</a></li>
+    <li><a href="#record-level-expire">Record-Level expire</a></li>
+    <li><a href="#full-compaction">Full Compaction</a></li>
+    <li><a href="#lookup-compaction">Lookup Compaction</a></li>
+    <li><a href="#compaction-options">Compaction Options</a>
+      <ul>
+        <li><a href="#number-of-sorted-runs-to-pause-writing">Number of Sorted Runs to Pause Writing</a></li>
+        <li><a href="#number-of-sorted-runs-to-trigger-compaction">Number of Sorted Runs to Trigger Compaction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

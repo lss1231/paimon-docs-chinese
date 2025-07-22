@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Action Jars
+  #
+
+After the Flink Local Cluster has been started, you can execute the action jar by using the following command.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/flink/action-jars/">
+  <meta property="og:site_name" content="Apache Paimon">
+  <meta property="og:title" content="Action Jars">
+  <meta property="og:description" content="Action Jars#After the Flink Local Cluster has been started, you can execute the action jar by using the following command.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="flink">
+<title>Action Jars | Apache Paimon</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/flink/action-jars/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Apache Paimon</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="toggle"  />
+    <label for="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="flex">
+      <a href="/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="toggle"  />
+    <label for="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="flex">
+      <a href="/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7a94b41156194ecee1e09c684d748e5" class="toggle"  />
+    <label for="section-c7a94b41156194ecee1e09c684d748e5" class="flex">
+      <a href="/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="toggle"  />
+    <label for="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="flex">
+      <a href="/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-04d66c05043a350c14fa1d446df94a79" class="toggle"  />
+    <label for="section-04d66c05043a350c14fa1d446df94a79" class="flex">
+      <a href="/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7c7495e5c54b216316cbd6cefc4966a1" class="toggle"  />
+    <label for="section-7c7495e5c54b216316cbd6cefc4966a1" class="flex">
+      <a href="/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bc2280284fce30dc9cfe001c4d4f308" class="toggle" checked />
+    <label for="section-2bc2280284fce30dc9cfe001c4d4f308" class="flex">
+      <a href="/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/action-jars/" class="active">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11bc7fef43a73cd8f67282a4f805f959" class="toggle"  />
+    <label for="section-11bc7fef43a73cd8f67282a4f805f959" class="flex">
+      <a href="/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c279f1a47f0df5c590de69874c1f87c3" class="toggle"  />
+    <label for="section-c279f1a47f0df5c590de69874c1f87c3" class="flex">
+      <a href="/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8c1a2c4fbac828568029fe095ebb072" class="toggle"  />
+    <label for="section-e8c1a2c4fbac828568029fe095ebb072" class="flex">
+      <a href="/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8745d48ca93ee7946abd46b8e0d32417" class="toggle"  />
+    <label for="section-8745d48ca93ee7946abd46b8e0d32417" class="flex">
+      <a href="/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-855b9d3470d29baa3d9ac155f1cbb17e" class="toggle"  />
+    <label for="section-855b9d3470d29baa3d9ac155f1cbb17e" class="flex">
+      <a href="/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0ffde0363b026afda7ad294c5d18c71a" class="toggle"  />
+    <label for="section-0ffde0363b026afda7ad294c5d18c71a" class="flex">
+      <a href="/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85fae8232c6bd11576e7262da56e3922" class="toggle"  />
+    <label for="section-85fae8232c6bd11576e7262da56e3922" class="flex">
+      <a href="/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-263d088534eb62bb6fabbdb4626879a6" class="toggle"  />
+    <label for="section-263d088534eb62bb6fabbdb4626879a6" class="flex">
+      <a href="/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Action Jars</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#merging-into-table">Merging into table</a></li>
+    <li><a href="#deleting-from-table">Deleting from table</a></li>
+    <li><a href="#drop-partition">Drop Partition</a></li>
+    <li><a href="#rewrite-file-index">Rewrite File Index</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="action-jars">
+  Action Jars
+  <a class="anchor" href="#action-jars">#</a>
+</h1>
+<p>After the Flink Local Cluster has been started, you can execute the action jar by using the following command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> &lt;action&gt;
+</span></span><span style="display:flex;"><span> &lt;args&gt;
+</span></span></code></pre></div><p>The following command is used to compact a table.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> compact <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span> --path &lt;TABLE_PATH&gt;
+</span></span></code></pre></div><h2 id="merging-into-table">
+  Merging into table
+  <a class="anchor" href="#merging-into-table">#</a>
+</h2>
+<p>Paimon supports &ldquo;MERGE INTO&rdquo; via submitting the &lsquo;merge_into&rsquo; job through <code>flink run</code>.</p>
+<blockquote class="book-hint info">
+  
+Important table properties setting:
+1. Only [primary key table](http://localhost:1313/primary-key-table/overview/) supports this feature.
+2. The action won't produce UPDATE_BEFORE, so it's not recommended to set 'changelog-producer' = 'input'.
+   
+</blockquote>
+
+<p>The design referenced such syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>MERGE <span style="color:#66d9ef">INTO</span> target<span style="color:#f92672">-</span><span style="color:#66d9ef">table</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">USING</span> source_table <span style="color:#f92672">|</span> <span style="color:#66d9ef">source</span><span style="color:#f92672">-</span>expr <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">source</span><span style="color:#f92672">-</span><span style="color:#66d9ef">alias</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">ON</span> merge<span style="color:#f92672">-</span>condition
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">WHEN</span> MATCHED [<span style="color:#66d9ef">AND</span> matched<span style="color:#f92672">-</span>condition]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">THEN</span> <span style="color:#66d9ef">UPDATE</span> <span style="color:#66d9ef">SET</span> xxx
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">WHEN</span> MATCHED [<span style="color:#66d9ef">AND</span> matched<span style="color:#f92672">-</span>condition]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">THEN</span> <span style="color:#66d9ef">DELETE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">WHEN</span> <span style="color:#66d9ef">NOT</span> MATCHED [<span style="color:#66d9ef">AND</span> not_matched_condition]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">THEN</span> <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">VALUES</span> (xxx)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">WHEN</span> <span style="color:#66d9ef">NOT</span> MATCHED <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">SOURCE</span> [<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">not</span><span style="color:#f92672">-</span>matched<span style="color:#f92672">-</span><span style="color:#66d9ef">by</span><span style="color:#f92672">-</span><span style="color:#66d9ef">source</span><span style="color:#f92672">-</span>condition]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">THEN</span> <span style="color:#66d9ef">UPDATE</span> <span style="color:#66d9ef">SET</span> xxx
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">WHEN</span> <span style="color:#66d9ef">NOT</span> MATCHED <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">SOURCE</span> [<span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">not</span><span style="color:#f92672">-</span>matched<span style="color:#f92672">-</span><span style="color:#66d9ef">by</span><span style="color:#f92672">-</span><span style="color:#66d9ef">source</span><span style="color:#f92672">-</span>condition]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">THEN</span> <span style="color:#66d9ef">DELETE</span>
+</span></span></code></pre></div><p>The merge_into action use &ldquo;upsert&rdquo; semantics instead of &ldquo;update&rdquo;, which means if the row exists,
+then do update, else do insert. For example, for non-primary-key table, you can update every column,
+but for primary key table, if you want to update primary keys, you have to insert a new row which has
+different primary keys from rows in the table. In this scenario, &ldquo;upsert&rdquo; is useful.</p>
+<p>Run the following command to submit a &lsquo;merge_into&rsquo; job for the table.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    merge_into <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table &lt;target-table&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--target_as &lt;target-table-alias&gt;<span style="color:#f92672">]</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --source_table &lt;source_table-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--source_sql &lt;sql&gt; ...<span style="color:#f92672">]</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --on &lt;merge-condition&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --merge_actions &lt;matched-upsert,matched-delete,not-matched-insert,not-matched-by-source-upsert,not-matched-by-source-delete&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --matched_upsert_condition &lt;matched-condition&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --matched_upsert_set &lt;upsert-changes&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --matched_delete_condition &lt;matched-condition&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_insert_condition &lt;not-matched-condition&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_insert_values &lt;insert-values&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_by_source_upsert_condition &lt;not-matched-by-source-condition&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_by_source_upsert_set &lt;not-matched-upsert-changes&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_by_source_delete_condition &lt;not-matched-by-source-condition&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; ...<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>You can pass sqls by <span style="color:#e6db74">&#39;--source_sql &lt;sql&gt; [, --source_sql &lt;sql&gt; ...]&#39;</span> to config environment and create source table at runtime.
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>-- Examples:
+</span></span><span style="display:flex;"><span>-- Find all orders mentioned in the source table, <span style="color:#66d9ef">then</span> mark as important <span style="color:#66d9ef">if</span> the price is above <span style="color:#ae81ff">100</span> 
+</span></span><span style="display:flex;"><span>-- or delete <span style="color:#66d9ef">if</span> the price is under 10.
+</span></span><span style="display:flex;"><span>./flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    merge_into <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table T <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --source_table S <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --on <span style="color:#e6db74">&#34;T.id = S.order_id&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --merge_actions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    matched-upsert,matched-delete <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --matched_upsert_condition <span style="color:#e6db74">&#34;T.price &gt; 100&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --matched_upsert_set <span style="color:#e6db74">&#34;mark = &#39;important&#39;&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --matched_delete_condition <span style="color:#e6db74">&#34;T.price &lt; 10&#34;</span> 
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>-- For matched order rows, increase the price, and <span style="color:#66d9ef">if</span> there is no match, insert the order from the 
+</span></span><span style="display:flex;"><span>-- source table:
+</span></span><span style="display:flex;"><span>./flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    merge_into <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table T <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --source_table S <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --on <span style="color:#e6db74">&#34;T.id = S.order_id&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --merge_actions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    matched-upsert,not-matched-insert <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --matched_upsert_set <span style="color:#e6db74">&#34;price = T.price + 20&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_insert_values * 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-- For not matched by source order rows <span style="color:#f92672">(</span>which are in the target table and does not match any row in the
+</span></span><span style="display:flex;"><span>-- source table based on the merge-condition<span style="color:#f92672">)</span>, decrease the price or <span style="color:#66d9ef">if</span> the mark is <span style="color:#e6db74">&#39;trivial&#39;</span>, delete them:
+</span></span><span style="display:flex;"><span>./flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    merge_into <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table T <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --source_table S <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --on <span style="color:#e6db74">&#34;T.id = S.order_id&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --merge_actions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    not-matched-by-source-upsert,not-matched-by-source-delete <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_by_source_upsert_condition <span style="color:#e6db74">&#34;T.mark &lt;&gt; &#39;trivial&#39;&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_by_source_upsert_set <span style="color:#e6db74">&#34;price = T.price - 20&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_by_source_delete_condition <span style="color:#e6db74">&#34;T.mark = &#39;trivial&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>-- A --source_sql example: 
+</span></span><span style="display:flex;"><span>-- Create a temporary view S in new catalog and use it as source table
+</span></span><span style="display:flex;"><span>./flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    merge_into <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table T <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --source_sql <span style="color:#e6db74">&#34;CREATE CATALOG test_cat WITH (...)&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --source_sql <span style="color:#e6db74">&#34;CREATE TEMPORARY VIEW test_cat.`default`.S AS SELECT order_id, price, &#39;important&#39; FROM important_order&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --source_table test_cat.default.S <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --on <span style="color:#e6db74">&#34;T.id = S.order_id&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --merge_actions not-matched-insert<span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --not_matched_insert_values *
+</span></span></code></pre></div><p>The term &lsquo;matched&rsquo; explanation:</p>
+<ol>
+<li>matched: changed rows are from target table and each can match a source table row based on
+merge-condition and optional matched-condition (source ∩ target).</li>
+<li>not matched: changed rows are from source table and all rows cannot match any target table
+row based on merge-condition and optional not_matched_condition (source - target).</li>
+<li>not matched by source: changed rows are from target table and all row cannot match any source
+table row based on merge-condition and optional not-matched-by-source-condition (target - source).</li>
+</ol>
+<p>Parameters format:</p>
+<ol>
+<li>matched_upsert_changes:<br>
+col = &lt;source_table&gt;.col | expression [, &hellip;] (Means setting &lt;target_table&gt;.col with given value. Do not
+add &lsquo;&lt;target_table&gt;.&rsquo; before &lsquo;col&rsquo;.)<br>
+Especially, you can use &lsquo;*&rsquo; to set columns with all source columns (require target table&rsquo;s
+schema is equal to source&rsquo;s).</li>
+<li>not_matched_upsert_changes is similar to matched_upsert_changes, but you cannot reference
+source table&rsquo;s column or use &lsquo;*&rsquo;.</li>
+<li>insert_values:<br>
+col1, col2, &hellip;, col_end<br>
+Must specify values of all columns. For each column, you can reference &lt;source_table&gt;.col or
+use an expression.<br>
+Especially, you can use &lsquo;*&rsquo; to insert with all source columns (require target table&rsquo;s schema
+is equal to source&rsquo;s).</li>
+<li>not_matched_condition cannot use target table&rsquo;s columns to construct condition expression.</li>
+<li>not_matched_by_source_condition cannot use source table&rsquo;s columns to construct condition expression.</li>
+</ol>
+<blockquote class="book-hint warning">
+  
+1. Target alias cannot be duplicated with existed table name.
+2. If the source table is not in the current catalog and current database, the source-table-name must be
+   qualified (database.table or catalog.database.table if created a new catalog).
+   For examples:\
+   (1) If source table 'my_source' is in 'my_db', qualify it:\
+   \--source_table "my_db.my_source"\
+   (2) Example for sqls:\
+   When sqls changed current catalog and database, it's OK to not qualify the source table name:\
+   \--source_sql "CREATE CATALOG my_cat WITH (...)"\
+   \--source_sql "USE CATALOG my_cat"\
+   \--source_sql "CREATE DATABASE my_db"\
+   \--source_sql "USE my_db"\
+   \--source_sql "CREATE TABLE S ..."\
+   \--source_table S\
+   but you must qualify it in the following case:\
+   \--source_sql "CREATE CATALOG my_cat WITH (...)"\
+   \--source_sql "CREATE TABLE my_cat.\`default`.S ..."\
+   \--source_table my_cat.default.S\
+   You can use just 'S' as source table name in following arguments.
+3. At least one merge action must be specified.
+4. If both matched-upsert and matched-delete actions are present, their conditions must both be present too
+   (same to not-matched-by-source-upsert and not-matched-by-source-delete). Otherwise, all conditions are optional.
+5. All conditions, set changes and values should use Flink SQL syntax. To ensure the whole command runs normally
+   in Shell, please quote them with \"\" to escape blank spaces and use '\\' to escape special characters in statement.
+   For example:\
+   \--source_sql "CREATE TABLE T (k INT) WITH ('special-key' = '123\\!')"
+
+
+</blockquote>
+
+<p>For more information of &lsquo;merge_into&rsquo;, see</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    merge_into --help
+</span></span></code></pre></div><h2 id="deleting-from-table">
+  Deleting from table
+  <a class="anchor" href="#deleting-from-table">#</a>
+</h2>
+<p>In Flink 1.16 and previous versions, Paimon only supports deleting records via submitting the &lsquo;delete&rsquo; job through <code>flink run</code>.</p>
+<p>Run the following command to submit a &lsquo;delete&rsquo; job for the table.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    delete <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table &lt;table-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --where &lt;filter_spec&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; ...<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>filter_spec is equal to the <span style="color:#e6db74">&#39;WHERE&#39;</span> clause in SQL DELETE statement. Examples:
+</span></span><span style="display:flex;"><span>    age &gt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span> AND age &lt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>    animal &lt;&gt; <span style="color:#e6db74">&#39;cat&#39;</span>
+</span></span><span style="display:flex;"><span>    id &gt; <span style="color:#f92672">(</span>SELECT count<span style="color:#f92672">(</span>*<span style="color:#f92672">)</span> FROM employee<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>For more information of &lsquo;delete&rsquo;, see</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    delete --help
+</span></span></code></pre></div><h2 id="drop-partition">
+  Drop Partition
+  <a class="anchor" href="#drop-partition">#</a>
+</h2>
+<p>Run the following command to submit a &lsquo;drop_partition&rsquo; job for the table.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    drop_partition <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --database &lt;database-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table &lt;table-name&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--partition &lt;partition_spec&gt; <span style="color:#f92672">[</span>--partition &lt;partition_spec&gt; ...<span style="color:#f92672">]]</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; ...<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>partition_spec:
+</span></span><span style="display:flex;"><span>key1<span style="color:#f92672">=</span>value1,key2<span style="color:#f92672">=</span>value2...
+</span></span></code></pre></div><p>For more information of &lsquo;drop_partition&rsquo;, see</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    drop_partition --help
+</span></span></code></pre></div><h2 id="rewrite-file-index">
+  Rewrite File Index
+  <a class="anchor" href="#rewrite-file-index">#</a>
+</h2>
+<p>Run the following command to submit a &lsquo;rewrite_file_index&rsquo; job for the table.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    rewrite_file_index <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --warehouse &lt;warehouse-path&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --identifier &lt;database.table&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; <span style="color:#f92672">[</span>--catalog_conf &lt;paimon-catalog-conf&gt; ...<span style="color:#f92672">]]</span>
+</span></span></code></pre></div><p>For more information of &lsquo;rewrite_file_index&rsquo;, see</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;FLINK_HOME&gt;/bin/flink run <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/paimon-flink-action-1.1.1.jar <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    rewrite_file_index --help
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#merging-into-table">Merging into table</a></li>
+    <li><a href="#deleting-from-table">Deleting from table</a></li>
+    <li><a href="#drop-partition">Drop Partition</a></li>
+    <li><a href="#rewrite-file-index">Rewrite File Index</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

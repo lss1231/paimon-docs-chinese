@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Flink API
+  #
+
+
+  
+If possible, recommend using Flink SQL or Spark SQL, or simply use SQL APIs in programs.
+
+
+
+
+  Dependency
+  #
+
+Maven dependency:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/program-api/flink-api/">
+  <meta property="og:site_name" content="Apache Paimon">
+  <meta property="og:title" content="Flink API">
+  <meta property="og:description" content="Flink API#If possible, recommend using Flink SQL or Spark SQL, or simply use SQL APIs in programs.Dependency#Maven dependency:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="program-api">
+<title>Flink API | Apache Paimon</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/program-api/flink-api/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Apache Paimon</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="toggle"  />
+    <label for="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="flex">
+      <a href="/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="toggle"  />
+    <label for="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="flex">
+      <a href="/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7a94b41156194ecee1e09c684d748e5" class="toggle"  />
+    <label for="section-c7a94b41156194ecee1e09c684d748e5" class="flex">
+      <a href="/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="toggle"  />
+    <label for="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="flex">
+      <a href="/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-04d66c05043a350c14fa1d446df94a79" class="toggle"  />
+    <label for="section-04d66c05043a350c14fa1d446df94a79" class="flex">
+      <a href="/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7c7495e5c54b216316cbd6cefc4966a1" class="toggle"  />
+    <label for="section-7c7495e5c54b216316cbd6cefc4966a1" class="flex">
+      <a href="/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bc2280284fce30dc9cfe001c4d4f308" class="toggle"  />
+    <label for="section-2bc2280284fce30dc9cfe001c4d4f308" class="flex">
+      <a href="/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11bc7fef43a73cd8f67282a4f805f959" class="toggle"  />
+    <label for="section-11bc7fef43a73cd8f67282a4f805f959" class="flex">
+      <a href="/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c279f1a47f0df5c590de69874c1f87c3" class="toggle"  />
+    <label for="section-c279f1a47f0df5c590de69874c1f87c3" class="flex">
+      <a href="/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8c1a2c4fbac828568029fe095ebb072" class="toggle"  />
+    <label for="section-e8c1a2c4fbac828568029fe095ebb072" class="flex">
+      <a href="/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8745d48ca93ee7946abd46b8e0d32417" class="toggle"  />
+    <label for="section-8745d48ca93ee7946abd46b8e0d32417" class="flex">
+      <a href="/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-855b9d3470d29baa3d9ac155f1cbb17e" class="toggle" checked />
+    <label for="section-855b9d3470d29baa3d9ac155f1cbb17e" class="flex">
+      <a href="/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/flink-api/" class="active">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0ffde0363b026afda7ad294c5d18c71a" class="toggle"  />
+    <label for="section-0ffde0363b026afda7ad294c5d18c71a" class="flex">
+      <a href="/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85fae8232c6bd11576e7262da56e3922" class="toggle"  />
+    <label for="section-85fae8232c6bd11576e7262da56e3922" class="flex">
+      <a href="/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-263d088534eb62bb6fabbdb4626879a6" class="toggle"  />
+    <label for="section-263d088534eb62bb6fabbdb4626879a6" class="flex">
+      <a href="/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Flink API</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#dependency">Dependency</a></li>
+    <li><a href="#write-to-table">Write to Table</a></li>
+    <li><a href="#read-from-table">Read from Table</a></li>
+    <li><a href="#cdc-ingestion-table">Cdc ingestion Table</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="flink-api">
+  Flink API
+  <a class="anchor" href="#flink-api">#</a>
+</h1>
+<blockquote class="book-hint info">
+  
+If possible, recommend using Flink SQL or Spark SQL, or simply use SQL APIs in programs.
+
+</blockquote>
+
+<h2 id="dependency">
+  Dependency
+  <a class="anchor" href="#dependency">#</a>
+</h2>
+<p>Maven dependency:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.paimon<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>paimon-flink-1.20<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>1.1.1<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.flink<span style="color:#f92672">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>flink-table-api-java-bridge<span style="color:#f92672">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;version&gt;</span>1.20.0<span style="color:#f92672">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;scope&gt;</span>provided<span style="color:#f92672">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><p>Or download the jar file:
+<a href="https://repo.maven.apache.org/maven2/org/apache/paimon/paimon-flink-1.20/1.1.1/paimon-flink-1.20-1.1.1.jar">Paimon Flink</a>.
+
+
+</p>
+<p>Please choose your Flink version.</p>
+<p>Paimon relies on Hadoop environment, you should add hadoop classpath or bundled jar.</p>
+<p>Not only DataStream API, you can also read or write to Paimon tables by the conversion between DataStream and Table in Flink.
+See <a href="https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/data_stream_api/">DataStream API Integration</a>.</p>
+<h2 id="write-to-table">
+  Write to Table
+  <a class="anchor" href="#write-to-table">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Identifier;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.flink.FlinkCatalogFactory;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.flink.sink.FlinkSinkBuilder;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.options.Options;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.table.Table;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.api.common.typeinfo.Types;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.streaming.api.datastream.DataStream;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.table.api.DataTypes;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.table.types.DataType;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.types.Row;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.types.RowKind;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WriteToTable</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">writeTo</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// create environments of both APIs</span>
+</span></span><span style="display:flex;"><span>        StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment.<span style="color:#a6e22e">getExecutionEnvironment</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// for CONTINUOUS_UNBOUNDED source, set checkpoint interval</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// env.enableCheckpointing(60_000);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// create a changelog DataStream</span>
+</span></span><span style="display:flex;"><span>        DataStream<span style="color:#f92672">&lt;</span>Row<span style="color:#f92672">&gt;</span> input <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>                env.<span style="color:#a6e22e">fromElements</span>(
+</span></span><span style="display:flex;"><span>                                Row.<span style="color:#a6e22e">ofKind</span>(RowKind.<span style="color:#a6e22e">INSERT</span>, <span style="color:#e6db74">&#34;Alice&#34;</span>, 12),
+</span></span><span style="display:flex;"><span>                                Row.<span style="color:#a6e22e">ofKind</span>(RowKind.<span style="color:#a6e22e">INSERT</span>, <span style="color:#e6db74">&#34;Bob&#34;</span>, 5),
+</span></span><span style="display:flex;"><span>                                Row.<span style="color:#a6e22e">ofKind</span>(RowKind.<span style="color:#a6e22e">UPDATE_BEFORE</span>, <span style="color:#e6db74">&#34;Alice&#34;</span>, 12),
+</span></span><span style="display:flex;"><span>                                Row.<span style="color:#a6e22e">ofKind</span>(RowKind.<span style="color:#a6e22e">UPDATE_AFTER</span>, <span style="color:#e6db74">&#34;Alice&#34;</span>, 100))
+</span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">returns</span>(
+</span></span><span style="display:flex;"><span>                                Types.<span style="color:#a6e22e">ROW_NAMED</span>(
+</span></span><span style="display:flex;"><span>                                        <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> {<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>}, Types.<span style="color:#a6e22e">STRING</span>, Types.<span style="color:#a6e22e">INT</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// get table from catalog</span>
+</span></span><span style="display:flex;"><span>        Options catalogOptions <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Options();
+</span></span><span style="display:flex;"><span>        catalogOptions.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;warehouse&#34;</span>, <span style="color:#e6db74">&#34;/path/to/warehouse&#34;</span>);
+</span></span><span style="display:flex;"><span>        Catalog catalog <span style="color:#f92672">=</span> FlinkCatalogFactory.<span style="color:#a6e22e">createPaimonCatalog</span>(catalogOptions);
+</span></span><span style="display:flex;"><span>        Table table <span style="color:#f92672">=</span> catalog.<span style="color:#a6e22e">getTable</span>(Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;T&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        DataType inputType <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>                DataTypes.<span style="color:#a6e22e">ROW</span>(
+</span></span><span style="display:flex;"><span>                        DataTypes.<span style="color:#a6e22e">FIELD</span>(<span style="color:#e6db74">&#34;name&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>()),
+</span></span><span style="display:flex;"><span>                        DataTypes.<span style="color:#a6e22e">FIELD</span>(<span style="color:#e6db74">&#34;age&#34;</span>, DataTypes.<span style="color:#a6e22e">INT</span>()));
+</span></span><span style="display:flex;"><span>        FlinkSinkBuilder builder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FlinkSinkBuilder(table).<span style="color:#a6e22e">forRow</span>(input, inputType);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// set sink parallelism</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// builder.parallelism(_your_parallelism)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// set overwrite mode</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// builder.overwrite(...)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        builder.<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>        env.<span style="color:#a6e22e">execute</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="read-from-table">
+  Read from Table
+  <a class="anchor" href="#read-from-table">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Identifier;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.flink.FlinkCatalogFactory;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.flink.source.FlinkSourceBuilder;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.options.Options;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.table.Table;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.streaming.api.datastream.DataStream;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.types.Row;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReadFromTable</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">readFrom</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// create environments of both APIs</span>
+</span></span><span style="display:flex;"><span>        StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment.<span style="color:#a6e22e">getExecutionEnvironment</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// get table from catalog</span>
+</span></span><span style="display:flex;"><span>        Options catalogOptions <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Options();
+</span></span><span style="display:flex;"><span>        catalogOptions.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;warehouse&#34;</span>, <span style="color:#e6db74">&#34;/path/to/warehouse&#34;</span>);
+</span></span><span style="display:flex;"><span>        Catalog catalog <span style="color:#f92672">=</span> FlinkCatalogFactory.<span style="color:#a6e22e">createPaimonCatalog</span>(catalogOptions);
+</span></span><span style="display:flex;"><span>        Table table <span style="color:#f92672">=</span> catalog.<span style="color:#a6e22e">getTable</span>(Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;T&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// table = table.copy(Collections.singletonMap(&#34;scan.file-creation-time-millis&#34;, &#34;...&#34;));</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        FlinkSourceBuilder builder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FlinkSourceBuilder(table).<span style="color:#a6e22e">env</span>(env);
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// builder.sourceBounded(true);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// builder.projection(...);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// builder.predicate(...);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// builder.limit(...);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// builder.sourceParallelism(...);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        DataStream<span style="color:#f92672">&lt;</span>Row<span style="color:#f92672">&gt;</span> dataStream <span style="color:#f92672">=</span> builder.<span style="color:#a6e22e">buildForRow</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// use this datastream</span>
+</span></span><span style="display:flex;"><span>        dataStream.<span style="color:#a6e22e">executeAndCollect</span>().<span style="color:#a6e22e">forEachRemaining</span>(System.<span style="color:#a6e22e">out</span>::println);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// prints:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// +I[Bob, 12]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// +I[Alice, 12]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// -U[Alice, 12]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// +U[Alice, 14]</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="cdc-ingestion-table">
+  Cdc ingestion Table
+  <a class="anchor" href="#cdc-ingestion-table">#</a>
+</h2>
+<p>Paimon supports ingest data into Paimon tables with schema evolution.</p>
+<ul>
+<li>You can use Java API to write cdc records into Paimon Tables.</li>
+<li>You can write records to Paimon&rsquo;s partial-update table with adding columns dynamically.</li>
+</ul>
+<p>Here is an example to use <code>RichCdcSinkBuilder</code> API:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.CatalogLoader;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.flink.FlinkCatalogFactory;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Identifier;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.flink.sink.cdc.RichCdcRecord;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.flink.sink.cdc.RichCdcSinkBuilder;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.options.Options;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.table.Table;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.types.DataTypes;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.streaming.api.datastream.DataStream;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import static</span> org.apache.paimon.types.RowKind.INSERT;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WriteCdcToTable</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">writeTo</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment.<span style="color:#a6e22e">getExecutionEnvironment</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// for CONTINUOUS_UNBOUNDED source, set checkpoint interval</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// env.enableCheckpointing(60_000);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        DataStream<span style="color:#f92672">&lt;</span>RichCdcRecord<span style="color:#f92672">&gt;</span> dataStream <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>                env.<span style="color:#a6e22e">fromElements</span>(
+</span></span><span style="display:flex;"><span>                        RichCdcRecord.<span style="color:#a6e22e">builder</span>(INSERT)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#34;order_id&#34;</span>, DataTypes.<span style="color:#a6e22e">BIGINT</span>(), <span style="color:#e6db74">&#34;123&#34;</span>)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#34;price&#34;</span>, DataTypes.<span style="color:#a6e22e">DOUBLE</span>(), <span style="color:#e6db74">&#34;62.2&#34;</span>)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">build</span>(),
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">// dt field will be added with schema evolution</span>
+</span></span><span style="display:flex;"><span>                        RichCdcRecord.<span style="color:#a6e22e">builder</span>(INSERT)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#34;order_id&#34;</span>, DataTypes.<span style="color:#a6e22e">BIGINT</span>(), <span style="color:#e6db74">&#34;245&#34;</span>)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#34;price&#34;</span>, DataTypes.<span style="color:#a6e22e">DOUBLE</span>(), <span style="color:#e6db74">&#34;82.1&#34;</span>)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#34;dt&#34;</span>, DataTypes.<span style="color:#a6e22e">TIMESTAMP</span>(), <span style="color:#e6db74">&#34;2023-06-12 20:21:12&#34;</span>)
+</span></span><span style="display:flex;"><span>                                .<span style="color:#a6e22e">build</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Identifier identifier <span style="color:#f92672">=</span> Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;T&#34;</span>);
+</span></span><span style="display:flex;"><span>        Options catalogOptions <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Options();
+</span></span><span style="display:flex;"><span>        catalogOptions.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;warehouse&#34;</span>, <span style="color:#e6db74">&#34;/path/to/warehouse&#34;</span>);
+</span></span><span style="display:flex;"><span>        CatalogLoader catalogLoader <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span>                () <span style="color:#f92672">-&gt;</span> FlinkCatalogFactory.<span style="color:#a6e22e">createPaimonCatalog</span>(catalogOptions);
+</span></span><span style="display:flex;"><span>        Table table <span style="color:#f92672">=</span> catalogLoader.<span style="color:#a6e22e">load</span>().<span style="color:#a6e22e">getTable</span>(identifier);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> RichCdcSinkBuilder(table)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">forRichCdcRecord</span>(dataStream)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">identifier</span>(identifier)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">catalogLoader</span>(catalogLoader)
+</span></span><span style="display:flex;"><span>                .<span style="color:#a6e22e">build</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        env.<span style="color:#a6e22e">execute</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#dependency">Dependency</a></li>
+    <li><a href="#write-to-table">Write to Table</a></li>
+    <li><a href="#read-from-table">Read from Table</a></li>
+    <li><a href="#cdc-ingestion-table">Cdc ingestion Table</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

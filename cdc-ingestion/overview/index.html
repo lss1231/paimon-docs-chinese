@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+
+  Overview
+  #
+
+Paimon supports a variety of ways to ingest data into Paimon tables with schema evolution. This means that the added
+columns are synchronized to the Paimon table in real time and the synchronization job will not be restarted for this purpose.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/cdc-ingestion/overview/">
+  <meta property="og:site_name" content="Apache Paimon">
+  <meta property="og:title" content="Overview">
+  <meta property="og:description" content="Overview#Paimon supports a variety of ways to ingest data into Paimon tables with schema evolution. This means that the added columns are synchronized to the Paimon table in real time and the synchronization job will not be restarted for this purpose.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="cdc-ingestion">
+<title>Overview | Apache Paimon</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/cdc-ingestion/overview/">
+<link rel="stylesheet" href="/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.052daaa33e6f29f617942169edca8d1267adb70f5558abd179ddf86b49b548d1.js" integrity="sha256-BS2qoz5vKfYXlCFp7cqNEmettw9VWKvRed34a0m1SNE=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Apache Paimon</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="toggle"  />
+    <label for="section-0f577c58e9b3dd44e41e0b83e7c5f9ef" class="flex">
+      <a href="/concepts/" class="flex-auto ">Concepts</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="toggle"  />
+    <label for="section-120b07edbd4c34f9ca14c990e6d3a5c1" class="flex">
+      <a href="/concepts/rest/" class="flex-auto ">RESTCatalog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c7a94b41156194ecee1e09c684d748e5" class="toggle"  />
+    <label for="section-c7a94b41156194ecee1e09c684d748e5" class="flex">
+      <a href="/concepts/spec/" class="flex-auto ">Specification</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="toggle"  />
+    <label for="section-c0d9adbd958aa78e9b5cb0511c6abe1b" class="flex">
+      <a href="/primary-key-table/" class="flex-auto ">Table with PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-04d66c05043a350c14fa1d446df94a79" class="toggle"  />
+    <label for="section-04d66c05043a350c14fa1d446df94a79" class="flex">
+      <a href="/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7c7495e5c54b216316cbd6cefc4966a1" class="toggle"  />
+    <label for="section-7c7495e5c54b216316cbd6cefc4966a1" class="flex">
+      <a href="/append-table/" class="flex-auto ">Table w/o PK</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-2bc2280284fce30dc9cfe001c4d4f308" class="toggle"  />
+    <label for="section-2bc2280284fce30dc9cfe001c4d4f308" class="flex">
+      <a href="/flink/" class="flex-auto ">Engine Flink</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-11bc7fef43a73cd8f67282a4f805f959" class="toggle"  />
+    <label for="section-11bc7fef43a73cd8f67282a4f805f959" class="flex">
+      <a href="/spark/" class="flex-auto ">Engine Spark</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c279f1a47f0df5c590de69874c1f87c3" class="toggle"  />
+    <label for="section-c279f1a47f0df5c590de69874c1f87c3" class="flex">
+      <a href="/ecosystem/" class="flex-auto ">Ecosystem</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e8c1a2c4fbac828568029fe095ebb072" class="toggle" checked />
+    <label for="section-e8c1a2c4fbac828568029fe095ebb072" class="flex">
+      <a href="/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/overview/" class="active">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8745d48ca93ee7946abd46b8e0d32417" class="toggle"  />
+    <label for="section-8745d48ca93ee7946abd46b8e0d32417" class="flex">
+      <a href="/maintenance/" class="flex-auto ">Maintenance</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-855b9d3470d29baa3d9ac155f1cbb17e" class="toggle"  />
+    <label for="section-855b9d3470d29baa3d9ac155f1cbb17e" class="flex">
+      <a href="/program-api/" class="flex-auto ">Program API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0ffde0363b026afda7ad294c5d18c71a" class="toggle"  />
+    <label for="section-0ffde0363b026afda7ad294c5d18c71a" class="flex">
+      <a href="/migration/" class="flex-auto ">Migration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-85fae8232c6bd11576e7262da56e3922" class="toggle"  />
+    <label for="section-85fae8232c6bd11576e7262da56e3922" class="flex">
+      <a href="/project/" class="flex-auto ">Project</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-263d088534eb62bb6fabbdb4626879a6" class="toggle"  />
+    <label for="section-263d088534eb62bb6fabbdb4626879a6" class="flex">
+      <a href="/learn-paimon/" class="flex-auto ">Learn Paimon</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Overview</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-schema-evolution">What is Schema Evolution</a></li>
+    <li><a href="#schema-change-evolution">Schema Change Evolution</a></li>
+    <li><a href="#computed-functions">Computed Functions</a>
+      <ul>
+        <li><a href="#temporal-functions">Temporal Functions</a></li>
+        <li><a href="#other-functions">Other Functions</a></li>
+      </ul>
+    </li>
+    <li><a href="#special-data-type-mapping">Special Data Type Mapping</a></li>
+    <li><a href="#custom-job-settings">Custom Job Settings</a>
+      <ul>
+        <li><a href="#checkpointing">Checkpointing</a></li>
+        <li><a href="#job-name">Job Name</a></li>
+        <li><a href="#table-configuration">table configuration</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
+<p>Paimon supports a variety of ways to ingest data into Paimon tables with schema evolution. This means that the added
+columns are synchronized to the Paimon table in real time and the synchronization job will not be restarted for this purpose.</p>
+<p>We currently support the following sync ways:</p>
+<ol>
+<li>MySQL Synchronizing Table: synchronize one or multiple tables from MySQL into one Paimon table.</li>
+<li>MySQL Synchronizing Database: synchronize the whole MySQL database into one Paimon database.</li>
+<li><a href="http://localhost:1313/program-api/flink-api/#cdc-ingestion-table">Program API Sync</a>: synchronize your custom DataStream input into one Paimon table.</li>
+<li>Kafka Synchronizing Table: synchronize one Kafka topic&rsquo;s table into one Paimon table.</li>
+<li>Kafka Synchronizing Database: synchronize one Kafka topic containing multiple tables or multiple topics containing one table each into one Paimon database.</li>
+<li>MongoDB Synchronizing Collection: synchronize one Collection from MongoDB into one Paimon table.</li>
+<li>MongoDB Synchronizing Database: synchronize the whole MongoDB database into one Paimon database.</li>
+<li>Pulsar Synchronizing Table: synchronize one Pulsar topic&rsquo;s table into one Paimon table.</li>
+<li>Pulsar Synchronizing Database: synchronize one Pulsar topic containing multiple tables or multiple topics containing one table each into one Paimon database.</li>
+</ol>
+<h2 id="what-is-schema-evolution">
+  What is Schema Evolution
+  <a class="anchor" href="#what-is-schema-evolution">#</a>
+</h2>
+<p>Suppose we have a MySQL table named <code>tableA</code>, it has three fields: <code>field_1</code>, <code>field_2</code>, <code>field_3</code>. When we want to load
+this MySQL table to Paimon, we can do this in Flink SQL, or use <a href="/docs/1.1/api/java/org/apache/paimon/flink/action/cdc/mysql/MySqlSyncTableAction">MySqlSyncTableAction</a>.</p>
+<p><strong>Flink SQL:</strong></p>
+<p>In Flink SQL, if we change the table schema of the MySQL table after the ingestion, the table schema change will not be synchronized to Paimon.</p>
+
+<img 
+  src="http://localhost:1313//img/cdc-ingestion-flinksql.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<p><strong>MySqlSyncTableAction:</strong></p>
+<p>In <a href="/docs/1.1/api/java/org/apache/paimon/flink/action/cdc/mysql/MySqlSyncTableAction">MySqlSyncTableAction</a>,
+if we change the table schema of the MySQL table after the ingestion, the table schema change will be synchronized to Paimon,
+and the data of <code>field_4</code> which is newly added will be synchronized to Paimon too.</p>
+
+<img 
+  src="http://localhost:1313//img/cdc-ingestion-schema-evolution.png"
+  alt=""
+  width=""
+  style="display:block;margin-left:auto;margin-right:auto"
+>
+
+<h2 id="schema-change-evolution">
+  Schema Change Evolution
+  <a class="anchor" href="#schema-change-evolution">#</a>
+</h2>
+<p>Cdc Ingestion supports a limited number of schema changes. Currently, the framework can not rename table, drop columns, so the
+behaviors of <code>RENAME TABLE</code> and <code>DROP COLUMN</code> will be ignored, <code>RENAME COLUMN</code> will add a new column. Currently supported schema changes includes:</p>
+<ul>
+<li>
+<p>Adding columns.</p>
+</li>
+<li>
+<p>Altering column types. More specifically,</p>
+<ul>
+<li>altering from a string type (char, varchar, text) to another string type with longer length,</li>
+<li>altering from a non-string type to string type (char, varchar, text),</li>
+<li>altering from a binary type (binary, varbinary, blob) to another binary type with longer length,</li>
+<li>altering from an integer type (tinyint, smallint, int, bigint) to another integer type with wider range,</li>
+<li>altering from a floating-point type (float, double) to another floating-point type with wider range,</li>
+</ul>
+<p>are supported.</p>
+</li>
+</ul>
+<h2 id="computed-functions">
+  Computed Functions
+  <a class="anchor" href="#computed-functions">#</a>
+</h2>
+<p><code>--computed_column</code> are the definitions of computed columns. The argument field is from source table field name.</p>
+<h3 id="temporal-functions">
+  Temporal Functions
+  <a class="anchor" href="#temporal-functions">#</a>
+</h3>
+<p>Temporal functions can convert date and epoch time to another form. A common use case is to generate partition values.</p>
+
+
+<table class="configuration table table-bordered">
+    <thead>
+    <tr>
+        <th class="text-left" style="width: 30%">Function</th>
+        <th class="text-left" style="width: 70%">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><h5>year(temporal-column [, precision])</h5></td>
+        <td>Extract year from the input. Output is an INT value represent the year.</td>
+    </tr>
+    <tr>
+        <td><h5>month(temporal-column [, precision])</h5></td>
+        <td>Extract month of year from the input. Output is an INT value represent the month of year.</td>
+    </tr>
+    <tr>
+        <td><h5>day(temporal-column [, precision])</h5></td>
+        <td>Extract day of month from the input. Output is an INT value represent the day of month.</td>
+    </tr>
+    <tr>
+        <td><h5>hour(temporal-column [, precision])</h5></td>
+        <td>Extract hour from the input. Output is an INT value represent the hour.</td>
+    </tr>
+    <tr>
+        <td><h5>minute(temporal-column [, precision])</h5></td>
+        <td>Extract minute from the input. Output is an INT value represent the minute.</td>
+    </tr>
+    <tr>
+        <td><h5>second(temporal-column [, precision])</h5></td>
+        <td>Extract second from the input. Output is an INT value represent the second.</td>
+    </tr>
+    <tr>
+        <td><h5>date_format(temporal-column, format-string [, precision])</h5></td>
+        <td>Convert the input to desired formatted string. Output type is STRING.</td>
+    </tr>
+    <tr>
+        <td><h5>now()</h5></td>
+        <td>Get the timestamp when ingesting the record. Output type is TIMESTAMP_LTZ(3).</td>
+    </tr>
+    </tbody>
+</table>
+<p>The data type of the temporal-column can be one of the following cases:</p>
+<ol>
+<li>DATE, DATETIME or TIMESTAMP.</li>
+<li>Any integer numeric type (such as INT and BIGINT). In this case, the data will be considered as epoch time of <code>1970-01-01 00:00:00</code>.
+You should set precision of the value (default is 0).</li>
+<li>STRING. In this case, if you didn&rsquo;t set the time unit, the data will be considered as formatted string of DATE,
+DATETIME or TIMESTAMP value. Otherwise, the data will be considered as string value of epoch time. So you must set time
+unit in the latter case.</li>
+</ol>
+<p>The precision represents the unit of the epoch time. Currently, There are four valid precisions: <code>0</code> (for epoch seconds),
+<code>3</code> (for epoch milliseconds), <code>6</code>(for epoch microseconds) and <code>9</code> (for epoch nanoseconds). Take the time point
+<code>1970-01-01 00:00:00.123456789</code> as an example, the epoch seconds are 0, the epoch milliseconds are 123, the epoch microseconds
+are 123456, and the epoch nanoseconds are 123456789. The precision should match the input values. You can set precision
+in this way: <code>date_format(epoch_col, yyyy-MM-dd, 0)</code>.</p>
+<p><code>date_format</code> is a flexible function which is able to convert the temporal value to various formats with different format
+strings. A most common format string is <code>yyyy-MM-dd HH:mm:ss.SSS</code>. Another example is <code>yyyy-ww</code> which can extract the year
+and the week-of-the-year from the input. Note that the output is affected by the locale. For example, in some regions the
+first day of a week is Monday while in others is Sunday, so if you use <code>date_format(date_col, yyyy-ww)</code> and the input of
+date_col is 2024-01-07 (Sunday), the output maybe <code>2024-01</code> (if the first day of a week is Monday) or <code>2024-02</code> (if the
+first day of a week is Sunday).</p>
+<h3 id="other-functions">
+  Other Functions
+  <a class="anchor" href="#other-functions">#</a>
+</h3>
+
+
+<table class="configuration table table-bordered">
+    <thead>
+    <tr>
+        <th class="text-left" style="width: 15%">Function</th>
+        <th class="text-left" style="width: 85%">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><h5>substring(column,beginInclusive)</h5></td>
+        <td>Get column.substring(beginInclusive). Output is a STRING.</td>
+    </tr>
+    <tr>
+        <td><h5>substring(column,beginInclusive,endExclusive)</h5></td>
+        <td>Get column.substring(beginInclusive,endExclusive). Output is a STRING.</td>
+    </tr>
+    <tr>
+        <td><h5>truncate(column,width)</h5></td>
+        <td>truncate column by width. Output type is same with column.If the column is a STRING, truncate(column,width) will truncate the string to width characters, namely `value.substring(0, width)`.
+             If the column is an INT or LONG, truncate(column,width) will truncate the number with the algorithm `v - (((v % W) + W) % W)`. The `redundant` compute part is to keep the result always positive.
+             If the column is a DECIMAL, truncate(column,width) will truncate the decimal with the algorithm: let `scaled_W = decimal(W, scale(v))`, then return `v - (v % scaled_W)`.</td>
+    </tr>
+    <tr>
+        <td><h5>cast(value,dataType)</h5></td>
+        <td>Get a constant value. The output is an atomic type, such as STRING, INT, BOOLEAN, etc.</td>
+    </tr>
+    </tbody>
+</table>
+<h2 id="special-data-type-mapping">
+  Special Data Type Mapping
+  <a class="anchor" href="#special-data-type-mapping">#</a>
+</h2>
+<ol>
+<li>MySQL TINYINT(1) type will be mapped to Boolean by default. If you want to store number (-128~127) in it like MySQL,
+you can specify type mapping option <code>tinyint1-not-bool</code> (Use <code>--type_mapping</code>), then the column will be mapped to TINYINT in Paimon table.</li>
+<li>You can use type mapping option <code>to-nullable</code> (Use <code>--type_mapping</code>) to ignore all NOT NULL constraints (except primary keys).</li>
+<li>You can use type mapping option <code>to-string</code> (Use <code>--type_mapping</code>) to map all MySQL data type to STRING.</li>
+<li>You can use type mapping option <code>char-to-string</code> (Use <code>--type_mapping</code>) to map MySQL CHAR(length)/VARCHAR(length) types to STRING.</li>
+<li>You can use type mapping option <code>longtext-to-bytes</code> (Use <code>--type_mapping</code>) to map MySQL LONGTEXT types to BYTES.</li>
+<li>MySQL <code>BIGINT UNSIGNED</code>, <code>BIGINT UNSIGNED ZEROFILL</code>, <code>SERIAL</code> will be mapped to <code>DECIMAL(20, 0)</code> by default. You can
+use type mapping option <code>bigint-unsigned-to-bigint</code> (Use <code>--type_mapping</code>) to map these types to Paimon <code>BIGINT</code>, but there
+is potential data overflow because <code>BIGINT UNSIGNED</code> can store up to 20 digits integer value but Paimon <code>BIGINT</code> can only
+store up to 19 digits integer value. So you should ensure the overflow won&rsquo;t occur when using this option.</li>
+<li>MySQL BIT(1) type will be mapped to Boolean.</li>
+<li>When using Hive catalog, MySQL TIME type will be mapped to STRING.</li>
+<li>MySQL BINARY will be mapped to Paimon VARBINARY. This is because the binary value is passed as bytes in binlog, so it
+should be mapped to byte type (BYTES or VARBINARY). We choose VARBINARY because it can retain the length information.</li>
+</ol>
+<h2 id="custom-job-settings">
+  Custom Job Settings
+  <a class="anchor" href="#custom-job-settings">#</a>
+</h2>
+<h3 id="checkpointing">
+  Checkpointing
+  <a class="anchor" href="#checkpointing">#</a>
+</h3>
+<p>Use <code>-Dexecution.checkpointing.interval=&lt;interval&gt;</code> to enable checkpointing and set interval. For 0.7 and later versions,
+if you haven&rsquo;t enabled checkpointing, Paimon will enable checkpointing by default and set checkpoint interval to 180 seconds.</p>
+<h3 id="job-name">
+  Job Name
+  <a class="anchor" href="#job-name">#</a>
+</h3>
+<p>Use <code>-Dpipeline.name=&lt;job-name&gt;</code> to set custom synchronization job name.</p>
+<h3 id="table-configuration">
+  table configuration
+  <a class="anchor" href="#table-configuration">#</a>
+</h3>
+<p>You can use <code>--table_conf</code> to set table properties and some flink job properties (like <code>sink.parallelism</code>). If the table is
+created by the cdc job, the table&rsquo;s properties will be equal to the given properties. Otherwise, the job will use the given
+properties to alter table&rsquo;s properties. But note that immutable options (like <code>merge-engine</code>) and bucket number won&rsquo;t be altered.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-schema-evolution">What is Schema Evolution</a></li>
+    <li><a href="#schema-change-evolution">Schema Change Evolution</a></li>
+    <li><a href="#computed-functions">Computed Functions</a>
+      <ul>
+        <li><a href="#temporal-functions">Temporal Functions</a></li>
+        <li><a href="#other-functions">Other Functions</a></li>
+      </ul>
+    </li>
+    <li><a href="#special-data-type-mapping">Special Data Type Mapping</a></li>
+    <li><a href="#custom-job-settings">Custom Job Settings</a>
+      <ul>
+        <li><a href="#checkpointing">Checkpointing</a></li>
+        <li><a href="#job-name">Job Name</a></li>
+        <li><a href="#table-configuration">table configuration</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
