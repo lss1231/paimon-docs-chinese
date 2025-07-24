@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CDC Ingestion on Paimon文档</title>
+    <link>//localhost:1313/zh/cdc-ingestion/</link>
+    <description>Recent content in CDC Ingestion on Paimon文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <atom:link href="//localhost:1313/zh/cdc-ingestion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overview</title>
+      <link>//localhost:1313/zh/cdc-ingestion/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/cdc-ingestion/overview/</guid>
+      <description>Overview&#xD;#&#xD;Paimon supports a variety of ways to ingest data into Paimon tables with schema evolution. This means that the added columns are synchronized to the Paimon table in real time and the synchronization job will not be restarted for this purpose.&#xA;We currently support the following sync ways:&#xA;MySQL Synchronizing Table: synchronize one or multiple tables from MySQL into one Paimon table. MySQL Synchronizing Database: synchronize the whole MySQL database into one Paimon database.</description>
+    </item>
+    <item>
+      <title>Mysql CDC</title>
+      <link>//localhost:1313/zh/cdc-ingestion/mysql-cdc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/cdc-ingestion/mysql-cdc/</guid>
+      <description>MySQL CDC&#xD;#&#xD;Paimon supports synchronizing changes from different databases using change data capture (CDC). This feature requires Flink and its CDC connectors.&#xA;Prepare CDC Bundled Jar&#xD;#&#xD;Download CDC Bundled Jar and put them under &amp;lt;FLINK_HOME&amp;gt;/lib/.&#xA;Version Bundled Jar 3.1.x flink-sql-connector-mysql-cdc-3.1.x.jar mysql-connector-java-8.0.27.jar Only cdc 3.1+ is supported.&#xA;You can download the flink-connector-mysql-cdc jar package by clicking here.&#xA;Synchronizing Tables&#xD;#&#xD;By using MySqlSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one or multiple tables from MySQL into one Paimon table.</description>
+    </item>
+    <item>
+      <title>Postgres CDC</title>
+      <link>//localhost:1313/zh/cdc-ingestion/postgres-cdc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/cdc-ingestion/postgres-cdc/</guid>
+      <description>Postgres CDC&#xD;#&#xD;Paimon supports synchronizing changes from different databases using change data capture (CDC). This feature requires Flink and its CDC connectors.&#xA;Prepare CDC Bundled Jar&#xD;#&#xD;flink-connector-postgres-cdc-*.jar Synchronizing Tables&#xD;#&#xD;By using PostgresSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one or multiple tables from PostgreSQL into one Paimon table.&#xA;To use this feature through flink run, run the following shell command.</description>
+    </item>
+    <item>
+      <title>Kafka CDC</title>
+      <link>//localhost:1313/zh/cdc-ingestion/kafka-cdc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/cdc-ingestion/kafka-cdc/</guid>
+      <description>Kafka CDC&#xD;#&#xD;Prepare Kafka Bundled Jar&#xD;#&#xD;flink-sql-connector-kafka-*.jar Supported Formats&#xD;#&#xD;Flink provides several Kafka CDC formats: Canal Json, Debezium Json, Debezium Avro, Ogg Json, Maxwell Json and Normal Json. If a message in a Kafka topic is a change event captured from another database using the Change Data Capture (CDC) tool, then you can use the Paimon Kafka CDC. Write the INSERT, UPDATE, DELETE messages parsed into the paimon table.</description>
+    </item>
+    <item>
+      <title>Mongo CDC</title>
+      <link>//localhost:1313/zh/cdc-ingestion/mongo-cdc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/cdc-ingestion/mongo-cdc/</guid>
+      <description>Mongo CDC&#xD;#&#xD;Prepare MongoDB Bundled Jar&#xD;#&#xD;flink-sql-connector-mongodb-cdc-*.jar only cdc 3.1+ is supported&#xA;Synchronizing Tables&#xD;#&#xD;By using MongoDBSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one collection from MongoDB into one Paimon table.&#xA;To use this feature through flink run, run the following shell command.&#xA;&amp;lt;FLINK_HOME&amp;gt;/bin/flink run \ /path/to/paimon-flink-action-1.1.1.jar \ mongodb_sync_table \ --warehouse &amp;lt;warehouse-path&amp;gt; \ --database &amp;lt;database-name&amp;gt; \ --table &amp;lt;table-name&amp;gt; \ [--partition_keys &amp;lt;partition_keys&amp;gt;] \ [--computed_column &amp;lt;&amp;#39;column-name=expr-name(args[, .</description>
+    </item>
+    <item>
+      <title>Pulsar CDC</title>
+      <link>//localhost:1313/zh/cdc-ingestion/pulsar-cdc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/cdc-ingestion/pulsar-cdc/</guid>
+      <description>Pulsar CDC&#xD;#&#xD;Prepare Pulsar Bundled Jar&#xD;#&#xD;flink-connector-pulsar-*.jar Supported Formats&#xD;#&#xD;Flink provides several Pulsar CDC formats: Canal Json, Debezium Json, Debezium Avro, Ogg Json, Maxwell Json and Normal Json. If a message in a pulsar topic is a change event captured from another database using the Change Data Capture (CDC) tool, then you can use the Paimon Pulsar CDC. Write the INSERT, UPDATE, DELETE messages parsed into the paimon table.</description>
+    </item>
+    <item>
+      <title>Debezium BSON</title>
+      <link>//localhost:1313/zh/cdc-ingestion/debezium-bson/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/zh/cdc-ingestion/debezium-bson/</guid>
+      <description>Debezium BSON Format&#xD;#&#xD;The debezium-bson format is one of the formats supported by Kafka CDC. It is the format obtained by collecting mongodb through debezium, which is similar to debezium-json format. However, MongoDB does not have a fixed schema, and the field types of each document may be different, so the before/after fields in JSON are all string types, while the debezium-json format requires a JSON object type.</description>
+    </item>
+  </channel>
+</rss>
