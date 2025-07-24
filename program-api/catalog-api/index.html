@@ -1,61 +1,92 @@
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir=ZgotmplZ>
+
 <head>
-  <meta charset="UTF-8">
+  <meta name="generator" content="Hugo 0.124.1">
+  
+    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
+<meta name="description" content="Catalog API#Create Database#You can use the catalog to create databases. The created databases are persistence in the file system.
+import org.apache.paimon.catalog.Catalog; public class CreateDatabase { public static void main(String[] args) { try { Catalog catalog = CreateCatalog.createFilesystemCatalog(); catalog.createDatabase(&#34;my_db&#34;, false); } catch (Catalog.DatabaseAlreadyExistException e) { // do something } } } Determine Whether Database Exists#You can use the catalog to determine whether the database exists">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Catalog API" />
+<meta property="og:description" content="Catalog API#Create Database#You can use the catalog to create databases. The created databases are persistence in the file system.
+import org.apache.paimon.catalog.Catalog; public class CreateDatabase { public static void main(String[] args) { try { Catalog catalog = CreateCatalog.createFilesystemCatalog(); catalog.createDatabase(&#34;my_db&#34;, false); } catch (Catalog.DatabaseAlreadyExistException e) { // do something } } } Determine Whether Database Exists#You can use the catalog to determine whether the database exists" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/program-api/catalog-api/" /><meta property="article:section" content="program-api" />
 
-  Catalog API
-  #
 
-
-  Create Database
-  #
-
-You can use the catalog to create databases. The created databases are persistence in the file system.">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/">
-  <meta property="og:site_name" content="Paimon Docs">
-  <meta property="og:title" content="Catalog API">
-  <meta property="og:description" content="Catalog API#Create Database#You can use the catalog to create databases. The created databases are persistence in the file system.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="program-api">
-<title>Catalog API | Paimon Docs</title>
-<link rel="icon" href="/paimon-docs-chinese/favicon.png" >
-<link rel="manifest" href="/paimon-docs-chinese/manifest.json">
-<link rel="canonical" href="https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/">
-  <link rel="alternate" hreflang="zh" href="https://lss1231.github.io/paimon-docs-chinese/zh/program-api/catalog-api/" title="Catalog API">
-<link rel="stylesheet" href="/paimon-docs-chinese/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
-  <script defer src="/paimon-docs-chinese/fuse.min.js"></script>
-  <script defer src="/paimon-docs-chinese/en.search.min.aaf551d0fd2d15700c7cc1367efc5e1f0877e9fa20ee85f422be6d5ab52f12a7.js" integrity="sha256-qvVR0P0tFXAMfME2fvxeHwh36fog7oX0Ir5tWrUvEqc=" crossorigin="anonymous"></script>
+<title>Catalog API | Apache Paimon</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/en.search.min.775e179f2dc972a2ede125d2322965d319189259d73840ea4884d5d5468e4f81.js" integrity="sha256-d14Xny3JcqLt4SXSMill0xkYklnXOEDqSITV1UaOT4E="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
+
+  
+  
+
+<link rel="stylesheet" type="text/css" href="//font-awesome/css/font-awesome.min.css">
+<script src="//js/anchor.min.js"></script>
+<script src="//js/flink.js"></script>
+
+
+
+  
+  <script>
+    var _paq = window._paq = window._paq || [];
+     
+     
+    _paq.push(['disableCookies']);
+     
+    _paq.push(["setDomains", ["*.flink.apache.org","*.nightlies.apache.org/flink"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.privacy.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
   
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+<body dir=ZgotmplZ>
+  
+    <input type="checkbox" class="hidden toggle" id="menu-control" />
+    <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
   <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
+    
+      <aside class="book-menu">
         
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/paimon-docs-chinese/"><span>Paimon Docs</span>
-  </a>
-</h2>
+  
+
+<nav>
 
 
-<div class="book-search hidden">
+<a id="logo" href="/">
+    <img width="100%" src="//paimon_black.svg">
+</a>
+<p style="text-align:right">1.1.1</p>
+
+<div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
-<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
 
 
 
@@ -63,1545 +94,1671 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
   
+  <ul>
     
-  
-
-
-  
-
-
-<ul class="book-languages">
-  <li>
-    <input type="checkbox" id="languages" class="toggle" />
-    <label for="languages" class="flex">
-      <a role="button" class="flex flex-auto">
-        <img src="/paimon-docs-chinese/svg/translate.svg" class="book-icon" alt="Languages" />
-        English
-      </a>
-    </label>
-
-    <ul>
       
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-c731eb3eada0765f704948e2d3b9bb48" class="toggle"  />
+    <label for="section-c731eb3eada0765f704948e2d3b9bb48" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-book title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Concepts</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="toggle"  />
+    <label for="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="flex justify-between">RESTCatalog<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-04b977f4d78c1a1179624ef9cf1c052f" class="toggle"  />
+    <label for="section-04b977f4d78c1a1179624ef9cf1c052f" class="flex justify-between">Specification<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-13198e701ffb9c73ec7a3177a4f953f1" class="toggle"  />
+    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table with PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-f845a63b155c9d2fb0db740cc418eb68" class="toggle"  />
+    <label for="section-f845a63b155c9d2fb0db740cc418eb68" class="flex justify-between">Merge Engine<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-bb708993c18bd45422a8bcf87778bb93" class="toggle"  />
+    <label for="section-bb708993c18bd45422a8bcf87778bb93" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table w/o PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-86d841c4a4c551bb4e21d460836d4142" class="toggle"  />
+    <label for="section-86d841c4a4c551bb4e21d460836d4142" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Spark</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="toggle"  />
+    <label for="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Ecosystem</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="toggle"  />
+    <label for="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;CDC Ingestion</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-572d5eb93948a39233efdc1aa454d415" class="toggle"  />
+    <label for="section-572d5eb93948a39233efdc1aa454d415" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-wrench title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Maintenance</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="toggle" checked />
+    <label for="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Program API</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/catalog-api/" class=" active">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="toggle"  />
+    <label for="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Migration</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  	<br/>
+  
+  
+    <input type="checkbox" id="section-fd0d6ee095aef42da7d15863a92a4aa0" class="toggle"  />
+    <label for="section-fd0d6ee095aef42da7d15863a92a4aa0" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Project</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-9e09a206f89e5011227bdf8d37b7ee20" class="toggle"  />
+    <label for="section-9e09a206f89e5011227bdf8d37b7ee20" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Learn Paimon</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<hr class="menu-break">
+
+<a href="//paimon.apache.org" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> Project Homepage</a>
+<br/>
+
+<a href="//paimon.apache.org/docs/master/api/java/" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> JavaDocs</a>
+<br/>
+
+<hr class="menu-break">
+<li style="list-style-type: none">
+  <br>
+  <input type="checkbox" id="section-version-picker" class="toggle">
+  <label for="section-version-picker" class="flex justify-between">
+     <div style="font-weight:450;margin-bottom:0.5em">Pick Docs Version</div>
+     <span>▾</span>
+  </label>
+  <ul>
+    <a href="/">
+      1.1 (✓)
+    </a>
+    <hr class="menu-break">
+    
       <li>
-        <a href="/paimon-docs-chinese/zh/program-api/catalog-api/">
-          简体中文
+        <a href="https://paimon.apache.org/docs/master">
+          master
         </a>
       </li>
-      
-    </ul>
-  </li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <ul>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b895d453a63bdabdecfee3e52661076a" class="toggle"  />
-    <label for="section-b895d453a63bdabdecfee3e52661076a" class="flex">
-      <a href="/paimon-docs-chinese/concepts/" class="flex-auto ">Concepts</a>
-    </label>
-  
-
-          
-  <ul>
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          stable
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/overview/" class="">Overview</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          1.1
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/basic-concepts/" class="">Basic Concepts</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.0">
+          1.0
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/concurrency-control/" class="">Concurrency Control</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/0.9">
+          0.9
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/catalog/" class="">Catalog</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3f7756e5a365d9799e1a48e9dc082791" class="toggle"  />
-    <label for="section-3f7756e5a365d9799e1a48e9dc082791" class="flex">
-      <a href="/paimon-docs-chinese/concepts/rest/" class="flex-auto ">RESTCatalog</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/bear/" class="">Bear Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/dlf/" class="">DLF Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/rest-api/" class="">REST API</a>
-  
-
-        </li>
-      
-    
+    <hr class="menu-break">
+    <li>
+      <a href="//versions">
+          All Versions
+      </a>
+    </li>
   </ul>
+</li>
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/table-types/" class="">Table Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/system-tables/" class="">System Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/data-types/" class="">Data Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="toggle"  />
-    <label for="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="flex">
-      <a href="/paimon-docs-chinese/concepts/spec/" class="flex-auto ">Specification</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/schema/" class="">Schema</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/snapshot/" class="">Snapshot</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/manifest/" class="">Manifest</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/datafile/" class="">DataFile</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/tableindex/" class="">Table Index</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/fileindex/" class="">File Index</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-a59fccf91e43460927bdd7cd6969595c" class="toggle"  />
-    <label for="section-a59fccf91e43460927bdd7cd6969595c" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/" class="flex-auto ">Table with PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/data-distribution/" class="">Data Distribution</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/table-mode/" class="">Table Mode</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9f5fa7a57eda74541859925935ec1ee1" class="toggle"  />
-    <label for="section-9f5fa7a57eda74541859925935ec1ee1" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/first-row/" class="">First Row</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/compaction/" class="">Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d9fb3aa2654140cef78254b873df57fa" class="toggle"  />
-    <label for="section-d9fb3aa2654140cef78254b873df57fa" class="flex">
-      <a href="/paimon-docs-chinese/append-table/" class="flex-auto ">Table w/o PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/update/" class="">Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="toggle"  />
-    <label for="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="flex">
-      <a href="/paimon-docs-chinese/flink/" class="flex-auto ">Engine Flink</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-ddl/" class="">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-write/" class="">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/consumer-id/" class="">Consumer ID</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-lookup/" class="">SQL Lookup</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/clone-tables/" class="">Clone Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/action-jars/" class="">Action Jars</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/savepoint/" class="">Savepoint</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3816fb91454c9575f5905fe48381df74" class="toggle"  />
-    <label for="section-3816fb91454c9575f5905fe48381df74" class="flex">
-      <a href="/paimon-docs-chinese/spark/" class="flex-auto ">Engine Spark</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-ddl/" class="">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-functions/" class="">SQL Functions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-write/" class="">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/auxiliary/" class="">Auxiliary</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-4ea9d84ff168bffb367b5a8863787431" class="toggle"  />
-    <label for="section-4ea9d84ff168bffb367b5a8863787431" class="flex">
-      <a href="/paimon-docs-chinese/ecosystem/" class="flex-auto ">Ecosystem</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/starrocks/" class="">StarRocks</a>
-  
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/doris/" class="">Doris</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/hive/" class="">Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/trino/" class="">Trino</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/amoro/" class="">Amoro</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-f8080595b1d8c7471fe9dac6513e4716" class="toggle"  />
-    <label for="section-f8080595b1d8c7471fe9dac6513e4716" class="flex">
-      <a href="/paimon-docs-chinese/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-2fd5175453dec9b599669fc6e1204624" class="toggle"  />
-    <label for="section-2fd5175453dec9b599669fc6e1204624" class="flex">
-      <a href="/paimon-docs-chinese/maintenance/" class="flex-auto ">Maintenance</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/filesystems/" class="">Filesystems</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/write-performance/" class="">Write Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-tags/" class="">Manage Tags</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/metrics/" class="">Metrics</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-privileges/" class="">Manage Privileges</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-branches/" class="">Manage Branches</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-partitions/" class="">Manage Partitions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/configurations/" class="">Configurations</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-974644b076e3505ee3b189288c66d89f" class="toggle" checked />
-    <label for="section-974644b076e3505ee3b189288c66d89f" class="flex">
-      <a href="/paimon-docs-chinese/program-api/" class="flex-auto ">Program API</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/flink-api/" class="">Flink API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/java-api/" class="">Java API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/catalog-api/" class="active">Catalog API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/python-api/" class="">Python API</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e474e2510a937257fb60b059694394da" class="toggle"  />
-    <label for="section-e474e2510a937257fb60b059694394da" class="flex">
-      <a href="/paimon-docs-chinese/migration/" class="flex-auto ">Migration</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-hive/" class="">Migration From Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
 
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d016a6a1825abcee27e3240dd658e135" class="toggle"  />
-    <label for="section-d016a6a1825abcee27e3240dd658e135" class="flex">
-      <a href="/paimon-docs-chinese/project/" class="flex-auto ">Project</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/roadmap/" class="">Roadmap</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/download/" class="">Download</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/contributing/" class="">Contributing</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/committer/" class="">Committer</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b300129f24651283095ddcb6c7d1d5b8" class="toggle"  />
-    <label for="section-b300129f24651283095ddcb6c7d1d5b8" class="flex">
-      <a href="/paimon-docs-chinese/learn-paimon/" class="flex-auto ">Learn Paimon</a>
-    </label>
-  
 
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/learn-paimon/understand-files/" class="">Understand Files</a>
   
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-
-
-
-
-
-
 
 
 
@@ -1614,35 +1771,38 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
-      </div>
-    </aside>
+      </aside>
+    
 
     <div class="book-page">
-      <header class="book-header">
-        
+      
+        <header class="book-header">
+          
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Catalog API</h3>
+  <strong>Catalog API</strong>
 
   <label for="toc-control">
     
-    <img src="/paimon-docs-chinese/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
+
 
   
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#create-database">Create Database</a></li>
     <li><a href="#determine-whether-database-exists">Determine Whether Database Exists</a></li>
@@ -1658,15 +1818,21 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-
   </aside>
   
  
-      </header>
+        </header>
+      
 
       
+
+
+
+
+
+
       
-  <article class="markdown book-article"><!--
+  <article class="markdown"><!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -1693,171 +1859,171 @@ under the License.
   <a class="anchor" href="#create-database">#</a>
 </h2>
 <p>You can use the catalog to create databases. The created databases are persistence in the file system.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CreateDatabase</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>            catalog.<span style="color:#a6e22e">createDatabase</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">DatabaseAlreadyExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="determine-whether-database-exists">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CreateDatabase</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">catalog</span><span class="p">.</span><span class="na">createDatabase</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">DatabaseAlreadyExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="determine-whether-database-exists">
   Determine Whether Database Exists
   <a class="anchor" href="#determine-whether-database-exists">#</a>
 </h2>
 <p>You can use the catalog to determine whether the database exists</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseExists</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> exists <span style="color:#f92672">=</span> catalog.<span style="color:#a6e22e">databaseExists</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="list-databases">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DatabaseExists</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">catalog</span><span class="p">.</span><span class="na">databaseExists</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="list-databases">
   List Databases
   <a class="anchor" href="#list-databases">#</a>
 </h2>
 <p>You can use the catalog to list databases.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListDatabases</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> databases <span style="color:#f92672">=</span> catalog.<span style="color:#a6e22e">listDatabases</span>();
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="drop-database">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ListDatabases</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">databases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">catalog</span><span class="p">.</span><span class="na">listDatabases</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="drop-database">
   Drop Database
   <a class="anchor" href="#drop-database">#</a>
 </h2>
 <p>You can use the catalog to drop database.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DropDatabase</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>            catalog.<span style="color:#a6e22e">dropDatabase</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">DatabaseNotEmptyException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">DatabaseNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="alter-database">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DropDatabase</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">catalog</span><span class="p">.</span><span class="na">dropDatabase</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">DatabaseNotEmptyException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">DatabaseNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="alter-database">
   Alter Database
   <a class="anchor" href="#alter-database">#</a>
 </h2>
 <p>You can use the catalog to alter database&rsquo;s properties.(ps: only support hive and jdbc catalog)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.ArrayList;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AlterDatabase</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createHiveCatalog</span>();
-</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>DatabaseChange<span style="color:#f92672">&gt;</span> changes <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>            changes.<span style="color:#a6e22e">add</span>(DatabaseChange.<span style="color:#a6e22e">setProperty</span>(<span style="color:#e6db74">&#34;k1&#34;</span>, <span style="color:#e6db74">&#34;v1&#34;</span>));
-</span></span><span style="display:flex;"><span>            changes.<span style="color:#a6e22e">add</span>(DatabaseChange.<span style="color:#a6e22e">removeProperty</span>(<span style="color:#e6db74">&#34;k2&#34;</span>));
-</span></span><span style="display:flex;"><span>            catalog.<span style="color:#a6e22e">alterDatabase</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, changes, <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">DatabaseNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="determine-whether-table-exists">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AlterDatabase</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createHiveCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DatabaseChange</span><span class="o">&gt;</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">changes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">DatabaseChange</span><span class="p">.</span><span class="na">setProperty</span><span class="p">(</span><span class="s">&#34;k1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;v1&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">changes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">DatabaseChange</span><span class="p">.</span><span class="na">removeProperty</span><span class="p">(</span><span class="s">&#34;k2&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">catalog</span><span class="p">.</span><span class="na">alterDatabase</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">changes</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">DatabaseNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="determine-whether-table-exists">
   Determine Whether Table Exists
   <a class="anchor" href="#determine-whether-table-exists">#</a>
 </h2>
 <p>You can use the catalog to determine whether the table exists</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Identifier;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TableExists</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        Identifier identifier <span style="color:#f92672">=</span> Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;my_table&#34;</span>);
-</span></span><span style="display:flex;"><span>        Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> exists <span style="color:#f92672">=</span> catalog.<span style="color:#a6e22e">tableExists</span>(identifier);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="list-tables">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Identifier</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TableExists</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Identifier</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Identifier</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;my_table&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">catalog</span><span class="p">.</span><span class="na">tableExists</span><span class="p">(</span><span class="n">identifier</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="list-tables">
   List Tables
   <a class="anchor" href="#list-tables">#</a>
 </h2>
 <p>You can use the catalog to list tables.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.List;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListTables</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tables <span style="color:#f92672">=</span> catalog.<span style="color:#a6e22e">listTables</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">DatabaseNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="drop-table">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ListTables</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">catalog</span><span class="p">.</span><span class="na">listTables</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">DatabaseNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="drop-table">
   Drop Table
   <a class="anchor" href="#drop-table">#</a>
 </h2>
 <p>You can use the catalog to drop table.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Identifier;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DropTable</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        Identifier identifier <span style="color:#f92672">=</span> Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;my_table&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>            catalog.<span style="color:#a6e22e">dropTable</span>(identifier, <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">TableNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="rename-table">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Identifier</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DropTable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Identifier</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Identifier</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;my_table&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">catalog</span><span class="p">.</span><span class="na">dropTable</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">TableNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="rename-table">
   Rename Table
   <a class="anchor" href="#rename-table">#</a>
 </h2>
 <p>You can use the catalog to rename a table.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Identifier;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RenameTable</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        Identifier fromTableIdentifier <span style="color:#f92672">=</span> Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;my_table&#34;</span>);
-</span></span><span style="display:flex;"><span>        Identifier toTableIdentifier <span style="color:#f92672">=</span> Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;test_table&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>            catalog.<span style="color:#a6e22e">renameTable</span>(fromTableIdentifier, toTableIdentifier, <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">TableAlreadyExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">TableNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="alter-table">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Identifier</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RenameTable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Identifier</span><span class="w"> </span><span class="n">fromTableIdentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Identifier</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;my_table&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Identifier</span><span class="w"> </span><span class="n">toTableIdentifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Identifier</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;test_table&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">catalog</span><span class="p">.</span><span class="na">renameTable</span><span class="p">(</span><span class="n">fromTableIdentifier</span><span class="p">,</span><span class="w"> </span><span class="n">toTableIdentifier</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">TableAlreadyExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">TableNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="alter-table">
   Alter Table
   <a class="anchor" href="#alter-table">#</a>
 </h2>
@@ -1869,139 +2035,149 @@ under the License.
 <li>If the type of the column is nested row type, update the column type is not supported.</li>
 <li>Update column to nested row type is not supported.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Catalog;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.catalog.Identifier;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.schema.Schema;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.schema.SchemaChange;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.types.DataField;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.apache.paimon.types.DataTypes;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> com.google.common.collect.Lists;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Arrays;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.HashMap;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.Map;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AlterTable</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
-</span></span><span style="display:flex;"><span>        Identifier identifier <span style="color:#f92672">=</span> Identifier.<span style="color:#a6e22e">create</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#e6db74">&#34;my_table&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        Map<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> options <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();
-</span></span><span style="display:flex;"><span>        options.<span style="color:#a6e22e">put</span>(<span style="color:#e6db74">&#34;bucket&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        Catalog catalog <span style="color:#f92672">=</span> CreateCatalog.<span style="color:#a6e22e">createFilesystemCatalog</span>();
-</span></span><span style="display:flex;"><span>        catalog.<span style="color:#a6e22e">createDatabase</span>(<span style="color:#e6db74">&#34;my_db&#34;</span>, <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            catalog.<span style="color:#a6e22e">createTable</span>(
-</span></span><span style="display:flex;"><span>                identifier,
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> Schema(
-</span></span><span style="display:flex;"><span>                    Lists.<span style="color:#a6e22e">newArrayList</span>(
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> DataField(0, <span style="color:#e6db74">&#34;col1&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;field1&#34;</span>),
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> DataField(1, <span style="color:#e6db74">&#34;col2&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;field2&#34;</span>),
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> DataField(2, <span style="color:#e6db74">&#34;col3&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;field3&#34;</span>),
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> DataField(3, <span style="color:#e6db74">&#34;col4&#34;</span>, DataTypes.<span style="color:#a6e22e">BIGINT</span>(), <span style="color:#e6db74">&#34;field4&#34;</span>),
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> DataField(
-</span></span><span style="display:flex;"><span>                            4,
-</span></span><span style="display:flex;"><span>                            <span style="color:#e6db74">&#34;col5&#34;</span>,
-</span></span><span style="display:flex;"><span>                            DataTypes.<span style="color:#a6e22e">ROW</span>(
-</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">new</span> DataField(
-</span></span><span style="display:flex;"><span>                                    5, <span style="color:#e6db74">&#34;f1&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;f1&#34;</span>),
-</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">new</span> DataField(
-</span></span><span style="display:flex;"><span>                                    6, <span style="color:#e6db74">&#34;f2&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;f2&#34;</span>),
-</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">new</span> DataField(
-</span></span><span style="display:flex;"><span>                                    7, <span style="color:#e6db74">&#34;f3&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;f3&#34;</span>)),
-</span></span><span style="display:flex;"><span>                            <span style="color:#e6db74">&#34;field5&#34;</span>),
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> DataField(8, <span style="color:#e6db74">&#34;col6&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;field6&#34;</span>)),
-</span></span><span style="display:flex;"><span>                    Lists.<span style="color:#a6e22e">newArrayList</span>(<span style="color:#e6db74">&#34;col1&#34;</span>), <span style="color:#75715e">// partition keys</span>
-</span></span><span style="display:flex;"><span>                    Lists.<span style="color:#a6e22e">newArrayList</span>(<span style="color:#e6db74">&#34;col1&#34;</span>, <span style="color:#e6db74">&#34;col2&#34;</span>), <span style="color:#75715e">// primary key</span>
-</span></span><span style="display:flex;"><span>                    options,
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;table comment&#34;</span>),
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">TableAlreadyExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">DatabaseNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// add option</span>
-</span></span><span style="display:flex;"><span>        SchemaChange addOption <span style="color:#f92672">=</span> SchemaChange.<span style="color:#a6e22e">setOption</span>(<span style="color:#e6db74">&#34;snapshot.time-retained&#34;</span>, <span style="color:#e6db74">&#34;2h&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// add column</span>
-</span></span><span style="display:flex;"><span>        SchemaChange addColumn <span style="color:#f92672">=</span> SchemaChange.<span style="color:#a6e22e">addColumn</span>(<span style="color:#e6db74">&#34;col1_after&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>());
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// add a column after col1</span>
-</span></span><span style="display:flex;"><span>        SchemaChange.<span style="color:#a6e22e">Move</span> after <span style="color:#f92672">=</span> SchemaChange.<span style="color:#a6e22e">Move</span>.<span style="color:#a6e22e">after</span>(<span style="color:#e6db74">&#34;col1_after&#34;</span>, <span style="color:#e6db74">&#34;col1&#34;</span>);
-</span></span><span style="display:flex;"><span>        SchemaChange addColumnAfterField <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            SchemaChange.<span style="color:#a6e22e">addColumn</span>(<span style="color:#e6db74">&#34;col7&#34;</span>, DataTypes.<span style="color:#a6e22e">STRING</span>(), <span style="color:#e6db74">&#34;&#34;</span>, after);
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// rename column</span>
-</span></span><span style="display:flex;"><span>        SchemaChange renameColumn <span style="color:#f92672">=</span> SchemaChange.<span style="color:#a6e22e">renameColumn</span>(<span style="color:#e6db74">&#34;col3&#34;</span>, <span style="color:#e6db74">&#34;col3_new_name&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// drop column</span>
-</span></span><span style="display:flex;"><span>        SchemaChange dropColumn <span style="color:#f92672">=</span> SchemaChange.<span style="color:#a6e22e">dropColumn</span>(<span style="color:#e6db74">&#34;col6&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// update column comment</span>
-</span></span><span style="display:flex;"><span>        SchemaChange updateColumnComment <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            SchemaChange.<span style="color:#a6e22e">updateColumnComment</span>(<span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> {<span style="color:#e6db74">&#34;col4&#34;</span>}, <span style="color:#e6db74">&#34;col4 field&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// update nested column comment</span>
-</span></span><span style="display:flex;"><span>        SchemaChange updateNestedColumnComment <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            SchemaChange.<span style="color:#a6e22e">updateColumnComment</span>(<span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> {<span style="color:#e6db74">&#34;col5&#34;</span>, <span style="color:#e6db74">&#34;f1&#34;</span>}, <span style="color:#e6db74">&#34;col5 f1 field&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// update column type</span>
-</span></span><span style="display:flex;"><span>        SchemaChange updateColumnType <span style="color:#f92672">=</span> SchemaChange.<span style="color:#a6e22e">updateColumnType</span>(<span style="color:#e6db74">&#34;col4&#34;</span>, DataTypes.<span style="color:#a6e22e">DOUBLE</span>());
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// update column position, you need to pass in a parameter of type Move</span>
-</span></span><span style="display:flex;"><span>        SchemaChange updateColumnPosition <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            SchemaChange.<span style="color:#a6e22e">updateColumnPosition</span>(SchemaChange.<span style="color:#a6e22e">Move</span>.<span style="color:#a6e22e">first</span>(<span style="color:#e6db74">&#34;col4&#34;</span>));
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// update column nullability</span>
-</span></span><span style="display:flex;"><span>        SchemaChange updateColumnNullability <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            SchemaChange.<span style="color:#a6e22e">updateColumnNullability</span>(<span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> {<span style="color:#e6db74">&#34;col4&#34;</span>}, <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// update nested column nullability</span>
-</span></span><span style="display:flex;"><span>        SchemaChange updateNestedColumnNullability <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            SchemaChange.<span style="color:#a6e22e">updateColumnNullability</span>(<span style="color:#66d9ef">new</span> String<span style="color:#f92672">[]</span> {<span style="color:#e6db74">&#34;col5&#34;</span>, <span style="color:#e6db74">&#34;f2&#34;</span>}, <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        SchemaChange<span style="color:#f92672">[]</span> schemaChanges <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> SchemaChange<span style="color:#f92672">[]</span> {
-</span></span><span style="display:flex;"><span>                addOption,
-</span></span><span style="display:flex;"><span>                removeOption,
-</span></span><span style="display:flex;"><span>                addColumn,
-</span></span><span style="display:flex;"><span>                addColumnAfterField,
-</span></span><span style="display:flex;"><span>                renameColumn,
-</span></span><span style="display:flex;"><span>                dropColumn,
-</span></span><span style="display:flex;"><span>                updateColumnComment,
-</span></span><span style="display:flex;"><span>                updateNestedColumnComment,
-</span></span><span style="display:flex;"><span>                updateColumnType,
-</span></span><span style="display:flex;"><span>                updateColumnPosition,
-</span></span><span style="display:flex;"><span>                updateColumnNullability,
-</span></span><span style="display:flex;"><span>                updateNestedColumnNullability
-</span></span><span style="display:flex;"><span>            };
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
-</span></span><span style="display:flex;"><span>            catalog.<span style="color:#a6e22e">alterTable</span>(identifier, Arrays.<span style="color:#a6e22e">asList</span>(schemaChanges), <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">TableNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">ColumnAlreadyExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (Catalog.<span style="color:#a6e22e">ColumnNotExistException</span> e) {
-</span></span><span style="display:flex;"><span>            <span style="color:#75715e">// do something</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></article>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Catalog</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.catalog.Identifier</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.schema.Schema</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.schema.SchemaChange</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.types.DataField</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.apache.paimon.types.DataTypes</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">com.google.common.collect.Lists</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AlterTable</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Identifier</span><span class="w"> </span><span class="n">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Identifier</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;my_table&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">options</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&#34;bucket&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;4&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Catalog</span><span class="w"> </span><span class="n">catalog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateCatalog</span><span class="p">.</span><span class="na">createFilesystemCatalog</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">catalog</span><span class="p">.</span><span class="na">createDatabase</span><span class="p">(</span><span class="s">&#34;my_db&#34;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">catalog</span><span class="p">.</span><span class="na">createTable</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">identifier</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">Schema</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Lists</span><span class="p">.</span><span class="na">newArrayList</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="n">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col1&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;field1&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col2&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;field2&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col3&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;field3&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="n">3</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col4&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">BIGINT</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;field4&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">4</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="s">&#34;col5&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">ROW</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                    </span><span class="n">5</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;f1&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;f1&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                    </span><span class="n">6</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;f2&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;f2&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                                    </span><span class="n">7</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;f3&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;f3&#34;</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="s">&#34;field5&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">new</span><span class="w"> </span><span class="n">DataField</span><span class="p">(</span><span class="n">8</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col6&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;field6&#34;</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Lists</span><span class="p">.</span><span class="na">newArrayList</span><span class="p">(</span><span class="s">&#34;col1&#34;</span><span class="p">),</span><span class="w"> </span><span class="c1">// partition keys</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Lists</span><span class="p">.</span><span class="na">newArrayList</span><span class="p">(</span><span class="s">&#34;col1&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col2&#34;</span><span class="p">),</span><span class="w"> </span><span class="c1">// primary key</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">options</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="s">&#34;table comment&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">TableAlreadyExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">DatabaseNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// add option</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">addOption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">setOption</span><span class="p">(</span><span class="s">&#34;snapshot.time-retained&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;2h&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// add column</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">addColumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">addColumn</span><span class="p">(</span><span class="s">&#34;col1_after&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// add a column after col1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">Move</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">Move</span><span class="p">.</span><span class="na">after</span><span class="p">(</span><span class="s">&#34;col1_after&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col1&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">addColumnAfterField</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">addColumn</span><span class="p">(</span><span class="s">&#34;col7&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">STRING</span><span class="p">(),</span><span class="w"> </span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">after</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// rename column</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">renameColumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">renameColumn</span><span class="p">(</span><span class="s">&#34;col3&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;col3_new_name&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// drop column</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">dropColumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">dropColumn</span><span class="p">(</span><span class="s">&#34;col6&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// update column comment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">updateColumnComment</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">updateColumnComment</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="s">&#34;col4&#34;</span><span class="p">},</span><span class="w"> </span><span class="s">&#34;col4 field&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// update nested column comment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">updateNestedColumnComment</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">updateColumnComment</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="s">&#34;col5&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;f1&#34;</span><span class="p">},</span><span class="w"> </span><span class="s">&#34;col5 f1 field&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// update column type</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">updateColumnType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">updateColumnType</span><span class="p">(</span><span class="s">&#34;col4&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">DataTypes</span><span class="p">.</span><span class="na">DOUBLE</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// update column position, you need to pass in a parameter of type Move</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">updateColumnPosition</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">updateColumnPosition</span><span class="p">(</span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">Move</span><span class="p">.</span><span class="na">first</span><span class="p">(</span><span class="s">&#34;col4&#34;</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// update column nullability</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">updateColumnNullability</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">updateColumnNullability</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="s">&#34;col4&#34;</span><span class="p">},</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// update nested column nullability</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="w"> </span><span class="n">updateNestedColumnNullability</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">SchemaChange</span><span class="p">.</span><span class="na">updateColumnNullability</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="s">&#34;col5&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;f2&#34;</span><span class="p">},</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">SchemaChange</span><span class="o">[]</span><span class="w"> </span><span class="n">schemaChanges</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">SchemaChange</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">addOption</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">removeOption</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">addColumn</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">addColumnAfterField</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">renameColumn</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">dropColumn</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">updateColumnComment</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">updateNestedColumnComment</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">updateColumnType</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">updateColumnPosition</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">updateColumnNullability</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">updateNestedColumnNullability</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">catalog</span><span class="p">.</span><span class="na">alterTable</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">schemaChanges</span><span class="p">),</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">TableNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">ColumnAlreadyExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Catalog</span><span class="p">.</span><span class="na">ColumnNotExistException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// do something</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div></article>
  
       
 
       <footer class="book-footer">
         
-  <div class="flex flex-wrap justify-between">
+  
 
 
 
 
-
-</div>
-
-
-
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+<a href="//github.com/apache/paimon/edit/1.1/docs/content/program-api%5ccatalog-api.md" style="color:black"><i class="fa fa-edit fa-fw"></i>Edit This Page</a>
 
 
  
         
+
+
+<hr style="margin-top: 20px; border: 1px solid #e5e5e5;" />
+
+<table style="border-spacing: 10px;">
+    <tbody>
+    <tr>
+        <td colspan="2">
+            Copyright &copy; 2024 The Apache Software Foundation. Apache Paimon, Paimon, and its feather logo are
+            trademarks of The Apache Software Foundation.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
       </footer>
 
       
@@ -2017,10 +2193,10 @@ under the License.
 
     
     <aside class="book-toc">
-      <div class="book-toc-content">
-        
+      
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#create-database">Create Database</a></li>
     <li><a href="#determine-whether-database-exists">Determine Whether Database Exists</a></li>
@@ -2035,15 +2211,19 @@ under the License.
   </ul>
 </nav>
 
-
  
-      </div>
+    </aside>
+    <aside class="expand-toc">
+      <button class="toc" onclick="expandToc()">
+        <i class="fa fa-expand" aria-hidden="true"></i>
+      </button>
     </aside>
     
   </main>
 
   
 </body>
+
 </html>
 
 

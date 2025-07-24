@@ -1,65 +1,94 @@
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir=ZgotmplZ>
+
 <head>
-  <meta charset="UTF-8">
+  <meta name="generator" content="Hugo 0.124.1">
+  
+    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
+<meta name="description" content="SQL DDL#Catalog#Create Catalog#Paimon catalogs currently support three types of metastores:
+filesystem metastore (default), which stores both metadata and table files in filesystems. hive metastore, which additionally stores metadata in Hive metastore. Users can directly access the tables from Hive. jdbc metastore, which additionally stores metadata in relational databases such as MySQL, Postgres, etc. See CatalogOptions for detailed options when creating a catalog.
+Create Filesystem Catalog#The following Spark SQL registers and uses a Paimon catalog named my_catalog.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="SQL DDL" />
+<meta property="og:description" content="SQL DDL#Catalog#Create Catalog#Paimon catalogs currently support three types of metastores:
+filesystem metastore (default), which stores both metadata and table files in filesystems. hive metastore, which additionally stores metadata in Hive metastore. Users can directly access the tables from Hive. jdbc metastore, which additionally stores metadata in relational databases such as MySQL, Postgres, etc. See CatalogOptions for detailed options when creating a catalog.
+Create Filesystem Catalog#The following Spark SQL registers and uses a Paimon catalog named my_catalog." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/spark/sql-ddl/" /><meta property="article:section" content="spark" />
 
-  SQL DDL
-  #
 
-
-  Catalog
-  #
-
-
-  Create Catalog
-  #
-
-Paimon catalogs currently support three types of metastores:">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/">
-  <meta property="og:site_name" content="Paimon Docs">
-  <meta property="og:title" content="SQL DDL">
-  <meta property="og:description" content="SQL DDL#Catalog#Create Catalog#Paimon catalogs currently support three types of metastores:">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="spark">
-<title>SQL DDL | Paimon Docs</title>
-<link rel="icon" href="/paimon-docs-chinese/favicon.png" >
-<link rel="manifest" href="/paimon-docs-chinese/manifest.json">
-<link rel="canonical" href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/">
-  <link rel="alternate" hreflang="zh" href="https://lss1231.github.io/paimon-docs-chinese/zh/spark/sql-ddl/" title="SQL DDL">
-<link rel="stylesheet" href="/paimon-docs-chinese/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
-  <script defer src="/paimon-docs-chinese/fuse.min.js"></script>
-  <script defer src="/paimon-docs-chinese/en.search.min.aaf551d0fd2d15700c7cc1367efc5e1f0877e9fa20ee85f422be6d5ab52f12a7.js" integrity="sha256-qvVR0P0tFXAMfME2fvxeHwh36fog7oX0Ir5tWrUvEqc=" crossorigin="anonymous"></script>
+<title>SQL DDL | Apache Paimon</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/en.search.min.775e179f2dc972a2ede125d2322965d319189259d73840ea4884d5d5468e4f81.js" integrity="sha256-d14Xny3JcqLt4SXSMill0xkYklnXOEDqSITV1UaOT4E="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
+
+  
+  
+
+<link rel="stylesheet" type="text/css" href="//font-awesome/css/font-awesome.min.css">
+<script src="//js/anchor.min.js"></script>
+<script src="//js/flink.js"></script>
+
+
+
+  
+  <script>
+    var _paq = window._paq = window._paq || [];
+     
+     
+    _paq.push(['disableCookies']);
+     
+    _paq.push(["setDomains", ["*.flink.apache.org","*.nightlies.apache.org/flink"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.privacy.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
   
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+<body dir=ZgotmplZ>
+  
+    <input type="checkbox" class="hidden toggle" id="menu-control" />
+    <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
   <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
+    
+      <aside class="book-menu">
         
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/paimon-docs-chinese/"><span>Paimon Docs</span>
-  </a>
-</h2>
+  
+
+<nav>
 
 
-<div class="book-search hidden">
+<a id="logo" href="/">
+    <img width="100%" src="//paimon_black.svg">
+</a>
+<p style="text-align:right">1.1.1</p>
+
+<div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
-<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
 
 
 
@@ -67,1545 +96,1671 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
   
+  <ul>
     
-  
-
-
-  
-
-
-<ul class="book-languages">
-  <li>
-    <input type="checkbox" id="languages" class="toggle" />
-    <label for="languages" class="flex">
-      <a role="button" class="flex flex-auto">
-        <img src="/paimon-docs-chinese/svg/translate.svg" class="book-icon" alt="Languages" />
-        English
-      </a>
-    </label>
-
-    <ul>
       
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-c731eb3eada0765f704948e2d3b9bb48" class="toggle"  />
+    <label for="section-c731eb3eada0765f704948e2d3b9bb48" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-book title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Concepts</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="toggle"  />
+    <label for="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="flex justify-between">RESTCatalog<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-04b977f4d78c1a1179624ef9cf1c052f" class="toggle"  />
+    <label for="section-04b977f4d78c1a1179624ef9cf1c052f" class="flex justify-between">Specification<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-13198e701ffb9c73ec7a3177a4f953f1" class="toggle"  />
+    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table with PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-f845a63b155c9d2fb0db740cc418eb68" class="toggle"  />
+    <label for="section-f845a63b155c9d2fb0db740cc418eb68" class="flex justify-between">Merge Engine<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-bb708993c18bd45422a8bcf87778bb93" class="toggle"  />
+    <label for="section-bb708993c18bd45422a8bcf87778bb93" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table w/o PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-86d841c4a4c551bb4e21d460836d4142" class="toggle" checked />
+    <label for="section-86d841c4a4c551bb4e21d460836d4142" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Spark</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-ddl/" class=" active">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="toggle"  />
+    <label for="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Ecosystem</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="toggle"  />
+    <label for="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;CDC Ingestion</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-572d5eb93948a39233efdc1aa454d415" class="toggle"  />
+    <label for="section-572d5eb93948a39233efdc1aa454d415" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-wrench title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Maintenance</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="toggle"  />
+    <label for="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Program API</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="toggle"  />
+    <label for="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Migration</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  	<br/>
+  
+  
+    <input type="checkbox" id="section-fd0d6ee095aef42da7d15863a92a4aa0" class="toggle"  />
+    <label for="section-fd0d6ee095aef42da7d15863a92a4aa0" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Project</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-9e09a206f89e5011227bdf8d37b7ee20" class="toggle"  />
+    <label for="section-9e09a206f89e5011227bdf8d37b7ee20" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Learn Paimon</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<hr class="menu-break">
+
+<a href="//paimon.apache.org" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> Project Homepage</a>
+<br/>
+
+<a href="//paimon.apache.org/docs/master/api/java/" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> JavaDocs</a>
+<br/>
+
+<hr class="menu-break">
+<li style="list-style-type: none">
+  <br>
+  <input type="checkbox" id="section-version-picker" class="toggle">
+  <label for="section-version-picker" class="flex justify-between">
+     <div style="font-weight:450;margin-bottom:0.5em">Pick Docs Version</div>
+     <span>▾</span>
+  </label>
+  <ul>
+    <a href="/">
+      1.1 (✓)
+    </a>
+    <hr class="menu-break">
+    
       <li>
-        <a href="/paimon-docs-chinese/zh/spark/sql-ddl/">
-          简体中文
+        <a href="https://paimon.apache.org/docs/master">
+          master
         </a>
       </li>
-      
-    </ul>
-  </li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <ul>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b895d453a63bdabdecfee3e52661076a" class="toggle"  />
-    <label for="section-b895d453a63bdabdecfee3e52661076a" class="flex">
-      <a href="/paimon-docs-chinese/concepts/" class="flex-auto ">Concepts</a>
-    </label>
-  
-
-          
-  <ul>
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          stable
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/overview/" class="">Overview</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          1.1
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/basic-concepts/" class="">Basic Concepts</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.0">
+          1.0
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/concurrency-control/" class="">Concurrency Control</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/0.9">
+          0.9
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/catalog/" class="">Catalog</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3f7756e5a365d9799e1a48e9dc082791" class="toggle"  />
-    <label for="section-3f7756e5a365d9799e1a48e9dc082791" class="flex">
-      <a href="/paimon-docs-chinese/concepts/rest/" class="flex-auto ">RESTCatalog</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/bear/" class="">Bear Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/dlf/" class="">DLF Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/rest-api/" class="">REST API</a>
-  
-
-        </li>
-      
-    
+    <hr class="menu-break">
+    <li>
+      <a href="//versions">
+          All Versions
+      </a>
+    </li>
   </ul>
+</li>
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/table-types/" class="">Table Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/system-tables/" class="">System Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/data-types/" class="">Data Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="toggle"  />
-    <label for="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="flex">
-      <a href="/paimon-docs-chinese/concepts/spec/" class="flex-auto ">Specification</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/schema/" class="">Schema</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/snapshot/" class="">Snapshot</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/manifest/" class="">Manifest</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/datafile/" class="">DataFile</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/tableindex/" class="">Table Index</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/fileindex/" class="">File Index</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-a59fccf91e43460927bdd7cd6969595c" class="toggle"  />
-    <label for="section-a59fccf91e43460927bdd7cd6969595c" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/" class="flex-auto ">Table with PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/data-distribution/" class="">Data Distribution</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/table-mode/" class="">Table Mode</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9f5fa7a57eda74541859925935ec1ee1" class="toggle"  />
-    <label for="section-9f5fa7a57eda74541859925935ec1ee1" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/first-row/" class="">First Row</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/compaction/" class="">Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d9fb3aa2654140cef78254b873df57fa" class="toggle"  />
-    <label for="section-d9fb3aa2654140cef78254b873df57fa" class="flex">
-      <a href="/paimon-docs-chinese/append-table/" class="flex-auto ">Table w/o PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/update/" class="">Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="toggle"  />
-    <label for="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="flex">
-      <a href="/paimon-docs-chinese/flink/" class="flex-auto ">Engine Flink</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-ddl/" class="">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-write/" class="">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/consumer-id/" class="">Consumer ID</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-lookup/" class="">SQL Lookup</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/clone-tables/" class="">Clone Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/action-jars/" class="">Action Jars</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/savepoint/" class="">Savepoint</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3816fb91454c9575f5905fe48381df74" class="toggle" checked />
-    <label for="section-3816fb91454c9575f5905fe48381df74" class="flex">
-      <a href="/paimon-docs-chinese/spark/" class="flex-auto ">Engine Spark</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-ddl/" class="active">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-functions/" class="">SQL Functions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-write/" class="">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/auxiliary/" class="">Auxiliary</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-4ea9d84ff168bffb367b5a8863787431" class="toggle"  />
-    <label for="section-4ea9d84ff168bffb367b5a8863787431" class="flex">
-      <a href="/paimon-docs-chinese/ecosystem/" class="flex-auto ">Ecosystem</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/starrocks/" class="">StarRocks</a>
-  
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/doris/" class="">Doris</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/hive/" class="">Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/trino/" class="">Trino</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/amoro/" class="">Amoro</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-f8080595b1d8c7471fe9dac6513e4716" class="toggle"  />
-    <label for="section-f8080595b1d8c7471fe9dac6513e4716" class="flex">
-      <a href="/paimon-docs-chinese/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-2fd5175453dec9b599669fc6e1204624" class="toggle"  />
-    <label for="section-2fd5175453dec9b599669fc6e1204624" class="flex">
-      <a href="/paimon-docs-chinese/maintenance/" class="flex-auto ">Maintenance</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/filesystems/" class="">Filesystems</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/write-performance/" class="">Write Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-tags/" class="">Manage Tags</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/metrics/" class="">Metrics</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-privileges/" class="">Manage Privileges</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-branches/" class="">Manage Branches</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-partitions/" class="">Manage Partitions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/configurations/" class="">Configurations</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-974644b076e3505ee3b189288c66d89f" class="toggle"  />
-    <label for="section-974644b076e3505ee3b189288c66d89f" class="flex">
-      <a href="/paimon-docs-chinese/program-api/" class="flex-auto ">Program API</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/flink-api/" class="">Flink API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/java-api/" class="">Java API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/catalog-api/" class="">Catalog API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/python-api/" class="">Python API</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e474e2510a937257fb60b059694394da" class="toggle"  />
-    <label for="section-e474e2510a937257fb60b059694394da" class="flex">
-      <a href="/paimon-docs-chinese/migration/" class="flex-auto ">Migration</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-hive/" class="">Migration From Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
 
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d016a6a1825abcee27e3240dd658e135" class="toggle"  />
-    <label for="section-d016a6a1825abcee27e3240dd658e135" class="flex">
-      <a href="/paimon-docs-chinese/project/" class="flex-auto ">Project</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/roadmap/" class="">Roadmap</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/download/" class="">Download</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/contributing/" class="">Contributing</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/committer/" class="">Committer</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b300129f24651283095ddcb6c7d1d5b8" class="toggle"  />
-    <label for="section-b300129f24651283095ddcb6c7d1d5b8" class="flex">
-      <a href="/paimon-docs-chinese/learn-paimon/" class="flex-auto ">Learn Paimon</a>
-    </label>
-  
 
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/learn-paimon/understand-files/" class="">Understand Files</a>
   
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-
-
-
-
-
-
 
 
 
@@ -1618,35 +1773,38 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
-      </div>
-    </aside>
+      </aside>
+    
 
     <div class="book-page">
-      <header class="book-header">
-        
+      
+        <header class="book-header">
+          
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>SQL DDL</h3>
+  <strong>SQL DDL</strong>
 
   <label for="toc-control">
     
-    <img src="/paimon-docs-chinese/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
+
 
   
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#catalog">Catalog</a>
       <ul>
@@ -1678,15 +1836,21 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-
   </aside>
   
  
-      </header>
+        </header>
+      
 
       
+
+
+
+
+
+
       
-  <article class="markdown book-article"><!--
+  <article class="markdown"><!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -1722,20 +1886,20 @@ under the License.
 <li><code>hive</code> metastore, which additionally stores metadata in Hive metastore. Users can directly access the tables from Hive.</li>
 <li><code>jdbc</code> metastore, which additionally stores metadata in relational databases such as MySQL, Postgres, etc.</li>
 </ul>
-<p>See <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/#catalogoptions">CatalogOptions</a> for detailed options when creating a catalog.</p>
+<p>See <a href="/maintenance/configurations/#catalogoptions">CatalogOptions</a> for detailed options when creating a catalog.</p>
 <h4 id="create-filesystem-catalog">
   Create Filesystem Catalog
   <a class="anchor" href="#create-filesystem-catalog">#</a>
 </h4>
 <p>The following Spark SQL registers and uses a Paimon catalog named <code>my_catalog</code>. Metadata and table files are stored under <code>hdfs:///path/to/warehouse</code>.</p>
 <p>The following shell command registers a paimon catalog named <code>paimon</code>. Metadata and table files are stored under <code>hdfs:///path/to/warehouse</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql ... <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.warehouse<span style="color:#f92672">=</span>hdfs:///path/to/warehouse
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql ... <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.warehouse<span class="o">=</span>hdfs:///path/to/warehouse
 </span></span></code></pre></div><p>You can define any default table options with the prefix <code>spark.sql.catalog.paimon.table-default.</code> for tables created in the catalog.</p>
 <p>After <code>spark-sql</code> is started, you can switch to the <code>default</code> database of the <code>paimon</code> catalog with the following SQL.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>USE paimon.<span style="color:#66d9ef">default</span>;
-</span></span></code></pre></div><h4 id="creating-hive-catalog">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">paimon</span><span class="p">.</span><span class="k">default</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h4 id="creating-hive-catalog">
   Creating Hive Catalog
   <a class="anchor" href="#creating-hive-catalog">#</a>
 </h4>
@@ -1743,18 +1907,18 @@ under the License.
 <p>To use Hive catalog, Database name, Table name and Field names should be <strong>lower</strong> case.</p>
 <p>Your Spark installation should be able to detect, or already contains Hive dependencies. See <a href="https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html">here</a> for more information.</p>
 <p>The following shell command registers a Paimon Hive catalog named <code>paimon</code>. Metadata and table files are stored under <code>hdfs:///path/to/warehouse</code>. In addition, metadata is also stored in Hive metastore.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql ... <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.warehouse<span style="color:#f92672">=</span>hdfs:///path/to/warehouse <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.metastore<span style="color:#f92672">=</span>hive <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.uri<span style="color:#f92672">=</span>thrift://&lt;hive-metastore-host-name&gt;:&lt;port&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql ... <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.warehouse<span class="o">=</span>hdfs:///path/to/warehouse <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.metastore<span class="o">=</span>hive <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.uri<span class="o">=</span>thrift://&lt;hive-metastore-host-name&gt;:&lt;port&gt;
 </span></span></code></pre></div><p>You can define any default table options with the prefix <code>spark.sql.catalog.paimon.table-default.</code> for tables created in the catalog.</p>
 <p>After <code>spark-sql</code> is started, you can switch to the <code>default</code> database of the <code>paimon</code> catalog with the following SQL.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>USE paimon.<span style="color:#66d9ef">default</span>;
-</span></span></code></pre></div><p>Also, you can create <a href="https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/">SparkGenericCatalog</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">paimon</span><span class="p">.</span><span class="k">default</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Also, you can create <a href="/spark/quick-start/">SparkGenericCatalog</a>.</p>
 <p><strong>Synchronizing Partitions into Hive Metastore</strong></p>
 <p>By default, Paimon does not synchronize newly created partitions into Hive metastore. Users will see an unpartitioned table in Hive. Partition push-down will be carried out by filter push-down instead.</p>
-<p>If you want to see a partitioned table in Hive and also synchronize newly created partitions into Hive metastore, please set the table property <code>metastore.partitioned-table</code> to true. Also see <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/#coreoptions">CoreOptions</a>.</p>
+<p>If you want to see a partitioned table in Hive and also synchronize newly created partitions into Hive metastore, please set the table property <code>metastore.partitioned-table</code> to true. Also see <a href="/maintenance/configurations/#coreoptions">CoreOptions</a>.</p>
 <h4 id="creating-jdbc-catalog">
   Creating JDBC Catalog
   <a class="anchor" href="#creating-jdbc-catalog">#</a>
@@ -1763,36 +1927,36 @@ under the License.
 <p>Currently, lock configuration is only supported for MySQL and SQLite. If you are using a different type of database for catalog storage, please do not configure <code>lock.enabled</code>.</p>
 <p>Paimon JDBC Catalog in Spark needs to correctly add the corresponding jar package for connecting to the database. You should first download JDBC  connector bundled jar and add it to classpath. such as MySQL, postgres</p>
 <table>
-  <thead>
-      <tr>
-          <th style="text-align: left">database type</th>
-          <th style="text-align: left">Bundle Name</th>
-          <th style="text-align: left">SQL Client JAR</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">mysql</td>
-          <td style="text-align: left">mysql-connector-java</td>
-          <td style="text-align: left"><a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java">Download</a></td>
-      </tr>
-      <tr>
-          <td style="text-align: left">postgres</td>
-          <td style="text-align: left">postgresql</td>
-          <td style="text-align: left"><a href="https://mvnrepository.com/artifact/org.postgresql/postgresql">Download</a></td>
-      </tr>
-  </tbody>
+<thead>
+<tr>
+<th style="text-align:left">database type</th>
+<th style="text-align:left">Bundle Name</th>
+<th style="text-align:left">SQL Client JAR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mysql</td>
+<td style="text-align:left">mysql-connector-java</td>
+<td style="text-align:left"><a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java">Download</a></td>
+</tr>
+<tr>
+<td style="text-align:left">postgres</td>
+<td style="text-align:left">postgresql</td>
+<td style="text-align:left"><a href="https://mvnrepository.com/artifact/org.postgresql/postgresql">Download</a></td>
+</tr>
+</tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql ... <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.warehouse<span style="color:#f92672">=</span>hdfs:///path/to/warehouse <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.metastore<span style="color:#f92672">=</span>jdbc <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.uri<span style="color:#f92672">=</span>jdbc:mysql://&lt;host&gt;:&lt;port&gt;/&lt;databaseName&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.jdbc.user<span style="color:#f92672">=</span>... <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.jdbc.password<span style="color:#f92672">=</span>...
-</span></span><span style="display:flex;"><span>    
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>USE paimon.<span style="color:#66d9ef">default</span>;
-</span></span></code></pre></div><h4 id="creating-rest-catalog">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql ... <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.warehouse<span class="o">=</span>hdfs:///path/to/warehouse <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.metastore<span class="o">=</span>jdbc <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.uri<span class="o">=</span>jdbc:mysql://&lt;host&gt;:&lt;port&gt;/&lt;databaseName&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.jdbc.user<span class="o">=</span>... <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.jdbc.password<span class="o">=</span>...
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">paimon</span><span class="p">.</span><span class="k">default</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h4 id="creating-rest-catalog">
   Creating REST Catalog
   <a class="anchor" href="#creating-rest-catalog">#</a>
 </h4>
@@ -1801,41 +1965,41 @@ under the License.
   bear token
   <a class="anchor" href="#bear-token">#</a>
 </h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql ... <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.metastore<span style="color:#f92672">=</span>rest <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.uri<span style="color:#f92672">=</span>&lt;catalog server url&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.token.provider<span style="color:#f92672">=</span>bear <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.token<span style="color:#f92672">=</span>&lt;token&gt;
-</span></span><span style="display:flex;"><span>    
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql ... <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.metastore<span class="o">=</span>rest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.uri<span class="o">=</span>&lt;catalog server url&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.token.provider<span class="o">=</span>bear <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.token<span class="o">=</span>&lt;token&gt;
+</span></span><span class="line"><span class="cl">    
 </span></span></code></pre></div><h5 id="dlf-ak">
   dlf ak
   <a class="anchor" href="#dlf-ak">#</a>
 </h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql ... <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.metastore<span style="color:#f92672">=</span>rest <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.uri<span style="color:#f92672">=</span>&lt;catalog server url&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.token.provider<span style="color:#f92672">=</span>dlf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-id<span style="color:#f92672">=</span>&lt;access-key-id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-secret<span style="color:#f92672">=</span>&lt;security-token&gt;
-</span></span><span style="display:flex;"><span>    
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql ... <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.metastore<span class="o">=</span>rest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.uri<span class="o">=</span>&lt;catalog server url&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.token.provider<span class="o">=</span>dlf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-id<span class="o">=</span>&lt;access-key-id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-secret<span class="o">=</span>&lt;security-token&gt;
+</span></span><span class="line"><span class="cl">    
 </span></span></code></pre></div><h5 id="dlf-sts-token">
   dlf sts token
   <a class="anchor" href="#dlf-sts-token">#</a>
 </h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql ... <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.metastore<span style="color:#f92672">=</span>rest <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.uri<span style="color:#f92672">=</span>&lt;catalog server url&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.token.provider<span style="color:#f92672">=</span>dlf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-id<span style="color:#f92672">=</span>&lt;access-key-id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-secret<span style="color:#f92672">=</span>&lt;access-key-secret&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon.dlf.security-token<span style="color:#f92672">=</span>&lt;security-token&gt;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>USE paimon.<span style="color:#66d9ef">default</span>;
-</span></span></code></pre></div><h2 id="table">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql ... <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.metastore<span class="o">=</span>rest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.uri<span class="o">=</span>&lt;catalog server url&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.token.provider<span class="o">=</span>dlf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-id<span class="o">=</span>&lt;access-key-id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.dlf.access-key-secret<span class="o">=</span>&lt;access-key-secret&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon.dlf.security-token<span class="o">=</span>&lt;security-token&gt;
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="n">paimon</span><span class="p">.</span><span class="k">default</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="table">
   Table
   <a class="anchor" href="#table">#</a>
 </h2>
@@ -1847,45 +2011,45 @@ under the License.
 When the table is dropped from catalog, its table files will also be deleted.</p>
 <p>The following SQL assumes that you have registered and are using a Paimon catalog. It creates a managed table named
 <code>my_table</code> with five columns in the catalog&rsquo;s <code>default</code> database, where <code>dt</code>, <code>hh</code> and <code>user_id</code> are the primary keys.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>    user_id BIGINT,
-</span></span><span style="display:flex;"><span>    item_id BIGINT,
-</span></span><span style="display:flex;"><span>    behavior STRING,
-</span></span><span style="display:flex;"><span>    dt STRING,
-</span></span><span style="display:flex;"><span>    hh STRING
-</span></span><span style="display:flex;"><span>) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dt,hh,user_id&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span></code></pre></div><p>You can create partitioned table:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>    user_id BIGINT,
-</span></span><span style="display:flex;"><span>    item_id BIGINT,
-</span></span><span style="display:flex;"><span>    behavior STRING,
-</span></span><span style="display:flex;"><span>    dt STRING,
-</span></span><span style="display:flex;"><span>    hh STRING
-</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt, hh) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dt,hh,user_id&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span></code></pre></div><h3 id="create-external-table">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">behavior</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hh</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dt,hh,user_id&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can create partitioned table:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">behavior</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hh</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">hh</span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dt,hh,user_id&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="create-external-table">
   Create External Table
   <a class="anchor" href="#create-external-table">#</a>
 </h3>
 <p>When the catalog&rsquo;s <code>metastore</code> type is <code>hive</code>, if the <code>location</code> is specified when creating a table, that table will be considered an external table; otherwise, it will be a managed table.</p>
 <p>When you drop an external table, only the metadata in Hive will be removed, and the actual data files will not be deleted; whereas dropping a managed table will also delete the data.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>    user_id BIGINT,
-</span></span><span style="display:flex;"><span>    item_id BIGINT,
-</span></span><span style="display:flex;"><span>    behavior STRING,
-</span></span><span style="display:flex;"><span>    dt STRING,
-</span></span><span style="display:flex;"><span>    hh STRING
-</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt, hh) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dt,hh,user_id&#39;</span>
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">LOCATION</span> <span style="color:#e6db74">&#39;/path/to/table&#39;</span>;
-</span></span></code></pre></div><p>Furthermore, if there is already data stored in the specified location, you can create the table without explicitly specifying the fields, partitions and props or other information.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">behavior</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hh</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">hh</span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dt,hh,user_id&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">LOCATION</span><span class="w"> </span><span class="s1">&#39;/path/to/table&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>Furthermore, if there is already data stored in the specified location, you can create the table without explicitly specifying the fields, partitions and props or other information.
 In this case, the new table will inherit them all from the existing table’s metadata.</p>
 <p>However, if you manually specify them, you need to ensure that they are consistent with those of the existing table (props can be a subset). Therefore, it is strongly recommended not to specify them.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table <span style="color:#66d9ef">LOCATION</span> <span style="color:#e6db74">&#39;/path/to/table&#39;</span>;
-</span></span></code></pre></div><h3 id="create-table-as-select">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">LOCATION</span><span class="w"> </span><span class="s1">&#39;/path/to/table&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="create-table-as-select">
   Create Table As Select
   <a class="anchor" href="#create-table-as-select">#</a>
 </h3>
@@ -1893,54 +2057,54 @@ In this case, the new table will inherit them all from the existing table’s me
 The resulting table <code>table_b</code> will be equivalent to create the table and insert the data with the following statement:
 <code>CREATE TABLE table_b (id INT, name STRING); INSERT INTO table_b SELECT id, name FROM table_a;</code></p>
 <p>We can specify the primary key or partition when use <code>CREATE TABLE AS SELECT</code>, for syntax, please refer to the following sql.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>     user_id BIGINT,
-</span></span><span style="display:flex;"><span>     item_id BIGINT
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_as <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> my_table;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/* partitioned table*/</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_partition (
-</span></span><span style="display:flex;"><span>      user_id BIGINT,
-</span></span><span style="display:flex;"><span>      item_id BIGINT,
-</span></span><span style="display:flex;"><span>      behavior STRING,
-</span></span><span style="display:flex;"><span>      dt STRING,
-</span></span><span style="display:flex;"><span>      hh STRING
-</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt, hh);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_partition_as PARTITIONED <span style="color:#66d9ef">BY</span> (dt) <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> my_table_partition;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/* change TBLPROPERTIES */</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_options (
-</span></span><span style="display:flex;"><span>       user_id BIGINT,
-</span></span><span style="display:flex;"><span>       item_id BIGINT
-</span></span><span style="display:flex;"><span>) TBLPROPERTIES (<span style="color:#e6db74">&#39;file.format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;orc&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_options_as TBLPROPERTIES (<span style="color:#e6db74">&#39;file.format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;parquet&#39;</span>) <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> my_table_options;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/* primary key */</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_pk (
-</span></span><span style="display:flex;"><span>     user_id BIGINT,
-</span></span><span style="display:flex;"><span>     item_id BIGINT,
-</span></span><span style="display:flex;"><span>     behavior STRING,
-</span></span><span style="display:flex;"><span>     dt STRING,
-</span></span><span style="display:flex;"><span>     hh STRING
-</span></span><span style="display:flex;"><span>) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dt,hh,user_id&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_pk_as TBLPROPERTIES (<span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dt&#39;</span>) <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> my_table_pk;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/* primary key + partition */</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_all (
-</span></span><span style="display:flex;"><span>    user_id BIGINT,
-</span></span><span style="display:flex;"><span>    item_id BIGINT,
-</span></span><span style="display:flex;"><span>    behavior STRING,
-</span></span><span style="display:flex;"><span>    dt STRING,
-</span></span><span style="display:flex;"><span>    hh STRING
-</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt, hh) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dt,hh,user_id&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table_all_as PARTITIONED <span style="color:#66d9ef">BY</span> (dt) TBLPROPERTIES (<span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dt,hh&#39;</span>) <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> my_table_all;
-</span></span></code></pre></div><h2 id="view">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_as</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* partitioned table*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_partition</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">behavior</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">dt</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">hh</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">hh</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_partition_as</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table_partition</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* change TBLPROPERTIES */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_options</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;file.format&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;orc&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_options_as</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;file.format&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;parquet&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table_options</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* primary key */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_pk</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">behavior</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">dt</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="n">hh</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dt,hh,user_id&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_pk_as</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dt&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table_pk</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* primary key + partition */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_all</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">item_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">behavior</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hh</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">hh</span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dt,hh,user_id&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table_all_as</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dt,hh&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table_all</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="view">
   View
   <a class="anchor" href="#view">#</a>
 </h2>
@@ -1951,19 +2115,19 @@ And in this case, views are supported when the <code>metastore</code> type is <c
   <a class="anchor" href="#create-or-replace-view">#</a>
 </h3>
 <p>CREATE VIEW constructs a virtual table that has no physical data.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- create a view.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">VIEW</span> v1 <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> t1;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a view, if a view of same name already exists, it will be replaced.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">OR</span> <span style="color:#66d9ef">REPLACE</span> <span style="color:#66d9ef">VIEW</span> v1 <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> t1;
-</span></span></code></pre></div><h3 id="drop-view">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- create a view.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create a view, if a view of same name already exists, it will be replaced.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="drop-view">
   Drop View
   <a class="anchor" href="#drop-view">#</a>
 </h3>
 <p>DROP VIEW removes the metadata associated with a specified view from the catalog.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- drop a view
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">VIEW</span> v1;
-</span></span></code></pre></div><h2 id="tag">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- drop a view
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="tag">
   Tag
   <a class="anchor" href="#tag">#</a>
 </h2>
@@ -1977,72 +2141,82 @@ And in this case, views are supported when the <code>metastore</code> type is <c
 <li>Create an existed tag is not failed if using <code>IF NOT EXISTS</code> syntax.</li>
 <li>Update a tag using <code>REPLACE TAG</code> or <code>CREATE OR REPLACE TAG</code> syntax.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- create a tag based on the latest snapshot and no retention.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">CREATE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">`</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a tag based on the latest snapshot and no retention if it doesn&#39;t exist.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">CREATE</span> TAG <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">`</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a tag based on the latest snapshot and retain it for 7 day.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">CREATE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">`</span> RETAIN <span style="color:#ae81ff">7</span> DAYS;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a tag based on snapshot-1 and no retention.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">CREATE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">OF</span> <span style="color:#66d9ef">VERSION</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create a tag based on snapshot-2 and retain it for 12 hour.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">CREATE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">OF</span> <span style="color:#66d9ef">VERSION</span> <span style="color:#ae81ff">2</span> RETAIN <span style="color:#ae81ff">12</span> HOURS;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- replace a existed tag with new snapshot id and new retention
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">REPLACE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">OF</span> <span style="color:#66d9ef">VERSION</span> <span style="color:#ae81ff">2</span> RETAIN <span style="color:#ae81ff">24</span> HOURS;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- create or replace a tag, create tag if it not exist, replace tag if it exists.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">OR</span> <span style="color:#66d9ef">REPLACE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">OF</span> <span style="color:#66d9ef">VERSION</span> <span style="color:#ae81ff">2</span> RETAIN <span style="color:#ae81ff">24</span> HOURS;
-</span></span></code></pre></div><h3 id="delete-tag">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- create a tag based on the latest snapshot and no retention.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">1</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create a tag based on the latest snapshot and no retention if it doesn&#39;t exist.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">1</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create a tag based on the latest snapshot and retain it for 7 day.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">2</span><span class="o">`</span><span class="w"> </span><span class="n">RETAIN</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">DAYS</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create a tag based on snapshot-1 and no retention.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">3</span><span class="o">`</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="k">VERSION</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create a tag based on snapshot-2 and retain it for 12 hour.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">4</span><span class="o">`</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="k">VERSION</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">RETAIN</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="n">HOURS</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- replace a existed tag with new snapshot id and new retention
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">4</span><span class="o">`</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="k">VERSION</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">RETAIN</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="n">HOURS</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create or replace a tag, create tag if it not exist, replace tag if it exists.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">5</span><span class="o">`</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="k">VERSION</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">RETAIN</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="n">HOURS</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="delete-tag">
   Delete Tag
   <a class="anchor" href="#delete-tag">#</a>
 </h3>
 <p>Delete a tag or multiple tags of a table.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- delete a tag.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">DELETE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">`</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- delete a tag if it exists.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">DELETE</span> TAG <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">`</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- delete multiple tags, delimiter is &#39;,&#39;.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">DELETE</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">`</span>;
-</span></span></code></pre></div><h3 id="rename-tag">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- delete a tag.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">1</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- delete a tag if it exists.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">1</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- delete multiple tags, delimiter is &#39;,&#39;.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">TAG</span><span class="o">-</span><span class="mi">2</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="rename-tag">
   Rename Tag
   <a class="anchor" href="#rename-tag">#</a>
 </h3>
 <p>Rename an existing tag with a new tag name.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> T <span style="color:#66d9ef">RENAME</span> TAG <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">`</span> <span style="color:#66d9ef">TO</span> <span style="color:#f92672">`</span>TAG<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">`</span>;
-</span></span></code></pre></div><h3 id="show-tags">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="n">TAG</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">1</span><span class="o">`</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">`</span><span class="n">TAG</span><span class="o">-</span><span class="mi">2</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="show-tags">
   Show Tags
   <a class="anchor" href="#show-tags">#</a>
 </h3>
 <p>List all tags of a table.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> TAGS T;
-</span></span></code></pre></div></article>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">TAGS</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></article>
  
       
 
       <footer class="book-footer">
         
-  <div class="flex flex-wrap justify-between">
+  
 
 
 
 
-
-</div>
-
-
-
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+<a href="//github.com/apache/paimon/edit/1.1/docs/content/spark%5csql-ddl.md" style="color:black"><i class="fa fa-edit fa-fw"></i>Edit This Page</a>
 
 
  
         
+
+
+<hr style="margin-top: 20px; border: 1px solid #e5e5e5;" />
+
+<table style="border-spacing: 10px;">
+    <tbody>
+    <tr>
+        <td colspan="2">
+            Copyright &copy; 2024 The Apache Software Foundation. Apache Paimon, Paimon, and its feather logo are
+            trademarks of The Apache Software Foundation.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
       </footer>
 
       
@@ -2058,10 +2232,10 @@ And in this case, views are supported when the <code>metastore</code> type is <c
 
     
     <aside class="book-toc">
-      <div class="book-toc-content">
-        
+      
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#catalog">Catalog</a>
       <ul>
@@ -2092,15 +2266,19 @@ And in this case, views are supported when the <code>metastore</code> type is <c
   </ul>
 </nav>
 
-
  
-      </div>
+    </aside>
+    <aside class="expand-toc">
+      <button class="toc" onclick="expandToc()">
+        <i class="fa fa-expand" aria-hidden="true"></i>
+      </button>
     </aside>
     
   </main>
 
   
 </body>
+
 </html>
 
 

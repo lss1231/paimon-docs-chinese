@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Migration on Paimon Docs</title>
-    <link>https://lss1231.github.io/paimon-docs-chinese/migration/</link>
-    <description>Recent content in Migration on Paimon Docs</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/migration/index.xml" rel="self" type="application/rss+xml" />
+    <title>Migration on Apache Paimon</title>
+    <link>/migration/</link>
+    <description>Recent content in Migration on Apache Paimon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/migration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Migration From Hive</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/</link>
+      <link>/migration/migration-from-hive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/</guid>
-      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;hive-table-migration&#34;&gt;&#xD;&#xA;  Hive Table Migration&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#hive-table-migration&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Apache Hive supports ORC, Parquet file formats that could be migrated to Paimon.&#xA;When migrating data to a paimon table, the origin table will be permanently disappeared. So please back up your data if you&#xA;still need the original table. The migrated table will be &lt;a href=&#34;https://lss1231.github.io/paimon-docs-chinese/append-table/overview/&#34;&gt;append table&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>/migration/migration-from-hive/</guid>
+      <description>Hive Table Migration&#xD;#&#xD;Apache Hive supports ORC, Parquet file formats that could be migrated to Paimon. When migrating data to a paimon table, the origin table will be permanently disappeared. So please back up your data if you still need the original table. The migrated table will be append table.&#xA;Now, we can use paimon hive catalog with Migrate Table Procedure to totally migrate a table from hive to paimon.</description>
     </item>
     <item>
       <title>Migration From Iceberg</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/</link>
+      <link>/migration/migration-from-iceberg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/</guid>
-      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;iceberg-migration&#34;&gt;&#xD;&#xA;  Iceberg Migration&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#iceberg-migration&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Apache Iceberg data with parquet file format could be migrated to Apache Paimon.&#xA;When migrating an iceberg table to a paimon table, the origin iceberg table will permanently disappear. &lt;strong&gt;So please back up your data if you&#xA;still need the original table.&lt;/strong&gt; The migrated paimon table will be an &lt;a href=&#34;https://lss1231.github.io/paimon-docs-chinese/append-table/overview/&#34;&gt;append table&lt;/a&gt;.&lt;/p&gt;</description>
+      <guid>/migration/migration-from-iceberg/</guid>
+      <description>Iceberg Migration&#xD;#&#xD;Apache Iceberg data with parquet file format could be migrated to Apache Paimon. When migrating an iceberg table to a paimon table, the origin iceberg table will permanently disappear. So please back up your data if you still need the original table. The migrated paimon table will be an append table.&#xA;We highly recommend to back up iceberg table data before migrating, because migrating action is not atomic.</description>
     </item>
     <item>
       <title>Upsert To Partitioned</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/</link>
+      <link>/migration/upsert-to-partitioned/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/</guid>
-      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;upsert-to-partitioned&#34;&gt;&#xD;&#xA;  Upsert To Partitioned&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#upsert-to-partitioned&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;blockquote class=&#34;book-hint warning&#34;&gt;&#xD;&#xA;  &#xD;&#xA;__Note:__ Only Hive Engine can be used to query these upsert-to-partitioned tables.&#xD;&#xA;&#xD;&#xA;&lt;/blockquote&gt;&#xD;&#xA;&#xA;&lt;p&gt;The &lt;a href=&#34;https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/&#34;&gt;Tag Management&lt;/a&gt; will maintain the manifests and data files of the snapshot.&#xA;A typical usage is creating tags daily, then you can maintain the historical data of each day for batch reading.&lt;/p&gt;</description>
+      <guid>/migration/upsert-to-partitioned/</guid>
+      <description>Upsert To Partitioned&#xD;#&#xD;Note: Only Hive Engine can be used to query these upsert-to-partitioned tables.&#xD;The Tag Management will maintain the manifests and data files of the snapshot. A typical usage is creating tags daily, then you can maintain the historical data of each day for batch reading.&#xA;When using primary key tables, a non-partitioned approach is often used to maintain updates, in order to mirror and synchronize tables from upstream database tables.</description>
     </item>
     <item>
       <title>Iceberg Compatibility</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/iceberg-compatibility/</link>
+      <link>/migration/iceberg-compatibility/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/iceberg-compatibility/</guid>
-      <description>&lt;!--&#xD;&#xA;Licensed to the Apache Software Foundation (ASF) under one&#xD;&#xA;or more contributor license agreements.  See the NOTICE file&#xD;&#xA;distributed with this work for additional information&#xD;&#xA;regarding copyright ownership.  The ASF licenses this file&#xD;&#xA;to you under the Apache License, Version 2.0 (the&#xD;&#xA;&#34;License&#34;); you may not use this file except in compliance&#xD;&#xA;with the License.  You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;  http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing,&#xD;&#xA;software distributed under the License is distributed on an&#xD;&#xA;&#34;AS IS&#34; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY&#xD;&#xA;KIND, either express or implied.  See the License for the&#xD;&#xA;specific language governing permissions and limitations&#xD;&#xA;under the License.&#xD;&#xA;--&gt;&#xD;&#xA;&lt;h1 id=&#34;iceberg-compatibility&#34;&gt;&#xD;&#xA;  Iceberg Compatibility&#xD;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#iceberg-compatibility&#34;&gt;#&lt;/a&gt;&#xD;&#xA;&lt;/h1&gt;&#xD;&#xA;&lt;p&gt;Paimon supports generating Iceberg compatible metadata,&#xA;so that Paimon tables can be consumed directly by Iceberg readers.&lt;/p&gt;</description>
+      <guid>/migration/iceberg-compatibility/</guid>
+      <description>Iceberg Compatibility&#xD;#&#xD;Paimon supports generating Iceberg compatible metadata, so that Paimon tables can be consumed directly by Iceberg readers.&#xA;Set the following table options, so that Paimon tables can generate Iceberg compatible metadata.&#xA;Option&#xD;Default&#xD;Type&#xD;Description&#xD;metadata.iceberg.storage&#xD;disabled&#xD;Enum&#xD;When set, produce Iceberg metadata after a snapshot is committed, so that Iceberg readers can read Paimon&#39;s raw data files.&#xD;disabled: Disable Iceberg compatibility support.&#xD;table-location: Store Iceberg metadata in each table&#39;s directory.</description>
     </item>
   </channel>
 </rss>

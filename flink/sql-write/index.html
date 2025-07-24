@@ -1,62 +1,96 @@
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir=ZgotmplZ>
+
 <head>
-  <meta charset="UTF-8">
+  <meta name="generator" content="Hugo 0.124.1">
+  
+    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
+<meta name="description" content="SQL Write#Syntax#INSERT { INTO | OVERWRITE } table_identifier [ part_spec ] [ column_list ] { value_expr | query }; For more information, please check the syntax document:
+Flink INSERT Statement
+INSERT INTO#Use INSERT INTO to apply records and changes to tables.
+INSERT INTO my_table SELECT ... INSERT INTO supports both batch and streaming mode. In Streaming mode, by default, it will also perform compaction, snapshot expiration, and even partition expiration in Flink Sink (if it is configured).">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="SQL Write" />
+<meta property="og:description" content="SQL Write#Syntax#INSERT { INTO | OVERWRITE } table_identifier [ part_spec ] [ column_list ] { value_expr | query }; For more information, please check the syntax document:
+Flink INSERT Statement
+INSERT INTO#Use INSERT INTO to apply records and changes to tables.
+INSERT INTO my_table SELECT ... INSERT INTO supports both batch and streaming mode. In Streaming mode, by default, it will also perform compaction, snapshot expiration, and even partition expiration in Flink Sink (if it is configured)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/flink/sql-write/" /><meta property="article:section" content="flink" />
 
-  SQL Write
-  #
 
-
-  Syntax
-  #
-
-INSERT { INTO | OVERWRITE } table_identifier [ part_spec ] [ column_list ] { value_expr | query };
-For more information, please check the syntax document:">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/">
-  <meta property="og:site_name" content="Paimon Docs">
-  <meta property="og:title" content="SQL Write">
-  <meta property="og:description" content="SQL Write#Syntax#INSERT { INTO | OVERWRITE } table_identifier [ part_spec ] [ column_list ] { value_expr | query }; For more information, please check the syntax document:">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="flink">
-<title>SQL Write | Paimon Docs</title>
-<link rel="icon" href="/paimon-docs-chinese/favicon.png" >
-<link rel="manifest" href="/paimon-docs-chinese/manifest.json">
-<link rel="canonical" href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/">
-  <link rel="alternate" hreflang="zh" href="https://lss1231.github.io/paimon-docs-chinese/zh/flink/sql-write/" title="SQL Write">
-<link rel="stylesheet" href="/paimon-docs-chinese/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
-  <script defer src="/paimon-docs-chinese/fuse.min.js"></script>
-  <script defer src="/paimon-docs-chinese/en.search.min.aaf551d0fd2d15700c7cc1367efc5e1f0877e9fa20ee85f422be6d5ab52f12a7.js" integrity="sha256-qvVR0P0tFXAMfME2fvxeHwh36fog7oX0Ir5tWrUvEqc=" crossorigin="anonymous"></script>
+<title>SQL Write | Apache Paimon</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/en.search.min.775e179f2dc972a2ede125d2322965d319189259d73840ea4884d5d5468e4f81.js" integrity="sha256-d14Xny3JcqLt4SXSMill0xkYklnXOEDqSITV1UaOT4E="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
+
+  
+  
+
+<link rel="stylesheet" type="text/css" href="//font-awesome/css/font-awesome.min.css">
+<script src="//js/anchor.min.js"></script>
+<script src="//js/flink.js"></script>
+
+
+
+  
+  <script>
+    var _paq = window._paq = window._paq || [];
+     
+     
+    _paq.push(['disableCookies']);
+     
+    _paq.push(["setDomains", ["*.flink.apache.org","*.nightlies.apache.org/flink"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.privacy.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
   
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+<body dir=ZgotmplZ>
+  
+    <input type="checkbox" class="hidden toggle" id="menu-control" />
+    <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
   <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
+    
+      <aside class="book-menu">
         
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/paimon-docs-chinese/"><span>Paimon Docs</span>
-  </a>
-</h2>
+  
+
+<nav>
 
 
-<div class="book-search hidden">
+<a id="logo" href="/">
+    <img width="100%" src="//paimon_black.svg">
+</a>
+<p style="text-align:right">1.1.1</p>
+
+<div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
-<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
 
 
 
@@ -64,1545 +98,1671 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
   
+  <ul>
     
-  
-
-
-  
-
-
-<ul class="book-languages">
-  <li>
-    <input type="checkbox" id="languages" class="toggle" />
-    <label for="languages" class="flex">
-      <a role="button" class="flex flex-auto">
-        <img src="/paimon-docs-chinese/svg/translate.svg" class="book-icon" alt="Languages" />
-        English
-      </a>
-    </label>
-
-    <ul>
       
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-c731eb3eada0765f704948e2d3b9bb48" class="toggle"  />
+    <label for="section-c731eb3eada0765f704948e2d3b9bb48" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-book title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Concepts</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="toggle"  />
+    <label for="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="flex justify-between">RESTCatalog<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-04b977f4d78c1a1179624ef9cf1c052f" class="toggle"  />
+    <label for="section-04b977f4d78c1a1179624ef9cf1c052f" class="flex justify-between">Specification<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-13198e701ffb9c73ec7a3177a4f953f1" class="toggle"  />
+    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table with PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-f845a63b155c9d2fb0db740cc418eb68" class="toggle"  />
+    <label for="section-f845a63b155c9d2fb0db740cc418eb68" class="flex justify-between">Merge Engine<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-bb708993c18bd45422a8bcf87778bb93" class="toggle"  />
+    <label for="section-bb708993c18bd45422a8bcf87778bb93" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table w/o PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle" checked />
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-write/" class=" active">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-86d841c4a4c551bb4e21d460836d4142" class="toggle"  />
+    <label for="section-86d841c4a4c551bb4e21d460836d4142" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Spark</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="toggle"  />
+    <label for="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Ecosystem</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="toggle"  />
+    <label for="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;CDC Ingestion</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-572d5eb93948a39233efdc1aa454d415" class="toggle"  />
+    <label for="section-572d5eb93948a39233efdc1aa454d415" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-wrench title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Maintenance</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="toggle"  />
+    <label for="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Program API</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="toggle"  />
+    <label for="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Migration</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  	<br/>
+  
+  
+    <input type="checkbox" id="section-fd0d6ee095aef42da7d15863a92a4aa0" class="toggle"  />
+    <label for="section-fd0d6ee095aef42da7d15863a92a4aa0" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Project</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-9e09a206f89e5011227bdf8d37b7ee20" class="toggle"  />
+    <label for="section-9e09a206f89e5011227bdf8d37b7ee20" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Learn Paimon</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<hr class="menu-break">
+
+<a href="//paimon.apache.org" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> Project Homepage</a>
+<br/>
+
+<a href="//paimon.apache.org/docs/master/api/java/" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> JavaDocs</a>
+<br/>
+
+<hr class="menu-break">
+<li style="list-style-type: none">
+  <br>
+  <input type="checkbox" id="section-version-picker" class="toggle">
+  <label for="section-version-picker" class="flex justify-between">
+     <div style="font-weight:450;margin-bottom:0.5em">Pick Docs Version</div>
+     <span>▾</span>
+  </label>
+  <ul>
+    <a href="/">
+      1.1 (✓)
+    </a>
+    <hr class="menu-break">
+    
       <li>
-        <a href="/paimon-docs-chinese/zh/flink/sql-write/">
-          简体中文
+        <a href="https://paimon.apache.org/docs/master">
+          master
         </a>
       </li>
-      
-    </ul>
-  </li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <ul>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b895d453a63bdabdecfee3e52661076a" class="toggle"  />
-    <label for="section-b895d453a63bdabdecfee3e52661076a" class="flex">
-      <a href="/paimon-docs-chinese/concepts/" class="flex-auto ">Concepts</a>
-    </label>
-  
-
-          
-  <ul>
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          stable
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/overview/" class="">Overview</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          1.1
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/basic-concepts/" class="">Basic Concepts</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.0">
+          1.0
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/concurrency-control/" class="">Concurrency Control</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/0.9">
+          0.9
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/catalog/" class="">Catalog</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3f7756e5a365d9799e1a48e9dc082791" class="toggle"  />
-    <label for="section-3f7756e5a365d9799e1a48e9dc082791" class="flex">
-      <a href="/paimon-docs-chinese/concepts/rest/" class="flex-auto ">RESTCatalog</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/bear/" class="">Bear Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/dlf/" class="">DLF Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/rest-api/" class="">REST API</a>
-  
-
-        </li>
-      
-    
+    <hr class="menu-break">
+    <li>
+      <a href="//versions">
+          All Versions
+      </a>
+    </li>
   </ul>
+</li>
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/table-types/" class="">Table Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/system-tables/" class="">System Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/data-types/" class="">Data Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="toggle"  />
-    <label for="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="flex">
-      <a href="/paimon-docs-chinese/concepts/spec/" class="flex-auto ">Specification</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/schema/" class="">Schema</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/snapshot/" class="">Snapshot</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/manifest/" class="">Manifest</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/datafile/" class="">DataFile</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/tableindex/" class="">Table Index</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/fileindex/" class="">File Index</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-a59fccf91e43460927bdd7cd6969595c" class="toggle"  />
-    <label for="section-a59fccf91e43460927bdd7cd6969595c" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/" class="flex-auto ">Table with PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/data-distribution/" class="">Data Distribution</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/table-mode/" class="">Table Mode</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9f5fa7a57eda74541859925935ec1ee1" class="toggle"  />
-    <label for="section-9f5fa7a57eda74541859925935ec1ee1" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/first-row/" class="">First Row</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/compaction/" class="">Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d9fb3aa2654140cef78254b873df57fa" class="toggle"  />
-    <label for="section-d9fb3aa2654140cef78254b873df57fa" class="flex">
-      <a href="/paimon-docs-chinese/append-table/" class="flex-auto ">Table w/o PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/update/" class="">Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="toggle" checked />
-    <label for="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="flex">
-      <a href="/paimon-docs-chinese/flink/" class="flex-auto ">Engine Flink</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-ddl/" class="">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-write/" class="active">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/consumer-id/" class="">Consumer ID</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-lookup/" class="">SQL Lookup</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/clone-tables/" class="">Clone Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/action-jars/" class="">Action Jars</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/savepoint/" class="">Savepoint</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3816fb91454c9575f5905fe48381df74" class="toggle"  />
-    <label for="section-3816fb91454c9575f5905fe48381df74" class="flex">
-      <a href="/paimon-docs-chinese/spark/" class="flex-auto ">Engine Spark</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-ddl/" class="">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-functions/" class="">SQL Functions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-write/" class="">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/auxiliary/" class="">Auxiliary</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-4ea9d84ff168bffb367b5a8863787431" class="toggle"  />
-    <label for="section-4ea9d84ff168bffb367b5a8863787431" class="flex">
-      <a href="/paimon-docs-chinese/ecosystem/" class="flex-auto ">Ecosystem</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/starrocks/" class="">StarRocks</a>
-  
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/doris/" class="">Doris</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/hive/" class="">Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/trino/" class="">Trino</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/amoro/" class="">Amoro</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-f8080595b1d8c7471fe9dac6513e4716" class="toggle"  />
-    <label for="section-f8080595b1d8c7471fe9dac6513e4716" class="flex">
-      <a href="/paimon-docs-chinese/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-2fd5175453dec9b599669fc6e1204624" class="toggle"  />
-    <label for="section-2fd5175453dec9b599669fc6e1204624" class="flex">
-      <a href="/paimon-docs-chinese/maintenance/" class="flex-auto ">Maintenance</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/filesystems/" class="">Filesystems</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/write-performance/" class="">Write Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-tags/" class="">Manage Tags</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/metrics/" class="">Metrics</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-privileges/" class="">Manage Privileges</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-branches/" class="">Manage Branches</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-partitions/" class="">Manage Partitions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/configurations/" class="">Configurations</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-974644b076e3505ee3b189288c66d89f" class="toggle"  />
-    <label for="section-974644b076e3505ee3b189288c66d89f" class="flex">
-      <a href="/paimon-docs-chinese/program-api/" class="flex-auto ">Program API</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/flink-api/" class="">Flink API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/java-api/" class="">Java API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/catalog-api/" class="">Catalog API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/python-api/" class="">Python API</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e474e2510a937257fb60b059694394da" class="toggle"  />
-    <label for="section-e474e2510a937257fb60b059694394da" class="flex">
-      <a href="/paimon-docs-chinese/migration/" class="flex-auto ">Migration</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-hive/" class="">Migration From Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
 
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d016a6a1825abcee27e3240dd658e135" class="toggle"  />
-    <label for="section-d016a6a1825abcee27e3240dd658e135" class="flex">
-      <a href="/paimon-docs-chinese/project/" class="flex-auto ">Project</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/roadmap/" class="">Roadmap</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/download/" class="">Download</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/contributing/" class="">Contributing</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/committer/" class="">Committer</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b300129f24651283095ddcb6c7d1d5b8" class="toggle"  />
-    <label for="section-b300129f24651283095ddcb6c7d1d5b8" class="flex">
-      <a href="/paimon-docs-chinese/learn-paimon/" class="flex-auto ">Learn Paimon</a>
-    </label>
-  
 
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/learn-paimon/understand-files/" class="">Understand Files</a>
   
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-
-
-
-
-
-
 
 
 
@@ -1615,35 +1775,38 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
-      </div>
-    </aside>
+      </aside>
+    
 
     <div class="book-page">
-      <header class="book-header">
-        
+      
+        <header class="book-header">
+          
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>SQL Write</h3>
+  <strong>SQL Write</strong>
 
   <label for="toc-control">
     
-    <img src="/paimon-docs-chinese/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
+
 
   
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#syntax">Syntax</a></li>
     <li><a href="#insert-into">INSERT INTO</a>
@@ -1666,15 +1829,21 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-
   </aside>
   
  
-      </header>
+        </header>
+      
 
       
+
+
+
+
+
+
       
-  <article class="markdown book-article"><!--
+  <article class="markdown"><!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -1700,41 +1869,41 @@ under the License.
   Syntax
   <a class="anchor" href="#syntax">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#66d9ef">INTO</span> <span style="color:#f92672">|</span> OVERWRITE <span style="color:#960050;background-color:#1e0010">}</span> table_identifier [ part_spec ] [ column_list ] <span style="color:#960050;background-color:#1e0010">{</span> value_expr <span style="color:#f92672">|</span> query <span style="color:#960050;background-color:#1e0010">}</span>;
-</span></span></code></pre></div><p>For more information, please check the syntax document:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="err">}</span><span class="w"> </span><span class="n">table_identifier</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">part_spec</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">column_list</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">value_expr</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="err">}</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>For more information, please check the syntax document:</p>
 <p><a href="https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql/insert/">Flink INSERT Statement</a></p>
 <h2 id="insert-into">
   INSERT INTO
   <a class="anchor" href="#insert-into">#</a>
 </h2>
 <p>Use <code>INSERT INTO</code> to apply records and changes to tables.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> my_table <span style="color:#66d9ef">SELECT</span> ...
-</span></span></code></pre></div><p><code>INSERT INTO</code> supports both batch and streaming mode. In Streaming mode, by default, it will also perform compaction,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><p><code>INSERT INTO</code> supports both batch and streaming mode. In Streaming mode, by default, it will also perform compaction,
 snapshot expiration, and even partition expiration in Flink Sink (if it is configured).</p>
-<p>For multiple jobs to write the same table, you can refer to <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/#dedicated-compaction-job">dedicated compaction job</a> for more info.</p>
+<p>For multiple jobs to write the same table, you can refer to <a href="/maintenance/dedicated-compaction/#dedicated-compaction-job">dedicated compaction job</a> for more info.</p>
 <h3 id="clustering">
   Clustering
   <a class="anchor" href="#clustering">#</a>
 </h3>
-<p>In Paimon, clustering is a feature that allows you to cluster data in your <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/">Append Table</a>
+<p>In Paimon, clustering is a feature that allows you to cluster data in your <a href="/append-table/overview/">Append Table</a>
 based on the values of certain columns during the write process. This organization of data can significantly enhance the efficiency of downstream
-tasks when reading the data, as it enables faster and more targeted data retrieval. This feature is only supported for <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/">Append Table</a>(bucket = -1)
+tasks when reading the data, as it enables faster and more targeted data retrieval. This feature is only supported for <a href="/append-table/overview/">Append Table</a>(bucket = -1)
 and batch execution mode.</p>
 <p>To utilize clustering, you can specify the columns you want to cluster when creating or writing to a table. Here&rsquo;s a simple example of how to enable clustering:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>    a STRING,
-</span></span><span style="display:flex;"><span>    b STRING,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">c</span> STRING,
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;sink.clustering.by-columns&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;a,b&#39;</span>,
-</span></span><span style="display:flex;"><span>);
-</span></span></code></pre></div><p>You can also use SQL hints to dynamically set clustering options:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> my_table <span style="color:#75715e">/*+ OPTIONS(&#39;sink.clustering.by-columns&#39; = &#39;a,b&#39;) */</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">source</span>;
-</span></span></code></pre></div><p>The data is clustered using an automatically chosen strategy (such as ORDER, ZORDER, or HILBERT), but you can manually specify the clustering strategy
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">c</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s1">&#39;sink.clustering.by-columns&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;a,b&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can also use SQL hints to dynamically set clustering options:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;sink.clustering.by-columns&#39; = &#39;a,b&#39;) */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">source</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>The data is clustered using an automatically chosen strategy (such as ORDER, ZORDER, or HILBERT), but you can manually specify the clustering strategy
 by setting the <code>sink.clustering.strategy</code>. Clustering relies on sampling and sorting. If the clustering process takes too much time, you can decrease
 the total sample number by setting the <code>sink.clustering.sample-factor</code> or disable the sorting step by setting the <code>sink.clustering.sort-in-cluster</code> to false.</p>
-<p>You can refer to <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/#flinkconnectoroptions">FlinkConnectorOptions</a> for more info about the configurations above.</p>
+<p>You can refer to <a href="/maintenance/configurations/#flinkconnectoroptions">FlinkConnectorOptions</a> for more info about the configurations above.</p>
 <h2 id="overwriting-the-whole-table">
   Overwriting the Whole Table
   <a class="anchor" href="#overwriting-the-whole-table">#</a>
@@ -1742,28 +1911,28 @@ the total sample number by setting the <code>sink.clustering.sample-factor</code
 <p>For unpartitioned tables, Paimon supports overwriting the whole table.
 (or for partitioned table which disables <code>dynamic-partition-overwrite</code> option).</p>
 <p>Use <code>INSERT OVERWRITE</code> to overwrite the whole unpartitioned table.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table <span style="color:#66d9ef">SELECT</span> ...
-</span></span></code></pre></div><h3 id="overwriting-a-partition">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><h3 id="overwriting-a-partition">
   Overwriting a Partition
   <a class="anchor" href="#overwriting-a-partition">#</a>
 </h3>
 <p>For partitioned tables, Paimon supports overwriting a partition.</p>
 <p>Use <code>INSERT OVERWRITE</code> to overwrite a partition.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table PARTITION (key1 <span style="color:#f92672">=</span> value1, key2 <span style="color:#f92672">=</span> value2, ...) <span style="color:#66d9ef">SELECT</span> ...
-</span></span></code></pre></div><h3 id="dynamic-overwrite">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="n">PARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">key1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">key2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><h3 id="dynamic-overwrite">
   Dynamic Overwrite
   <a class="anchor" href="#dynamic-overwrite">#</a>
 </h3>
 <p>Flink&rsquo;s default overwrite mode is dynamic partition overwrite (that means Paimon only deletes the partitions
 appear in the overwritten data). You can configure <code>dynamic-partition-overwrite</code> to change it to static overwritten.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- MyTable is a Partitioned Table
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Dynamic overwrite
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table <span style="color:#66d9ef">SELECT</span> ...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Static overwrite (Overwrite whole table)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table <span style="color:#75715e">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39; = &#39;false&#39;) */</span> <span style="color:#66d9ef">SELECT</span> ...
-</span></span></code></pre></div><h2 id="truncate-tables">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- MyTable is a Partitioned Table
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- Dynamic overwrite
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- Static overwrite (Overwrite whole table)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39; = &#39;false&#39;) */</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><h2 id="truncate-tables">
   Truncate tables
   <a class="anchor" href="#truncate-tables">#</a>
 </h2>
@@ -1784,8 +1953,8 @@ appear in the overwritten data). You can configure <code>dynamic-partition-overw
   />
   <label for="tabs-truncate-tables-syntax-0">Flink 1.17-</label>
   <div class="book-tabs-content markdown-inner"><p>You can use <code>INSERT OVERWRITE</code> to purge tables by inserting empty value.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table <span style="color:#75715e">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> my_table <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">false</span>;
-</span></span></code></pre></div></div><input 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></div><input 
     type="radio"
     class="toggle"
     data-tab-group="flink-tabs"
@@ -1796,8 +1965,8 @@ appear in the overwritten data). You can configure <code>dynamic-partition-overw
     onclick="onSwitch('Flink 1.18\u002b')"
   />
   <label for="tabs-truncate-tables-syntax-1">Flink 1.18&#43;</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">TRUNCATE</span> <span style="color:#66d9ef">TABLE</span> my_table;
-</span></span></code></pre></div></div></div>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></div></div>
 
 <h2 id="purging-partitions">
   Purging Partitions
@@ -1812,57 +1981,57 @@ appear in the overwritten data). You can configure <code>dynamic-partition-overw
 <p>Method #1 does not support to drop multiple partitions. In case that you need to drop multiple partitions, you can submit the drop_partition job through <code>flink run</code>.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Syntax
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table <span style="color:#75715e">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span> 
-</span></span><span style="display:flex;"><span>PARTITION (key1 <span style="color:#f92672">=</span> value1, key2 <span style="color:#f92672">=</span> value2, ...) <span style="color:#66d9ef">SELECT</span> selectSpec <span style="color:#66d9ef">FROM</span> my_table <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- The following SQL is an example:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- table definition
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>    k0 INT,
-</span></span><span style="display:flex;"><span>    k1 INT,
-</span></span><span style="display:flex;"><span>    v STRING
-</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (k0, k1);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- you can use
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table <span style="color:#75715e">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span> 
-</span></span><span style="display:flex;"><span>PARTITION (k0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">SELECT</span> k1, v <span style="color:#66d9ef">FROM</span> my_table <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- or
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> OVERWRITE my_table <span style="color:#75715e">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span> 
-</span></span><span style="display:flex;"><span>PARTITION (k0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, k1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">SELECT</span> v <span style="color:#66d9ef">FROM</span> my_table <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">false</span>;
-</span></span></code></pre></div><h2 id="updating-tables">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Syntax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">key1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">key2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">selectSpec</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- The following SQL is an example:
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- table definition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">k0</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">k1</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">k0</span><span class="p">,</span><span class="w"> </span><span class="n">k1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- you can use
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">k0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">k1</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- or
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="n">OVERWRITE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;dynamic-partition-overwrite&#39;=&#39;false&#39;) */</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PARTITION</span><span class="w"> </span><span class="p">(</span><span class="n">k0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">k1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="updating-tables">
   Updating tables
   <a class="anchor" href="#updating-tables">#</a>
 </h2>
 <blockquote class="book-hint info">
-  
-Important table properties setting:
-1. Only [primary key table](https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/) supports this feature.
-2. [MergeEngine](https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/) needs to be [deduplicate](https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/#deduplicate)
-   or [partial-update](https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/) to support this feature.
-3. Do not support updating primary keys.
-
+  <p>Important table properties setting:</p>
+<ol>
+<li>Only <a href="/primary-key-table/overview/">primary key table</a> supports this feature.</li>
+<li><a href="/primary-key-table/merge-engine/">MergeEngine</a> needs to be <a href="/primary-key-table/merge-engine/overview/#deduplicate">deduplicate</a>
+or <a href="/primary-key-table/merge-engine/partial-update/">partial-update</a> to support this feature.</li>
+<li>Do not support updating primary keys.</li>
+</ol>
 </blockquote>
 
 <p>Currently, Paimon supports updating records by using <code>UPDATE</code> in Flink 1.17 and later versions. You can perform <code>UPDATE</code> in Flink&rsquo;s <code>batch</code> mode.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Syntax
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> table_identifier <span style="color:#66d9ef">SET</span> column1 <span style="color:#f92672">=</span> value1, column2 <span style="color:#f92672">=</span> value2, ... <span style="color:#66d9ef">WHERE</span> condition;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- The following SQL is an example:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- table definition
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>	a STRING,
-</span></span><span style="display:flex;"><span>	b INT,
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">c</span> INT,
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (a) <span style="color:#66d9ef">NOT</span> ENFORCED
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">WITH</span> ( 
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#39;merge-engine&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;deduplicate&#39;</span> 
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- you can use
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">UPDATE</span> my_table <span style="color:#66d9ef">SET</span> b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#66d9ef">c</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">WHERE</span> a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;myTable&#39;</span>;
-</span></span></code></pre></div><h2 id="deleting-from-table">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Syntax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">table_identifier</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">column1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- The following SQL is an example:
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- table definition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">a</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">c</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">ENFORCED</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="s1">&#39;merge-engine&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;deduplicate&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- you can use
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;myTable&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="deleting-from-table">
   Deleting from table
   <a class="anchor" href="#deleting-from-table">#</a>
 </h2>
@@ -1883,36 +2052,36 @@ Important table properties setting:
   />
   <label for="tabs-delete-from-table-0">Flink 1.17&#43;</label>
   <div class="book-tabs-content markdown-inner"><blockquote class="book-hint info">
-<p>Important table properties setting:</p>
+  <p>Important table properties setting:</p>
 <ol>
 <li>Only primary key tables support this feature.</li>
-<li>If the table has primary keys, the following <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/">MergeEngine</a> support this feature:
+<li>If the table has primary keys, the following <a href="/primary-key-table/merge-engine/overview/">MergeEngine</a> support this feature:
 <ul>
-<li><a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/#deduplicate">deduplicate</a>.</li>
-<li><a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/">partial-update</a> with option &lsquo;partial-update.remove-record-on-delete&rsquo; enabled.</li>
+<li><a href="/primary-key-table/merge-engine/overview/#deduplicate">deduplicate</a>.</li>
+<li><a href="/primary-key-table/merge-engine/partial-update/">partial-update</a> with option &lsquo;partial-update.remove-record-on-delete&rsquo; enabled.</li>
 </ul>
 </li>
 <li>Do not support deleting from table in streaming mode.</li>
 </ol>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Syntax
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> table_identifier <span style="color:#66d9ef">WHERE</span> conditions;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- The following SQL is an example:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- table definition
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
-</span></span><span style="display:flex;"><span>    id BIGINT <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
-</span></span><span style="display:flex;"><span>    currency STRING,
-</span></span><span style="display:flex;"><span>    rate BIGINT,
-</span></span><span style="display:flex;"><span>    dt String,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (id, dt) <span style="color:#66d9ef">NOT</span> ENFORCED
-</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt) <span style="color:#66d9ef">WITH</span> ( 
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;merge-engine&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;deduplicate&#39;</span> 
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">-- you can use
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> my_table <span style="color:#66d9ef">WHERE</span> currency <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;UNKNOWN&#39;</span>;
-</span></span></code></pre></div></div></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Syntax
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">table_identifier</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">conditions</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- The following SQL is an example:
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- table definition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">currency</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">rate</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">ENFORCED</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;merge-engine&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;deduplicate&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- you can use
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">currency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;UNKNOWN&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></div></div>
 
 <h2 id="partition-mark-done">
   Partition Mark Done
@@ -1922,38 +2091,38 @@ Important table properties setting:
 it is necessary to choose this timing to indicate that it is ready for scheduling and to minimize the amount of data
 drift during scheduling. We call this process: &ldquo;Partition Mark Done&rdquo;.</p>
 <p>Example to mark done:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_partitioned_table (
-</span></span><span style="display:flex;"><span>    f0 INT,
-</span></span><span style="display:flex;"><span>    f1 INT,
-</span></span><span style="display:flex;"><span>    f2 INT,
-</span></span><span style="display:flex;"><span>    ...
-</span></span><span style="display:flex;"><span>    dt STRING
-</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (dt) <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;partition.timestamp-formatter&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;yyyyMMdd&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;partition.timestamp-pattern&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$dt&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;partition.time-interval&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1 d&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;partition.idle-time-to-done&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;15 m&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;partition.mark-done-action&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;done-partition&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span></code></pre></div><p>You can also customize a PartitionMarkDoneAction to mark the partition completed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">my_partitioned_table</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">f0</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">f1</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">f2</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">PARTITIONED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;partition.timestamp-formatter&#39;</span><span class="o">=</span><span class="s1">&#39;yyyyMMdd&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;partition.timestamp-pattern&#39;</span><span class="o">=</span><span class="s1">&#39;$dt&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;partition.time-interval&#39;</span><span class="o">=</span><span class="s1">&#39;1 d&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;partition.idle-time-to-done&#39;</span><span class="o">=</span><span class="s1">&#39;15 m&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;partition.mark-done-action&#39;</span><span class="o">=</span><span class="s1">&#39;done-partition&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>You can also customize a PartitionMarkDoneAction to mark the partition completed.</p>
 <ul>
 <li>partition.mark-done-action: custom</li>
 <li>partition.mark-done-action.custom.class: The partition mark done class for implement PartitionMarkDoneAction interface (e.g. org.apache.paimon.CustomPartitionMarkDoneAction).</li>
 </ul>
 <p>Define a class CustomPartitionMarkDoneAction to implement the PartitionMarkDoneAction interface.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> org.apache.paimon;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomPartitionMarkDoneAction</span> <span style="color:#66d9ef">implements</span> PartitionMarkDoneAction {
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">markDone</span>(String partition) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// do something.</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() {}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Paimon also support http-report partition mark done action, this action will report the partition to the remote http server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">org.apache.paimon</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomPartitionMarkDoneAction</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PartitionMarkDoneAction</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">markDone</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">partition</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// do something.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">close</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Paimon also support http-report partition mark done action, this action will report the partition to the remote http server.</p>
 <ul>
 <li>partition.mark-done-action: http-report</li>
 <li>partition.mark-done-action.http.url : Action will report the partition to the remote http server.</li>
@@ -1961,16 +2130,16 @@ drift during scheduling. We call this process: &ldquo;Partition Mark Done&rdquo;
 <li>partition.mark-done-action.http.params : Http client request params in the request body json.</li>
 </ul>
 <p>Http Post request body :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;table&#34;</span>: <span style="color:#e6db74">&#34;table fullName&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;table location path&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;partition&#34;</span>: <span style="color:#e6db74">&#34;mark done partition&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;params&#34;</span> : <span style="color:#e6db74">&#34;custom params&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;table&#34;</span><span class="p">:</span> <span class="s2">&#34;table fullName&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;table location path&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;partition&#34;</span><span class="p">:</span> <span class="s2">&#34;mark done partition&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;params&#34;</span> <span class="p">:</span> <span class="s2">&#34;custom params&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Http Response body :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;result&#34;</span>: <span style="color:#e6db74">&#34;success&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;result&#34;</span><span class="p">:</span> <span class="s2">&#34;success&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><ol>
 <li>Firstly, you need to define the time parser of the partition and the time interval between partitions in order to
 determine when the partition can be properly marked done.</li>
@@ -1987,21 +2156,31 @@ configure other actions, like <code>'done-partition'</code>, for example, partit
 
       <footer class="book-footer">
         
-  <div class="flex flex-wrap justify-between">
+  
 
 
 
 
-
-</div>
-
-
-
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+<a href="//github.com/apache/paimon/edit/1.1/docs/content/flink%5csql-write.md" style="color:black"><i class="fa fa-edit fa-fw"></i>Edit This Page</a>
 
 
  
         
+
+
+<hr style="margin-top: 20px; border: 1px solid #e5e5e5;" />
+
+<table style="border-spacing: 10px;">
+    <tbody>
+    <tr>
+        <td colspan="2">
+            Copyright &copy; 2024 The Apache Software Foundation. Apache Paimon, Paimon, and its feather logo are
+            trademarks of The Apache Software Foundation.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
       </footer>
 
       
@@ -2017,10 +2196,10 @@ configure other actions, like <code>'done-partition'</code>, for example, partit
 
     
     <aside class="book-toc">
-      <div class="book-toc-content">
-        
+      
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#syntax">Syntax</a></li>
     <li><a href="#insert-into">INSERT INTO</a>
@@ -2042,15 +2221,19 @@ configure other actions, like <code>'done-partition'</code>, for example, partit
   </ul>
 </nav>
 
-
  
-      </div>
+    </aside>
+    <aside class="expand-toc">
+      <button class="toc" onclick="expandToc()">
+        <i class="fa fa-expand" aria-hidden="true"></i>
+      </button>
     </aside>
     
   </main>
 
   
 </body>
+
 </html>
 
 

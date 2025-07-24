@@ -1,58 +1,94 @@
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir=ZgotmplZ>
+
 <head>
-  <meta charset="UTF-8">
+  <meta name="generator" content="Hugo 0.124.1">
+  
+    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="
+<meta name="description" content="Iceberg Compatibility#Paimon supports generating Iceberg compatible metadata, so that Paimon tables can be consumed directly by Iceberg readers.
+Set the following table options, so that Paimon tables can generate Iceberg compatible metadata.
+OptionDefaultTypeDescriptionmetadata.iceberg.storagedisabledEnumWhen set, produce Iceberg metadata after a snapshot is committed, so that Iceberg readers can read Paimon&#39;s raw data files.disabled: Disable Iceberg compatibility support.table-location: Store Iceberg metadata in each table&#39;s directory.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Iceberg Compatibility" />
+<meta property="og:description" content="Iceberg Compatibility#Paimon supports generating Iceberg compatible metadata, so that Paimon tables can be consumed directly by Iceberg readers.
+Set the following table options, so that Paimon tables can generate Iceberg compatible metadata.
+OptionDefaultTypeDescriptionmetadata.iceberg.storagedisabledEnumWhen set, produce Iceberg metadata after a snapshot is committed, so that Iceberg readers can read Paimon&#39;s raw data files.disabled: Disable Iceberg compatibility support.table-location: Store Iceberg metadata in each table&#39;s directory." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/migration/iceberg-compatibility/" /><meta property="article:section" content="migration" />
 
-  Iceberg Compatibility
-  #
 
-Paimon supports generating Iceberg compatible metadata,
-so that Paimon tables can be consumed directly by Iceberg readers.">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/migration/iceberg-compatibility/">
-  <meta property="og:site_name" content="Paimon Docs">
-  <meta property="og:title" content="Iceberg Compatibility">
-  <meta property="og:description" content="Iceberg Compatibility#Paimon supports generating Iceberg compatible metadata, so that Paimon tables can be consumed directly by Iceberg readers.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="migration">
-<title>Iceberg Compatibility | Paimon Docs</title>
-<link rel="icon" href="/paimon-docs-chinese/favicon.png" >
-<link rel="manifest" href="/paimon-docs-chinese/manifest.json">
-<link rel="canonical" href="https://lss1231.github.io/paimon-docs-chinese/migration/iceberg-compatibility/">
-  <link rel="alternate" hreflang="zh" href="https://lss1231.github.io/paimon-docs-chinese/zh/migration/iceberg-compatibility/" title="Iceberg Compatibility">
-<link rel="stylesheet" href="/paimon-docs-chinese/book.min.d5e59cb0aa8d22a5813c62cd5e25d3d172489a369c61dc3f622ee96ae1ebb457.css" integrity="sha256-1eWcsKqNIqWBPGLNXiXT0XJImjacYdw/Yi7pauHrtFc=" crossorigin="anonymous">
-  <script defer src="/paimon-docs-chinese/fuse.min.js"></script>
-  <script defer src="/paimon-docs-chinese/en.search.min.aaf551d0fd2d15700c7cc1367efc5e1f0877e9fa20ee85f422be6d5ab52f12a7.js" integrity="sha256-qvVR0P0tFXAMfME2fvxeHwh36fog7oX0Ir5tWrUvEqc=" crossorigin="anonymous"></script>
+<title>Iceberg Compatibility | Apache Paimon</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/en.search.min.775e179f2dc972a2ede125d2322965d319189259d73840ea4884d5d5468e4f81.js" integrity="sha256-d14Xny3JcqLt4SXSMill0xkYklnXOEDqSITV1UaOT4E="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
 -->
+
+  
+  
+
+<link rel="stylesheet" type="text/css" href="//font-awesome/css/font-awesome.min.css">
+<script src="//js/anchor.min.js"></script>
+<script src="//js/flink.js"></script>
+
+
+
+  
+  <script>
+    var _paq = window._paq = window._paq || [];
+     
+     
+    _paq.push(['disableCookies']);
+     
+    _paq.push(["setDomains", ["*.flink.apache.org","*.nightlies.apache.org/flink"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.privacy.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
   
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+<body dir=ZgotmplZ>
+  
+    <input type="checkbox" class="hidden toggle" id="menu-control" />
+    <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
   <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
+    
+      <aside class="book-menu">
         
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/paimon-docs-chinese/"><span>Paimon Docs</span>
-  </a>
-</h2>
+  
+
+<nav>
 
 
-<div class="book-search hidden">
+<a id="logo" href="/">
+    <img width="100%" src="//paimon_black.svg">
+</a>
+<p style="text-align:right">1.1.1</p>
+
+<div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
-<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
 
 
 
@@ -60,1545 +96,1671 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
   
+  <ul>
     
-  
-
-
-  
-
-
-<ul class="book-languages">
-  <li>
-    <input type="checkbox" id="languages" class="toggle" />
-    <label for="languages" class="flex">
-      <a role="button" class="flex flex-auto">
-        <img src="/paimon-docs-chinese/svg/translate.svg" class="book-icon" alt="Languages" />
-        English
-      </a>
-    </label>
-
-    <ul>
       
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-c731eb3eada0765f704948e2d3b9bb48" class="toggle"  />
+    <label for="section-c731eb3eada0765f704948e2d3b9bb48" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-book title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Concepts</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/basic-concepts/" class="">Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/concurrency-control/" class="">Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="toggle"  />
+    <label for="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="flex justify-between">RESTCatalog<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/table-types/" class="">Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/system-tables/" class="">System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/data-types/" class="">Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-04b977f4d78c1a1179624ef9cf1c052f" class="toggle"  />
+    <label for="section-04b977f4d78c1a1179624ef9cf1c052f" class="flex justify-between">Specification<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/schema/" class="">Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/snapshot/" class="">Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/manifest/" class="">Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/datafile/" class="">DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/tableindex/" class="">Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/concepts/spec/fileindex/" class="">File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-13198e701ffb9c73ec7a3177a4f953f1" class="toggle"  />
+    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table with PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-f845a63b155c9d2fb0db740cc418eb68" class="toggle"  />
+    <label for="section-f845a63b155c9d2fb0db740cc418eb68" class="flex justify-between">Merge Engine<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-bb708993c18bd45422a8bcf87778bb93" class="toggle"  />
+    <label for="section-bb708993c18bd45422a8bcf87778bb93" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table w/o PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/clone-tables/" class="">Clone Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-86d841c4a4c551bb4e21d460836d4142" class="toggle"  />
+    <label for="section-86d841c4a4c551bb4e21d460836d4142" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Spark</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="toggle"  />
+    <label for="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Ecosystem</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="toggle"  />
+    <label for="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;CDC Ingestion</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-572d5eb93948a39233efdc1aa454d415" class="toggle"  />
+    <label for="section-572d5eb93948a39233efdc1aa454d415" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-wrench title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Maintenance</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="toggle"  />
+    <label for="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Program API</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="toggle" checked />
+    <label for="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Migration</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/migration/iceberg-compatibility/" class=" active">Iceberg Compatibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  	<br/>
+  
+  
+    <input type="checkbox" id="section-fd0d6ee095aef42da7d15863a92a4aa0" class="toggle"  />
+    <label for="section-fd0d6ee095aef42da7d15863a92a4aa0" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Project</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-9e09a206f89e5011227bdf8d37b7ee20" class="toggle"  />
+    <label for="section-9e09a206f89e5011227bdf8d37b7ee20" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Learn Paimon</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<hr class="menu-break">
+
+<a href="//paimon.apache.org" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> Project Homepage</a>
+<br/>
+
+<a href="//paimon.apache.org/docs/master/api/java/" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> JavaDocs</a>
+<br/>
+
+<hr class="menu-break">
+<li style="list-style-type: none">
+  <br>
+  <input type="checkbox" id="section-version-picker" class="toggle">
+  <label for="section-version-picker" class="flex justify-between">
+     <div style="font-weight:450;margin-bottom:0.5em">Pick Docs Version</div>
+     <span>▾</span>
+  </label>
+  <ul>
+    <a href="/">
+      1.1 (✓)
+    </a>
+    <hr class="menu-break">
+    
       <li>
-        <a href="/paimon-docs-chinese/zh/migration/iceberg-compatibility/">
-          简体中文
+        <a href="https://paimon.apache.org/docs/master">
+          master
         </a>
       </li>
-      
-    </ul>
-  </li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <ul>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b895d453a63bdabdecfee3e52661076a" class="toggle"  />
-    <label for="section-b895d453a63bdabdecfee3e52661076a" class="flex">
-      <a href="/paimon-docs-chinese/concepts/" class="flex-auto ">Concepts</a>
-    </label>
-  
-
-          
-  <ul>
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          stable
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/overview/" class="">Overview</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          1.1
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/basic-concepts/" class="">Basic Concepts</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/1.0">
+          1.0
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/concurrency-control/" class="">Concurrency Control</a>
-  
-
-        </li>
-      
+      <li>
+        <a href="https://paimon.apache.org/docs/0.9">
+          0.9
+        </a>
+      </li>
     
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/catalog/" class="">Catalog</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3f7756e5a365d9799e1a48e9dc082791" class="toggle"  />
-    <label for="section-3f7756e5a365d9799e1a48e9dc082791" class="flex">
-      <a href="/paimon-docs-chinese/concepts/rest/" class="flex-auto ">RESTCatalog</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/bear/" class="">Bear Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/dlf/" class="">DLF Token</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/rest/rest-api/" class="">REST API</a>
-  
-
-        </li>
-      
-    
+    <hr class="menu-break">
+    <li>
+      <a href="//versions">
+          All Versions
+      </a>
+    </li>
   </ul>
+</li>
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/table-types/" class="">Table Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/system-tables/" class="">System Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/data-types/" class="">Data Types</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="toggle"  />
-    <label for="section-518e0eab49b8a9fb8a84a1463b02c8ec" class="flex">
-      <a href="/paimon-docs-chinese/concepts/spec/" class="flex-auto ">Specification</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/schema/" class="">Schema</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/snapshot/" class="">Snapshot</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/manifest/" class="">Manifest</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/datafile/" class="">DataFile</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/tableindex/" class="">Table Index</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/concepts/spec/fileindex/" class="">File Index</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-a59fccf91e43460927bdd7cd6969595c" class="toggle"  />
-    <label for="section-a59fccf91e43460927bdd7cd6969595c" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/" class="flex-auto ">Table with PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/data-distribution/" class="">Data Distribution</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/table-mode/" class="">Table Mode</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9f5fa7a57eda74541859925935ec1ee1" class="toggle"  />
-    <label for="section-9f5fa7a57eda74541859925935ec1ee1" class="flex">
-      <a href="/paimon-docs-chinese/primary-key-table/merge-engine/" class="flex-auto ">Merge Engine</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/merge-engine/first-row/" class="">First Row</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/sequence-rowkind/" class="">Sequence &amp; Rowkind</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/compaction/" class="">Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/primary-key-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d9fb3aa2654140cef78254b873df57fa" class="toggle"  />
-    <label for="section-d9fb3aa2654140cef78254b873df57fa" class="flex">
-      <a href="/paimon-docs-chinese/append-table/" class="flex-auto ">Table w/o PK</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/update/" class="">Update</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="toggle"  />
-    <label for="section-1dcd5659f5f5eb616ea2a1af4d1ac5b6" class="flex">
-      <a href="/paimon-docs-chinese/flink/" class="flex-auto ">Engine Flink</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-ddl/" class="">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-write/" class="">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/consumer-id/" class="">Consumer ID</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-lookup/" class="">SQL Lookup</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/clone-tables/" class="">Clone Tables</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/action-jars/" class="">Action Jars</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/flink/savepoint/" class="">Savepoint</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-3816fb91454c9575f5905fe48381df74" class="toggle"  />
-    <label for="section-3816fb91454c9575f5905fe48381df74" class="flex">
-      <a href="/paimon-docs-chinese/spark/" class="flex-auto ">Engine Spark</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/quick-start/" class="">Quick Start</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-ddl/" class="">SQL DDL</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-functions/" class="">SQL Functions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-write/" class="">SQL Write</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-query/" class="">SQL Query</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/sql-alter/" class="">SQL Alter</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/auxiliary/" class="">Auxiliary</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/spark/procedures/" class="">Procedures</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-4ea9d84ff168bffb367b5a8863787431" class="toggle"  />
-    <label for="section-4ea9d84ff168bffb367b5a8863787431" class="flex">
-      <a href="/paimon-docs-chinese/ecosystem/" class="flex-auto ">Ecosystem</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/starrocks/" class="">StarRocks</a>
-  
 
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/doris/" class="">Doris</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/hive/" class="">Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/trino/" class="">Trino</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/ecosystem/amoro/" class="">Amoro</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-f8080595b1d8c7471fe9dac6513e4716" class="toggle"  />
-    <label for="section-f8080595b1d8c7471fe9dac6513e4716" class="flex">
-      <a href="/paimon-docs-chinese/cdc-ingestion/" class="flex-auto ">CDC Ingestion</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/overview/" class="">Overview</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-2fd5175453dec9b599669fc6e1204624" class="toggle"  />
-    <label for="section-2fd5175453dec9b599669fc6e1204624" class="flex">
-      <a href="/paimon-docs-chinese/maintenance/" class="flex-auto ">Maintenance</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/filesystems/" class="">Filesystems</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/write-performance/" class="">Write Performance</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-tags/" class="">Manage Tags</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/metrics/" class="">Metrics</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-privileges/" class="">Manage Privileges</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-branches/" class="">Manage Branches</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/manage-partitions/" class="">Manage Partitions</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/maintenance/configurations/" class="">Configurations</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-974644b076e3505ee3b189288c66d89f" class="toggle"  />
-    <label for="section-974644b076e3505ee3b189288c66d89f" class="flex">
-      <a href="/paimon-docs-chinese/program-api/" class="flex-auto ">Program API</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/flink-api/" class="">Flink API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/java-api/" class="">Java API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/catalog-api/" class="">Catalog API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/program-api/python-api/" class="">Python API</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e474e2510a937257fb60b059694394da" class="toggle" checked />
-    <label for="section-e474e2510a937257fb60b059694394da" class="flex">
-      <a href="/paimon-docs-chinese/migration/" class="flex-auto ">Migration</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-hive/" class="">Migration From Hive</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
 
-  
-    <a href="/paimon-docs-chinese/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/migration/iceberg-compatibility/" class="active">Iceberg Compatibility</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-d016a6a1825abcee27e3240dd658e135" class="toggle"  />
-    <label for="section-d016a6a1825abcee27e3240dd658e135" class="flex">
-      <a href="/paimon-docs-chinese/project/" class="flex-auto ">Project</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/roadmap/" class="">Roadmap</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/download/" class="">Download</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/contributing/" class="">Contributing</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/project/committer/" class="">Committer</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-b300129f24651283095ddcb6c7d1d5b8" class="toggle"  />
-    <label for="section-b300129f24651283095ddcb6c7d1d5b8" class="flex">
-      <a href="/paimon-docs-chinese/learn-paimon/" class="flex-auto ">Learn Paimon</a>
-    </label>
-  
 
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/paimon-docs-chinese/learn-paimon/understand-files/" class="">Understand Files</a>
   
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-
-
-
-
-
-
 
 
 
@@ -1611,35 +1773,38 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
-      </div>
-    </aside>
+      </aside>
+    
 
     <div class="book-page">
-      <header class="book-header">
-        
+      
+        <header class="book-header">
+          
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <h3>Iceberg Compatibility</h3>
+  <strong>Iceberg Compatibility</strong>
 
   <label for="toc-control">
     
-    <img src="/paimon-docs-chinese/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
+
 
   
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#append-tables">Append Tables</a></li>
     <li><a href="#primary-key-tables">Primary Key Tables</a></li>
@@ -1654,15 +1819,21 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-
   </aside>
   
  
-      </header>
+        </header>
+      
 
       
+
+
+
+
+
+
       
-  <article class="markdown book-article"><!--
+  <article class="markdown"><!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file
 distributed with this work for additional information
@@ -1746,20 +1917,20 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
     onclick="onSwitch('Flink SQL')"
   />
   <label for="tabs-create-paimon-append-only-table-0">Flink SQL</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> paimon_catalog <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;paimon&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;warehouse&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;path-to-warehouse&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities (
-</span></span><span style="display:flex;"><span>    country STRING,
-</span></span><span style="display:flex;"><span>    name STRING
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.storage&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hadoop-catalog&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;usa&#39;</span>, <span style="color:#e6db74">&#39;new york&#39;</span>), (<span style="color:#e6db74">&#39;germany&#39;</span>, <span style="color:#e6db74">&#39;berlin&#39;</span>), (<span style="color:#e6db74">&#39;usa&#39;</span>, <span style="color:#e6db74">&#39;chicago&#39;</span>), (<span style="color:#e6db74">&#39;germany&#39;</span>, <span style="color:#e6db74">&#39;hamburg&#39;</span>);
-</span></span></code></pre></div></div><input 
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;paimon&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;warehouse&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;path-to-warehouse&gt;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">country</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.storage&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hadoop-catalog&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;usa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;new york&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;germany&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;berlin&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;usa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;chicago&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;germany&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hamburg&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></div><input 
     type="radio"
     class="toggle"
     data-tab-group="flink-tabs"
@@ -1771,25 +1942,25 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
   />
   <label for="tabs-create-paimon-append-only-table-1">Spark SQL</label>
   <div class="book-tabs-content markdown-inner"><p>Start <code>spark-sql</code> with the following command line.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql --jars &lt;path-to-paimon-jar&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon_catalog<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon_catalog.warehouse<span style="color:#f92672">=</span>&lt;path-to-warehouse&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --packages org.apache.iceberg:iceberg-spark-runtime-&lt;iceberg-version&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog<span style="color:#f92672">=</span>org.apache.iceberg.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.type<span style="color:#f92672">=</span>hadoop <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.warehouse<span style="color:#f92672">=</span>&lt;path-to-warehouse&gt;/iceberg <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.cache-enabled<span style="color:#f92672">=</span>false <span style="color:#ae81ff">\ </span><span style="color:#75715e"># disable iceberg catalog caching to quickly see the result</span>
-</span></span><span style="display:flex;"><span>    --conf spark.sql.extensions<span style="color:#f92672">=</span>org.apache.paimon.spark.extensions.PaimonSparkSessionExtensions,org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql --jars &lt;path-to-paimon-jar&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon_catalog<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon_catalog.warehouse<span class="o">=</span>&lt;path-to-warehouse&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --packages org.apache.iceberg:iceberg-spark-runtime-&lt;iceberg-version&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog<span class="o">=</span>org.apache.iceberg.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.type<span class="o">=</span>hadoop <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.warehouse<span class="o">=</span>&lt;path-to-warehouse&gt;/iceberg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.cache-enabled<span class="o">=</span><span class="nb">false</span> <span class="se">\ </span><span class="c1"># disable iceberg catalog caching to quickly see the result</span>
+</span></span><span class="line"><span class="cl">    --conf spark.sql.extensions<span class="o">=</span>org.apache.paimon.spark.extensions.PaimonSparkSessionExtensions,org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 </span></span></code></pre></div><p>Run the following Spark SQL to create Paimon table and insert data.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities (
-</span></span><span style="display:flex;"><span>    country STRING,
-</span></span><span style="display:flex;"><span>    name STRING
-</span></span><span style="display:flex;"><span>) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.storage&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hadoop-catalog&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;usa&#39;</span>, <span style="color:#e6db74">&#39;new york&#39;</span>), (<span style="color:#e6db74">&#39;germany&#39;</span>, <span style="color:#e6db74">&#39;berlin&#39;</span>), (<span style="color:#e6db74">&#39;usa&#39;</span>, <span style="color:#e6db74">&#39;chicago&#39;</span>), (<span style="color:#e6db74">&#39;germany&#39;</span>, <span style="color:#e6db74">&#39;hamburg&#39;</span>);
-</span></span></code></pre></div></div></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">country</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.storage&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hadoop-catalog&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;usa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;new york&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;germany&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;berlin&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;usa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;chicago&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;germany&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hamburg&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></div></div>
 
 <p>Now let&rsquo;s query this Paimon table with Iceberg connector.</p>
 
@@ -1808,23 +1979,23 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
     onclick="onSwitch('Flink SQL')"
   />
   <label for="tabs-query-paimon-append-only-table-0">Flink SQL</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> iceberg_catalog <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;iceberg&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;catalog-type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hadoop&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;warehouse&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;path-to-warehouse&gt;/iceberg&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;cache-enabled&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span> <span style="color:#75715e">-- disable iceberg catalog caching to quickly see the result
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">WHERE</span> country <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;germany&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| op |                        country |                           name |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                        germany |                         berlin |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                        germany |                        hamburg |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div></div><input 
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;iceberg&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;catalog-type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hadoop&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;warehouse&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;path-to-warehouse&gt;/iceberg&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;cache-enabled&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;false&#39;</span><span class="w"> </span><span class="c1">-- disable iceberg catalog caching to quickly see the result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;germany&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| op |                        country |                           name |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                        germany |                         berlin |
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                        germany |                        hamburg |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></div><input 
     type="radio"
     class="toggle"
     data-tab-group="flink-tabs"
@@ -1835,12 +2006,12 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
     onclick="onSwitch('Spark SQL')"
   />
   <label for="tabs-query-paimon-append-only-table-1">Spark SQL</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">WHERE</span> country <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;germany&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">germany berlin
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">germany hamburg
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div></div></div>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;germany&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">germany berlin
+</span></span></span><span class="line"><span class="cl"><span class="cm">germany hamburg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></div></div>
 
 <p>Let&rsquo;s insert more data and query again.</p>
 
@@ -1859,19 +2030,19 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
     onclick="onSwitch('Flink SQL')"
   />
   <label for="tabs-query-paimon-append-only-table-again-0">Flink SQL</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;usa&#39;</span>, <span style="color:#e6db74">&#39;houston&#39;</span>), (<span style="color:#e6db74">&#39;germany&#39;</span>, <span style="color:#e6db74">&#39;munich&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">WHERE</span> country <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;germany&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| op |                        country |                           name |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                        germany |                         munich |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                        germany |                         berlin |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                        germany |                        hamburg |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div></div><input 
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;usa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;houston&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;germany&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;munich&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;germany&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| op |                        country |                           name |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                        germany |                         munich |
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                        germany |                         berlin |
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                        germany |                        hamburg |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></div><input 
     type="radio"
     class="toggle"
     data-tab-group="flink-tabs"
@@ -1882,15 +2053,15 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
     onclick="onSwitch('Spark SQL')"
   />
   <label for="tabs-query-paimon-append-only-table-again-1">Spark SQL</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;usa&#39;</span>, <span style="color:#e6db74">&#39;houston&#39;</span>), (<span style="color:#e6db74">&#39;germany&#39;</span>, <span style="color:#e6db74">&#39;munich&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.cities <span style="color:#66d9ef">WHERE</span> country <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;germany&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">germany munich
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">germany berlin
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">germany hamburg
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div></div></div>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;usa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;houston&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;germany&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;munich&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">cities</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;germany&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">germany munich
+</span></span></span><span class="line"><span class="cl"><span class="cm">germany berlin
+</span></span></span><span class="line"><span class="cl"><span class="cm">germany hamburg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></div></div>
 
 <h2 id="primary-key-tables">
   Primary Key Tables
@@ -1912,51 +2083,51 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
     onclick="onSwitch('Flink SQL')"
   />
   <label for="tabs-paimon-primary-key-table-0">Flink SQL</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> paimon_catalog <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;paimon&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;warehouse&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;path-to-warehouse&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders (
-</span></span><span style="display:flex;"><span>    order_id BIGINT,
-</span></span><span style="display:flex;"><span>    status STRING,
-</span></span><span style="display:flex;"><span>    payment DOUBLE,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (order_id) <span style="color:#66d9ef">NOT</span> ENFORCED
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.storage&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hadoop-catalog&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;compaction.optimization-interval&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1ms&#39;</span> <span style="color:#75715e">-- ATTENTION: this option is only for testing, see &#34;timeliness&#34; section below for more information
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;SUBMITTED&#39;</span>, <span style="color:#66d9ef">CAST</span>(<span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">AS</span> DOUBLE)), (<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;COMPLETED&#39;</span>, <span style="color:#ae81ff">200</span>.<span style="color:#ae81ff">0</span>), (<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;SUBMITTED&#39;</span>, <span style="color:#66d9ef">CAST</span>(<span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">AS</span> DOUBLE));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> iceberg_catalog <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;iceberg&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;catalog-type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hadoop&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;warehouse&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;path-to-warehouse&gt;/iceberg&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;cache-enabled&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span> <span style="color:#75715e">-- disable iceberg catalog caching to quickly see the result
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">WHERE</span> status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;COMPLETED&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+----------------------+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| op |             order_id |                         status |                        payment |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+----------------------+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                    2 |                      COMPLETED |                          200.0 |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+----------------------+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;COMPLETED&#39;</span>, <span style="color:#ae81ff">100</span>.<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">WHERE</span> status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;COMPLETED&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+----------------------+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| op |             order_id |                         status |                        payment |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+----------------------+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                    1 |                      COMPLETED |                          100.0 |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">| +I |                    2 |                      COMPLETED |                          200.0 |
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">+----+----------------------+--------------------------------+--------------------------------+
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div></div><input 
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;paimon&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;warehouse&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;path-to-warehouse&gt;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">payment</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">ENFORCED</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.storage&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hadoop-catalog&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;compaction.optimization-interval&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1ms&#39;</span><span class="w"> </span><span class="c1">-- ATTENTION: this option is only for testing, see &#34;timeliness&#34; section below for more information
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUBMITTED&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="k">NULL</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">)),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUBMITTED&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="k">NULL</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;iceberg&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;catalog-type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hadoop&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;warehouse&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;path-to-warehouse&gt;/iceberg&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;cache-enabled&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;false&#39;</span><span class="w"> </span><span class="c1">-- disable iceberg catalog caching to quickly see the result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+----------------------+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| op |             order_id |                         status |                        payment |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+----------------------+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                    2 |                      COMPLETED |                          200.0 |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+----------------------+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+----------------------+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| op |             order_id |                         status |                        payment |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+----------------------+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                    1 |                      COMPLETED |                          100.0 |
+</span></span></span><span class="line"><span class="cl"><span class="cm">| +I |                    2 |                      COMPLETED |                          200.0 |
+</span></span></span><span class="line"><span class="cl"><span class="cm">+----+----------------------+--------------------------------+--------------------------------+
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></div><input 
     type="radio"
     class="toggle"
     data-tab-group="flink-tabs"
@@ -1968,41 +2139,41 @@ Please refer to Iceberg&rsquo;s document if you haven&rsquo;t set up Iceberg.</p
   />
   <label for="tabs-paimon-primary-key-table-1">Spark SQL</label>
   <div class="book-tabs-content markdown-inner"><p>Start <code>spark-sql</code> with the following command line.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql --jars &lt;path-to-paimon-jar&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon_catalog<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon_catalog.warehouse<span style="color:#f92672">=</span>&lt;path-to-warehouse&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --packages org.apache.iceberg:iceberg-spark-runtime-&lt;iceberg-version&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog<span style="color:#f92672">=</span>org.apache.iceberg.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.type<span style="color:#f92672">=</span>hadoop <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.warehouse<span style="color:#f92672">=</span>&lt;path-to-warehouse&gt;/iceberg <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.cache-enabled<span style="color:#f92672">=</span>false <span style="color:#ae81ff">\ </span><span style="color:#75715e"># disable iceberg catalog caching to quickly see the result</span>
-</span></span><span style="display:flex;"><span>    --conf spark.sql.extensions<span style="color:#f92672">=</span>org.apache.paimon.spark.extensions.PaimonSparkSessionExtensions,org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql --jars &lt;path-to-paimon-jar&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon_catalog<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon_catalog.warehouse<span class="o">=</span>&lt;path-to-warehouse&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --packages org.apache.iceberg:iceberg-spark-runtime-&lt;iceberg-version&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog<span class="o">=</span>org.apache.iceberg.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.type<span class="o">=</span>hadoop <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.warehouse<span class="o">=</span>&lt;path-to-warehouse&gt;/iceberg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.cache-enabled<span class="o">=</span><span class="nb">false</span> <span class="se">\ </span><span class="c1"># disable iceberg catalog caching to quickly see the result</span>
+</span></span><span class="line"><span class="cl">    --conf spark.sql.extensions<span class="o">=</span>org.apache.paimon.spark.extensions.PaimonSparkSessionExtensions,org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 </span></span></code></pre></div><p>Run the following Spark SQL to create Paimon table, insert/update data, and query with Iceberg catalog.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders (
-</span></span><span style="display:flex;"><span>    order_id BIGINT,
-</span></span><span style="display:flex;"><span>    status STRING,
-</span></span><span style="display:flex;"><span>    payment DOUBLE
-</span></span><span style="display:flex;"><span>) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;primary-key&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;order_id&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.storage&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hadoop-catalog&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;compaction.optimization-interval&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1ms&#39;</span> <span style="color:#75715e">-- ATTENTION: this option is only for testing, see &#34;timeliness&#34; section below for more information
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;SUBMITTED&#39;</span>, <span style="color:#66d9ef">CAST</span>(<span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">AS</span> DOUBLE)), (<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;COMPLETED&#39;</span>, <span style="color:#ae81ff">200</span>.<span style="color:#ae81ff">0</span>), (<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;SUBMITTED&#39;</span>, <span style="color:#66d9ef">CAST</span>(<span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">AS</span> DOUBLE));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">WHERE</span> status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;COMPLETED&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">2       COMPLETED       200.0
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">VALUES</span> (<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;COMPLETED&#39;</span>, <span style="color:#ae81ff">100</span>.<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> iceberg_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.orders <span style="color:#66d9ef">WHERE</span> status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;COMPLETED&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">2       COMPLETED       200.0
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">1       COMPLETED       100.0
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div></div></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">payment</span><span class="w"> </span><span class="n">DOUBLE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;order_id&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.storage&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hadoop-catalog&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;compaction.optimization-interval&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1ms&#39;</span><span class="w"> </span><span class="c1">-- ATTENTION: this option is only for testing, see &#34;timeliness&#34; section below for more information
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUBMITTED&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="k">NULL</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">)),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">.</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUBMITTED&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="k">NULL</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DOUBLE</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">2       COMPLETED       200.0
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">iceberg_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">orders</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;COMPLETED&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">2       COMPLETED       200.0
+</span></span></span><span class="line"><span class="cl"><span class="cm">1       COMPLETED       100.0
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div></div></div>
 
 <p>Paimon primary key tables organize data files as LSM trees, so data files must be merged in memory before querying.
 However, Iceberg readers are not able to merge data files, so they can only query data files on the highest level of LSM trees.
@@ -2106,7 +2277,8 @@ you also need to set some (or all) of the following table options when creating 
 <p>You can use Hive Catalog to connect AWS Glue metastore, you can use set <code>'metadata.iceberg.hive-client-class'</code> to
 <code>'com.amazonaws.glue.catalog.metastore.AWSCatalogMetastoreClient'</code>.</p>
 <blockquote>
-<p><strong>Note:</strong> You can use this <a href="https://github.com/promotedai/aws-glue-data-catalog-client-for-apache-hive-metastore">repo</a> to build the required jar, include it in your path and configure the AWSCatalogMetastoreClient.</p></blockquote>
+<p><strong>Note:</strong> You can use this <a href="https://github.com/promotedai/aws-glue-data-catalog-client-for-apache-hive-metastore">repo</a> to build the required jar, include it in your path and configure the AWSCatalogMetastoreClient.</p>
+</blockquote>
 <h2 id="aws-athena">
   AWS Athena
   <a class="anchor" href="#aws-athena">#</a>
@@ -2144,21 +2316,21 @@ See <a href="https://trino.io/docs/current/connector/iceberg.html#general-config
     onclick="onSwitch('Flink SQL')"
   />
   <label for="tabs-paimon-append-only-table-trino-1-0">Flink SQL</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">CATALOG</span> paimon_catalog <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;paimon&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;warehouse&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;path-to-warehouse&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.animals (
-</span></span><span style="display:flex;"><span>    kind STRING,
-</span></span><span style="display:flex;"><span>    name STRING
-</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">WITH</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.storage&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hive-catalog&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.uri&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;thrift://&lt;host&gt;:&lt;port&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.animals <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;mammal&#39;</span>, <span style="color:#e6db74">&#39;cat&#39;</span>), (<span style="color:#e6db74">&#39;mammal&#39;</span>, <span style="color:#e6db74">&#39;dog&#39;</span>), (<span style="color:#e6db74">&#39;reptile&#39;</span>, <span style="color:#e6db74">&#39;snake&#39;</span>), (<span style="color:#e6db74">&#39;reptile&#39;</span>, <span style="color:#e6db74">&#39;lizard&#39;</span>);
-</span></span></code></pre></div></div><input 
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;type&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;paimon&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;warehouse&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;path-to-warehouse&gt;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">animals</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">kind</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.storage&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hive-catalog&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.uri&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;thrift://&lt;host&gt;:&lt;port&gt;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">animals</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;mammal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cat&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;mammal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dog&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;reptile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;snake&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;reptile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;lizard&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></div><input 
     type="radio"
     class="toggle"
     data-tab-group="flink-tabs"
@@ -2170,113 +2342,113 @@ See <a href="https://trino.io/docs/current/connector/iceberg.html#general-config
   />
   <label for="tabs-paimon-append-only-table-trino-1-1">Spark SQL</label>
   <div class="book-tabs-content markdown-inner"><p>Start <code>spark-sql</code> with the following command line.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>spark-sql --jars &lt;path-to-paimon-jar&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon_catalog<span style="color:#f92672">=</span>org.apache.paimon.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.paimon_catalog.warehouse<span style="color:#f92672">=</span>&lt;path-to-warehouse&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --packages org.apache.iceberg:iceberg-spark-runtime-&lt;iceberg-version&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog<span style="color:#f92672">=</span>org.apache.iceberg.spark.SparkCatalog <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.type<span style="color:#f92672">=</span>hadoop <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.warehouse<span style="color:#f92672">=</span>&lt;path-to-warehouse&gt;/iceberg <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --conf spark.sql.catalog.iceberg_catalog.cache-enabled<span style="color:#f92672">=</span>false <span style="color:#ae81ff">\ </span><span style="color:#75715e"># disable iceberg catalog caching to quickly see the result</span>
-</span></span><span style="display:flex;"><span>    --conf spark.sql.extensions<span style="color:#f92672">=</span>org.apache.paimon.spark.extensions.PaimonSparkSessionExtensions,org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">spark-sql --jars &lt;path-to-paimon-jar&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon_catalog<span class="o">=</span>org.apache.paimon.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.paimon_catalog.warehouse<span class="o">=</span>&lt;path-to-warehouse&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --packages org.apache.iceberg:iceberg-spark-runtime-&lt;iceberg-version&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog<span class="o">=</span>org.apache.iceberg.spark.SparkCatalog <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.type<span class="o">=</span>hadoop <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.warehouse<span class="o">=</span>&lt;path-to-warehouse&gt;/iceberg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --conf spark.sql.catalog.iceberg_catalog.cache-enabled<span class="o">=</span><span class="nb">false</span> <span class="se">\ </span><span class="c1"># disable iceberg catalog caching to quickly see the result</span>
+</span></span><span class="line"><span class="cl">    --conf spark.sql.extensions<span class="o">=</span>org.apache.paimon.spark.extensions.PaimonSparkSessionExtensions,org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
 </span></span></code></pre></div><p>Run the following Spark SQL to create Paimon table, insert/update data, and query with Iceberg catalog.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.animals (
-</span></span><span style="display:flex;"><span>    kind STRING,
-</span></span><span style="display:flex;"><span>    name STRING
-</span></span><span style="display:flex;"><span>) TBLPROPERTIES (
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.storage&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hive-catalog&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;metadata.iceberg.uri&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;thrift://&lt;host&gt;:&lt;port&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> paimon_catalog.<span style="color:#f92672">`</span><span style="color:#66d9ef">default</span><span style="color:#f92672">`</span>.animals <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;mammal&#39;</span>, <span style="color:#e6db74">&#39;cat&#39;</span>), (<span style="color:#e6db74">&#39;mammal&#39;</span>, <span style="color:#e6db74">&#39;dog&#39;</span>), (<span style="color:#e6db74">&#39;reptile&#39;</span>, <span style="color:#e6db74">&#39;snake&#39;</span>), (<span style="color:#e6db74">&#39;reptile&#39;</span>, <span style="color:#e6db74">&#39;lizard&#39;</span>);
-</span></span></code></pre></div></div></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">animals</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">kind</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="n">STRING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.storage&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hive-catalog&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;metadata.iceberg.uri&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;thrift://&lt;host&gt;:&lt;port&gt;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_catalog</span><span class="p">.</span><span class="o">`</span><span class="k">default</span><span class="o">`</span><span class="p">.</span><span class="n">animals</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;mammal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cat&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;mammal&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dog&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;reptile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;snake&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;reptile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;lizard&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></div></div>
 
 <p>Start Trino using Iceberg catalog and query from Paimon table.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> animals <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">class</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mammal&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   kind | name 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">--------+------
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> mammal | cat  
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> mammal | dog  
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
-</span></span></code></pre></div><h2 id="supported-types">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">animals</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mammal&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">   kind | name 
+</span></span></span><span class="line"><span class="cl"><span class="cm">--------+------
+</span></span></span><span class="line"><span class="cl"><span class="cm"> mammal | cat  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> mammal | dog  
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></div><h2 id="supported-types">
   Supported Types
   <a class="anchor" href="#supported-types">#</a>
 </h2>
 <p>Paimon Iceberg compatibility currently supports the following data types.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Paimon Data Type</th>
-          <th>Iceberg Data Type</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>BOOLEAN</code></td>
-          <td><code>boolean</code></td>
-      </tr>
-      <tr>
-          <td><code>INT</code></td>
-          <td><code>int</code></td>
-      </tr>
-      <tr>
-          <td><code>BIGINT</code></td>
-          <td><code>long</code></td>
-      </tr>
-      <tr>
-          <td><code>FLOAT</code></td>
-          <td><code>float</code></td>
-      </tr>
-      <tr>
-          <td><code>DOUBLE</code></td>
-          <td><code>double</code></td>
-      </tr>
-      <tr>
-          <td><code>DECIMAL</code></td>
-          <td><code>decimal</code></td>
-      </tr>
-      <tr>
-          <td><code>CHAR</code></td>
-          <td><code>string</code></td>
-      </tr>
-      <tr>
-          <td><code>VARCHAR</code></td>
-          <td><code>string</code></td>
-      </tr>
-      <tr>
-          <td><code>BINARY</code></td>
-          <td><code>binary</code></td>
-      </tr>
-      <tr>
-          <td><code>VARBINARY</code></td>
-          <td><code>binary</code></td>
-      </tr>
-      <tr>
-          <td><code>DATE</code></td>
-          <td><code>date</code></td>
-      </tr>
-      <tr>
-          <td><code>TIMESTAMP</code>*</td>
-          <td><code>timestamp</code></td>
-      </tr>
-      <tr>
-          <td><code>TIMESTAMP_LTZ</code>*</td>
-          <td><code>timestamptz</code></td>
-      </tr>
-      <tr>
-          <td><code>ARRAY</code></td>
-          <td><code>list</code></td>
-      </tr>
-      <tr>
-          <td><code>MAP</code></td>
-          <td><code>map</code></td>
-      </tr>
-      <tr>
-          <td><code>ROW</code></td>
-          <td><code>struct</code></td>
-      </tr>
-  </tbody>
+<thead>
+<tr>
+<th>Paimon Data Type</th>
+<th>Iceberg Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BOOLEAN</code></td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><code>INT</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>BIGINT</code></td>
+<td><code>long</code></td>
+</tr>
+<tr>
+<td><code>FLOAT</code></td>
+<td><code>float</code></td>
+</tr>
+<tr>
+<td><code>DOUBLE</code></td>
+<td><code>double</code></td>
+</tr>
+<tr>
+<td><code>DECIMAL</code></td>
+<td><code>decimal</code></td>
+</tr>
+<tr>
+<td><code>CHAR</code></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>VARCHAR</code></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>BINARY</code></td>
+<td><code>binary</code></td>
+</tr>
+<tr>
+<td><code>VARBINARY</code></td>
+<td><code>binary</code></td>
+</tr>
+<tr>
+<td><code>DATE</code></td>
+<td><code>date</code></td>
+</tr>
+<tr>
+<td><code>TIMESTAMP</code>*</td>
+<td><code>timestamp</code></td>
+</tr>
+<tr>
+<td><code>TIMESTAMP_LTZ</code>*</td>
+<td><code>timestamptz</code></td>
+</tr>
+<tr>
+<td><code>ARRAY</code></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><code>MAP</code></td>
+<td><code>map</code></td>
+</tr>
+<tr>
+<td><code>ROW</code></td>
+<td><code>struct</code></td>
+</tr>
+</tbody>
 </table>
 <p>*: <code>TIMESTAMP</code> and <code>TIMESTAMP_LTZ</code> type only support precision from 4 to 6</p>
 <h2 id="table-options">
@@ -2388,21 +2560,31 @@ See <a href="https://trino.io/docs/current/connector/iceberg.html#general-config
 
       <footer class="book-footer">
         
-  <div class="flex flex-wrap justify-between">
+  
 
 
 
 
-
-</div>
-
-
-
-  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+<a href="//github.com/apache/paimon/edit/1.1/docs/content/migration%5ciceberg-compatibility.md" style="color:black"><i class="fa fa-edit fa-fw"></i>Edit This Page</a>
 
 
  
         
+
+
+<hr style="margin-top: 20px; border: 1px solid #e5e5e5;" />
+
+<table style="border-spacing: 10px;">
+    <tbody>
+    <tr>
+        <td colspan="2">
+            Copyright &copy; 2024 The Apache Software Foundation. Apache Paimon, Paimon, and its feather logo are
+            trademarks of The Apache Software Foundation.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
       </footer>
 
       
@@ -2418,10 +2600,10 @@ See <a href="https://trino.io/docs/current/connector/iceberg.html#general-config
 
     
     <aside class="book-toc">
-      <div class="book-toc-content">
-        
+      
   
-<nav id="TableOfContents">
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
     <li><a href="#append-tables">Append Tables</a></li>
     <li><a href="#primary-key-tables">Primary Key Tables</a></li>
@@ -2435,15 +2617,19 @@ See <a href="https://trino.io/docs/current/connector/iceberg.html#general-config
   </ul>
 </nav>
 
-
  
-      </div>
+    </aside>
+    <aside class="expand-toc">
+      <button class="toc" onclick="expandToc()">
+        <i class="fa fa-expand" aria-hidden="true"></i>
+      </button>
     </aside>
     
   </main>
 
   
 </body>
+
 </html>
 
 
