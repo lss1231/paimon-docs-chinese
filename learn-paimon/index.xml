@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Learn Paimon on Apache Paimon</title>
-    <link>/learn-paimon/</link>
+    <link>https://lss1231.github.io/paimon-docs-chinese/learn-paimon/</link>
     <description>Recent content in Learn Paimon on Apache Paimon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="/learn-paimon/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/learn-paimon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understand Files</title>
-      <link>/learn-paimon/understand-files/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/learn-paimon/understand-files/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/</guid>
       <description>Understand Files&#xD;#&#xD;This article is specifically designed to clarify the impact that various file operations have on files.&#xA;This page provides concrete examples and practical tips for effectively managing them. Furthermore, through an in-depth exploration of operations such as commit and compact, we aim to offer insights into the creation and updates of files.&#xA;Prerequisite&#xD;#&#xD;Before delving further into this page, please ensure that you have read through the following sections:</description>
     </item>
   </channel>
