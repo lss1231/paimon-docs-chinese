@@ -1,0 +1,2223 @@
+
+<!DOCTYPE html>
+<html lang="zh" dir=ZgotmplZ>
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta name="generator" content="Hugo 0.124.1">
+  
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Functions#Paimon 引入了一种 Function 抽象，旨在为计算引擎提供标准格式的函数支持，解决以下问题：
+统一的列级过滤与处理：
+支持在列级别进行操作，包括数据的加密与解密等任务。
+参数化视图能力：
+支持在视图中进行参数化操作，增强数据检索过程的动态性和可用性。
+支持的函数类型#目前，Paimon 支持三种类型的函数：
+文件函数（File Function）：
+用户可以在文件中定义函数，为函数定义提供灵活且模块化的支持。
+Lambda 函数（Lambda Function）：
+支持用户使用 Java Lambda 表达式定义函数，实现内联、简洁、函数式的操作方式。
+SQL 函数（SQL Function）：
+用户可以直接在 SQL 中定义函数，与基于 SQL 的数据处理无缝集成。
+File Function Usage in Flink#Paimon 函数可在 Apache Flink 中用于执行复杂的数据操作。以下是在 Flink 环境中创建、修改和删除函数的 SQL 命令：
+Create Function#使用 FLink SQL创建一个新的函数
+-- Flink SQL CREATE FUNCTION mydb.parse_str AS &#39;com.streaming.flink.udf.StrUdf&#39; LANGUAGE JAVA USING JAR &#39;oss://my_bucket/my_location/udf.jar&#39; [, JAR &#39;oss://my_bucket/my_location/a.jar&#39;]; 这条语句在 mydb 数据库中创建了一个基于 Java 的用户自定义函数（UDF），函数名为 parse_str，该函数使用了来自对象存储位置的指定 JAR 文件：">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="函数 Functions" />
+<meta property="og:description" content="Functions#Paimon 引入了一种 Function 抽象，旨在为计算引擎提供标准格式的函数支持，解决以下问题：
+统一的列级过滤与处理：
+支持在列级别进行操作，包括数据的加密与解密等任务。
+参数化视图能力：
+支持在视图中进行参数化操作，增强数据检索过程的动态性和可用性。
+支持的函数类型#目前，Paimon 支持三种类型的函数：
+文件函数（File Function）：
+用户可以在文件中定义函数，为函数定义提供灵活且模块化的支持。
+Lambda 函数（Lambda Function）：
+支持用户使用 Java Lambda 表达式定义函数，实现内联、简洁、函数式的操作方式。
+SQL 函数（SQL Function）：
+用户可以直接在 SQL 中定义函数，与基于 SQL 的数据处理无缝集成。
+File Function Usage in Flink#Paimon 函数可在 Apache Flink 中用于执行复杂的数据操作。以下是在 Flink 环境中创建、修改和删除函数的 SQL 命令：
+Create Function#使用 FLink SQL创建一个新的函数
+-- Flink SQL CREATE FUNCTION mydb.parse_str AS &#39;com.streaming.flink.udf.StrUdf&#39; LANGUAGE JAVA USING JAR &#39;oss://my_bucket/my_location/udf.jar&#39; [, JAR &#39;oss://my_bucket/my_location/a.jar&#39;]; 这条语句在 mydb 数据库中创建了一个基于 Java 的用户自定义函数（UDF），函数名为 parse_str，该函数使用了来自对象存储位置的指定 JAR 文件：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/concepts/functions/" /><meta property="article:section" content="concepts" />
+
+
+<title>函数 Functions | Paimon文档</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="//localhost:1313/en/concepts/functions/" title="Functions">
+
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/zh.search.min.42267b06c2400afe59d1f4067653c847750f3b39aa2e1bfd4711107a078a53e4.js" integrity="sha256-QiZ7BsJACv5Z0fQGdlPIR3UPOzmqLhv9RxEQegeKU&#43;Q="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+  
+
+<link rel="stylesheet" type="text/css" href="//localhost:1313//font-awesome/css/font-awesome.min.css">
+<script src="//localhost:1313//js/anchor.min.js"></script>
+<script src="//localhost:1313//js/flink.js"></script>
+
+
+
+  
+  <script>
+    var _paq = window._paq = window._paq || [];
+     
+     
+    _paq.push(['disableCookies']);
+     
+    _paq.push(["setDomains", ["*.flink.apache.org","*.nightlies.apache.org/flink"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//matomo.privacy.apache.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  
+</head>
+
+<body dir=ZgotmplZ>
+  
+    <input type="checkbox" class="hidden toggle" id="menu-control" />
+    <input type="checkbox" class="hidden toggle" id="toc-control" />
+  
+  <main class="container flex">
+    
+      <aside class="book-menu">
+        
+  
+
+<nav>
+
+
+<a id="logo" href="//localhost:1313/">
+    <img width="100%" src="//localhost:1313//paimon_black.svg">
+</a>
+<p style="text-align:right">1.2.0</p>
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-c731eb3eada0765f704948e2d3b9bb48" class="toggle" checked />
+    <label for="section-c731eb3eada0765f704948e2d3b9bb48" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-book title maindish" aria-hidden="true"></i>&nbsp;&nbsp;概念 Concepts</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/overview/" class="">概述</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/basic-concepts/" class="">基础概念 Basic Concepts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/concurrency-control/" class="">并发控制 Concurrency Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/catalog/" class="">Catalog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="toggle"  />
+    <label for="section-8451cf5dbd0ba165d2eff8eab794a5e2" class="flex justify-between">RESTCatalog<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/rest/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/rest/bear/" class="">Bear Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/rest/dlf/" class="">DLF Token</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/rest/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/table-types/" class="">表类型 Table Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/system-tables/" class="">系统表 System Tables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/data-types/" class="">数据类型 Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/functions/" class=" active">函数 Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-04b977f4d78c1a1179624ef9cf1c052f" class="toggle"  />
+    <label for="section-04b977f4d78c1a1179624ef9cf1c052f" class="flex justify-between">规范说明 Specification<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/spec/overview/" class="">概述 Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/spec/schema/" class="">模式文件 Schema</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/spec/snapshot/" class="">快照文件 Snapshot</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/spec/manifest/" class="">清单文件 Manifest</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/spec/datafile/" class="">数据文件 DataFile</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/spec/tableindex/" class="">表索引 Table Index</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/spec/fileindex/" class="">文件索引 File Index</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-13198e701ffb9c73ec7a3177a4f953f1" class="toggle"  />
+    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table with PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/data-distribution/" class="">Data Distribution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/table-mode/" class="">Table Mode</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-f845a63b155c9d2fb0db740cc418eb68" class="toggle"  />
+    <label for="section-f845a63b155c9d2fb0db740cc418eb68" class="flex justify-between">Merge Engine<span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/merge-engine/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/compaction/" class="">Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/primary-key-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-bb708993c18bd45422a8bcf87778bb93" class="toggle"  />
+    <label for="section-bb708993c18bd45422a8bcf87778bb93" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table w/o PK</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/append-table/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/append-table/streaming/" class="">Streaming</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/append-table/query-performance/" class="">Query Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/append-table/update/" class="">Update</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/append-table/bucketed/" class="">Bucketed</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/consumer-id/" class="">Consumer ID</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/sql-lookup/" class="">SQL Lookup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/action-jars/" class="">Action Jars</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/flink/savepoint/" class="">Savepoint</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-86d841c4a4c551bb4e21d460836d4142" class="toggle"  />
+    <label for="section-86d841c4a4c551bb4e21d460836d4142" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Spark</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/quick-start/" class="">Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/sql-ddl/" class="">SQL DDL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/sql-functions/" class="">SQL Functions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/sql-write/" class="">SQL Write</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/sql-query/" class="">SQL Query</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/sql-alter/" class="">SQL Alter</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/auxiliary/" class="">Auxiliary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/spark/procedures/" class="">Procedures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="toggle"  />
+    <label for="section-30d29cf6aaa7fb1e0e056430337d3cd8" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Ecosystem</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/ecosystem/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/ecosystem/starrocks/" class="">StarRocks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/ecosystem/doris/" class="">Doris</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/ecosystem/hive/" class="">Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/ecosystem/trino/" class="">Trino</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/ecosystem/amoro/" class="">Amoro</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="toggle"  />
+    <label for="section-0d8ed5dd97c2657084dd792a5fb3dc39" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;CDC Ingestion</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/cdc-ingestion/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-572d5eb93948a39233efdc1aa454d415" class="toggle"  />
+    <label for="section-572d5eb93948a39233efdc1aa454d415" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-wrench title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Maintenance</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/filesystems/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/write-performance/" class="">Write Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/manage-tags/" class="">Manage Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/metrics/" class="">Metrics</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/manage-privileges/" class="">Manage Privileges</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/manage-branches/" class="">Manage Branches</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/manage-partitions/" class="">Manage Partitions</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/maintenance/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="toggle"  />
+    <label for="section-ffda0ff45a34e5f3ed8bf3826a7c8879" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Program API</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/program-api/rest-api/" class="">REST API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/program-api/flink-api/" class="">Flink API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/program-api/java-api/" class="">Java API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/program-api/python-api/" class="">Python API</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="toggle"  />
+    <label for="section-3f8a436f48e29eeb422e6dd0a6e20e71" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Migration</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/migration/migration-from-hive/" class="">Migration From Hive</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/migration/clone-to-paimon/" class="">Clone To Paimon</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-3882ebcb06158ef11bac6340af15617a" class="toggle"  />
+    <label for="section-3882ebcb06158ef11bac6340af15617a" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Iceberg Metadata</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/append-table/" class="">Append Table</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/primary-key-table/" class="">Primary Key Table</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/iceberg-tags/" class="">Iceberg Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/hive-catalog/" class="">Hive Catalogs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/ecosystem/" class="">Ecosystem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/configurations/" class="">Configurations</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  	<br/>
+  
+  
+    <input type="checkbox" id="section-fd0d6ee095aef42da7d15863a92a4aa0" class="toggle"  />
+    <label for="section-fd0d6ee095aef42da7d15863a92a4aa0" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Project</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/project/roadmap/" class="">Roadmap</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/project/download/" class="">Download</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/project/contributing/" class="">Contributing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/project/committer/" class="">Committer</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-9e09a206f89e5011227bdf8d37b7ee20" class="toggle"  />
+    <label for="section-9e09a206f89e5011227bdf8d37b7ee20" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-sitemap title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Learn Paimon</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/learn-paimon/understand-files/" class="">Understand Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+<hr class="menu-break">
+
+<a href="//paimon.apache.org" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> Project Homepage</a>
+<br/>
+
+<a href="//paimon.apache.org/docs/master/api/java/" style="color:black;margin-bottom:0.5em"><i class="link fa fa-external-link title" aria-hidden="true"></i> JavaDocs</a>
+<br/>
+
+<hr class="menu-break">
+<li style="list-style-type: none">
+  <br>
+  <input type="checkbox" id="section-version-picker" class="toggle">
+  <label for="section-version-picker" class="flex justify-between">
+     <div style="font-weight:450;margin-bottom:0.5em">Pick Docs Version</div>
+     <span>▾</span>
+  </label>
+  <ul>
+    <a href="//localhost:1313/">
+      1.2 (✓)
+    </a>
+    <hr class="menu-break">
+    
+      <li>
+        <a href="https://paimon.apache.org/docs/master">
+          master
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://paimon.apache.org/docs/1.2">
+          stable
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://paimon.apache.org/docs/1.2">
+          1.2
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://paimon.apache.org/docs/1.1">
+          1.1
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://paimon.apache.org/docs/1.0">
+          1.0
+        </a>
+      </li>
+    
+    <hr class="menu-break">
+    <li>
+      <a href="//localhost:1313//versions">
+          All Versions
+      </a>
+    </li>
+  </ul>
+</li>
+
+
+
+
+  
+
+  
+
+
+  
+
+
+
+
+
+<a  href="//localhost:1313/en/concepts/functions/" class="flex align-center">
+  <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;
+  English
+</a>
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </aside>
+    
+
+    <div class="book-page">
+      
+        <header class="book-header">
+          
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>函数 Functions</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
+  <ul>
+    <li><a href="#支持的函数类型">支持的函数类型</a></li>
+    <li><a href="#file-function-usage-in-flink">File Function Usage in Flink</a>
+      <ul>
+        <li><a href="#create-function">Create Function</a></li>
+        <li><a href="#alter-function">Alter Function</a></li>
+        <li><a href="#drop-function">Drop Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#lambda-function-usage-in-spark">Lambda Function Usage in Spark</a>
+      <ul>
+        <li><a href="#create-function-1">Create Function</a></li>
+        <li><a href="#alter-function-1">Alter Function</a></li>
+        <li><a href="#drop-function-1">Drop Function</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+        </header>
+      
+
+      
+
+
+
+
+
+
+      
+  <article class="markdown"><!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<h1 id="functions">
+  Functions
+  <a class="anchor" href="#functions">#</a>
+</h1>
+<p>Paimon 引入了一种 <strong>Function 抽象</strong>，旨在为计算引擎提供标准格式的函数支持，解决以下问题：</p>
+<ul>
+<li>
+<p><strong>统一的列级过滤与处理：</strong><br>
+支持在列级别进行操作，包括数据的加密与解密等任务。</p>
+</li>
+<li>
+<p><strong>参数化视图能力：</strong><br>
+支持在视图中进行参数化操作，增强数据检索过程的动态性和可用性。</p>
+</li>
+</ul>
+<h2 id="支持的函数类型">
+  支持的函数类型
+  <a class="anchor" href="#%e6%94%af%e6%8c%81%e7%9a%84%e5%87%bd%e6%95%b0%e7%b1%bb%e5%9e%8b">#</a>
+</h2>
+<p>目前，Paimon 支持三种类型的函数：</p>
+<ol>
+<li>
+<p><strong>文件函数（File Function）：</strong><br>
+用户可以在文件中定义函数，为函数定义提供灵活且模块化的支持。</p>
+</li>
+<li>
+<p><strong>Lambda 函数（Lambda Function）：</strong><br>
+支持用户使用 Java Lambda 表达式定义函数，实现内联、简洁、函数式的操作方式。</p>
+</li>
+<li>
+<p><strong>SQL 函数（SQL Function）：</strong><br>
+用户可以直接在 SQL 中定义函数，与基于 SQL 的数据处理无缝集成。</p>
+</li>
+</ol>
+<h2 id="file-function-usage-in-flink">
+  File Function Usage in Flink
+  <a class="anchor" href="#file-function-usage-in-flink">#</a>
+</h2>
+<p>Paimon 函数可在 Apache Flink 中用于执行复杂的数据操作。以下是在 Flink 环境中创建、修改和删除函数的 SQL 命令：</p>
+<h3 id="create-function">
+  Create Function
+  <a class="anchor" href="#create-function">#</a>
+</h3>
+<p>使用 FLink SQL创建一个新的函数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Flink SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">mydb</span><span class="p">.</span><span class="n">parse_str</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="s1">&#39;com.streaming.flink.udf.StrUdf&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">JAVA</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">USING</span><span class="w"> </span><span class="n">JAR</span><span class="w"> </span><span class="s1">&#39;oss://my_bucket/my_location/udf.jar&#39;</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">JAR</span><span class="w"> </span><span class="s1">&#39;oss://my_bucket/my_location/a.jar&#39;</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></div><p>这条语句在 <code>mydb</code> 数据库中创建了一个基于 Java 的用户自定义函数（UDF），函数名为 <code>parse_str</code>，该函数使用了来自对象存储位置的指定 JAR 文件：</p>
+<h3 id="alter-function">
+  Alter Function
+  <a class="anchor" href="#alter-function">#</a>
+</h3>
+<p>要在 Flink SQL 中修改一个已存在的函数，可以使用如下语句：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Flink SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">mydb</span><span class="p">.</span><span class="n">parse_str</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="s1">&#39;com.streaming.flink.udf.StrUdf2&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">JAVA</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>以下命令将 parse_str 函数的实现更改为使用新的 Java 类定义。</p>
+<h3 id="drop-function">
+  Drop Function
+  <a class="anchor" href="#drop-function">#</a>
+</h3>
+<p>从 Flink SQL 中移除一个函数的方法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Flink SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">mydb</span><span class="p">.</span><span class="n">parse_str</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>该语句会删除 mydb 数据库中已存在的 parse_str 函数，释放其所占用的功能。</p>
+<h2 id="lambda-function-usage-in-spark">
+  Lambda Function Usage in Spark
+  <a class="anchor" href="#lambda-function-usage-in-spark">#</a>
+</h2>
+<h3 id="create-function-1">
+  Create Function
+  <a class="anchor" href="#create-function-1">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Spark SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CALL</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">create_function</span><span class="p">(</span><span class="o">`</span><span class="k">function</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;my_db.area_func&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">inputParams</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;[{&#34;id&#34;: 0, &#34;name&#34;:&#34;length&#34;, &#34;type&#34;:&#34;INT&#34;}, {&#34;id&#34;: 1, &#34;name&#34;:&#34;width&#34;, &#34;type&#34;:&#34;INT&#34;}]&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">returnParams</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;[{&#34;id&#34;: 0, &#34;name&#34;:&#34;area&#34;, &#34;type&#34;:&#34;BIGINT&#34;}]&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">deterministic</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">comment</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;comment&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">options</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;k1=v1,k2=v2&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="alter-function-1">
+  Alter Function
+  <a class="anchor" href="#alter-function-1">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Spark SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CALL</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">alter_function</span><span class="p">(</span><span class="o">`</span><span class="k">function</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;my_db.area_func&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">change</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;{&#34;action&#34; : &#34;addDefinition&#34;, &#34;name&#34; : &#34;spark&#34;, &#34;definition&#34; : {&#34;type&#34; : &#34;lambda&#34;, &#34;definition&#34; : &#34;(Integer length, Integer width) -&gt; { return (long) length * width; }&#34;, &#34;language&#34;: &#34;JAVA&#34; } }&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Spark SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="n">paimon</span><span class="p">.</span><span class="n">my_db</span><span class="p">.</span><span class="n">area_func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><h3 id="drop-function-1">
+  Drop Function
+  <a class="anchor" href="#drop-function-1">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- Spark SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CALL</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">drop_function</span><span class="p">(</span><span class="o">`</span><span class="k">function</span><span class="o">`</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">&#39;my_db.area_func&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  
+
+
+
+
+<a href="//github.com/apache/paimon/edit/1.2/docs/content/concepts%5cfunctions.md" style="color:black"><i class="fa fa-edit fa-fw"></i>Edit This Page</a>
+
+
+ 
+        
+
+
+<hr style="margin-top: 20px; border: 1px solid #e5e5e5;" />
+
+<table style="border-spacing: 10px;">
+    <tbody>
+    <tr>
+        <td colspan="2">
+            Copyright &copy; 2025 The Apache Software Foundation. Apache Paimon, Paimon, and its feather logo are
+            trademarks of The Apache Software Foundation.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  
+
+<nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
+  <ul>
+    <li><a href="#支持的函数类型">支持的函数类型</a></li>
+    <li><a href="#file-function-usage-in-flink">File Function Usage in Flink</a>
+      <ul>
+        <li><a href="#create-function">Create Function</a></li>
+        <li><a href="#alter-function">Alter Function</a></li>
+        <li><a href="#drop-function">Drop Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#lambda-function-usage-in-spark">Lambda Function Usage in Spark</a>
+      <ul>
+        <li><a href="#create-function-1">Create Function</a></li>
+        <li><a href="#alter-function-1">Alter Function</a></li>
+        <li><a href="#drop-function-1">Drop Function</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    <aside class="expand-toc">
+      <button class="toc" onclick="expandToc()">
+        <i class="fa fa-expand" aria-hidden="true"></i>
+      </button>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="en" dir=ZgotmplZ>
+<html lang="zh" dir=ZgotmplZ>
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta name="generator" content="Hugo 0.124.1">
   
     <meta charset="UTF-8">
@@ -10,23 +10,23 @@
 <meta name="description" content="Mongo CDC#Prepare MongoDB Bundled Jar#flink-sql-connector-mongodb-cdc-*.jar only cdc 3.1&#43; is supported
 Synchronizing Tables#By using MongoDBSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one collection from MongoDB into one Paimon table.
 To use this feature through flink run, run the following shell command.
-&lt;FLINK_HOME&gt;/bin/flink run \ /path/to/paimon-flink-action-1.1.1.jar \ mongodb_sync_table \ --warehouse &lt;warehouse-path&gt; \ --database &lt;database-name&gt; \ --table &lt;table-name&gt; \ [--partition_keys &lt;partition_keys&gt;] \ [--computed_column &lt;&#39;column-name=expr-name(args[, .">
+&lt;FLINK_HOME&gt;/bin/flink run \ /path/to/paimon-flink-action-1.2.0.jar \ mongodb_sync_table \ --warehouse &lt;warehouse-path&gt; \ --database &lt;database-name&gt; \ --table &lt;table-name&gt; \ [--partition_keys &lt;partition_keys&gt;] \ [--computed_column &lt;&#39;column-name=expr-name(args[, .">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Mongo CDC" />
 <meta property="og:description" content="Mongo CDC#Prepare MongoDB Bundled Jar#flink-sql-connector-mongodb-cdc-*.jar only cdc 3.1&#43; is supported
 Synchronizing Tables#By using MongoDBSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one collection from MongoDB into one Paimon table.
 To use this feature through flink run, run the following shell command.
-&lt;FLINK_HOME&gt;/bin/flink run \ /path/to/paimon-flink-action-1.1.1.jar \ mongodb_sync_table \ --warehouse &lt;warehouse-path&gt; \ --database &lt;database-name&gt; \ --table &lt;table-name&gt; \ [--partition_keys &lt;partition_keys&gt;] \ [--computed_column &lt;&#39;column-name=expr-name(args[, ." />
+&lt;FLINK_HOME&gt;/bin/flink run \ /path/to/paimon-flink-action-1.2.0.jar \ mongodb_sync_table \ --warehouse &lt;warehouse-path&gt; \ --database &lt;database-name&gt; \ --table &lt;table-name&gt; \ [--partition_keys &lt;partition_keys&gt;] \ [--computed_column &lt;&#39;column-name=expr-name(args[, ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" /><meta property="article:section" content="cdc-ingestion" />
+<meta property="og:url" content="//localhost:1313/cdc-ingestion/mongo-cdc/" /><meta property="article:section" content="cdc-ingestion" />
 
 
-<title>Mongo CDC | Paimon Docs</title>
-<link rel="manifest" href="/paimon-docs-chinese/manifest.json">
-<link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="zh" href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/mongo-cdc/" title="Mongo CDC">
+<title>Mongo CDC | Paimon文档</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="//localhost:1313/en/cdc-ingestion/mongo-cdc/" title="Mongo CDC">
 
-<link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/en.search.min.3bb071dda29ebf54e8fc86f1dcd6e9552571f0145c211137b7700b441603535c.js" integrity="sha256-O7Bx3aKev1To/Ibx3NbpVSVx8BRcIRE3t3ALRBYDU1w="></script>
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/zh.search.min.42267b06c2400afe59d1f4067653c847750f3b39aa2e1bfd4711107a078a53e4.js" integrity="sha256-QiZ7BsJACv5Z0fQGdlPIR3UPOzmqLhv9RxEQegeKU&#43;Q="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -35,9 +35,9 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-<link rel="stylesheet" type="text/css" href="https://lss1231.github.io/paimon-docs-chinese//font-awesome/css/font-awesome.min.css">
-<script src="https://lss1231.github.io/paimon-docs-chinese//js/anchor.min.js"></script>
-<script src="https://lss1231.github.io/paimon-docs-chinese//js/flink.js"></script>
+<link rel="stylesheet" type="text/css" href="//localhost:1313//font-awesome/css/font-awesome.min.css">
+<script src="//localhost:1313//js/anchor.min.js"></script>
+<script src="//localhost:1313//js/flink.js"></script>
 
 
 
@@ -76,13 +76,13 @@ https://github.com/alex-shpak/hugo-book
 <nav>
 
 
-<a id="logo" href="https://lss1231.github.io/paimon-docs-chinese/">
-    <img width="100%" src="https://lss1231.github.io/paimon-docs-chinese//paimon_black.svg">
+<a id="logo" href="//localhost:1313/">
+    <img width="100%" src="//localhost:1313//paimon_black.svg">
 </a>
-<p style="text-align:right">1.1.1</p>
+<p style="text-align:right">1.2.0</p>
 
 <div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
   <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
@@ -114,7 +114,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-c731eb3eada0765f704948e2d3b9bb48" class="toggle"  />
-    <label for="section-c731eb3eada0765f704948e2d3b9bb48" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-book title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Concepts</div><span>▾</span>
+    <label for="section-c731eb3eada0765f704948e2d3b9bb48" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-book title maindish" aria-hidden="true"></i>&nbsp;&nbsp;概念 Concepts</div><span>▾</span>
     </label>
   
 
@@ -129,7 +129,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/overview/" class="">Overview</a>
+    <a href="//localhost:1313/concepts/overview/" class="">概述</a>
   
 
         </li>
@@ -143,7 +143,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/" class="">Basic Concepts</a>
+    <a href="//localhost:1313/concepts/basic-concepts/" class="">基础概念 Basic Concepts</a>
   
 
         </li>
@@ -157,7 +157,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/" class="">Concurrency Control</a>
+    <a href="//localhost:1313/concepts/concurrency-control/" class="">并发控制 Concurrency Control</a>
   
 
         </li>
@@ -171,7 +171,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/" class="">Catalog</a>
+    <a href="//localhost:1313/concepts/catalog/" class="">Catalog</a>
   
 
         </li>
@@ -201,7 +201,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/overview/" class="">Overview</a>
+    <a href="//localhost:1313/concepts/rest/overview/" class="">Overview</a>
   
 
         </li>
@@ -215,7 +215,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/bear/" class="">Bear Token</a>
+    <a href="//localhost:1313/concepts/rest/bear/" class="">Bear Token</a>
   
 
         </li>
@@ -229,7 +229,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/dlf/" class="">DLF Token</a>
+    <a href="//localhost:1313/concepts/rest/dlf/" class="">DLF Token</a>
   
 
         </li>
@@ -243,7 +243,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/rest-api/" class="">REST API</a>
+    <a href="//localhost:1313/concepts/rest/rest-api/" class="">REST API</a>
   
 
         </li>
@@ -262,7 +262,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/" class="">Table Types</a>
+    <a href="//localhost:1313/concepts/table-types/" class="">表类型 Table Types</a>
   
 
         </li>
@@ -276,7 +276,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/" class="">System Tables</a>
+    <a href="//localhost:1313/concepts/system-tables/" class="">系统表 System Tables</a>
   
 
         </li>
@@ -290,7 +290,21 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/" class="">Data Types</a>
+    <a href="//localhost:1313/concepts/data-types/" class="">数据类型 Data Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/concepts/functions/" class="">函数 Functions</a>
   
 
         </li>
@@ -305,7 +319,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-04b977f4d78c1a1179624ef9cf1c052f" class="toggle"  />
-    <label for="section-04b977f4d78c1a1179624ef9cf1c052f" class="flex justify-between">Specification<span>▾</span>
+    <label for="section-04b977f4d78c1a1179624ef9cf1c052f" class="flex justify-between">规范说明 Specification<span>▾</span>
     </label>
   
 
@@ -320,7 +334,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/" class="">Overview</a>
+    <a href="//localhost:1313/concepts/spec/overview/" class="">概述 Overview</a>
   
 
         </li>
@@ -334,7 +348,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/" class="">Schema</a>
+    <a href="//localhost:1313/concepts/spec/schema/" class="">模式文件 Schema</a>
   
 
         </li>
@@ -348,7 +362,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/" class="">Snapshot</a>
+    <a href="//localhost:1313/concepts/spec/snapshot/" class="">快照文件 Snapshot</a>
   
 
         </li>
@@ -362,7 +376,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/" class="">Manifest</a>
+    <a href="//localhost:1313/concepts/spec/manifest/" class="">清单文件 Manifest</a>
   
 
         </li>
@@ -376,7 +390,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/" class="">DataFile</a>
+    <a href="//localhost:1313/concepts/spec/datafile/" class="">数据文件 DataFile</a>
   
 
         </li>
@@ -390,7 +404,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/" class="">Table Index</a>
+    <a href="//localhost:1313/concepts/spec/tableindex/" class="">表索引 Table Index</a>
   
 
         </li>
@@ -404,7 +418,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/" class="">File Index</a>
+    <a href="//localhost:1313/concepts/spec/fileindex/" class="">文件索引 File Index</a>
   
 
         </li>
@@ -444,7 +458,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/" class="">Overview</a>
+    <a href="//localhost:1313/primary-key-table/overview/" class="">Overview</a>
   
 
         </li>
@@ -458,7 +472,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/" class="">Data Distribution</a>
+    <a href="//localhost:1313/primary-key-table/data-distribution/" class="">Data Distribution</a>
   
 
         </li>
@@ -472,7 +486,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/" class="">Table Mode</a>
+    <a href="//localhost:1313/primary-key-table/table-mode/" class="">Table Mode</a>
   
 
         </li>
@@ -502,7 +516,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/" class="">Overview</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/overview/" class="">Overview</a>
   
 
         </li>
@@ -516,7 +530,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
   
 
         </li>
@@ -530,7 +544,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
   
 
         </li>
@@ -544,7 +558,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/first-row/" class="">First Row</a>
   
 
         </li>
@@ -563,7 +577,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+    <a href="//localhost:1313/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
   
 
         </li>
@@ -577,7 +591,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+    <a href="//localhost:1313/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
   
 
         </li>
@@ -591,7 +605,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/" class="">Compaction</a>
+    <a href="//localhost:1313/primary-key-table/compaction/" class="">Compaction</a>
   
 
         </li>
@@ -605,7 +619,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/query-performance/" class="">Query Performance</a>
+    <a href="//localhost:1313/primary-key-table/query-performance/" class="">Query Performance</a>
   
 
         </li>
@@ -640,7 +654,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
+    <a href="//localhost:1313/append-table/overview/" class="">Overview</a>
   
 
         </li>
@@ -654,7 +668,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="//localhost:1313/append-table/streaming/" class="">Streaming</a>
   
 
         </li>
@@ -668,7 +682,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
+    <a href="//localhost:1313/append-table/query-performance/" class="">Query Performance</a>
   
 
         </li>
@@ -682,7 +696,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">Update</a>
+    <a href="//localhost:1313/append-table/update/" class="">Update</a>
   
 
         </li>
@@ -696,7 +710,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
+    <a href="//localhost:1313/append-table/bucketed/" class="">Bucketed</a>
   
 
         </li>
@@ -731,7 +745,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
+    <a href="//localhost:1313/flink/quick-start/" class="">Quick Start</a>
   
 
         </li>
@@ -745,7 +759,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-ddl/" class="">SQL DDL</a>
+    <a href="//localhost:1313/flink/sql-ddl/" class="">SQL DDL</a>
   
 
         </li>
@@ -759,7 +773,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/" class="">SQL Write</a>
+    <a href="//localhost:1313/flink/sql-write/" class="">SQL Write</a>
   
 
         </li>
@@ -773,7 +787,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-query/" class="">SQL Query</a>
+    <a href="//localhost:1313/flink/sql-query/" class="">SQL Query</a>
   
 
         </li>
@@ -787,7 +801,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/" class="">Consumer ID</a>
+    <a href="//localhost:1313/flink/consumer-id/" class="">Consumer ID</a>
   
 
         </li>
@@ -801,7 +815,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-lookup/" class="">SQL Lookup</a>
+    <a href="//localhost:1313/flink/sql-lookup/" class="">SQL Lookup</a>
   
 
         </li>
@@ -815,7 +829,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-alter/" class="">SQL Alter</a>
+    <a href="//localhost:1313/flink/sql-alter/" class="">SQL Alter</a>
   
 
         </li>
@@ -829,7 +843,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/clone-tables/" class="">Clone Tables</a>
+    <a href="//localhost:1313/flink/procedures/" class="">Procedures</a>
   
 
         </li>
@@ -843,7 +857,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/" class="">Procedures</a>
+    <a href="//localhost:1313/flink/action-jars/" class="">Action Jars</a>
   
 
         </li>
@@ -857,21 +871,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/action-jars/" class="">Action Jars</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-  
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/savepoint/" class="">Savepoint</a>
+    <a href="//localhost:1313/flink/savepoint/" class="">Savepoint</a>
   
 
         </li>
@@ -906,7 +906,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/" class="">Quick Start</a>
+    <a href="//localhost:1313/spark/quick-start/" class="">Quick Start</a>
   
 
         </li>
@@ -920,7 +920,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/" class="">SQL DDL</a>
+    <a href="//localhost:1313/spark/sql-ddl/" class="">SQL DDL</a>
   
 
         </li>
@@ -934,7 +934,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-functions/" class="">SQL Functions</a>
+    <a href="//localhost:1313/spark/sql-functions/" class="">SQL Functions</a>
   
 
         </li>
@@ -948,7 +948,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/" class="">SQL Write</a>
+    <a href="//localhost:1313/spark/sql-write/" class="">SQL Write</a>
   
 
         </li>
@@ -962,7 +962,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-query/" class="">SQL Query</a>
+    <a href="//localhost:1313/spark/sql-query/" class="">SQL Query</a>
   
 
         </li>
@@ -976,7 +976,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-alter/" class="">SQL Alter</a>
+    <a href="//localhost:1313/spark/sql-alter/" class="">SQL Alter</a>
   
 
         </li>
@@ -990,7 +990,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/auxiliary/" class="">Auxiliary</a>
+    <a href="//localhost:1313/spark/auxiliary/" class="">Auxiliary</a>
   
 
         </li>
@@ -1004,7 +1004,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/procedures/" class="">Procedures</a>
+    <a href="//localhost:1313/spark/procedures/" class="">Procedures</a>
   
 
         </li>
@@ -1039,7 +1039,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/overview/" class="">Overview</a>
+    <a href="//localhost:1313/ecosystem/overview/" class="">Overview</a>
   
 
         </li>
@@ -1053,7 +1053,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/" class="">StarRocks</a>
+    <a href="//localhost:1313/ecosystem/starrocks/" class="">StarRocks</a>
   
 
         </li>
@@ -1067,7 +1067,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/doris/" class="">Doris</a>
+    <a href="//localhost:1313/ecosystem/doris/" class="">Doris</a>
   
 
         </li>
@@ -1081,7 +1081,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/hive/" class="">Hive</a>
+    <a href="//localhost:1313/ecosystem/hive/" class="">Hive</a>
   
 
         </li>
@@ -1095,7 +1095,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/trino/" class="">Trino</a>
+    <a href="//localhost:1313/ecosystem/trino/" class="">Trino</a>
   
 
         </li>
@@ -1109,7 +1109,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/amoro/" class="">Amoro</a>
+    <a href="//localhost:1313/ecosystem/amoro/" class="">Amoro</a>
   
 
         </li>
@@ -1144,7 +1144,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/" class="">Overview</a>
+    <a href="//localhost:1313/cdc-ingestion/overview/" class="">Overview</a>
   
 
         </li>
@@ -1158,7 +1158,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
   
 
         </li>
@@ -1172,7 +1172,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
   
 
         </li>
@@ -1186,7 +1186,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
   
 
         </li>
@@ -1200,7 +1200,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" class=" active">Mongo CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/mongo-cdc/" class=" active">Mongo CDC</a>
   
 
         </li>
@@ -1214,7 +1214,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
   
 
         </li>
@@ -1228,7 +1228,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+    <a href="//localhost:1313/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
   
 
         </li>
@@ -1263,7 +1263,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/filesystems/" class="">Filesystems</a>
+    <a href="//localhost:1313/maintenance/filesystems/" class="">Filesystems</a>
   
 
         </li>
@@ -1277,7 +1277,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/" class="">Write Performance</a>
+    <a href="//localhost:1313/maintenance/write-performance/" class="">Write Performance</a>
   
 
         </li>
@@ -1291,7 +1291,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+    <a href="//localhost:1313/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
   
 
         </li>
@@ -1305,7 +1305,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+    <a href="//localhost:1313/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
   
 
         </li>
@@ -1319,7 +1319,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+    <a href="//localhost:1313/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
   
 
         </li>
@@ -1333,7 +1333,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/" class="">Manage Tags</a>
+    <a href="//localhost:1313/maintenance/manage-tags/" class="">Manage Tags</a>
   
 
         </li>
@@ -1347,7 +1347,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/metrics/" class="">Metrics</a>
+    <a href="//localhost:1313/maintenance/metrics/" class="">Metrics</a>
   
 
         </li>
@@ -1361,7 +1361,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-privileges/" class="">Manage Privileges</a>
+    <a href="//localhost:1313/maintenance/manage-privileges/" class="">Manage Privileges</a>
   
 
         </li>
@@ -1375,7 +1375,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-branches/" class="">Manage Branches</a>
+    <a href="//localhost:1313/maintenance/manage-branches/" class="">Manage Branches</a>
   
 
         </li>
@@ -1389,7 +1389,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-partitions/" class="">Manage Partitions</a>
+    <a href="//localhost:1313/maintenance/manage-partitions/" class="">Manage Partitions</a>
   
 
         </li>
@@ -1403,7 +1403,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/" class="">Configurations</a>
+    <a href="//localhost:1313/maintenance/configurations/" class="">Configurations</a>
   
 
         </li>
@@ -1438,7 +1438,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/flink-api/" class="">Flink API</a>
+    <a href="//localhost:1313/program-api/rest-api/" class="">REST API</a>
   
 
         </li>
@@ -1452,7 +1452,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/java-api/" class="">Java API</a>
+    <a href="//localhost:1313/program-api/flink-api/" class="">Flink API</a>
   
 
         </li>
@@ -1466,7 +1466,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/" class="">Catalog API</a>
+    <a href="//localhost:1313/program-api/java-api/" class="">Java API</a>
   
 
         </li>
@@ -1480,7 +1480,21 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/python-api/" class="">Python API</a>
+    <a href="//localhost:1313/program-api/catalog-api/" class="">Catalog API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/program-api/python-api/" class="">Python API</a>
   
 
         </li>
@@ -1515,7 +1529,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/" class="">Migration From Hive</a>
+    <a href="//localhost:1313/migration/migration-from-hive/" class="">Migration From Hive</a>
   
 
         </li>
@@ -1529,7 +1543,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+    <a href="//localhost:1313/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
   
 
         </li>
@@ -1543,7 +1557,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+    <a href="//localhost:1313/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
   
 
         </li>
@@ -1557,7 +1571,126 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/iceberg-compatibility/" class="">Iceberg Compatibility</a>
+    <a href="//localhost:1313/migration/clone-to-paimon/" class="">Clone To Paimon</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <input type="checkbox" id="section-3882ebcb06158ef11bac6340af15617a" class="toggle"  />
+    <label for="section-3882ebcb06158ef11bac6340af15617a" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-briefcase title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Iceberg Metadata</div><span>▾</span>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/append-table/" class="">Append Table</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/primary-key-table/" class="">Primary Key Table</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/iceberg-tags/" class="">Iceberg Tags</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/hive-catalog/" class="">Hive Catalogs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/ecosystem/" class="">Ecosystem</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+  
+    <a href="//localhost:1313/iceberg/configurations/" class="">Configurations</a>
   
 
         </li>
@@ -1594,7 +1727,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/roadmap/" class="">Roadmap</a>
+    <a href="//localhost:1313/project/roadmap/" class="">Roadmap</a>
   
 
         </li>
@@ -1608,7 +1741,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/download/" class="">Download</a>
+    <a href="//localhost:1313/project/download/" class="">Download</a>
   
 
         </li>
@@ -1622,7 +1755,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/contributing/" class="">Contributing</a>
+    <a href="//localhost:1313/project/contributing/" class="">Contributing</a>
   
 
         </li>
@@ -1636,7 +1769,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/committer/" class="">Committer</a>
+    <a href="//localhost:1313/project/committer/" class="">Committer</a>
   
 
         </li>
@@ -1671,7 +1804,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/" class="">Understand Files</a>
+    <a href="//localhost:1313/learn-paimon/understand-files/" class="">Understand Files</a>
   
 
         </li>
@@ -1717,8 +1850,8 @@ https://github.com/alex-shpak/hugo-book
      <span>▾</span>
   </label>
   <ul>
-    <a href="https://lss1231.github.io/paimon-docs-chinese/">
-      1.1 (✓)
+    <a href="//localhost:1313/">
+      1.2 (✓)
     </a>
     <hr class="menu-break">
     
@@ -1729,8 +1862,14 @@ https://github.com/alex-shpak/hugo-book
       </li>
     
       <li>
-        <a href="https://paimon.apache.org/docs/1.1">
+        <a href="https://paimon.apache.org/docs/1.2">
           stable
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://paimon.apache.org/docs/1.2">
+          1.2
         </a>
       </li>
     
@@ -1746,15 +1885,9 @@ https://github.com/alex-shpak/hugo-book
         </a>
       </li>
     
-      <li>
-        <a href="https://paimon.apache.org/docs/0.9">
-          0.9
-        </a>
-      </li>
-    
     <hr class="menu-break">
     <li>
-      <a href="https://lss1231.github.io/paimon-docs-chinese//versions">
+      <a href="//localhost:1313//versions">
           All Versions
       </a>
     </li>
@@ -1775,11 +1908,11 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-
-<a  href="https://lss1231.github.io/paimon-docs-chinese/zh/cdc-ingestion/mongo-cdc/" class="flex align-center">
+<a  href="//localhost:1313/en/cdc-ingestion/mongo-cdc/" class="flex align-center">
   <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;
-  简体中文
+  English
 </a>
+
 
 
 </nav>
@@ -1800,14 +1933,14 @@ https://github.com/alex-shpak/hugo-book
           
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
   <strong>Mongo CDC</strong>
 
   <label for="toc-control">
     
-    <img src="/paimon-docs-chinese/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
@@ -1873,10 +2006,10 @@ under the License.
   Synchronizing Tables
   <a class="anchor" href="#synchronizing-tables">#</a>
 </h2>
-<p>By using <a href="/docs/1.1/api/java/org/apache/paimon/flink/action/cdc/mongodb/MongoDBSyncTableAction">MongoDBSyncTableAction</a> in a Flink DataStream job or directly through <code>flink run</code>, users can synchronize one collection from MongoDB into one Paimon table.</p>
+<p>By using <a href="/docs/1.2/api/java/org/apache/paimon/flink/action/cdc/mongodb/MongoDBSyncTableAction">MongoDBSyncTableAction</a> in a Flink DataStream job or directly through <code>flink run</code>, users can synchronize one collection from MongoDB into one Paimon table.</p>
 <p>To use this feature through <code>flink run</code>, run the following shell command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/flink run <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.1.1.jar <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.2.0.jar <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    mongodb_sync_table <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --warehouse &lt;warehouse-path&gt; <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --database &lt;database-name&gt; <span class="se">\
@@ -1922,11 +2055,11 @@ under the License.
     </tr>
     <tr>
         <td><h5>--catalog_conf</h5></td>
-        <td>The configuration for Paimon catalog. Each configuration should be specified in the format "key=value". See <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/">here</a> for a complete list of catalog configurations.</td>
+        <td>The configuration for Paimon catalog. Each configuration should be specified in the format "key=value". See <a href="//localhost:1313/maintenance/configurations/">here</a> for a complete list of catalog configurations.</td>
     </tr>
     <tr>
         <td><h5>--table_conf</h5></td>
-        <td>The configuration for Paimon table sink. Each configuration should be specified in the format "key=value". See <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/">here</a> for a complete list of table configurations.</td>
+        <td>The configuration for Paimon table sink. Each configuration should be specified in the format "key=value". See <a href="//localhost:1313/maintenance/configurations/">here</a> for a complete list of table configurations.</td>
     </tr>
     </tbody>
 </table>
@@ -2205,7 +2338,7 @@ For this reason, we have set all field data types for synchronizing MongoDB to P
 <p>If the Paimon table you specify does not exist, this action will automatically create the table. Its schema will be derived from MongoDB collection.</p>
 <p>Example 1: synchronize collection into one Paimon table</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/flink run <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.1.1.jar <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.2.0.jar <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    mongodb_sync_table <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --warehouse hdfs:///path/to/warehouse <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --database test_db <span class="se">\
@@ -2224,7 +2357,7 @@ For this reason, we have set all field data types for synchronizing MongoDB to P
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --table_conf sink.parallelism<span class="o">=</span><span class="m">4</span>
 </span></span></code></pre></div><p>Example 2: Synchronize collection into a Paimon table according to the specified field mapping.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/flink run <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.1.1.jar <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.2.0.jar <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    mongodb_sync_table <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --warehouse hdfs:///path/to/warehouse <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --database test_db <span class="se">\
@@ -2247,10 +2380,10 @@ For this reason, we have set all field data types for synchronizing MongoDB to P
   Synchronizing Databases
   <a class="anchor" href="#synchronizing-databases">#</a>
 </h2>
-<p>By using <a href="/docs/1.1/api/java/org/apache/paimon/flink/action/cdc/mongodb/MongoDBSyncDatabaseAction">MongoDBSyncDatabaseAction</a> in a Flink DataStream job or directly through <code>flink run</code>, users can synchronize the whole MongoDB database into one Paimon database.</p>
+<p>By using <a href="/docs/1.2/api/java/org/apache/paimon/flink/action/cdc/mongodb/MongoDBSyncDatabaseAction">MongoDBSyncDatabaseAction</a> in a Flink DataStream job or directly through <code>flink run</code>, users can synchronize the whole MongoDB database into one Paimon database.</p>
 <p>To use this feature through <code>flink run</code>, run the following shell command.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/flink run <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.1.1.jar <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.2.0.jar <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    mongodb_sync_database <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --warehouse &lt;warehouse-path&gt; <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --database &lt;database-name&gt; <span class="se">\
@@ -2314,11 +2447,11 @@ For this reason, we have set all field data types for synchronizing MongoDB to P
     </tr>
     <tr>
         <td><h5>--catalog_conf</h5></td>
-        <td>The configuration for Paimon catalog. Each configuration should be specified in the format "key=value". See <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/#catalogoptions">here</a> for a complete list of catalog configurations.</td>
+        <td>The configuration for Paimon catalog. Each configuration should be specified in the format "key=value". See <a href="//localhost:1313/maintenance/configurations/#catalogoptions">here</a> for a complete list of catalog configurations.</td>
     </tr>
     <tr>
         <td><h5>--table_conf</h5></td>
-        <td>The configuration for Paimon table sink. Each configuration should be specified in the format "key=value". See <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/">here</a> for a complete list of table configurations.</td>
+        <td>The configuration for Paimon table sink. Each configuration should be specified in the format "key=value". See <a href="//localhost:1313/maintenance/configurations/">here</a> for a complete list of table configurations.</td>
     </tr>
     </tbody>
 </table>
@@ -2328,7 +2461,7 @@ Its schema will be derived from all specified MongoDB collection. If the Paimon 
 Any MongoDB tables created after the commencement of the task will automatically be included.</p>
 <p>Example 1: synchronize entire database</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/flink run <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.1.1.jar <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    /path/to/paimon-flink-action-1.2.0.jar <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    mongodb_sync_database <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --warehouse hdfs:///path/to/warehouse <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --database test_db <span class="se">\
@@ -2344,7 +2477,7 @@ Any MongoDB tables created after the commencement of the task will automatically
 </span></span></code></pre></div><p>Example 2: Synchronize the specified table.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/flink run <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--fromSavepoint savepointPath <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>/path/to/paimon-flink-action-1.1.1.jar <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>/path/to/paimon-flink-action-1.2.0.jar <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>mongodb_sync_database <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--warehouse hdfs:///path/to/warehouse <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--database test_db <span class="se">\
@@ -2367,7 +2500,7 @@ Any MongoDB tables created after the commencement of the task will automatically
 
 
 
-<a href="//github.com/apache/paimon/edit/1.1/docs/content/cdc-ingestion%5cmongo-cdc.md" style="color:black"><i class="fa fa-edit fa-fw"></i>Edit This Page</a>
+<a href="//github.com/apache/paimon/edit/1.2/docs/content/cdc-ingestion%5cmongo-cdc.md" style="color:black"><i class="fa fa-edit fa-fw"></i>Edit This Page</a>
 
 
  
@@ -2380,7 +2513,7 @@ Any MongoDB tables created after the commencement of the task will automatically
     <tbody>
     <tr>
         <td colspan="2">
-            Copyright &copy; 2024 The Apache Software Foundation. Apache Paimon, Paimon, and its feather logo are
+            Copyright &copy; 2025 The Apache Software Foundation. Apache Paimon, Paimon, and its feather logo are
             trademarks of The Apache Software Foundation.
         </td>
     </tr>

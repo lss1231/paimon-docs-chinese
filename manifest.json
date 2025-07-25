@@ -1,6 +1,6 @@
 {
-  "name": "Paimon Docs",
-  "short_name": "Paimon Docs",
+  "name": "Paimon文档",
+  "short_name": "Paimon文档",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

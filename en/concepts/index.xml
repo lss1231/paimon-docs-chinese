@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concepts on Paimon Docs</title>
+    <link>//localhost:1313/en/concepts/</link>
+    <description>Recent content in Concepts on Paimon Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/en/concepts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overview</title>
+      <link>//localhost:1313/en/concepts/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/overview/</guid>
+      <description>Overview&#xD;#&#xD;Apache Paimon&amp;rsquo;s Architecture:&#xA;As shown in the architecture above:&#xA;Read/Write: Paimon supports a versatile way to read/write data and perform OLAP queries.&#xA;For reads, it supports consuming data from historical snapshots (in batch mode), from the latest offset (in streaming mode), or reading incremental snapshots in a hybrid way. For writes, it supports streaming synchronization from the changelog of databases (CDC) batch insert/overwrite from offline data. Ecosystem: In addition to Apache Flink, Paimon also supports read by other computation engines like Apache Spark, StarRocks, Apache Doris, Apache Hive and Trino.</description>
+    </item>
+    <item>
+      <title>Basic Concepts</title>
+      <link>//localhost:1313/en/concepts/basic-concepts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/basic-concepts/</guid>
+      <description>Basic Concepts&#xD;#&#xD;File Layouts&#xD;#&#xD;All files of a table are stored under one base directory. Paimon files are organized in a layered style. The following image illustrates the file layout. Starting from a snapshot file, Paimon readers can recursively access all records from the table.&#xA;Snapshot&#xD;#&#xD;All snapshot files are stored in the snapshot directory.&#xA;A snapshot file is a JSON file containing information about this snapshot, including</description>
+    </item>
+    <item>
+      <title>Concurrency Control</title>
+      <link>//localhost:1313/en/concepts/concurrency-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/concurrency-control/</guid>
+      <description>Concurrency Control&#xD;#&#xD;Paimon supports optimistic concurrency for multiple concurrent write jobs.&#xA;Each job writes data at its own pace and generates a new snapshot based on the current snapshot by applying incremental files (deleting or adding files) at the time of committing.&#xA;There may be two types of commit failures here:&#xA;Snapshot conflict: the snapshot id has been preempted, the table has generated a new snapshot from another job.</description>
+    </item>
+    <item>
+      <title>Catalog</title>
+      <link>//localhost:1313/en/concepts/catalog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/catalog/</guid>
+      <description>Catalog&#xD;#&#xD;Paimon provides a Catalog abstraction to manage the table of contents and metadata. The Catalog abstraction provides a series of ways to help you better integrate with computing engines. We always recommend that you use Catalog to access the Paimon table.&#xA;Catalogs&#xD;#&#xD;Paimon catalogs currently support four types of metastores:&#xA;filesystem metastore (default), which stores both metadata and table files in filesystems. hive metastore, which additionally stores metadata in Hive metastore.</description>
+    </item>
+    <item>
+      <title>Table Types</title>
+      <link>//localhost:1313/en/concepts/table-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/table-types/</guid>
+      <description>Table Types&#xD;#&#xD;Paimon supports table types:&#xA;table with pk: Paimon Data Table with Primary key table w/o pk: Paimon Data Table without Primary key view: metastore required, views in SQL are a kind of virtual table format-table: file format table refers to a directory that contains multiple files of the same format, where operations on this table allow for reading or writing to these files, compatible with Hive tables object table: provides metadata indexes for unstructured data objects in the specified Object Storage directory.</description>
+    </item>
+    <item>
+      <title>System Tables</title>
+      <link>//localhost:1313/en/concepts/system-tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/system-tables/</guid>
+      <description>System Tables&#xD;#&#xD;Paimon provides a very rich set of system tables to help users better analyze and query the status of Paimon tables:&#xA;Query the status of the data table: Data System Table. Query the global status of the entire Catalog: Global System Table. Data System Table&#xD;#&#xD;Data System tables contain metadata and information about each Paimon data table, such as the snapshots created and the options in use.</description>
+    </item>
+    <item>
+      <title>Data Types</title>
+      <link>//localhost:1313/en/concepts/data-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/data-types/</guid>
+      <description>Data Types&#xD;#&#xD;A data type describes the logical type of a value in the table ecosystem. It can be used to declare input and/or output types of operations.&#xA;All data types supported by Paimon are as follows:&#xA;DataType&#xD;Description&#xD;BOOLEAN&#xD;Data type of a boolean with a (possibly) three-valued logic of TRUE, FALSE, and UNKNOWN.&#xD;CHAR&#xA;CHAR(n)&#xD;Data type of a fixed-length character string.&#xA;The type can be declared using CHAR(n) where n is the number of code points.</description>
+    </item>
+    <item>
+      <title>Functions</title>
+      <link>//localhost:1313/en/concepts/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/en/concepts/functions/</guid>
+      <description>Functions&#xD;#&#xD;Paimon introduces a Function abstraction designed to support functions in a standard format for compute engine, addressing:&#xA;Unified Column-Level Filtering and Processing: Facilitates operations at the column level, including tasks such as encryption and decryption of data.&#xA;Parameterized View Capabilities: Supports parameterized operations within views, enhancing the dynamism and usability of data retrieval processes.&#xA;Types of Functions Supported&#xD;#&#xD;Currently, Paimon supports three types of functions:&#xA;File Function: Users can define functions within a file, providing flexibility and modular support for function definition.</description>
+    </item>
+  </channel>
+</rss>
