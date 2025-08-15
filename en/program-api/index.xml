@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Program API on Paimon Docs</title>
-    <link>https://lss1231.github.io/paimon-docs-chinese/en/program-api/</link>
+    <link>//localhost:1313/en/program-api/</link>
     <description>Recent content in Program API on Paimon Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/en/program-api/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/en/program-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>REST API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/en/program-api/rest-api/</link>
+      <link>//localhost:1313/en/program-api/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/en/program-api/rest-api/</guid>
+      <guid>//localhost:1313/en/program-api/rest-api/</guid>
       <description>REST API&#xD;#&#xD;This is Java API for REST.&#xA;Dependency&#xD;#&#xD;Maven dependency:&#xA;&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.paimon&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;paimon-api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Or download the jar file: Paimon API.&#xD;RESTApi&#xD;#&#xD;import org.apache.paimon.options.Options; import org.apache.paimon.rest.RESTApi; import java.util.List; import static org.apache.paimon.options.CatalogOptions.WAREHOUSE; import static org.apache.paimon.rest.RESTCatalogOptions.DLF_ACCESS_KEY_ID; import static org.apache.paimon.rest.RESTCatalogOptions.DLF_ACCESS_KEY_SECRET; import static org.apache.paimon.rest.RESTCatalogOptions.TOKEN; import static org.apache.paimon.rest.RESTCatalogOptions.TOKEN_PROVIDER; import static org.apache.paimon.rest.RESTCatalogOptions.URI; public class RESTApiExample { public static void main(String[] args) { Options options = new Options(); options.set(URI, &amp;#34;&amp;lt;catalog server url&amp;gt;&amp;#34;); options.</description>
     </item>
     <item>
       <title>Flink API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/en/program-api/flink-api/</link>
+      <link>//localhost:1313/en/program-api/flink-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/en/program-api/flink-api/</guid>
+      <guid>//localhost:1313/en/program-api/flink-api/</guid>
       <description>Flink API&#xD;#&#xD;If possible, recommend using Flink SQL or Spark SQL, or simply use SQL APIs in programs.&#xD;Dependency&#xD;#&#xD;Maven dependency:&#xA;&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.paimon&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;paimon-flink-1.20&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.flink&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;flink-table-api-java-bridge&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.20.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; Or download the jar file: Paimon Flink.&#xD;Please choose your Flink version.&#xA;Paimon relies on Hadoop environment, you should add hadoop classpath or bundled jar.&#xA;Not only DataStream API, you can also read or write to Paimon tables by the conversion between DataStream and Table in Flink.</description>
     </item>
     <item>
       <title>Java API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/en/program-api/java-api/</link>
+      <link>//localhost:1313/en/program-api/java-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/en/program-api/java-api/</guid>
+      <guid>//localhost:1313/en/program-api/java-api/</guid>
       <description>Java API&#xD;#&#xD;If possible, recommend using computing engines such as Flink SQL or Spark SQL.&#xD;Dependency&#xD;#&#xD;Maven dependency:&#xA;&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.paimon&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;paimon-bundle&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Or download the jar file: Paimon Bundle.&#xD;Paimon relies on Hadoop environment, you should add hadoop classpath or bundled jar.&#xA;Create Catalog&#xD;#&#xD;Before coming into contact with the Table, you need to create a Catalog.&#xA;import org.apache.paimon.catalog.Catalog; import org.apache.paimon.catalog.CatalogContext; import org.apache.paimon.catalog.CatalogFactory; import org.apache.paimon.fs.Path; import org.</description>
     </item>
     <item>
       <title>Catalog API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/en/program-api/catalog-api/</link>
+      <link>//localhost:1313/en/program-api/catalog-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/en/program-api/catalog-api/</guid>
+      <guid>//localhost:1313/en/program-api/catalog-api/</guid>
       <description>Catalog API&#xD;#&#xD;Create Database&#xD;#&#xD;You can use the catalog to create databases. The created databases are persistence in the file system.&#xA;import org.apache.paimon.catalog.Catalog; public class CreateDatabase { public static void main(String[] args) { try { Catalog catalog = CreateCatalog.createFilesystemCatalog(); catalog.createDatabase(&amp;#34;my_db&amp;#34;, false); } catch (Catalog.DatabaseAlreadyExistException e) { // do something } } } Determine Whether Database Exists&#xD;#&#xD;You can use the catalog to determine whether the database exists</description>
     </item>
     <item>
       <title>Python API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/en/program-api/python-api/</link>
+      <link>//localhost:1313/en/program-api/python-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/en/program-api/python-api/</guid>
+      <guid>//localhost:1313/en/program-api/python-api/</guid>
       <description>Java-based Implementation For Python API&#xD;#&#xD;Python SDK has defined Python API for Paimon. Currently, there is only a Java-based implementation.&#xA;Java-based implementation will launch a JVM and use py4j to execute Java code to read and write Paimon table.&#xA;Environment Settings&#xD;#&#xD;SDK Installing&#xD;#&#xD;SDK is published at pypaimon. You can install by&#xA;pip install pypaimon Java Runtime Environment&#xD;#&#xD;This SDK needs JRE 1.8. After installing JRE, make sure that at least one of the following conditions is met:</description>
     </item>
   </channel>

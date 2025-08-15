@@ -2,29 +2,45 @@
 <!DOCTYPE html>
 <html lang="zh" dir=ZgotmplZ>
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta name="generator" content="Hugo 0.124.1">
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Data Distribution#A bucket is the smallest storage unit for reads and writes, each bucket directory contains an LSM tree.
-Fixed Bucket#Configure a bucket greater than 0, using Fixed Bucket mode, according to Math.abs(key_hashcode % numBuckets) to compute the bucket of record.
-Rescaling buckets can only be done through offline processes, see Rescale Bucket. A too large number of buckets leads to too many small files, and a too small number of buckets leads to poor write performance.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Data Distribution" />
-<meta property="og:description" content="Data Distribution#A bucket is the smallest storage unit for reads and writes, each bucket directory contains an LSM tree.
-Fixed Bucket#Configure a bucket greater than 0, using Fixed Bucket mode, according to Math.abs(key_hashcode % numBuckets) to compute the bucket of record.
-Rescaling buckets can only be done through offline processes, see Rescale Bucket. A too large number of buckets leads to too many small files, and a too small number of buckets leads to poor write performance." />
+<meta name="description" content="数据分布 Data Distribution#Bucket 是读写的最小存储单元，每个 bucket 目录包含一个 LSM tree。
+Fixed Bucket#配置一个大于 0 的桶数，即使用固定桶模式，通过计算 Math.abs(key_hashcode % numBuckets) 来确定记录所属的桶。
+桶的重新调整只能通过离线流程完成，详见 调整桶数量。
+桶数量过多会导致大量小文件，桶数量过少则写入性能较差，需合理权衡。
+Dynamic Bucket#主键表的默认模式，或配置 &#39;bucket&#39; = &#39;-1&#39;。
+先到的数据会落入旧桶，新到的数据会落入新桶，桶与键的分布取决于数据到达的顺序。Paimon 维护索引以确定每个键对应的桶。
+Paimon 会自动扩展桶的数量。
+选项1：&#39;dynamic-bucket.target-row-num&#39;：控制每个桶的目标行数。 选项2：&#39;dynamic-bucket.initial-buckets&#39;：控制初始化的桶数量。 选项3：&#39;dynamic-bucket.max-buckets&#39;：控制桶的最大数量。 动态桶模式仅支持单个写入作业。请勿启动多个作业写入同一分区（否则可能导致数据重复）。即使启用 &#39;write-only&#39; 并启动专门的压缩作业，也无法解决此问题。Normal Dynamic Bucket Mode#当更新操作不跨分区（无分区，或主键包含所有分区字段）时，动态桶模式使用哈希索引维护键到桶的映射，相比固定桶模式需要更多内存。
+性能表现：
+一般不会有性能损失，但会有额外内存消耗，约 1 亿 条目占用 1 GB 内存，非活跃分区不占用内存。 对于更新频率较低的表，推荐使用该模式以显著提升性能。 Normal Dynamic Bucket Mode 支持排序压缩（sort-compact）以加速查询。详见： Sort Compact.
+Cross Partitions Upsert Dynamic Bucket Mode#当需要跨分区更新（主键不包含所有分区字段）时，动态桶模式会直接维护键到分区和桶的映射，使用本地磁盘，并在启动流写入作业时通过读取表中所有已有键来初始化索引。不同的合并引擎行为如下：">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="数据分布 Data Distribution" />
+<meta property="og:description" content="数据分布 Data Distribution#Bucket 是读写的最小存储单元，每个 bucket 目录包含一个 LSM tree。
+Fixed Bucket#配置一个大于 0 的桶数，即使用固定桶模式，通过计算 Math.abs(key_hashcode % numBuckets) 来确定记录所属的桶。
+桶的重新调整只能通过离线流程完成，详见 调整桶数量。
+桶数量过多会导致大量小文件，桶数量过少则写入性能较差，需合理权衡。
+Dynamic Bucket#主键表的默认模式，或配置 &#39;bucket&#39; = &#39;-1&#39;。
+先到的数据会落入旧桶，新到的数据会落入新桶，桶与键的分布取决于数据到达的顺序。Paimon 维护索引以确定每个键对应的桶。
+Paimon 会自动扩展桶的数量。
+选项1：&#39;dynamic-bucket.target-row-num&#39;：控制每个桶的目标行数。 选项2：&#39;dynamic-bucket.initial-buckets&#39;：控制初始化的桶数量。 选项3：&#39;dynamic-bucket.max-buckets&#39;：控制桶的最大数量。 动态桶模式仅支持单个写入作业。请勿启动多个作业写入同一分区（否则可能导致数据重复）。即使启用 &#39;write-only&#39; 并启动专门的压缩作业，也无法解决此问题。Normal Dynamic Bucket Mode#当更新操作不跨分区（无分区，或主键包含所有分区字段）时，动态桶模式使用哈希索引维护键到桶的映射，相比固定桶模式需要更多内存。
+性能表现：
+一般不会有性能损失，但会有额外内存消耗，约 1 亿 条目占用 1 GB 内存，非活跃分区不占用内存。 对于更新频率较低的表，推荐使用该模式以显著提升性能。 Normal Dynamic Bucket Mode 支持排序压缩（sort-compact）以加速查询。详见： Sort Compact.
+Cross Partitions Upsert Dynamic Bucket Mode#当需要跨分区更新（主键不包含所有分区字段）时，动态桶模式会直接维护键到分区和桶的映射，使用本地磁盘，并在启动流写入作业时通过读取表中所有已有键来初始化索引。不同的合并引擎行为如下：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/" /><meta property="article:section" content="primary-key-table" />
+<meta property="og:url" content="//localhost:1313/primary-key-table/data-distribution/" /><meta property="article:section" content="primary-key-table" />
 
 
-<title>Data Distribution | Paimon文档</title>
-<link rel="manifest" href="/paimon-docs-chinese/manifest.json">
-<link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://lss1231.github.io/paimon-docs-chinese/en/primary-key-table/data-distribution/" title="Data Distribution">
+<title>数据分布 Data Distribution | Paimon文档</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="//localhost:1313/en/primary-key-table/data-distribution/" title="Data Distribution">
 
-<link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/zh.search.min.c23864ab8f3b1cc63fad53d53a6f532da8a47cb499d4cdca1413ffb6f92dcc5d.js" integrity="sha256-wjhkq487HMY/rVPVOm9TLaikfLSZ1M3KFBP/tvktzF0="></script>
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/zh.search.min.1092aeece9f3a871211d0360b674964f57ab02c6cf8cace5e841694ede2c9ebc.js" integrity="sha256-EJKu7OnzqHEhHQNgtnSWT1erAsbPjKzl6EFpTt4snrw="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -33,9 +49,9 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-<link rel="stylesheet" type="text/css" href="https://lss1231.github.io/paimon-docs-chinese//font-awesome/css/font-awesome.min.css">
-<script src="https://lss1231.github.io/paimon-docs-chinese//js/anchor.min.js"></script>
-<script src="https://lss1231.github.io/paimon-docs-chinese//js/flink.js"></script>
+<link rel="stylesheet" type="text/css" href="//localhost:1313//font-awesome/css/font-awesome.min.css">
+<script src="//localhost:1313//js/anchor.min.js"></script>
+<script src="//localhost:1313//js/flink.js"></script>
 
 
 
@@ -74,8 +90,8 @@ https://github.com/alex-shpak/hugo-book
 <nav>
 
 
-<a id="logo" href="https://lss1231.github.io/paimon-docs-chinese/">
-    <img width="100%" src="https://lss1231.github.io/paimon-docs-chinese//paimon_black.svg">
+<a id="logo" href="//localhost:1313/">
+    <img width="100%" src="//localhost:1313//paimon_black.svg">
 </a>
 <p style="text-align:right">1.2.0</p>
 
@@ -127,7 +143,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/overview/" class="">概述</a>
+    <a href="//localhost:1313/concepts/overview/" class="">概述</a>
   
 
         </li>
@@ -141,7 +157,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/" class="">基础概念 Basic Concepts</a>
+    <a href="//localhost:1313/concepts/basic-concepts/" class="">基础概念 Basic Concepts</a>
   
 
         </li>
@@ -155,7 +171,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/" class="">并发控制 Concurrency Control</a>
+    <a href="//localhost:1313/concepts/concurrency-control/" class="">并发控制 Concurrency Control</a>
   
 
         </li>
@@ -169,7 +185,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/" class="">Catalog</a>
+    <a href="//localhost:1313/concepts/catalog/" class="">Catalog</a>
   
 
         </li>
@@ -199,7 +215,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/overview/" class="">Overview</a>
+    <a href="//localhost:1313/concepts/rest/overview/" class="">Overview</a>
   
 
         </li>
@@ -213,7 +229,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/bear/" class="">Bear Token</a>
+    <a href="//localhost:1313/concepts/rest/bear/" class="">Bear Token</a>
   
 
         </li>
@@ -227,7 +243,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/dlf/" class="">DLF Token</a>
+    <a href="//localhost:1313/concepts/rest/dlf/" class="">DLF Token</a>
   
 
         </li>
@@ -241,7 +257,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/rest-api/" class="">REST API</a>
+    <a href="//localhost:1313/concepts/rest/rest-api/" class="">REST API</a>
   
 
         </li>
@@ -260,7 +276,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/" class="">表类型 Table Types</a>
+    <a href="//localhost:1313/concepts/table-types/" class="">表类型 Table Types</a>
   
 
         </li>
@@ -274,7 +290,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/" class="">系统表 System Tables</a>
+    <a href="//localhost:1313/concepts/system-tables/" class="">系统表 System Tables</a>
   
 
         </li>
@@ -288,7 +304,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/" class="">数据类型 Data Types</a>
+    <a href="//localhost:1313/concepts/data-types/" class="">数据类型 Data Types</a>
   
 
         </li>
@@ -302,7 +318,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/functions/" class="">函数 Functions</a>
+    <a href="//localhost:1313/concepts/functions/" class="">函数 Functions</a>
   
 
         </li>
@@ -332,7 +348,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/" class="">概述 Overview</a>
+    <a href="//localhost:1313/concepts/spec/overview/" class="">概述 Overview</a>
   
 
         </li>
@@ -346,7 +362,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/" class="">模式文件 Schema</a>
+    <a href="//localhost:1313/concepts/spec/schema/" class="">模式文件 Schema</a>
   
 
         </li>
@@ -360,7 +376,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/" class="">快照文件 Snapshot</a>
+    <a href="//localhost:1313/concepts/spec/snapshot/" class="">快照文件 Snapshot</a>
   
 
         </li>
@@ -374,7 +390,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/" class="">清单文件 Manifest</a>
+    <a href="//localhost:1313/concepts/spec/manifest/" class="">清单文件 Manifest</a>
   
 
         </li>
@@ -388,7 +404,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/" class="">数据文件 DataFile</a>
+    <a href="//localhost:1313/concepts/spec/datafile/" class="">数据文件 DataFile</a>
   
 
         </li>
@@ -402,7 +418,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/" class="">表索引 Table Index</a>
+    <a href="//localhost:1313/concepts/spec/tableindex/" class="">表索引 Table Index</a>
   
 
         </li>
@@ -416,7 +432,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/" class="">文件索引 File Index</a>
+    <a href="//localhost:1313/concepts/spec/fileindex/" class="">文件索引 File Index</a>
   
 
         </li>
@@ -441,7 +457,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-13198e701ffb9c73ec7a3177a4f953f1" class="toggle" checked />
-    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table with PK</div><span>▾</span>
+    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;主键表 Table with PK</div><span>▾</span>
     </label>
   
 
@@ -456,7 +472,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/" class="">Overview</a>
+    <a href="//localhost:1313/primary-key-table/overview/" class="">概览 Overview</a>
   
 
         </li>
@@ -470,7 +486,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/" class=" active">Data Distribution</a>
+    <a href="//localhost:1313/primary-key-table/data-distribution/" class=" active">数据分布 Data Distribution</a>
   
 
         </li>
@@ -484,7 +500,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/" class="">Table Mode</a>
+    <a href="//localhost:1313/primary-key-table/table-mode/" class="">表模式 Table Mode</a>
   
 
         </li>
@@ -514,7 +530,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/" class="">Overview</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/overview/" class="">Overview</a>
   
 
         </li>
@@ -528,7 +544,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
   
 
         </li>
@@ -542,7 +558,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
   
 
         </li>
@@ -556,7 +572,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/first-row/" class="">First Row</a>
   
 
         </li>
@@ -575,7 +591,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+    <a href="//localhost:1313/primary-key-table/changelog-producer/" class="">变化日志生产者 Changelog Producer</a>
   
 
         </li>
@@ -589,7 +605,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+    <a href="//localhost:1313/primary-key-table/sequence-rowkind/" class="">Sequence 和 Rowkind</a>
   
 
         </li>
@@ -603,7 +619,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/" class="">Compaction</a>
+    <a href="//localhost:1313/primary-key-table/compaction/" class="">合并 Compaction</a>
   
 
         </li>
@@ -617,7 +633,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/query-performance/" class="">Query Performance</a>
+    <a href="//localhost:1313/primary-key-table/query-performance/" class="">查询性能 Query Performance</a>
   
 
         </li>
@@ -652,7 +668,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
+    <a href="//localhost:1313/append-table/overview/" class="">Overview</a>
   
 
         </li>
@@ -666,7 +682,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="//localhost:1313/append-table/streaming/" class="">Streaming</a>
   
 
         </li>
@@ -680,7 +696,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
+    <a href="//localhost:1313/append-table/query-performance/" class="">Query Performance</a>
   
 
         </li>
@@ -694,7 +710,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">Update</a>
+    <a href="//localhost:1313/append-table/update/" class="">Update</a>
   
 
         </li>
@@ -708,7 +724,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
+    <a href="//localhost:1313/append-table/bucketed/" class="">Bucketed</a>
   
 
         </li>
@@ -743,7 +759,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
+    <a href="//localhost:1313/flink/quick-start/" class="">Quick Start</a>
   
 
         </li>
@@ -757,7 +773,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-ddl/" class="">SQL DDL</a>
+    <a href="//localhost:1313/flink/sql-ddl/" class="">SQL DDL</a>
   
 
         </li>
@@ -771,7 +787,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/" class="">SQL Write</a>
+    <a href="//localhost:1313/flink/sql-write/" class="">SQL Write</a>
   
 
         </li>
@@ -785,7 +801,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-query/" class="">SQL Query</a>
+    <a href="//localhost:1313/flink/sql-query/" class="">SQL Query</a>
   
 
         </li>
@@ -799,7 +815,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/" class="">Consumer ID</a>
+    <a href="//localhost:1313/flink/consumer-id/" class="">Consumer ID</a>
   
 
         </li>
@@ -813,7 +829,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-lookup/" class="">SQL Lookup</a>
+    <a href="//localhost:1313/flink/sql-lookup/" class="">SQL Lookup</a>
   
 
         </li>
@@ -827,7 +843,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-alter/" class="">SQL Alter</a>
+    <a href="//localhost:1313/flink/sql-alter/" class="">SQL Alter</a>
   
 
         </li>
@@ -841,7 +857,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/" class="">Procedures</a>
+    <a href="//localhost:1313/flink/procedures/" class="">Procedures</a>
   
 
         </li>
@@ -855,7 +871,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/action-jars/" class="">Action Jars</a>
+    <a href="//localhost:1313/flink/action-jars/" class="">Action Jars</a>
   
 
         </li>
@@ -869,7 +885,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/savepoint/" class="">Savepoint</a>
+    <a href="//localhost:1313/flink/savepoint/" class="">Savepoint</a>
   
 
         </li>
@@ -904,7 +920,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/" class="">Quick Start</a>
+    <a href="//localhost:1313/spark/quick-start/" class="">Quick Start</a>
   
 
         </li>
@@ -918,7 +934,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/" class="">SQL DDL</a>
+    <a href="//localhost:1313/spark/sql-ddl/" class="">SQL DDL</a>
   
 
         </li>
@@ -932,7 +948,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-functions/" class="">SQL Functions</a>
+    <a href="//localhost:1313/spark/sql-functions/" class="">SQL Functions</a>
   
 
         </li>
@@ -946,7 +962,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/" class="">SQL Write</a>
+    <a href="//localhost:1313/spark/sql-write/" class="">SQL Write</a>
   
 
         </li>
@@ -960,7 +976,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-query/" class="">SQL Query</a>
+    <a href="//localhost:1313/spark/sql-query/" class="">SQL Query</a>
   
 
         </li>
@@ -974,7 +990,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-alter/" class="">SQL Alter</a>
+    <a href="//localhost:1313/spark/sql-alter/" class="">SQL Alter</a>
   
 
         </li>
@@ -988,7 +1004,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/auxiliary/" class="">Auxiliary</a>
+    <a href="//localhost:1313/spark/auxiliary/" class="">Auxiliary</a>
   
 
         </li>
@@ -1002,7 +1018,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/procedures/" class="">Procedures</a>
+    <a href="//localhost:1313/spark/procedures/" class="">Procedures</a>
   
 
         </li>
@@ -1037,7 +1053,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/overview/" class="">Overview</a>
+    <a href="//localhost:1313/ecosystem/overview/" class="">Overview</a>
   
 
         </li>
@@ -1051,7 +1067,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/" class="">StarRocks</a>
+    <a href="//localhost:1313/ecosystem/starrocks/" class="">StarRocks</a>
   
 
         </li>
@@ -1065,7 +1081,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/doris/" class="">Doris</a>
+    <a href="//localhost:1313/ecosystem/doris/" class="">Doris</a>
   
 
         </li>
@@ -1079,7 +1095,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/hive/" class="">Hive</a>
+    <a href="//localhost:1313/ecosystem/hive/" class="">Hive</a>
   
 
         </li>
@@ -1093,7 +1109,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/trino/" class="">Trino</a>
+    <a href="//localhost:1313/ecosystem/trino/" class="">Trino</a>
   
 
         </li>
@@ -1107,7 +1123,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/amoro/" class="">Amoro</a>
+    <a href="//localhost:1313/ecosystem/amoro/" class="">Amoro</a>
   
 
         </li>
@@ -1142,7 +1158,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/" class="">Overview</a>
+    <a href="//localhost:1313/cdc-ingestion/overview/" class="">Overview</a>
   
 
         </li>
@@ -1156,7 +1172,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
   
 
         </li>
@@ -1170,7 +1186,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
   
 
         </li>
@@ -1184,7 +1200,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
   
 
         </li>
@@ -1198,7 +1214,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
   
 
         </li>
@@ -1212,7 +1228,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
   
 
         </li>
@@ -1226,7 +1242,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+    <a href="//localhost:1313/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
   
 
         </li>
@@ -1261,7 +1277,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/filesystems/" class="">Filesystems</a>
+    <a href="//localhost:1313/maintenance/filesystems/" class="">Filesystems</a>
   
 
         </li>
@@ -1275,7 +1291,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/" class="">Write Performance</a>
+    <a href="//localhost:1313/maintenance/write-performance/" class="">Write Performance</a>
   
 
         </li>
@@ -1289,7 +1305,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+    <a href="//localhost:1313/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
   
 
         </li>
@@ -1303,7 +1319,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+    <a href="//localhost:1313/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
   
 
         </li>
@@ -1317,7 +1333,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+    <a href="//localhost:1313/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
   
 
         </li>
@@ -1331,7 +1347,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/" class="">Manage Tags</a>
+    <a href="//localhost:1313/maintenance/manage-tags/" class="">Manage Tags</a>
   
 
         </li>
@@ -1345,7 +1361,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/metrics/" class="">Metrics</a>
+    <a href="//localhost:1313/maintenance/metrics/" class="">Metrics</a>
   
 
         </li>
@@ -1359,7 +1375,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-privileges/" class="">Manage Privileges</a>
+    <a href="//localhost:1313/maintenance/manage-privileges/" class="">Manage Privileges</a>
   
 
         </li>
@@ -1373,7 +1389,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-branches/" class="">Manage Branches</a>
+    <a href="//localhost:1313/maintenance/manage-branches/" class="">Manage Branches</a>
   
 
         </li>
@@ -1387,7 +1403,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-partitions/" class="">Manage Partitions</a>
+    <a href="//localhost:1313/maintenance/manage-partitions/" class="">Manage Partitions</a>
   
 
         </li>
@@ -1401,7 +1417,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/" class="">Configurations</a>
+    <a href="//localhost:1313/maintenance/configurations/" class="">Configurations</a>
   
 
         </li>
@@ -1436,7 +1452,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/rest-api/" class="">REST API</a>
+    <a href="//localhost:1313/program-api/rest-api/" class="">REST API</a>
   
 
         </li>
@@ -1450,7 +1466,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/flink-api/" class="">Flink API</a>
+    <a href="//localhost:1313/program-api/flink-api/" class="">Flink API</a>
   
 
         </li>
@@ -1464,7 +1480,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/java-api/" class="">Java API</a>
+    <a href="//localhost:1313/program-api/java-api/" class="">Java API</a>
   
 
         </li>
@@ -1478,7 +1494,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/" class="">Catalog API</a>
+    <a href="//localhost:1313/program-api/catalog-api/" class="">Catalog API</a>
   
 
         </li>
@@ -1492,7 +1508,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/python-api/" class="">Python API</a>
+    <a href="//localhost:1313/program-api/python-api/" class="">Python API</a>
   
 
         </li>
@@ -1527,7 +1543,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/" class="">Migration From Hive</a>
+    <a href="//localhost:1313/migration/migration-from-hive/" class="">Migration From Hive</a>
   
 
         </li>
@@ -1541,7 +1557,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+    <a href="//localhost:1313/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
   
 
         </li>
@@ -1555,7 +1571,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+    <a href="//localhost:1313/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
   
 
         </li>
@@ -1569,7 +1585,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/clone-to-paimon/" class="">Clone To Paimon</a>
+    <a href="//localhost:1313/migration/clone-to-paimon/" class="">Clone To Paimon</a>
   
 
         </li>
@@ -1604,7 +1620,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/overview/" class="">Overview</a>
+    <a href="//localhost:1313/iceberg/overview/" class="">Overview</a>
   
 
         </li>
@@ -1618,7 +1634,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/append-table/" class="">Append Table</a>
+    <a href="//localhost:1313/iceberg/append-table/" class="">Append Table</a>
   
 
         </li>
@@ -1632,7 +1648,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/primary-key-table/" class="">Primary Key Table</a>
+    <a href="//localhost:1313/iceberg/primary-key-table/" class="">Primary Key Table</a>
   
 
         </li>
@@ -1646,7 +1662,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/iceberg-tags/" class="">Iceberg Tags</a>
+    <a href="//localhost:1313/iceberg/iceberg-tags/" class="">Iceberg Tags</a>
   
 
         </li>
@@ -1660,7 +1676,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/hive-catalog/" class="">Hive Catalogs</a>
+    <a href="//localhost:1313/iceberg/hive-catalog/" class="">Hive Catalogs</a>
   
 
         </li>
@@ -1674,7 +1690,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/ecosystem/" class="">Ecosystem</a>
+    <a href="//localhost:1313/iceberg/ecosystem/" class="">Ecosystem</a>
   
 
         </li>
@@ -1688,7 +1704,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/configurations/" class="">Configurations</a>
+    <a href="//localhost:1313/iceberg/configurations/" class="">Configurations</a>
   
 
         </li>
@@ -1725,7 +1741,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/roadmap/" class="">Roadmap</a>
+    <a href="//localhost:1313/project/roadmap/" class="">Roadmap</a>
   
 
         </li>
@@ -1739,7 +1755,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/download/" class="">Download</a>
+    <a href="//localhost:1313/project/download/" class="">Download</a>
   
 
         </li>
@@ -1753,7 +1769,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/contributing/" class="">Contributing</a>
+    <a href="//localhost:1313/project/contributing/" class="">Contributing</a>
   
 
         </li>
@@ -1767,7 +1783,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/committer/" class="">Committer</a>
+    <a href="//localhost:1313/project/committer/" class="">Committer</a>
   
 
         </li>
@@ -1802,7 +1818,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/" class="">Understand Files</a>
+    <a href="//localhost:1313/learn-paimon/understand-files/" class="">Understand Files</a>
   
 
         </li>
@@ -1848,7 +1864,7 @@ https://github.com/alex-shpak/hugo-book
      <span>▾</span>
   </label>
   <ul>
-    <a href="https://lss1231.github.io/paimon-docs-chinese/">
+    <a href="//localhost:1313/">
       1.2 (✓)
     </a>
     <hr class="menu-break">
@@ -1885,7 +1901,7 @@ https://github.com/alex-shpak/hugo-book
     
     <hr class="menu-break">
     <li>
-      <a href="https://lss1231.github.io/paimon-docs-chinese//versions">
+      <a href="//localhost:1313//versions">
           All Versions
       </a>
     </li>
@@ -1906,7 +1922,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-<a  href="https://lss1231.github.io/paimon-docs-chinese/en/primary-key-table/data-distribution/" class="flex align-center">
+<a  href="//localhost:1313/en/primary-key-table/data-distribution/" class="flex align-center">
   <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;
   English
 </a>
@@ -1931,14 +1947,14 @@ https://github.com/alex-shpak/hugo-book
           
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Data Distribution</strong>
+  <strong>数据分布 Data Distribution</strong>
 
   <label for="toc-control">
     
-    <img src="/paimon-docs-chinese/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
@@ -1959,7 +1975,7 @@ https://github.com/alex-shpak/hugo-book
       </ul>
     </li>
     <li><a href="#postpone-bucket">Postpone Bucket</a></li>
-    <li><a href="#pick-partition-fields">Pick Partition Fields</a></li>
+    <li><a href="#选择分区字段-pick-partition-fields">选择分区字段 Pick Partition Fields</a></li>
   </ul>
 </nav>
 
@@ -1996,101 +2012,81 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
-<h1 id="data-distribution">
-  Data Distribution
-  <a class="anchor" href="#data-distribution">#</a>
+<h1 id="数据分布-data-distribution">
+  数据分布 Data Distribution
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%88%86%e5%b8%83-data-distribution">#</a>
 </h1>
-<p>A bucket is the smallest storage unit for reads and writes, each bucket directory contains an <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/#lsm-trees">LSM tree</a>.</p>
+<p>Bucket 是读写的最小存储单元，每个 bucket 目录包含一个 <a href="//localhost:1313/primary-key-table/overview/#lsm-trees">LSM tree</a>。</p>
 <h2 id="fixed-bucket">
   Fixed Bucket
   <a class="anchor" href="#fixed-bucket">#</a>
 </h2>
-<p>Configure a bucket greater than 0, using Fixed Bucket mode, according to <code>Math.abs(key_hashcode % numBuckets)</code> to compute
-the bucket of record.</p>
-<p>Rescaling buckets can only be done through offline processes, see <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/">Rescale Bucket</a>.
-A too large number of buckets leads to too many small files, and a too small number of buckets leads to poor write performance.</p>
+<p>配置一个大于 0 的桶数，即使用固定桶模式，通过计算 <code>Math.abs(key_hashcode % numBuckets)</code> 来确定记录所属的桶。</p>
+<p>桶的重新调整只能通过离线流程完成，详见 <a href="//localhost:1313/maintenance/rescale-bucket/">调整桶数量</a>。</p>
+<p>桶数量过多会导致大量小文件，桶数量过少则写入性能较差，需合理权衡。</p>
 <h2 id="dynamic-bucket">
   Dynamic Bucket
   <a class="anchor" href="#dynamic-bucket">#</a>
 </h2>
-<p>Default mode for primary key table, or configure <code>'bucket' = '-1'</code>.</p>
-<p>The keys that arrive first will fall into the old buckets, and the new keys will fall into the new buckets, the
-distribution of buckets and keys depends on the order in which the data arrives. Paimon maintains an index to determine
-which key corresponds to which bucket.</p>
-<p>Paimon will automatically expand the number of buckets.</p>
+<p>主键表的默认模式，或配置 <code>'bucket' = '-1'</code>。</p>
+<p>先到的数据会落入旧桶，新到的数据会落入新桶，桶与键的分布取决于数据到达的顺序。Paimon 维护索引以确定每个键对应的桶。</p>
+<p>Paimon 会自动扩展桶的数量。</p>
 <ul>
-<li>Option1: <code>'dynamic-bucket.target-row-num'</code>: controls the target row number for one bucket.</li>
-<li>Option2: <code>'dynamic-bucket.initial-buckets'</code>: controls the number of initialized bucket.</li>
-<li>Option3: <code>'dynamic-bucket.max-buckets'</code>: controls the number of max buckets.</li>
+<li>选项1：<code>'dynamic-bucket.target-row-num'</code>：控制每个桶的目标行数。</li>
+<li>选项2：<code>'dynamic-bucket.initial-buckets'</code>：控制初始化的桶数量。</li>
+<li>选项3：<code>'dynamic-bucket.max-buckets'</code>：控制桶的最大数量。</li>
 </ul>
 <blockquote class="book-hint info">
-  Dynamic Bucket only support single write job. Please do not start multiple jobs to write to the same partition
-(this can lead to duplicate data). Even if you enable <code>'write-only'</code> and start a dedicated compaction job, it won&rsquo;t work.
+  动态桶模式仅支持单个写入作业。请勿启动多个作业写入同一分区（否则可能导致数据重复）。即使启用 <code>'write-only'</code> 并启动专门的压缩作业，也无法解决此问题。
 </blockquote>
 
 <h3 id="normal-dynamic-bucket-mode">
   Normal Dynamic Bucket Mode
   <a class="anchor" href="#normal-dynamic-bucket-mode">#</a>
 </h3>
-<p>When your updates do not cross partitions (no partitions, or primary keys contain all partition fields), Dynamic
-Bucket mode uses HASH index to maintain mapping from key to bucket, it requires more memory than fixed bucket mode.</p>
-<p>Performance:</p>
+<p>当更新操作不跨分区（无分区，或主键包含所有分区字段）时，动态桶模式使用哈希索引维护键到桶的映射，相比固定桶模式需要更多内存。</p>
+<p>性能表现：</p>
 <ol>
-<li>Generally speaking, there is no performance loss, but there will be some additional memory consumption, <strong>100 million</strong>
-entries in a partition takes up <strong>1 GB</strong> more memory, partitions that are no longer active do not take up memory.</li>
-<li>For tables with low update rates, this mode is recommended to significantly improve performance.</li>
+<li>一般不会有性能损失，但会有额外内存消耗，约 <strong>1 亿</strong> 条目占用 <strong>1 GB</strong> 内存，非活跃分区不占用内存。</li>
+<li>对于更新频率较低的表，推荐使用该模式以显著提升性能。</li>
 </ol>
-<p><code>Normal Dynamic Bucket Mode</code> supports sort-compact to speed up queries. See <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/#sort-compact">Sort Compact</a>.</p>
+<p><code>Normal Dynamic Bucket Mode</code> 支持排序压缩（sort-compact）以加速查询。详见：
+<a href="//localhost:1313/maintenance/dedicated-compaction/#sort-compact">Sort Compact</a>.</p>
 <h3 id="cross-partitions-upsert-dynamic-bucket-mode">
   Cross Partitions Upsert Dynamic Bucket Mode
   <a class="anchor" href="#cross-partitions-upsert-dynamic-bucket-mode">#</a>
 </h3>
-<p>When you need cross partition upsert (primary keys not contain all partition fields), Dynamic Bucket mode directly
-maintains the mapping of keys to partition and bucket, uses local disks, and initializes indexes by reading all
-existing keys in the table when starting stream write job. Different merge engines have different behaviors:</p>
+<p>当需要跨分区更新（主键不包含所有分区字段）时，动态桶模式会直接维护键到分区和桶的映射，使用本地磁盘，并在启动流写入作业时通过读取表中所有已有键来初始化索引。不同的合并引擎行为如下：</p>
 <ol>
-<li>Deduplicate: Delete data from the old partition and insert new data into the new partition.</li>
-<li>PartialUpdate &amp; Aggregation: Insert new data into the old partition.</li>
-<li>FirstRow: Ignore new data if there is old value.</li>
+<li>Deduplicate（去重）：从旧分区删除数据，向新分区插入数据。</li>
+<li>PartialUpdate 和 Aggregation（部分更新与聚合）：向旧分区插入新数据。</li>
+<li>FirstRow（首行保留）：如果已有旧值，则忽略新数据。</li>
 </ol>
-<p>Performance: For tables with a large amount of data, there will be a significant loss in performance. Moreover,
-initialization takes a long time.</p>
-<p>If your upsert does not rely on too old data, you can consider configuring index TTL to reduce Index and initialization time:</p>
+<p>性能方面：对于大数据量表，性能会明显下降，且索引初始化时间较长。</p>
+<p>如果你的 upsert 不依赖太旧的数据，可以考虑配置索引 TTL 来减少索引数量和初始化时间：</p>
 <ul>
-<li><code>'cross-partition-upsert.index-ttl'</code>: The TTL in rocksdb index and initialization, this can avoid maintaining too many
-indexes and lead to worse and worse performance.</li>
+<li><code>'cross-partition-upsert.index-ttl'</code>：rocksdb 索引和初始化的 TTL，避免维护过多索引导致性能持续恶化。</li>
 </ul>
-<p>But please note that this may also cause data duplication.</p>
+<p>但请注意，这样可能会引起数据重复。</p>
 <h2 id="postpone-bucket">
   Postpone Bucket
   <a class="anchor" href="#postpone-bucket">#</a>
 </h2>
-<p>Postpone bucket mode is configured by <code>'bucket' = '-2'</code>.
-This mode aims to solve the difficulty to determine a fixed number of buckets
-and support different buckets for different partitions.</p>
-<p>When writing records into the table,
-all records will first be stored in the <code>bucket-postpone</code> directory of each partition
-and are not available to readers.</p>
-<p>To move the records into the correct bucket and make them readable,
-you need to run a compaction job.
-See <code>compact</code> <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/">procedure</a>.
-The bucket number for the partitions compacted for the first time
-is configured by the option <code>postpone.default-bucket-num</code>, whose default value is <code>4</code>.</p>
-<p>Finally, when you feel that the bucket number of some partition is too small,
-you can also run a rescale job.
-See <code>rescale</code> <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/">procedure</a>.</p>
-<h2 id="pick-partition-fields">
-  Pick Partition Fields
-  <a class="anchor" href="#pick-partition-fields">#</a>
+<p>延迟桶模式通过配置 <code>'bucket' = '-2'</code> 启用。<br>
+该模式旨在解决难以确定固定桶数的问题，并支持不同分区使用不同的桶数。</p>
+<p>写入表中的所有记录会先存放在各分区的 <code>bucket-postpone</code> 目录中，暂时对读者不可见。</p>
+<p>要将记录移动到正确的桶中并使其可读，需要运行压缩（compaction）作业，详见 <code>compact</code> <a href="//localhost:1313/flink/procedures/">流程 procedure</a>。</p>
+<p>首次压缩分区的桶数通过选项 <code>postpone.default-bucket-num</code> 配置，默认值为 <code>4</code>。</p>
+<p>当你觉得某些分区的桶数过小时，也可以运行调整桶数量（rescale）作业，详见 <code>rescale</code> <a href="//localhost:1313/flink/procedures/">流程 procedure</a>。</p>
+<h2 id="选择分区字段-pick-partition-fields">
+  选择分区字段 Pick Partition Fields
+  <a class="anchor" href="#%e9%80%89%e6%8b%a9%e5%88%86%e5%8c%ba%e5%ad%97%e6%ae%b5-pick-partition-fields">#</a>
 </h2>
-<p>The following three types of fields may be defined as partition fields in the warehouse:</p>
+<p>在数据仓库中，以下三种字段可以定义为分区字段：</p>
 <ul>
-<li>Creation Time (Recommended): The creation time is generally immutable, so you can confidently treat it as a partition field
-and add it to the primary key.</li>
-<li>Event Time: Event time is a field in the original table. For CDC data, such as tables synchronized from MySQL
-CDC or Changelogs generated by Paimon, they are all complete CDC data, including <code>UPDATE_BEFORE</code> records, even
-if you declare the primary key containing partition field, you can achieve the unique effect (require <code>'changelog-producer'='input'</code>).</li>
-<li>CDC op_ts: It cannot be defined as a partition field, unable to know previous record timestamp. So you need to use cross partition upsert, it will consume more resources.</li>
+<li>创建时间（推荐）：创建时间通常是不可变的，因此可以放心地将其作为分区字段并加入主键。</li>
+<li>事件时间：事件时间是原始表中的字段。对于 CDC 数据，比如从 MySQL CDC 同步的表或 Paimon 生成的变更日志，它们都是完整的 CDC 数据，包括 <code>UPDATE_BEFORE</code> 记录。即使主键中包含分区字段，也能实现唯一性（需配置 <code>'changelog-producer'='input'</code>）。</li>
+<li>CDC op_ts：不能定义为分区字段，因为无法获知前一条记录的时间戳。因此需要使用跨分区 upsert，资源消耗较大。</li>
 </ul>
 </article>
  
@@ -2151,7 +2147,7 @@ if you declare the primary key containing partition field, you can achieve the u
       </ul>
     </li>
     <li><a href="#postpone-bucket">Postpone Bucket</a></li>
-    <li><a href="#pick-partition-fields">Pick Partition Fields</a></li>
+    <li><a href="#选择分区字段-pick-partition-fields">选择分区字段 Pick Partition Fields</a></li>
   </ul>
 </nav>
 

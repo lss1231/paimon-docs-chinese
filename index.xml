@@ -2,702 +2,702 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apache Paimon on Paimon文档</title>
-    <link>https://lss1231.github.io/paimon-docs-chinese/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content in Apache Paimon on Paimon文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Filesystems</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/filesystems/</link>
+      <link>//localhost:1313/maintenance/filesystems/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/filesystems/</guid>
+      <guid>//localhost:1313/maintenance/filesystems/</guid>
       <description>Filesystems&#xD;#&#xD;Apache Paimon utilizes the same pluggable file systems as Apache Flink. Users can follow the standard plugin mechanism to configure the plugin structure if using Flink as compute engine. However, for other engines like Spark or Hive, the provided opt jars (by Flink) may get conflicts and cannot be used directly. It is not convenient for users to fix class conflicts, thus Paimon provides the self-contained and engine-unified FileSystem pluggable jars for user to query tables from Spark/Hive side.</description>
     </item>
     <item>
       <title>Migration From Hive</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/</link>
+      <link>//localhost:1313/migration/migration-from-hive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/</guid>
+      <guid>//localhost:1313/migration/migration-from-hive/</guid>
       <description>Hive Table Migration&#xD;#&#xD;Apache Hive supports ORC, Parquet file formats that could be migrated to Paimon. When migrating data to a paimon table, the origin table will be permanently disappeared. So please back up your data if you still need the original table. The migrated table will be append table.&#xA;Now, we can use paimon hive catalog with Migrate Table Procedure to totally migrate a table from hive to paimon.</description>
     </item>
     <item>
       <title>Migration From Iceberg</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/</link>
+      <link>//localhost:1313/migration/migration-from-iceberg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/</guid>
+      <guid>//localhost:1313/migration/migration-from-iceberg/</guid>
       <description>Iceberg Migration&#xD;#&#xD;Apache Iceberg data with parquet file format could be migrated to Apache Paimon. When migrating an iceberg table to a paimon table, the origin iceberg table will permanently disappear. So please back up your data if you still need the original table. The migrated paimon table will be an append table.&#xA;We highly recommend to back up iceberg table data before migrating, because migrating action is not atomic.</description>
     </item>
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</link>
+      <link>//localhost:1313/append-table/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</guid>
+      <guid>//localhost:1313/append-table/overview/</guid>
       <description>Overview&#xD;#&#xD;If a table does not have a primary key defined, it is an append table. Compared to the primary key table, it does not have the ability to directly receive changelogs. It cannot be directly updated with data through upsert. It can only receive incoming data from append data.&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &amp;#39;target-file-size&amp;#39; = &amp;#39;256 MB&amp;#39;, -- &amp;#39;file.</description>
     </item>
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/</link>
+      <link>//localhost:1313/cdc-ingestion/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/</guid>
+      <guid>//localhost:1313/cdc-ingestion/overview/</guid>
       <description>Overview&#xD;#&#xD;Paimon supports a variety of ways to ingest data into Paimon tables with schema evolution. This means that the added columns are synchronized to the Paimon table in real time and the synchronization job will not be restarted for this purpose.&#xA;We currently support the following sync ways:&#xA;MySQL Synchronizing Table: synchronize one or multiple tables from MySQL into one Paimon table. MySQL Synchronizing Database: synchronize the whole MySQL database into one Paimon database.</description>
     </item>
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/overview/</link>
+      <link>//localhost:1313/concepts/rest/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/overview/</guid>
+      <guid>//localhost:1313/concepts/rest/overview/</guid>
       <description>RESTCatalog&#xD;#&#xD;Overview&#xD;#&#xD;Paimon REST Catalog provides a lightweight implementation to access the catalog service. Paimon could access the catalog service through a catalog server which implements REST API. You can see all APIs in REST API.&#xA;Key Features&#xD;#&#xD;User Defined Technology-Specific Logic Implementation All technology-specific logic within the catalog server. This ensures that the user can define logic that could be owned by the user. Decoupled Architecture The REST Catalog interacts with the catalog server through a well-defined REST API.</description>
     </item>
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/ecosystem/overview/</link>
+      <link>//localhost:1313/ecosystem/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/ecosystem/overview/</guid>
+      <guid>//localhost:1313/ecosystem/overview/</guid>
       <description>Overview&#xD;#&#xD;Compatibility Matrix&#xD;#&#xD;Engine Version Batch Read Batch Write Create Table Alter Table Streaming Write Streaming Read Batch Overwrite DELETE &amp;amp; UPDATE MERGE INTO Time Travel Flink 1.15 - 1.20 ✅ ✅ ✅ ✅(1.17+) ✅ ✅ ✅ ✅(1.17+) ❌ ✅ Spark 3.2 - 3.5 ✅ ✅ ✅ ✅ ✅(3.3+) ✅(3.3+) ✅ ✅ ✅ ✅(3.3+) Hive 2.1 - 3.1 ✅ ✅ ✅ ❌ ❌ ❌ ❌ ❌ ❌ ✅ Trino 420 - 440 ✅ ✅(427+) ✅(427+) ✅(427+) ❌ ❌ ❌ ❌ ❌ ✅ Presto 0.</description>
     </item>
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/iceberg/overview/</link>
+      <link>//localhost:1313/iceberg/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/iceberg/overview/</guid>
+      <guid>//localhost:1313/iceberg/overview/</guid>
       <description>Overview&#xD;#&#xD;Paimon supports generating Iceberg compatible metadata, so that Paimon tables can be consumed directly by Iceberg readers.&#xA;Set the following table options, so that Paimon tables can generate Iceberg compatible metadata.&#xA;Option&#xD;Default&#xD;Type&#xD;Description&#xD;metadata.iceberg.storage&#xD;disabled&#xD;Enum&#xD;When set, produce Iceberg metadata after a snapshot is committed, so that Iceberg readers can read Paimon&#39;s raw data files.&#xD;disabled: Disable Iceberg compatibility support.&#xD;table-location: Store Iceberg metadata in each table&#39;s directory.</description>
     </item>
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/</link>
+      <link>//localhost:1313/primary-key-table/merge-engine/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/</guid>
+      <guid>//localhost:1313/primary-key-table/merge-engine/overview/</guid>
       <description>Overview&#xD;#&#xD;When Paimon sink receives two or more records with the same primary keys, it will merge them into one record to keep primary keys unique. By specifying the merge-engine table property, users can choose how records are merged together.&#xA;Always set table.exec.sink.upsert-materialize to NONE in Flink SQL TableConfig, sink upsert-materialize may result in strange behavior. When the input is out of order, we recommend that you use Sequence Field to correct disorder.</description>
     </item>
     <item>
-      <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/</guid>
-      <description>Overview&#xD;#&#xD;If you define a table with primary key, you can insert, update or delete records in the table.&#xA;Primary keys consist of a set of columns that contain unique values for each record. Paimon enforces data ordering by sorting the primary key within each bucket, allowing users to achieve high performance by applying filtering conditions on the primary key. See CREATE TABLE.&#xA;Bucket&#xD;#&#xD;Unpartitioned tables, or partitions in partitioned tables, are sub-divided into buckets, to provide extra structure to the data that may be used for more efficient querying.</description>
-    </item>
-    <item>
       <title>Quick Start</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</link>
+      <link>//localhost:1313/flink/quick-start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</guid>
+      <guid>//localhost:1313/flink/quick-start/</guid>
       <description>Quick Start&#xD;#&#xD;This documentation is a guide for using Paimon in Flink.&#xA;Jars&#xD;#&#xD;Paimon currently supports Flink 2.0, 1.20, 1.19, 1.18, 1.17, 1.16, 1.15. We recommend the latest Flink version for a better experience.&#xA;Download the jar file with corresponding version.&#xA;Currently, paimon provides two types jar: one of which(the bundled jar) is used for read/write data, and the other(action jar) for operations such as manually compaction, Version Type Jar Flink 2.</description>
     </item>
     <item>
       <title>Quick Start</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/</link>
+      <link>//localhost:1313/spark/quick-start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/</guid>
+      <guid>//localhost:1313/spark/quick-start/</guid>
       <description>Quick Start&#xD;#&#xD;Preparation&#xD;#&#xD;Paimon currently supports Spark 3.5, 3.4, 3.3, and 3.2. We recommend the latest Spark version for a better experience.&#xA;Download the jar file with corresponding version.&#xA;Version Jar Spark 3.5 paimon-spark-3.5-1.2.0.jar Spark 3.4 paimon-spark-3.4-1.2.0.jar Spark 3.3 paimon-spark-3.3-1.2.0.jar Spark 3.2 paimon-spark-3.2-1.2.0.jar You can also manually build bundled jar from the source code.&#xA;To build from source code, clone the git repository.&#xA;Build bundled jar with the following command.</description>
     </item>
     <item>
       <title>REST API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/program-api/rest-api/</link>
+      <link>//localhost:1313/program-api/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/program-api/rest-api/</guid>
+      <guid>//localhost:1313/program-api/rest-api/</guid>
       <description>REST API&#xD;#&#xD;This is Java API for REST.&#xA;Dependency&#xD;#&#xD;Maven dependency:&#xA;&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.paimon&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;paimon-api&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Or download the jar file: Paimon API.&#xD;RESTApi&#xD;#&#xD;import org.apache.paimon.options.Options; import org.apache.paimon.rest.RESTApi; import java.util.List; import static org.apache.paimon.options.CatalogOptions.WAREHOUSE; import static org.apache.paimon.rest.RESTCatalogOptions.DLF_ACCESS_KEY_ID; import static org.apache.paimon.rest.RESTCatalogOptions.DLF_ACCESS_KEY_SECRET; import static org.apache.paimon.rest.RESTCatalogOptions.TOKEN; import static org.apache.paimon.rest.RESTCatalogOptions.TOKEN_PROVIDER; import static org.apache.paimon.rest.RESTCatalogOptions.URI; public class RESTApiExample { public static void main(String[] args) { Options options = new Options(); options.set(URI, &amp;#34;&amp;lt;catalog server url&amp;gt;&amp;#34;); options.</description>
     </item>
     <item>
       <title>Roadmap</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/project/roadmap/</link>
+      <link>//localhost:1313/project/roadmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/project/roadmap/</guid>
+      <guid>//localhost:1313/project/roadmap/</guid>
       <description>Roadmap&#xD;#&#xD;Flink Lookup Join&#xD;#&#xD;Support Flink Custom Data Distribution Lookup Join to reach large-scale data lookup join.&#xA;Produce Iceberg snapshots&#xD;#&#xD;Introduce a mode to produce Iceberg snapshots.&#xA;Variant Type&#xD;#&#xD;Support Variant Type with Spark 4.0 and Flink 2.0. Unlocking support for semi-structured data.&#xA;File Index&#xD;#&#xD;Add more index:&#xA;Inverse Vector Compaction&#xD;#&#xD;Support Vector Compaction for super Wide Table.&#xA;Function support&#xD;#&#xD;Paimon Catalog supports functions.</description>
     </item>
     <item>
       <title>Understand Files</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/</link>
+      <link>//localhost:1313/learn-paimon/understand-files/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/</guid>
+      <guid>//localhost:1313/learn-paimon/understand-files/</guid>
       <description>Understand Files&#xD;#&#xD;This article is specifically designed to clarify the impact that various file operations have on files.&#xA;This page provides concrete examples and practical tips for effectively managing them. Furthermore, through an in-depth exploration of operations such as commit and compact, we aim to offer insights into the creation and updates of files.&#xA;Prerequisite&#xD;#&#xD;Before delving further into this page, please ensure that you have read through the following sections:</description>
     </item>
     <item>
       <title>Upsert To Partitioned</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/</link>
+      <link>//localhost:1313/migration/upsert-to-partitioned/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/</guid>
+      <guid>//localhost:1313/migration/upsert-to-partitioned/</guid>
       <description>Upsert To Partitioned&#xD;#&#xD;Note: Only Hive Engine can be used to query these upsert-to-partitioned tables.&#xD;The Tag Management will maintain the manifests and data files of the snapshot. A typical usage is creating tags daily, then you can maintain the historical data of each day for batch reading.&#xA;When using primary key tables, a non-partitioned approach is often used to maintain updates, in order to mirror and synchronize tables from upstream database tables.</description>
     </item>
     <item>
-      <title>概述</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/overview/</link>
+      <title>概览 Overview</title>
+      <link>//localhost:1313/primary-key-table/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/overview/</guid>
+      <guid>//localhost:1313/primary-key-table/overview/</guid>
+      <description>概览 Overview&#xD;#&#xD;如果你定义了一个具有主键的表，则可以对该表执行插入、更新或删除操作。&#xA;主键由一组列组成，这些列对于每条记录来说具有唯一值。Paimon 通过在每个 bucket 中对主键进行排序来强制数据有序，从而支持在主键上应用过滤条件以实现高性能查询。详见： CREATE TABLE。&#xA;桶 Bucket&#xD;#&#xD;未分区表，或分区表中的各个分区，都会被进一步划分为 bucket，以为数据提供额外的结构，从而实现更高效的查询。&#xA;每个 bucket 目录中包含一个 LSM 树，其内容包括： changelog files。&#xA;每个 bucket 的范围是通过记录中一个或多个列的哈希值来确定的。&#xA;用户可以通过设置 bucket-key 选项 来指定分桶列。&#xA;如果未指定 bucket-key，则默认使用主键（如果定义了主键）或整条记录作为分桶键。&#xA;Bucket 是读写的最小存储单元，因此 bucket 的数量会限制最大处理并行度。&#xA;但这个数量也不宜过大，否则会产生大量小文件，导致读取性能下降。&#xA;一般建议每个 bucket 中的数据量保持在约 200MB 到 1GB 之间。&#xA;如果你希望在建表后调整 bucket 的数量，请参考 调整 bucket 数量。&#xA;LSM Trees&#xD;#&#xD;Paimon 采用 LSM 树（Log-Structured Merge-Tree）作为文件存储的数据结构。本文档将简要介绍有关 LSM 树的基本概念。&#xA;Sorted Runs&#xD;#&#xD;LSM 树将文件组织成多个 Sorted Run（有序运行）。每个 Sorted Run 由一个或多个数据文件组成，且每个数据文件只属于一个 Sorted Run。</description>
+    </item>
+    <item>
+      <title>概述</title>
+      <link>//localhost:1313/concepts/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/concepts/overview/</guid>
       <description>&#xD;概述&#xD;#&#xD;Apache Paimon 的架构：&#xA;如上图架构所示：&#xA;读写能力： Paimon 支持多样化的数据读写方式及 OLAP 查询。&#xA;读取方面，支持 从历史快照读取（批处理模式）， 从最新偏移量读取（流处理模式）， 或以混合方式读取增量快照。 写入方面，支持 从数据库变更日志（CDC）进行流式同步， 从离线数据批量插入或覆盖。 生态系统： 除了 Apache Flink，Paimon 还支持 Apache Spark、StarRocks、Apache Doris、Apache Hive 和 Trino 等计算引擎的读取。&#xA;内部实现：&#xA;Paimon 底层将列式文件存储在文件系统或对象存储中。 文件的元数据保存在 manifest 文件中，支持大规模存储与数据跳过。 对于主键表，采用 LSM 树结构支持大量数据更新和高性能查询。 统一存储&#xD;#&#xD;对于像 Apache Flink 这样的流式引擎，通常有三类连接器：&#xA;消息队列，如 Apache Kafka，既用作数据源，也用作流水线中的中间环节，保证延迟维持在秒级以内。 OLAP 系统，如 ClickHouse，以流式方式接收处理后的数据，支持用户的临时查询。 批处理存储，如 Apache Hive，支持传统批处理的各种操作，包括 INSERT OVERWRITE。 Paimon 提供了表抽象，其使用方式与传统数据库无异：&#xA;在 batch 执行模式下，表现如 Hive 表，支持多种批量 SQL 操作，可查询最新快照。 在 streaming 执行模式下，表现如消息队列，查询时就像查询一个永不过期的流式变更日志。 </description>
     </item>
     <item>
       <title>概述 Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/</link>
+      <link>//localhost:1313/concepts/spec/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/</guid>
+      <guid>//localhost:1313/concepts/spec/overview/</guid>
       <description>Spec Overview&#xD;#&#xD;这是 Paimon 表格式的规范，本文档规范了 Paimon 的底层文件结构和设计。&#xA;术语&#xD;#&#xD;Schema：字段、主键定义、分区键定义及选项。 Snapshot：某一特定时间点提交的所有数据的入口。 Manifest list：包含多个 manifest 文件的列表。 Manifest：包含多个数据文件或变更日志文件。 Data File：包含增量记录。 Changelog File：包含由变更日志生成器产生的记录。 Global Index：桶或分区的索引。 Data File Index：数据文件的索引。 使用 Paimon 运行 Flink SQL：&#xA;CREATE CATALOG my_catalog WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;/your/path&amp;#39; ); USE CATALOG my_catalog; CREATE TABLE my_table ( k INT PRIMARY KEY NOT ENFORCED, f0 INT, f1 STRING ); INSERT INTO my_table VALUES (1, 11, &amp;#39;111&amp;#39;); Take a look to the disk:</description>
     </item>
     <item>
       <title>Append Table</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/iceberg/append-table/</link>
+      <link>//localhost:1313/iceberg/append-table/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/iceberg/append-table/</guid>
+      <guid>//localhost:1313/iceberg/append-table/</guid>
       <description>Append Tables&#xD;#&#xD;Let&amp;rsquo;s walk through a simple example, where we query Paimon tables with Iceberg connectors in Flink and Spark. Before trying out this example, make sure that your compute engine already supports Iceberg. Please refer to Iceberg&amp;rsquo;s document if you haven&amp;rsquo;t set up Iceberg.&#xA;Flink: Preparation when using Flink SQL Client Spark: Using Iceberg in Spark 3 Let&amp;rsquo;s now create a Paimon append only table with Iceberg compatibility enabled and insert some data.</description>
     </item>
     <item>
       <title>Bear Token</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/bear/</link>
+      <link>//localhost:1313/concepts/rest/bear/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/bear/</guid>
+      <guid>//localhost:1313/concepts/rest/bear/</guid>
       <description>Bear Token&#xD;#&#xD;A bearer token is an encrypted string, typically generated by the server based on a secret key. When the client sends a request to the server, it must include Authorization: Bearer &amp;lt;token&amp;gt; in the request header. After receiving the request, the server extracts the &amp;lt;token&amp;gt; and validates its legitimacy. If the validation passes, the authentication is successful.&#xA;CREATE CATALOG `paimon-rest-catalog` WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;uri&amp;#39; = &amp;#39;&amp;lt;catalog server url&amp;gt;&amp;#39;, &amp;#39;metastore&amp;#39; = &amp;#39;rest&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;my_instance_name&amp;#39;, &amp;#39;token.</description>
     </item>
     <item>
-      <title>Data Distribution</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/</guid>
-      <description>Data Distribution&#xD;#&#xD;A bucket is the smallest storage unit for reads and writes, each bucket directory contains an LSM tree.&#xA;Fixed Bucket&#xD;#&#xD;Configure a bucket greater than 0, using Fixed Bucket mode, according to Math.abs(key_hashcode % numBuckets) to compute the bucket of record.&#xA;Rescaling buckets can only be done through offline processes, see Rescale Bucket. A too large number of buckets leads to too many small files, and a too small number of buckets leads to poor write performance.</description>
-    </item>
-    <item>
       <title>Download</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/project/download/</link>
+      <link>//localhost:1313/project/download/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/project/download/</guid>
+      <guid>//localhost:1313/project/download/</guid>
       <description>Download&#xD;#&#xD;This documentation is a guide for downloading Paimon Jars.&#xA;Engine Jars&#xD;#&#xD;Version Jar Flink 2.0 paimon-flink-2.0-1.2.0.jar Flink 1.20 paimon-flink-1.20-1.2.0.jar Flink 1.19 paimon-flink-1.19-1.2.0.jar Flink 1.18 paimon-flink-1.18-1.2.0.jar Flink 1.17 paimon-flink-1.17-1.2.0.jar Flink 1.16 paimon-flink-1.16-1.2.0.jar Flink 1.15 paimon-flink-1.15-1.2.0.jar Flink Action paimon-flink-action-1.2.0.jar Spark 3.5 paimon-spark-3.5-1.2.0.jar Spark 3.4 paimon-spark-3.4-1.2.0.jar Spark 3.3 paimon-spark-3.3-1.2.0.jar Spark 3.2 paimon-spark-3.2-1.2.0.jar Hive 3.1 paimon-hive-connector-3.1-1.2.0.jar Hive 2.3 paimon-hive-connector-2.3-1.2.0.jar Hive 2.2 paimon-hive-connector-2.2-1.2.0.jar Hive 2.1 paimon-hive-connector-2.1-1.2.0.jar Hive 2.1-cdh-6.3 paimon-hive-connector-2.1-cdh-6.3-1.2.0.jar Trino Download from master Filesystem Jars&#xD;#&#xD;Version Jar paimon-oss paimon-oss-1.</description>
     </item>
     <item>
       <title>Flink API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/program-api/flink-api/</link>
+      <link>//localhost:1313/program-api/flink-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/program-api/flink-api/</guid>
+      <guid>//localhost:1313/program-api/flink-api/</guid>
       <description>Flink API&#xD;#&#xD;If possible, recommend using Flink SQL or Spark SQL, or simply use SQL APIs in programs.&#xD;Dependency&#xD;#&#xD;Maven dependency:&#xA;&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.paimon&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;paimon-flink-1.20&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.flink&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;flink-table-api-java-bridge&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.20.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; Or download the jar file: Paimon Flink.&#xD;Please choose your Flink version.&#xA;Paimon relies on Hadoop environment, you should add hadoop classpath or bundled jar.&#xA;Not only DataStream API, you can also read or write to Paimon tables by the conversion between DataStream and Table in Flink.</description>
     </item>
     <item>
       <title>Mysql CDC</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mysql-cdc/</link>
+      <link>//localhost:1313/cdc-ingestion/mysql-cdc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mysql-cdc/</guid>
+      <guid>//localhost:1313/cdc-ingestion/mysql-cdc/</guid>
       <description>MySQL CDC&#xD;#&#xD;Paimon supports synchronizing changes from different databases using change data capture (CDC). This feature requires Flink and its CDC connectors.&#xA;Prepare CDC Bundled Jar&#xD;#&#xD;Download CDC Bundled Jar and put them under &amp;lt;FLINK_HOME&amp;gt;/lib/.&#xA;Version Bundled Jar 3.1.x flink-sql-connector-mysql-cdc-3.1.x.jar mysql-connector-java-8.0.27.jar Only cdc 3.1+ is supported.&#xA;You can download the flink-connector-mysql-cdc jar package by clicking here.&#xA;Synchronizing Tables&#xD;#&#xD;By using MySqlSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one or multiple tables from MySQL into one Paimon table.</description>
     </item>
     <item>
       <title>Partial Update</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/</link>
+      <link>//localhost:1313/primary-key-table/merge-engine/partial-update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/</guid>
+      <guid>//localhost:1313/primary-key-table/merge-engine/partial-update/</guid>
       <description>Partial Update&#xD;#&#xD;By specifying &#39;merge-engine&#39; = &#39;partial-update&#39;, users have the ability to update columns of a record through multiple updates until the record is complete. This is achieved by updating the value fields one by one, using the latest data under the same primary key. However, null values are not overwritten in the process.&#xA;For example, suppose Paimon receives three records:&#xA;&amp;lt;1, 23.0, 10, NULL&amp;gt;- &amp;lt;1, NULL, NULL, &#39;This is a book&#39;&amp;gt; &amp;lt;1, 25.</description>
     </item>
     <item>
       <title>Postgres CDC</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/postgres-cdc/</link>
+      <link>//localhost:1313/cdc-ingestion/postgres-cdc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/postgres-cdc/</guid>
+      <guid>//localhost:1313/cdc-ingestion/postgres-cdc/</guid>
       <description>Postgres CDC&#xD;#&#xD;Paimon supports synchronizing changes from different databases using change data capture (CDC). This feature requires Flink and its CDC connectors.&#xA;Prepare CDC Bundled Jar&#xD;#&#xD;flink-connector-postgres-cdc-*.jar Synchronizing Tables&#xD;#&#xD;By using PostgresSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one or multiple tables from PostgreSQL into one Paimon table.&#xA;To use this feature through flink run, run the following shell command.</description>
     </item>
     <item>
       <title>SQL DDL</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/sql-ddl/</link>
+      <link>//localhost:1313/flink/sql-ddl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/sql-ddl/</guid>
+      <guid>//localhost:1313/flink/sql-ddl/</guid>
       <description>SQL DDL&#xD;#&#xD;Create Catalog&#xD;#&#xD;Paimon catalogs currently support three types of metastores:&#xA;filesystem metastore (default), which stores both metadata and table files in filesystems. hive metastore, which additionally stores metadata in Hive metastore. Users can directly access the tables from Hive. jdbc metastore, which additionally stores metadata in relational databases such as MySQL, Postgres, etc. See CatalogOptions for detailed options when creating a catalog.&#xA;Create Filesystem Catalog&#xD;#&#xD;The following Flink SQL registers and uses a Paimon catalog named my_catalog.</description>
     </item>
     <item>
       <title>SQL DDL</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/</link>
+      <link>//localhost:1313/spark/sql-ddl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/</guid>
+      <guid>//localhost:1313/spark/sql-ddl/</guid>
       <description>SQL DDL&#xD;#&#xD;Catalog&#xD;#&#xD;Create Catalog&#xD;#&#xD;Paimon catalogs currently support three types of metastores:&#xA;filesystem metastore (default), which stores both metadata and table files in filesystems. hive metastore, which additionally stores metadata in Hive metastore. Users can directly access the tables from Hive. jdbc metastore, which additionally stores metadata in relational databases such as MySQL, Postgres, etc. See CatalogOptions for detailed options when creating a catalog.&#xA;Create Filesystem Catalog&#xD;#&#xD;The following Spark SQL registers and uses a Paimon catalog named my_catalog.</description>
     </item>
     <item>
       <title>SQL Functions</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/sql-functions/</link>
+      <link>//localhost:1313/spark/sql-functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/sql-functions/</guid>
+      <guid>//localhost:1313/spark/sql-functions/</guid>
       <description>SQL Functions&#xD;#&#xD;This section introduce all available Paimon Spark functions.&#xA;max_pt&#xD;#&#xD;max_pt($table_name)&#xA;It accepts a string type literal to specify the table name and return a max-valid-toplevel partition value.&#xA;valid: the partition which contains data files toplevel: only return the first partition value if the table has multi-partition columns It would throw exception when:&#xA;the table is not a partitioned table the partitioned table does not have partition all of the partitions do not contains data files Example</description>
     </item>
     <item>
       <title>SQL Write</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/</link>
+      <link>//localhost:1313/flink/sql-write/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/</guid>
+      <guid>//localhost:1313/flink/sql-write/</guid>
       <description>SQL Write&#xD;#&#xD;Syntax&#xD;#&#xD;INSERT { INTO | OVERWRITE } table_identifier [ part_spec ] [ column_list ] { value_expr | query }; For more information, please check the syntax document:&#xA;Flink INSERT Statement&#xA;INSERT INTO&#xD;#&#xD;Use INSERT INTO to apply records and changes to tables.&#xA;INSERT INTO my_table SELECT ... INSERT INTO supports both batch and streaming mode. In Streaming mode, by default, it will also perform compaction, snapshot expiration, and even partition expiration in Flink Sink (if it is configured).</description>
     </item>
     <item>
       <title>SQL Write</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/</link>
+      <link>//localhost:1313/spark/sql-write/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/</guid>
+      <guid>//localhost:1313/spark/sql-write/</guid>
       <description>SQL Write&#xD;#&#xD;Insert Table&#xD;#&#xD;The INSERT statement inserts new rows into a table or overwrites the existing data in the table. The inserted rows can be specified by value expressions or result from a query.&#xA;Syntax&#xA;INSERT { INTO | OVERWRITE } table_identifier [ part_spec ] [ column_list ] { value_expr | query }; Parameters&#xA;table_identifier: Specifies a table name, which may be optionally qualified with a database name.</description>
     </item>
     <item>
       <title>StarRocks</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/</link>
+      <link>//localhost:1313/ecosystem/starrocks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/</guid>
+      <guid>//localhost:1313/ecosystem/starrocks/</guid>
       <description>StarRocks&#xD;#&#xD;This documentation is a guide for using Paimon in StarRocks.&#xA;Version&#xD;#&#xD;Paimon currently supports StarRocks 3.1 and above. Recommended version is StarRocks 3.2.6 or above.&#xA;Create Paimon Catalog&#xD;#&#xD;Paimon catalogs are registered by executing a CREATE EXTERNAL CATALOG SQL in StarRocks. For example, you can use the following SQL to create a Paimon catalog named paimon_catalog.&#xA;CREATE EXTERNAL CATALOG paimon_catalog PROPERTIES( &amp;#34;type&amp;#34; = &amp;#34;paimon&amp;#34;, &amp;#34;paimon.catalog.type&amp;#34; = &amp;#34;filesystem&amp;#34;, &amp;#34;paimon.</description>
     </item>
     <item>
       <title>Streaming</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</link>
+      <link>//localhost:1313/append-table/streaming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</guid>
+      <guid>//localhost:1313/append-table/streaming/</guid>
       <description>Streaming&#xD;#&#xD;You can stream write to the Append table in a very flexible way through Flink, or read the Append table through Flink, using it like a queue. The only difference is that its latency is in minutes. Its advantages are very low cost and the ability to push down filters and projection.&#xA;Pre small files merging&#xD;#&#xD;&amp;ldquo;Pre&amp;rdquo; means that this compact occurs before committing files to the snapshot.</description>
     </item>
     <item>
       <title>基础概念 Basic Concepts</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</link>
+      <link>//localhost:1313/concepts/basic-concepts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</guid>
+      <guid>//localhost:1313/concepts/basic-concepts/</guid>
       <description>基础概念&#xD;#&#xD;文件布局&#xD;#&#xD;一个表的所有文件都存储在同一个基础目录下。Paimon 的文件采用分层结构组织。下图展示了文件布局。从快照文件开始，Paimon 读取器可以递归访问表中的所有记录。&#xA;快照（Snapshot）&#xD;#&#xD;所有快照文件存储在 snapshot 目录下。&#xA;快照文件是一个 JSON 文件，包含该快照的信息，包括：&#xA;使用的 schema 文件 包含该快照所有变更的 manifest 列表 快照捕获了表在某一时间点的状态。用户可以通过最新快照访问表的最新数据。通过时间旅行，用户也可以通过更早的快照访问表的历史状态。&#xA;Manifest 文件&#xD;#&#xD;所有 manifest 列表和 manifest 文件存储在 manifest 目录下。&#xA;manifest 列表是 manifest 文件名的列表。&#xA;manifest 文件包含有关 LSM 数据文件和变更日志文件的变更信息，例如在对应快照中新建了哪些 LSM 数据文件，删除了哪些文件。&#xA;数据文件&#xD;#&#xD;数据文件按分区分组。目前 Paimon 支持使用 parquet（默认）、orc 和 avro 作为数据文件格式。&#xA;分区&#xD;#&#xD;Paimon 采用与 Apache Hive 相同的分区概念来划分数据。&#xA;分区是一种可选的方式，根据特定列（如日期、城市、部门）的值将表划分为相关部分。每个表可以有一个或多个分区键来标识特定分区。&#xA;通过分区，用户可以高效地操作表中的某一部分记录。&#xA;一致性保证&#xD;#&#xD;Paimon 写入器使用两阶段提交协议，原子性地提交一批记录到表中。每次提交最多产生两个 快照，具体取决于增量写入和压缩策略。如果只执行增量写入且未触发压缩操作，则只创建增量快照；如果触发压缩操作，则同时创建增量快照和压缩快照。&#xA;对于同时修改同一张表的多个写入器，只要它们不修改同一分区，其提交可以并行进行。如果修改同一分区，则只保证快照隔离。也就是说，最终的表状态可能是两次提交的混合，但不会丢失任何更改。&#xA;更多信息请参见 dedicated compaction job。</description>
     </item>
     <item>
       <title>模式文件 Schema</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/</link>
+      <link>//localhost:1313/concepts/spec/schema/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/</guid>
+      <guid>//localhost:1313/concepts/spec/schema/</guid>
       <description>Schema&#xD;#&#xD;Schema 文件的版本从 0 开始，目前保留所有版本的 schema。可能存在依赖旧 schema 版本的旧文件，因此删除时需谨慎。&#xA;Schema 文件是 JSON 格式，内容包括：&#xA;fields：数据字段列表，数据字段包含 id、name、type，字段 id 用于支持 schema 演进。 partitionKeys：字段名列表，表的分区定义，不可修改。 primaryKeys：字段名列表，表的主键定义，不可修改。 options：map&amp;lt;string, string&amp;gt;，无序，表的选项，包括很多功能和优化。 示例 Example&#xD;#&#xD;{ &amp;#34;version&amp;#34; : 3, &amp;#34;id&amp;#34; : 0, &amp;#34;fields&amp;#34; : [ { &amp;#34;id&amp;#34; : 0, &amp;#34;name&amp;#34; : &amp;#34;order_id&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;BIGINT NOT NULL&amp;#34; }, { &amp;#34;id&amp;#34; : 1, &amp;#34;name&amp;#34; : &amp;#34;order_name&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;STRING&amp;#34; }, { &amp;#34;id&amp;#34; : 2, &amp;#34;name&amp;#34; : &amp;#34;order_user_id&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;BIGINT&amp;#34; }, { &amp;#34;id&amp;#34; : 3, &amp;#34;name&amp;#34; : &amp;#34;order_shop_id&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;BIGINT&amp;#34; } ], &amp;#34;highestFieldId&amp;#34; : 3, &amp;#34;partitionKeys&amp;#34; : [ ], &amp;#34;primaryKeys&amp;#34; : [ &amp;#34;order_id&amp;#34; ], &amp;#34;options&amp;#34; : { &amp;#34;bucket&amp;#34; : &amp;#34;5&amp;#34; }, &amp;#34;comment&amp;#34; : &amp;#34;&amp;#34;, &amp;#34;timeMillis&amp;#34; : 1720496663041 } 兼容性 Compatibility&#xD;#&#xD;针对旧版本：</description>
     </item>
     <item>
-      <title>Aggregation</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/</link>
+      <title>数据分布 Data Distribution</title>
+      <link>//localhost:1313/primary-key-table/data-distribution/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/</guid>
+      <guid>//localhost:1313/primary-key-table/data-distribution/</guid>
+      <description>数据分布 Data Distribution&#xD;#&#xD;Bucket 是读写的最小存储单元，每个 bucket 目录包含一个 LSM tree。&#xA;Fixed Bucket&#xD;#&#xD;配置一个大于 0 的桶数，即使用固定桶模式，通过计算 Math.abs(key_hashcode % numBuckets) 来确定记录所属的桶。&#xA;桶的重新调整只能通过离线流程完成，详见 调整桶数量。&#xA;桶数量过多会导致大量小文件，桶数量过少则写入性能较差，需合理权衡。&#xA;Dynamic Bucket&#xD;#&#xD;主键表的默认模式，或配置 &#39;bucket&#39; = &#39;-1&#39;。&#xA;先到的数据会落入旧桶，新到的数据会落入新桶，桶与键的分布取决于数据到达的顺序。Paimon 维护索引以确定每个键对应的桶。&#xA;Paimon 会自动扩展桶的数量。&#xA;选项1：&#39;dynamic-bucket.target-row-num&#39;：控制每个桶的目标行数。 选项2：&#39;dynamic-bucket.initial-buckets&#39;：控制初始化的桶数量。 选项3：&#39;dynamic-bucket.max-buckets&#39;：控制桶的最大数量。 动态桶模式仅支持单个写入作业。请勿启动多个作业写入同一分区（否则可能导致数据重复）。即使启用 &#39;write-only&#39; 并启动专门的压缩作业，也无法解决此问题。&#xD;Normal Dynamic Bucket Mode&#xD;#&#xD;当更新操作不跨分区（无分区，或主键包含所有分区字段）时，动态桶模式使用哈希索引维护键到桶的映射，相比固定桶模式需要更多内存。&#xA;性能表现：&#xA;一般不会有性能损失，但会有额外内存消耗，约 1 亿 条目占用 1 GB 内存，非活跃分区不占用内存。 对于更新频率较低的表，推荐使用该模式以显著提升性能。 Normal Dynamic Bucket Mode 支持排序压缩（sort-compact）以加速查询。详见： Sort Compact.&#xA;Cross Partitions Upsert Dynamic Bucket Mode&#xD;#&#xD;当需要跨分区更新（主键不包含所有分区字段）时，动态桶模式会直接维护键到分区和桶的映射，使用本地磁盘，并在启动流写入作业时通过读取表中所有已有键来初始化索引。不同的合并引擎行为如下：</description>
+    </item>
+    <item>
+      <title>Aggregation</title>
+      <link>//localhost:1313/primary-key-table/merge-engine/aggregation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/primary-key-table/merge-engine/aggregation/</guid>
       <description>Aggregation&#xD;#&#xD;NOTE: Always set table.exec.sink.upsert-materialize to NONE in Flink SQL TableConfig.&#xD;Sometimes users only care about aggregated results. The aggregation merge engine aggregates each value field with the latest data one by one under the same primary key according to the aggregate function.&#xA;Each field not part of the primary keys can be given an aggregate function, specified by the fields.&amp;lt;field-name&amp;gt;.aggregate-function table property, otherwise it will use last_non_null_value aggregation as default.</description>
     </item>
     <item>
       <title>Contributing</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/project/contributing/</link>
+      <link>//localhost:1313/project/contributing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/project/contributing/</guid>
-      <description>Contributing&#xD;#&#xD;Apache Paimon is developed by an open and friendly community. Everybody is cordially welcome to join the community and contribute to Apache Paimon. There are several ways to interact with the community and contribute to Paimon including asking questions, filing bug reports, proposing new features, joining discussions on the mailing lists, contributing code or documentation, improving website, testing release candidates and writing corresponding blog etc.&#xA;What do you want to do?</description>
+      <guid>//localhost:1313/project/contributing/</guid>
+      <description>&#xD;Contributing&#xD;#&#xD;Apache Paimon 由一个开放且友好的社区开发。热忱欢迎每个人加入社区并为 Apache Paimon 做出贡献。参与社区和贡献 Paimon 的方式有很多，包括提问、提交缺陷报告、提出新功能建议、加入邮件列表讨论、贡献代码或文档、改进网站、测试发布候选版本以及撰写相关博客等。&#xA;你想做什么？&#xD;#&#xD;为 Apache Paimon 贡献不仅仅限于为项目编写代码。以下列出了帮助项目的不同途径：&#xA;Area&#xD;Further information&#xD;Report Bug&#xD;要报告 Paimon 的问题，请前往 Paimon 的 Issues 页面。 请提供关于你遇到的问题的详细信息，如果可能的话，请添加有助于重现该问题的描述。&#xD;Contribute Code&#xD;阅读 Code Contribution Guide&#xD;Code Reviews&#xD;阅读 Code Review Guide&#xD;Release Version&#xD;发布新的 Paimon 版本。&#xD;Support Users&#xD;回复 用户邮件列表上的问题，&#xD;查看 Issues 中最新的问题，寻找实际用户提问的工单。&#xD;宣传 Apache Paimon&#xD;组织或参加 Paimon 线下交流会，撰写 Paimon 博客，或者在 dev@paimon.apache.org 邮件列表 分享你的会议、交流会或博客文章。&#xD;还有其他问题吗？请联系 dev@paimon.apache.org 邮件列表</description>
     </item>
     <item>
       <title>DLF Token</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/dlf/</link>
+      <link>//localhost:1313/concepts/rest/dlf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/dlf/</guid>
+      <guid>//localhost:1313/concepts/rest/dlf/</guid>
       <description>DLF Token&#xD;#&#xD;DLF (Data Lake Formation) building is a fully-managed platform for unified metadata and data storage and management, aiming to provide customers with functions such as metadata management, storage management, permission management, storage analysis, and storage optimization.&#xA;DLF provides multiple authentication methods for different environments.&#xA;The &#39;warehouse&#39; is your catalog instance name on the server, not the path.&#xD;Use the access key&#xD;#&#xD;CREATE CATALOG `paimon-rest-catalog` WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;uri&amp;#39; = &amp;#39;&amp;lt;catalog server url&amp;gt;&amp;#39;, &amp;#39;metastore&amp;#39; = &amp;#39;rest&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;my_instance_name&amp;#39;, &amp;#39;token.</description>
     </item>
     <item>
       <title>Doris</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/ecosystem/doris/</link>
+      <link>//localhost:1313/ecosystem/doris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/ecosystem/doris/</guid>
+      <guid>//localhost:1313/ecosystem/doris/</guid>
       <description>Doris&#xD;#&#xD;This documentation is a guide for using Paimon in Doris.&#xA;More details can be found in Apache Doris Website&#xA;Version&#xD;#&#xD;Paimon currently supports Apache Doris 2.0.6 and above.&#xA;Create Paimon Catalog&#xD;#&#xD;Use CREATE CATALOG statement in Apache Doris to create Paimon Catalog.&#xA;Doris support multi types of Paimon Catalogs. Here are some examples:&#xA;-- HDFS based Paimon Catalog CREATE CATALOG `paimon_hdfs` PROPERTIES ( &amp;#34;type&amp;#34; = &amp;#34;paimon&amp;#34;, &amp;#34;warehouse&amp;#34; = &amp;#34;hdfs://172.</description>
     </item>
     <item>
       <title>Java API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/program-api/java-api/</link>
+      <link>//localhost:1313/program-api/java-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/program-api/java-api/</guid>
+      <guid>//localhost:1313/program-api/java-api/</guid>
       <description>Java API&#xD;#&#xD;If possible, recommend using computing engines such as Flink SQL or Spark SQL.&#xD;Dependency&#xD;#&#xD;Maven dependency:&#xA;&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.paimon&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;paimon-bundle&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Or download the jar file: Paimon Bundle.&#xD;Paimon relies on Hadoop environment, you should add hadoop classpath or bundled jar.&#xA;Create Catalog&#xD;#&#xD;Before coming into contact with the Table, you need to create a Catalog.&#xA;import org.apache.paimon.catalog.Catalog; import org.apache.paimon.catalog.CatalogContext; import org.apache.paimon.catalog.CatalogFactory; import org.apache.paimon.fs.Path; import org.</description>
     </item>
     <item>
       <title>Kafka CDC</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/kafka-cdc/</link>
+      <link>//localhost:1313/cdc-ingestion/kafka-cdc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/kafka-cdc/</guid>
+      <guid>//localhost:1313/cdc-ingestion/kafka-cdc/</guid>
       <description>Kafka CDC&#xD;#&#xD;Prepare Kafka Bundled Jar&#xD;#&#xD;flink-sql-connector-kafka-*.jar Supported Formats&#xD;#&#xD;Flink provides several Kafka CDC formats: Canal Json, Debezium Json, Debezium Avro, Ogg Json, Maxwell Json and Normal Json. If a message in a Kafka topic is a change event captured from another database using the Change Data Capture (CDC) tool, then you can use the Paimon Kafka CDC. Write the INSERT, UPDATE, DELETE messages parsed into the paimon table.</description>
     </item>
     <item>
       <title>Primary Key Table</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/iceberg/primary-key-table/</link>
+      <link>//localhost:1313/iceberg/primary-key-table/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/iceberg/primary-key-table/</guid>
+      <guid>//localhost:1313/iceberg/primary-key-table/</guid>
       <description>Primary Key Tables&#xD;#&#xD;Let&amp;rsquo;s walk through a simple example, where we query Paimon tables with Iceberg connectors in Flink and Spark. Before trying out this example, make sure that your compute engine already supports Iceberg. Please refer to Iceberg&amp;rsquo;s document if you haven&amp;rsquo;t set up Iceberg.&#xA;Flink: Preparation when using Flink SQL Client Spark: Using Iceberg in Spark 3 Flink SQL&#xD;CREATE CATALOG paimon_catalog WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;&amp;lt;path-to-warehouse&amp;gt;&amp;#39; ); CREATE TABLE paimon_catalog.</description>
     </item>
     <item>
       <title>Query Performance</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</link>
+      <link>//localhost:1313/append-table/query-performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</guid>
+      <guid>//localhost:1313/append-table/query-performance/</guid>
       <description>Query Performance&#xD;#&#xD;Data Skipping By Order&#xD;#&#xD;Paimon by default records the maximum and minimum values of each field in the manifest file.&#xA;In the query, according to the WHERE condition of the query, together with the statistics in the manifest we can perform file filtering. If the filtering effect is good, the query that would have cost minutes will be accelerated to milliseconds to complete the execution.</description>
     </item>
     <item>
-      <title>Table Mode</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/</guid>
-      <description>Table Mode&#xD;#&#xD;The file structure of the primary key table is roughly shown in the above figure. The table or partition contains multiple buckets, and each bucket is a separate LSM tree structure that contains multiple files.&#xA;The writing process of LSM is roughly as follows: Flink checkpoint flush L0 files, and trigger a compaction as needed to merge the data. According to the different processing ways during writing, there are three modes:</description>
-    </item>
-    <item>
       <title>Write Performance</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/</link>
+      <link>//localhost:1313/maintenance/write-performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/</guid>
+      <guid>//localhost:1313/maintenance/write-performance/</guid>
       <description>Write Performance&#xD;#&#xD;Paimon&amp;rsquo;s write performance is closely related to checkpoint, so if you need greater write throughput:&#xA;Flink Configuration (&#39;flink-conf.yaml&#39;/&#39;config.yaml&#39; or SET in SQL): Increase the checkpoint interval (&#39;execution.checkpointing.interval&#39;), increase max concurrent checkpoints to 3 (&#39;execution.checkpointing.max-concurrent-checkpoints&#39;), or just use batch mode. Increase write-buffer-size. Enable write-buffer-spillable. Rescale bucket number if you are using Fixed-Bucket mode. Option &#39;changelog-producer&#39; = &#39;lookup&#39; or &#39;full-compaction&#39;, and option &#39;full-compaction.delta-commits&#39; have a large impact on write performance, if it is a snapshot / full synchronization phase you can unset these options and then enable them again in the incremental phase.</description>
     </item>
     <item>
-      <title>并发控制 Concurrency Control</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/</link>
+      <title>表模式 Table Mode</title>
+      <link>//localhost:1313/primary-key-table/table-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/</guid>
+      <guid>//localhost:1313/primary-key-table/table-mode/</guid>
+      <description>表模式 Table Mode&#xD;#&#xD;主键表的文件结构大致如上图所示。表或分区包含多个桶（bucket），每个桶是一个独立的 LSM 树结构，包含多个文件。&#xA;LSM 的写入过程大致如下：Flink 检查点时刷新 L0 文件，并根据需要触发压缩以合并数据。根据写入时的不同处理方式，存在三种模式：&#xA;MOR（Merge On Read）：默认模式，只执行小规模压缩，读取时需要合并数据。 COW（Copy On Write）：通过设置 &#39;full-compaction.delta-commits&#39; = &#39;1&#39; 启用全量压缩，同步完成合并操作，写入即完成合并。 MOW（Merge On Write）：通过启用 &#39;deletion-vectors.enabled&#39; = &#39;true&#39;，写入阶段查询 LSM 生成数据文件的删除向量文件，读取时可直接过滤无效行。 一般主键表推荐使用 Merge On Write 模式（默认合并引擎为 deduplicate）。&#xA;Merge On Read&#xD;#&#xD;MOR（Merge On Read）是主键表的默认模式。&#xA;在 MOR 模式下，读取时需要合并所有文件，因为所有文件都是有序的，采用多路合并方式，过程中会对主键进行比较计算。&#xA;这里存在一个明显的问题：单个 LSM 树只能使用单线程读取，导致读的并行度受限。如果桶中的数据量过大，可能导致读取性能下降。&#xA;因此，为了优化读取性能，建议根据查询需求合理分析表，设置每个桶的数据量在 200MB 到 1GB 之间。&#xA;但如果桶过小，会产生大量小文件读写，给文件系统带来压力。&#xA;另外，由于存在合并过程，基于过滤器的跳过数据操作不能作用于非主键列，否则会错误地过滤掉新数据，导致旧数据不正确。&#xA;写入性能：非常好。 Copy On Write&#xD;#&#xD;ALTER TABLE orders SET (&amp;#39;full-compaction.delta-commits&amp;#39; = &amp;#39;1&amp;#39;); 将 full-compaction.</description>
+    </item>
+    <item>
+      <title>并发控制 Concurrency Control</title>
+      <link>//localhost:1313/concepts/concurrency-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/concepts/concurrency-control/</guid>
       <description>并发控制&#xD;#&#xD;Paimon 支持多写入任务的乐观并发控制。&#xA;每个任务以自己的节奏写入数据，并在提交时基于当前快照应用增量文件（删除或添加文件）生成新的快照。&#xA;这里可能出现两种提交失败的情况：&#xA;快照冲突：快照 ID 已被抢占，表已由其他任务生成了新的快照。此时可以重新提交。 文件冲突：任务想删除的文件已被其他任务删除，此时任务只能失败。（对于流处理任务，会失败并重启，故意进行一次故障切换） 快照冲突&#xD;#&#xD;Paimon 的快照 ID 唯一，只要任务成功将快照文件写入文件系统，即认为提交成功。&#xA;Paimon 使用文件系统的重命名机制提交快照，这对于 HDFS 来说是安全的，因为它保证了事务性和原子性重命名。&#xA;但对于 OSS、S3 等对象存储，其 &#39;RENAME&#39; 操作没有原子语义。此时需要配置 Hive 或 jdbc metastore，并为目录启用 &#39;lock.enabled&#39; 选项，否则可能会丢失快照。&#xA;文件冲突&#xD;#&#xD;当 Paimon 提交文件删除（仅为逻辑删除）时，会检查与最新快照的冲突。&#xA;如果存在冲突（即该文件已被逻辑删除），该提交节点无法继续，只能故意触发故障切换重启，任务会从文件系统重新获取最新状态，期望解决冲突。&#xA;Paimon 会确保此过程无数据丢失或重复，但如果两个流任务同时写入且产生冲突，就会不断重启，这并不好。&#xA;冲突本质来源于文件的逻辑删除，而文件删除源自压缩操作，因此只要关闭写任务的压缩（将 &#39;write-only&#39; 设为 true），并启动单独的任务做压缩工作，一切都会很好。&#xA;更多信息请参见 dedicated compaction job。</description>
     </item>
     <item>
       <title>快照文件 Snapshot</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/</link>
+      <link>//localhost:1313/concepts/spec/snapshot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/</guid>
+      <guid>//localhost:1313/concepts/spec/snapshot/</guid>
       <description>快照文件 Snapshot&#xD;#&#xD;每次提交都会生成一个 snapshot 文件，snapshot 文件的版本从 1 开始且必须连续。&#xA;EARLIEST 和 LATEST 是 snapshot 列表的起始和结束提示文件，但它们可能不准确。&#xA;当提示文件不准确时，读取操作会扫描所有 snapshot 文件以确定起始和结束位置。&#xA;warehouse └── default.db └── my_table ├── snapshot ├── EARLIEST ├── LATEST ├── snapshot-1 ├── snapshot-2 └── snapshot-3 写入提交时会预占下一个 snapshot ID，一旦 snapshot 文件成功写入，该提交即对外可见。&#xA;Snapshot 文件是 JSON 格式，内容包括：&#xA;version：Snapshot 文件版本，目前为 3。 id：snapshot ID，与文件名相同。 schemaId：该提交对应的 schema 版本。 baseManifestList：记录从上一个 snapshot 以来所有变更的 manifest 列表。 deltaManifestList：记录本次 snapshot 中发生的所有新增变更的 manifest 列表。 changelogManifestList：记录本次 snapshot 产生的所有变更日志的 manifest 列表，如果无变更日志则为 null。 indexManifest：记录该表所有索引文件的 manifest，如果无表索引文件则为 null。 commitUser：通常由 UUID 生成，用于流式写入的恢复，一个流写作业对应一个用户。 commitIdentifier：流式写入对应的事务 ID，每个事务可能因不同的 commitKind 导致多次提交。 commitKind：本次 snapshot 中变更的类型，包括 append（追加）、compact（压缩）、overwrite（覆盖）和 analyze（分析）。 timeMillis：提交时间（毫秒）。 logOffsets：提交日志偏移量。 totalRecordCount：本次 snapshot 中所有变更的记录数。 deltaRecordCount：本次 snapshot 中新增变更的记录数。 changelogRecordCount：本次 snapshot 中产生的变更日志记录数。 watermark：输入记录的 watermark，来源于 Flink 的 watermark 机制，无 watermark 时为 Long.</description>
     </item>
     <item>
       <title>Catalog</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/</link>
+      <link>//localhost:1313/concepts/catalog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/</guid>
+      <guid>//localhost:1313/concepts/catalog/</guid>
       <description>Catalog&#xD;#&#xD;Paimon 提供了 Catalog 抽象来管理目录和元数据。Catalog 抽象提供了一系列方法，帮助你更好地与计算引擎集成。我们始终建议使用 Catalog 来访问 Paimon 表。&#xA;Catalog 类型&#xD;#&#xD;Paimon 目前支持四种类型的元存储（metastore）：&#xA;filesystem metastore（默认），在文件系统中存储元数据和表文件。 hive metastore，额外将元数据存储在 Hive metastore 中，用户可以直接通过 Hive 访问表。 jdbc metastore，额外将元数据存储在关系型数据库中，如 MySQL、Postgres 等。 rest metastore，设计用于通过单一客户端轻量访问任意 Catalog 后端。 Filesystem Catalog&#xD;#&#xD;元数据和表文件存储在 hdfs:///path/to/warehouse 目录下。&#xA;-- Flink SQL CREATE CATALOG my_catalog WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;hdfs:///path/to/warehouse&amp;#39; ); Hive Catalog&#xD;#&#xD;使用 Paimon Hive Catalog 时，对 Catalog 的变更会直接影响对应的 Hive metastore。在该 Catalog 中创建的表也可以直接通过 Hive 访问。元数据和表文件存储在 hdfs:///path/to/warehouse，同时 schema 也存储在 Hive metastore 中。</description>
     </item>
     <item>
       <title>Catalog API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/</link>
+      <link>//localhost:1313/program-api/catalog-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/</guid>
+      <guid>//localhost:1313/program-api/catalog-api/</guid>
       <description>Catalog API&#xD;#&#xD;Create Database&#xD;#&#xD;You can use the catalog to create databases. The created databases are persistence in the file system.&#xA;import org.apache.paimon.catalog.Catalog; public class CreateDatabase { public static void main(String[] args) { try { Catalog catalog = CreateCatalog.createFilesystemCatalog(); catalog.createDatabase(&amp;#34;my_db&amp;#34;, false); } catch (Catalog.DatabaseAlreadyExistException e) { // do something } } } Determine Whether Database Exists&#xD;#&#xD;You can use the catalog to determine whether the database exists</description>
     </item>
     <item>
       <title>Committer</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/project/committer/</link>
+      <link>//localhost:1313/project/committer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/project/committer/</guid>
+      <guid>//localhost:1313/project/committer/</guid>
       <description>Committer&#xD;#&#xD;Become a Committer&#xD;#&#xD;How to become a committer&#xD;#&#xD;There is no strict protocol for becoming a committer. Candidates for new committers are typically people that are active contributors and community members. Candidates are suggested by current committers or PPMC members, and voted upon by the PPMC.&#xA;If you would like to become a committer, you should engage with the community and start contributing to Apache Paimon in any of the above ways.</description>
     </item>
     <item>
       <title>Dedicated Compaction</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/</link>
+      <link>//localhost:1313/maintenance/dedicated-compaction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/</guid>
+      <guid>//localhost:1313/maintenance/dedicated-compaction/</guid>
       <description>Dedicated Compaction&#xD;#&#xD;Paimon&amp;rsquo;s snapshot management supports writing with multiple writers.&#xA;For S3-like object store, its &#39;RENAME&#39; does not have atomic semantic. We need to configure Hive metastore and enable &#39;lock.enabled&#39; option for the catalog.&#xD;By default, Paimon supports concurrent writing to different partitions. A recommended mode is that streaming job writes records to Paimon&amp;rsquo;s latest partition, Simultaneously batch job (overwrite) writes records to the historical partition.&#xA;So far, everything works very well, but if you need multiple writers to write records to the same partition, it will be a bit more complicated.</description>
     </item>
     <item>
       <title>First Row</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/</link>
+      <link>//localhost:1313/primary-key-table/merge-engine/first-row/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/</guid>
+      <guid>//localhost:1313/primary-key-table/merge-engine/first-row/</guid>
       <description>First Row&#xD;#&#xD;By specifying &#39;merge-engine&#39; = &#39;first-row&#39;, users can keep the first row of the same primary key. It differs from the deduplicate merge engine that in the first-row merge engine, it will generate insert only changelog.&#xA;first-row merge engine only supports none and lookup changelog producer. For streaming queries must be used with the lookup changelog producer.&#xD;You can not specify sequence.field. Not accept DELETE and UPDATE_BEFORE message.</description>
     </item>
     <item>
       <title>Hive</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/ecosystem/hive/</link>
+      <link>//localhost:1313/ecosystem/hive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/ecosystem/hive/</guid>
+      <guid>//localhost:1313/ecosystem/hive/</guid>
       <description>Hive&#xD;#&#xD;This documentation is a guide for using Paimon in Hive.&#xA;Version&#xD;#&#xD;Paimon currently supports Hive 3.1, 2.3, 2.2, 2.1 and 2.1-cdh-6.3.&#xA;Execution Engine&#xD;#&#xD;Paimon currently supports MR and Tez execution engine for Hive Read, and MR execution engine for Hive Write. Note If you use beeline, please restart the hive cluster.&#xA;Installation&#xD;#&#xD;Download the jar file with corresponding version.&#xA;Jar Hive 3.1 paimon-hive-connector-3.1-1.2.0.jar Hive 2.</description>
     </item>
     <item>
       <title>Iceberg Tags</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/iceberg/iceberg-tags/</link>
+      <link>//localhost:1313/iceberg/iceberg-tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/iceberg/iceberg-tags/</guid>
+      <guid>//localhost:1313/iceberg/iceberg-tags/</guid>
       <description>Iceberg Tags&#xD;#&#xD;When enable iceberg compatibility, Paimon Tags will also be synced to Iceberg Tags.&#xA;CREATE CATALOG paimon WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;&amp;lt;path-to-warehouse&amp;gt;&amp;#39; ); CREATE CATALOG iceberg WITH ( &amp;#39;type&amp;#39; = &amp;#39;iceberg&amp;#39;, &amp;#39;catalog-type&amp;#39; = &amp;#39;hadoop&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;&amp;lt;path-to-warehouse&amp;gt;/iceberg&amp;#39;, &amp;#39;cache-enabled&amp;#39; = &amp;#39;false&amp;#39; -- disable iceberg catalog caching to quickly see the result ); -- create tag for paimon table CALL paimon.sys.create_tag(&amp;#39;default.T&amp;#39;, &amp;#39;tag1&amp;#39;, 1); -- query tag in iceberg table SELECT * FROM iceberg.</description>
     </item>
     <item>
       <title>Mongo CDC</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/</link>
+      <link>//localhost:1313/cdc-ingestion/mongo-cdc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/</guid>
+      <guid>//localhost:1313/cdc-ingestion/mongo-cdc/</guid>
       <description>Mongo CDC&#xD;#&#xD;Prepare MongoDB Bundled Jar&#xD;#&#xD;flink-sql-connector-mongodb-cdc-*.jar only cdc 3.1+ is supported&#xA;Synchronizing Tables&#xD;#&#xD;By using MongoDBSyncTableAction in a Flink DataStream job or directly through flink run, users can synchronize one collection from MongoDB into one Paimon table.&#xA;To use this feature through flink run, run the following shell command.&#xA;&amp;lt;FLINK_HOME&amp;gt;/bin/flink run \ /path/to/paimon-flink-action-1.2.0.jar \ mongodb_sync_table \ --warehouse &amp;lt;warehouse-path&amp;gt; \ --database &amp;lt;database-name&amp;gt; \ --table &amp;lt;table-name&amp;gt; \ [--partition_keys &amp;lt;partition_keys&amp;gt;] \ [--computed_column &amp;lt;&amp;#39;column-name=expr-name(args[, .</description>
     </item>
     <item>
       <title>SQL Query</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/sql-query/</link>
+      <link>//localhost:1313/flink/sql-query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/sql-query/</guid>
+      <guid>//localhost:1313/flink/sql-query/</guid>
       <description>SQL Query&#xD;#&#xD;Just like all other tables, Paimon tables can be queried with SELECT statement.&#xA;Batch Query&#xD;#&#xD;Paimon&amp;rsquo;s batch read returns all the data in a snapshot of the table. By default, batch reads return the latest snapshot.&#xA;-- Flink SQL SET &amp;#39;execution.runtime-mode&amp;#39; = &amp;#39;batch&amp;#39;; Batch Time Travel&#xD;#&#xD;Paimon batch reads with time travel can specify a snapshot or a tag and read the corresponding data.</description>
     </item>
     <item>
       <title>SQL Query</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/sql-query/</link>
+      <link>//localhost:1313/spark/sql-query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/sql-query/</guid>
+      <guid>//localhost:1313/spark/sql-query/</guid>
       <description>SQL Query&#xD;#&#xD;Just like all other tables, Paimon tables can be queried with SELECT statement.&#xA;Batch Query&#xD;#&#xD;Paimon&amp;rsquo;s batch read returns all the data in a snapshot of the table. By default, batch reads return the latest snapshot.&#xA;-- read all columns SELECT * FROM t; Paimon also supports reading some hidden metadata columns, currently supporting the following columns:&#xA;__paimon_file_path: the file path of the record. __paimon_partition: the partition of the record.</description>
     </item>
     <item>
       <title>Update</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</link>
+      <link>//localhost:1313/append-table/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</guid>
+      <guid>//localhost:1313/append-table/update/</guid>
       <description>Update&#xD;#&#xD;Now, only Spark SQL supports DELETE &amp;amp; UPDATE, you can take a look at Spark Write.&#xA;Example:&#xA;DELETE FROM my_table WHERE currency = &amp;#39;UNKNOWN&amp;#39;; Update append table has two modes:&#xA;COW (Copy on Write): search for the hit files and then rewrite each file to remove the data that needs to be deleted from the files. This operation is costly. MOW (Merge on Write): By specifying &#39;deletion-vectors.enabled&#39; = &#39;true&#39;, the Deletion Vectors mode can be enabled.</description>
     </item>
     <item>
       <title>清单文件 Manifest</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/</link>
+      <link>//localhost:1313/concepts/spec/manifest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/</guid>
+      <guid>//localhost:1313/concepts/spec/manifest/</guid>
       <description>Manifest&#xD;#&#xD;Manifest List&#xD;#&#xD;├── manifest └── manifest-list-51c16f7b-421c-4bc0-80a0-17677f343358-1 Manifest List 包含多个 manifest 文件的元信息。其文件名包含 UUID，是一个 Avro 文件，schema 如下：&#xA;_FILE_NAME：STRING，manifest 文件名。 _FILE_SIZE：BIGINT，manifest 文件大小。 _NUM_ADDED_FILES：BIGINT，manifest 中新增文件数量。 _NUM_DELETED_FILES：BIGINT，manifest 中删除文件数量。 _PARTITION_STATS：SimpleStats，分区统计信息，该 manifest 中分区字段的最小值和最大值，有助于查询时跳过某些 manifest 文件。 _SCHEMA_ID：BIGINT，写入该 manifest 文件时的 schema ID。 Manifest&#xD;#&#xD;Manifest 包含多个数据文件、变更日志文件或表索引文件的元信息。其文件名包含 UUID，是一个 Avro 文件。&#xA;文件的变更记录保存在 manifest 中，文件可以被添加或删除。Manifest 应保持有序，同一个文件可能被多次添加或删除，最终以最新版本为准。 该设计使得提交操作更轻量，支持由压缩操作产生的文件删除。&#xA;Data Manifest&#xD;#&#xD;Data Manifest 包含多个数据文件或变更日志文件的元信息。&#xA;├── manifest └── manifest-6758823b-2010-4d06-aef0-3b1b597723d6-0 Schema 如下：&#xA;_KIND：TINYINT，表示操作类型，ADD（添加）或 DELETE（删除）。 _PARTITION：BYTES，分区规格，BinaryRow 格式。 _BUCKET：INT，该文件所属的桶。 _TOTAL_BUCKETS：INT，写入该文件时的总桶数，用于桶变更后的校验。 _FILE：数据文件元信息。 数据文件元信息包括：&#xA;_FILE_NAME：STRING，文件名。 _FILE_SIZE：BIGINT，文件大小。 _ROW_COUNT：BIGINT，该文件中总行数（包含添加和删除）。 _MIN_KEY：STRING，该文件的最小键。 _MAX_KEY：STRING，该文件的最大键。 _KEY_STATS：SimpleStats，键的统计信息。 _VALUE_STATS：SimpleStats，值的统计信息。 _MIN_SEQUENCE_NUMBER：BIGINT，最小序列号。 _MAX_SEQUENCE_NUMBER：BIGINT，最大序列号。 _SCHEMA_ID：BIGINT，写入该文件时的 schema ID。 _LEVEL：INT，文件在 LSM 中的层级。 _EXTRA_FILES：ARRAY，该文件的额外文件，例如数据文件索引文件。 _CREATION_TIME：TIMESTAMP_MILLIS，文件创建时间。 _DELETE_ROW_COUNT：BIGINT，删除的行数，行数计算为 addRowCount + deleteRowCount。 _EMBEDDED_FILE_INDEX：BYTES，如果数据文件索引过小，则存储在 manifest 中。 _FILE_SOURCE：TINYINT，指示该文件是作为追加（APPEND）还是压缩（COMPACT）文件生成。 _VALUE_STATS_COLS：ARRAY，元数据中的统计列。 _EXTERNAL_PATH：该文件的外部路径，如果在仓库中则为 null。 Index Manifest&#xD;#&#xD;Index Manifest 包含多个 table-index 文件的元信息。</description>
     </item>
     <item>
       <title>Bucketed</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</link>
+      <link>//localhost:1313/append-table/bucketed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</guid>
+      <guid>//localhost:1313/append-table/bucketed/</guid>
       <description>Bucketed Append&#xD;#&#xD;You can define the bucket and bucket-key to get a bucketed append table.&#xA;Example to create bucketed append table:&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &amp;#39;bucket&amp;#39; = &amp;#39;8&amp;#39;, &amp;#39;bucket-key&amp;#39; = &amp;#39;product_id&amp;#39; ); Streaming&#xD;#&#xD;An ordinary Append table has no strict ordering guarantees for its streaming writes and reads, but there are some cases where you need to define a key similar to Kafka&amp;rsquo;s.</description>
     </item>
     <item>
-      <title>Changelog Producer</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/</guid>
-      <description>Changelog Producer&#xD;#&#xD;Streaming write can continuously produce the latest changes for streaming read.&#xA;By specifying the changelog-producer table property when creating the table, users can choose the pattern of changes produced from table files.&#xA;changelog-producer may significantly reduce compaction performance, please do not enable it unless necessary.&#xD;None&#xD;#&#xD;By default, no extra changelog producer will be applied to the writer of table. Paimon source can only see the merged changes across snapshots, like what keys are removed and what are the new values of some keys.</description>
-    </item>
-    <item>
       <title>Clone To Paimon</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/migration/clone-to-paimon/</link>
+      <link>//localhost:1313/migration/clone-to-paimon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/migration/clone-to-paimon/</guid>
+      <guid>//localhost:1313/migration/clone-to-paimon/</guid>
       <description>Clone To Paimon&#xD;#&#xD;Clone supports cloning tables to Paimon tables.&#xA;Clone is OVERWRITE semantic that will overwrite the partitions of the target table according to the data. Clone is reentrant, but it requires existing tables to contain all fields from the source table and have the same partition fields. Currently, clone supports:&#xA;Clone Hive tables in Hive Catalog to Paimon Catalog, supports Parquet, ORC, Avro formats, target table will be append table.</description>
     </item>
     <item>
       <title>Consumer ID</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/</link>
+      <link>//localhost:1313/flink/consumer-id/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/</guid>
+      <guid>//localhost:1313/flink/consumer-id/</guid>
       <description>Consumer ID&#xD;#&#xD;Consumer id can help you accomplish the following two things:&#xA;Safe consumption: When deciding whether a snapshot has expired, Paimon looks at all the consumers of the table in the file system, and if there are consumers that still depend on this snapshot, then this snapshot will not be deleted by expiration. Resume from breakpoint: When previous job is stopped, the newly started job can continue to consume from the previous progress without resuming from the state.</description>
     </item>
     <item>
       <title>Hive Catalogs</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/iceberg/hive-catalog/</link>
+      <link>//localhost:1313/iceberg/hive-catalog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/iceberg/hive-catalog/</guid>
+      <guid>//localhost:1313/iceberg/hive-catalog/</guid>
       <description>Hive Catalog&#xD;#&#xD;When creating Paimon table, set &#39;metadata.iceberg.storage&#39; = &#39;hive-catalog&#39;. This option value not only store Iceberg metadata like hadoop-catalog, but also create Iceberg external table in Hive. This Paimon table can be accessed from Iceberg Hive catalog later.&#xA;To provide information about Hive metastore, you also need to set some (or all) of the following table options when creating Paimon table.&#xA;Option&#xD;Default&#xD;Type&#xD;Description&#xD;metadata.iceberg.uri&#xD;String&#xD;Hive metastore uri for Iceberg Hive catalog.</description>
     </item>
     <item>
       <title>Manage Snapshots</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-snapshots/</link>
+      <link>//localhost:1313/maintenance/manage-snapshots/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-snapshots/</guid>
+      <guid>//localhost:1313/maintenance/manage-snapshots/</guid>
       <description>Manage Snapshots&#xD;#&#xD;This section will describe the management and behavior related to snapshots.&#xA;Expire Snapshots&#xD;#&#xD;Paimon writers generate one or two snapshot per commit. Each snapshot may add some new data files or mark some old data files as deleted. However, the marked data files are not truly deleted because Paimon also supports time traveling to an earlier snapshot. They are only deleted when the snapshot expires.</description>
     </item>
     <item>
       <title>Pulsar CDC</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/</link>
+      <link>//localhost:1313/cdc-ingestion/pulsar-cdc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/</guid>
+      <guid>//localhost:1313/cdc-ingestion/pulsar-cdc/</guid>
       <description>Pulsar CDC&#xD;#&#xD;Prepare Pulsar Bundled Jar&#xD;#&#xD;flink-connector-pulsar-*.jar Supported Formats&#xD;#&#xD;Flink provides several Pulsar CDC formats: Canal Json, Debezium Json, Debezium Avro, Ogg Json, Maxwell Json and Normal Json. If a message in a pulsar topic is a change event captured from another database using the Change Data Capture (CDC) tool, then you can use the Paimon Pulsar CDC. Write the INSERT, UPDATE, DELETE messages parsed into the paimon table.</description>
     </item>
     <item>
       <title>Python API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/program-api/python-api/</link>
+      <link>//localhost:1313/program-api/python-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/program-api/python-api/</guid>
+      <guid>//localhost:1313/program-api/python-api/</guid>
       <description>Java-based Implementation For Python API&#xD;#&#xD;Python SDK has defined Python API for Paimon. Currently, there is only a Java-based implementation.&#xA;Java-based implementation will launch a JVM and use py4j to execute Java code to read and write Paimon table.&#xA;Environment Settings&#xD;#&#xD;SDK Installing&#xD;#&#xD;SDK is published at pypaimon. You can install by&#xA;pip install pypaimon Java Runtime Environment&#xD;#&#xD;This SDK needs JRE 1.8. After installing JRE, make sure that at least one of the following conditions is met:</description>
     </item>
     <item>
       <title>Trino</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/ecosystem/trino/</link>
+      <link>//localhost:1313/ecosystem/trino/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/ecosystem/trino/</guid>
+      <guid>//localhost:1313/ecosystem/trino/</guid>
       <description>Trino&#xD;#&#xD;This documentation is a guide for using Paimon in Trino.&#xA;Version&#xD;#&#xD;Paimon currently supports Trino 440.&#xA;Filesystem&#xD;#&#xD;From version 0.8, Paimon share Trino filesystem for all actions, which means, you should config Trino filesystem before using trino-paimon. You can find information about how to config filesystems for Trino on Trino official website.&#xA;Preparing Paimon Jar File&#xD;#&#xD;Download&#xA;You can also manually build a bundled jar from the source code.</description>
     </item>
     <item>
-      <title>数据文件 DataFile</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/</link>
+      <title>变化日志生产者 Changelog Producer</title>
+      <link>//localhost:1313/primary-key-table/changelog-producer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/</guid>
+      <guid>//localhost:1313/primary-key-table/changelog-producer/</guid>
+      <description>Changelog Producer&#xD;#&#xD;流式写入可以持续产生最新变更，供流式读取使用。&#xA;通过在创建表时指定 changelog-producer 表属性，用户可以选择从表文件中产生变更的方式。&#xA;changelog-producer 可能会显著降低压缩性能，除非必要，请勿启用。&#xD;None&#xD;#&#xD;默认情况下，表的写入端不会应用额外的变更日志（changelog）生成器。Paimon 源仅能看到跨快照合并后的变更，比如哪些键被删除，某些键的新值是什么。&#xA;然而，这些合并后的变更无法形成完整的变更日志，因为我们无法直接从中读取键的旧值。合并变更要求消费者“记住”每个键的值，并在看不到旧值的情况下重写新值。但有些消费者需要旧值来保证正确性或效率。&#xA;例如，有个消费者计算某些分组键（可能与主键不同）的求和。如果消费者只看到一个新值 5，它无法判断应该对求和结果加多少。如果旧值是 4，应加 1；如果旧值是 6，则应减 1。旧值对于这类消费者非常重要。&#xA;综上所述，none 类型的变更日志生成器最适合数据库系统等消费者。Flink 内置了一个“normalize”操作符，会将每个键的值保存在状态中。显而易见，这个操作符开销很大，应该避免使用。（你可以通过 &#39;scan.remove-normalize&#39; 强制移除该操作符。）&#xA;Input&#xD;#&#xD;通过指定 &#39;changelog-producer&#39; = &#39;input&#39;，Paimon 写入端依赖其输入作为完整变更日志的来源。所有输入记录都会被保存到独立的变更日志文件中，并由 Paimon 源提供给消费者。&#xA;当 Paimon 写入端的输入本身就是完整变更日志时（例如来自数据库 CDC，或由 Flink 有状态计算生成），可以使用 input 类型的变更日志生成器。&#xA;Lookup&#xD;#&#xD;如果你的输入无法生成完整的变更日志，但仍希望避免高开销的 normalize 操作符，可以考虑使用 &#39;lookup&#39; 类型的变更日志生成器。&#xA;通过指定 &#39;changelog-producer&#39; = &#39;lookup&#39;，Paimon 会在提交数据写入前，通过 &#39;lookup&#39; 方式生成变更日志。（你也可以启用 Async Compaction).&#xA;Lookup 会将数据缓存到内存和本地磁盘，你可以使用以下选项来调优性能：&#xA;Option&#xD;Default&#xD;Type&#xD;Description&#xD;lookup.cache-file-retention&#xD;1 h&#xD;Duration&#xD;用于 lookup 的缓存文件保留时间。文件过期后，如果仍需要访问，它将会从分布式文件系统（DFS）重新读取，并在本地磁盘上重建索引。&#xD;lookup.</description>
+    </item>
+    <item>
+      <title>数据文件 DataFile</title>
+      <link>//localhost:1313/concepts/spec/datafile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/concepts/spec/datafile/</guid>
       <description>数据文件 DataFile&#xD;#&#xD;Partition&#xD;#&#xD;通过 Flink SQL 创建分区表示例：&#xA;CREATE TABLE part_t ( f0 INT, f1 STRING, dt STRING ) PARTITIONED BY (dt); INSERT INTO part_t VALUES (1, &amp;#39;11&amp;#39;, &amp;#39;20240514&amp;#39;); 文件系统结构如下：&#xA;part_t ├── dt=20240514 │ └── bucket-0 │ └── data-ca1c3c38-dc8d-4533-949b-82e195b41bd4-0.orc ├── manifest │ ├── manifest-08995fe5-c2ac-4f54-9a5f-d3af1fcde41d-0 │ ├── manifest-list-51c16f7b-421c-4bc0-80a0-17677f343358-0 │ └── manifest-list-51c16f7b-421c-4bc0-80a0-17677f343358-1 ├── schema │ └── schema-0 └── snapshot ├── EARLIEST ├── LATEST └── snapshot-1 Paimon 采用与 Apache Hive 相同的分区概念来划分数据。分区的数据文件会被放置在独立的分区目录中。</description>
     </item>
     <item>
       <title>Amoro</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/ecosystem/amoro/</link>
+      <link>//localhost:1313/ecosystem/amoro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/ecosystem/amoro/</guid>
+      <guid>//localhost:1313/ecosystem/amoro/</guid>
       <description>Apache Amoro With Paimon&#xD;#&#xD;Apache Amoro(incubating) is a Lakehouse management system built on open data lake formats. Working with compute engines including Flink, Spark, and Trino, Amoro brings pluggable and Table Maintenance features for a Lakehouse to provide out-of-the-box data warehouse experience, and helps data platforms or products easily build infra-decoupled, stream-and-batch-fused and lake-native architecture. AMS(Amoro Management Service) provides Lakehouse management features, like self-optimizing, data expiration, etc. It also provides a unified catalog service for all compute engines, which can also be combined with existing metadata services like HMS(Hive Metastore).</description>
     </item>
     <item>
       <title>Debezium BSON</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/debezium-bson/</link>
+      <link>//localhost:1313/cdc-ingestion/debezium-bson/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/debezium-bson/</guid>
+      <guid>//localhost:1313/cdc-ingestion/debezium-bson/</guid>
       <description>Debezium BSON Format&#xD;#&#xD;The debezium-bson format is one of the formats supported by Kafka CDC. It is the format obtained by collecting mongodb through debezium, which is similar to debezium-json format. However, MongoDB does not have a fixed schema, and the field types of each document may be different, so the before/after fields in JSON are all string types, while the debezium-json format requires a JSON object type.</description>
     </item>
     <item>
       <title>Ecosystem</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/iceberg/ecosystem/</link>
+      <link>//localhost:1313/iceberg/ecosystem/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/iceberg/ecosystem/</guid>
+      <guid>//localhost:1313/iceberg/ecosystem/</guid>
       <description>Iceberg Ecosystems&#xD;#&#xD;AWS Athena&#xD;#&#xD;AWS Athena may use old manifest reader to read Iceberg manifest by names, we should let Paimon producing legacy Iceberg manifest list file, you can enable: &#39;metadata.iceberg.manifest-legacy-version&#39;.&#xA;DuckDB&#xD;#&#xD;Duckdb may rely on files placed in the root/data directory, while Paimon is usually placed directly in the root directory, so you can configure this parameter for the table to achieve compatibility: &#39;data-file.path-directory&#39; = &#39;data&#39;.</description>
     </item>
     <item>
-      <title>Sequence &amp; Rowkind</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/sequence-rowkind/</link>
+      <title>Sequence 和 Rowkind</title>
+      <link>//localhost:1313/primary-key-table/sequence-rowkind/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/sequence-rowkind/</guid>
-      <description>Sequence and Rowkind&#xD;#&#xD;When creating a table, you can specify the &#39;sequence.field&#39; by specifying fields to determine the order of updates, or you can specify the &#39;rowkind.field&#39; to determine the changelog kind of record.&#xA;Sequence Field&#xD;#&#xD;By default, the primary key table determines the merge order according to the input order (the last input record will be the last to merge). However, in distributed computing, there will be some cases that lead to data disorder.</description>
+      <guid>//localhost:1313/primary-key-table/sequence-rowkind/</guid>
+      <description>Sequence 和 Rowkind&#xD;#&#xD;创建表时，可以通过指定 &#39;sequence.field&#39; 来确定更新的顺序，或者通过指定 &#39;rowkind.field&#39; 来确定记录的变更日志（changelog）类型。&#xA;Sequence Field&#xD;#&#xD;默认情况下，主键表根据输入顺序决定合并顺序（最后输入的记录最后合并）。但在分布式计算中，可能会出现数据乱序的情况，此时可以使用时间字段作为 sequence.field，例如：&#xA;Flink&#xD;CREATE TABLE my_table ( pk BIGINT PRIMARY KEY NOT ENFORCED, v1 DOUBLE, v2 BIGINT, update_time TIMESTAMP ) WITH ( &amp;#39;sequence.field&amp;#39; = &amp;#39;update_time&amp;#39; ); sequence.field 值最大的记录将会是最后合并的，如果值相同，则使用输入顺序来决定哪条记录是最后的。sequence.field 支持所有数据类型的字段。&#xA;你也可以定义多个字段作为 sequence.field，例如 &#39;update_time,flag&#39;，多个字段将按顺序依次比较。&#xA;用户自定义的 sequence 字段与 first_row 和 first_value 等特性可能存在冲突，可能导致意料之外的结果。&#xD;Row Kind Field&#xD;#&#xD;默认情况下，主键表根据输入行确定行类型（row kind）。你也可以定义 &#39;rowkind.field&#39;，通过指定字段来提取行类型。&#xA;有效的行类型字符串应为 &#39;+I&#39;、&#39;-U&#39;、&#39;+U&#39; 或 &#39;-D&#39;。</description>
     </item>
     <item>
       <title>SQL Alter</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/sql-alter/</link>
+      <link>//localhost:1313/spark/sql-alter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/sql-alter/</guid>
+      <guid>//localhost:1313/spark/sql-alter/</guid>
       <description>Altering Tables&#xD;#&#xD;Changing/Adding Table Properties&#xD;#&#xD;The following SQL sets write-buffer-size table property to 256 MB.&#xA;ALTER TABLE my_table SET TBLPROPERTIES ( &amp;#39;write-buffer-size&amp;#39; = &amp;#39;256 MB&amp;#39; ); Removing Table Properties&#xD;#&#xD;The following SQL removes write-buffer-size table property.&#xA;ALTER TABLE my_table UNSET TBLPROPERTIES (&amp;#39;write-buffer-size&amp;#39;); Changing/Adding Table Comment&#xD;#&#xD;The following SQL changes comment of table my_table to table comment.&#xA;ALTER TABLE my_table SET TBLPROPERTIES ( &amp;#39;comment&amp;#39; = &amp;#39;table comment&amp;#39; ); Removing Table Comment&#xD;#&#xD;The following SQL removes table comment.</description>
     </item>
     <item>
       <title>SQL Lookup</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/sql-lookup/</link>
+      <link>//localhost:1313/flink/sql-lookup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/sql-lookup/</guid>
+      <guid>//localhost:1313/flink/sql-lookup/</guid>
       <description>Lookup Joins&#xD;#&#xD;Lookup Joins are a type of join in streaming queries. It is used to enrich a table with data that is queried from Paimon. The join requires one table to have a processing time attribute and the other table to be backed by a lookup source connector.&#xA;Paimon supports lookup joins on tables with primary keys and append tables in Flink. The following example illustrates this feature.</description>
     </item>
     <item>
       <title>表类型 Table Types</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/</link>
+      <link>//localhost:1313/concepts/table-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/</guid>
+      <guid>//localhost:1313/concepts/table-types/</guid>
       <description>表类型&#xD;#&#xD;Paimon 支持的表类型：&#xD;#&#xD;table with pk: 带主键的 Paimon 数据表 table w/o pk: 不带主键的 Paimon 数据表 view: 需要 metastore 的 SQL 视图，是一种虚拟表 format-table: 文件格式表指向一个包含多个相同格式文件的目录，对该表的操作允许读取或写入这些文件，兼容 Hive 表 object table: 为指定对象存储目录中的非结构化数据对象提供元数据索引 materialized-table: 用于简化批处理和流处理数据管道，提供一致的开发体验，详见 Flink Materialized Table Table with PK&#xD;#&#xD;See Paimon with Primary key.&#xA;主键由一组列组成，每条记录的这些列的值都是唯一的。Paimon 通过在每个 bucket 内对主键排序来强制数据有序，从而支持流式更新和流式变更日志读取。&#xA;主键的定义类似于标准 SQL，它确保在批量查询时，对于相同的主键只存在一条数据记录。&#xA;Flink SQL&#xD;CREATE TABLE my_table ( a INT PRIMARY KEY NOT ENFORCED, b STRING ) WITH ( &amp;#39;bucket&amp;#39;=&amp;#39;8&amp;#39; ) Spark SQL&#xD;CREATE TABLE my_table ( a INT, b STRING ) TBLPROPERTIES ( &amp;#39;primary-key&amp;#39; = &amp;#39;a&amp;#39;, &amp;#39;bucket&amp;#39; = &amp;#39;8&amp;#39; ) Table w/o PK&#xD;#&#xD;See Paimon w/o Primary key.</description>
     </item>
     <item>
       <title>表索引 Table Index</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/</link>
+      <link>//localhost:1313/concepts/spec/tableindex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/</guid>
+      <guid>//localhost:1313/concepts/spec/tableindex/</guid>
       <description>表索引 Table index&#xD;#&#xD;表索引文件存放在 index 目录中。&#xA;Dynamic Bucket Index&#xD;#&#xD;动态桶索引用于存储主键哈希值与桶的对应关系。&#xA;其结构非常简单，文件中只存储哈希值：&#xA;HASH_VALUE | HASH_VALUE | HASH_VALUE | HASH_VALUE | &amp;hellip;&#xA;HASH_VALUE 是主键的哈希值，4 字节，采用大端（BIG_ENDIAN）存储。&#xA;Deletion Vectors&#xD;#&#xD;Deletion file 用于存储每个数据文件中被删除记录的位置。主键表中每个桶对应一个 Deletion file 。&#xA;Deletion file 是二进制文件，格式如下：&#xA;首先，用 1 字节记录版本号，当前版本为 1。 然后，依次记录 &amp;lt;序列化位图大小、序列化位图、序列化位图的校验和&amp;gt;。 大小和校验和均为大端（BIG_ENDIAN）整数。 每个序列化位图的序列化格式由 deletion-vectors.bitmap64 决定。 Paimon 默认使用 32 位位图存储删除记录，但如果设置了 deletion-vectors.bitmap64 为 true，则使用 64 位位图。 两种位图的序列化方式不同。注意，只有 64 位位图实现与 Iceberg 兼容。&#xA;32 位位图的序列化（默认）：&#xA;先用一个大端整数（BIG_ENDIAN）记录一个固定魔数，当前魔数为 1581511376。 然后记录一个 32 位序列化位图，即一个 RoaringBitmap（org.roaringbitmap.RoaringBitmap）。 64 位位图的序列化：</description>
     </item>
     <item>
       <title>Auxiliary</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/auxiliary/</link>
+      <link>//localhost:1313/spark/auxiliary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/auxiliary/</guid>
+      <guid>//localhost:1313/spark/auxiliary/</guid>
       <description>Auxiliary Statements&#xD;#&#xD;Set / Reset&#xD;#&#xD;The SET command sets a property, returns the value of an existing property or returns all SQLConf properties with value and meaning. The RESET command resets runtime configurations specific to the current session which were set via the SET command to their default values.&#xA;To set dynamic options globally, you need add the spark.paimon. prefix. You can also set dynamic table options at this format: spark.</description>
     </item>
     <item>
-      <title>Compaction</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/</guid>
-      <description>Compaction&#xD;#&#xD;When more and more records are written into the LSM tree, the number of sorted runs will increase. Because querying an LSM tree requires all sorted runs to be combined, too many sorted runs will result in a poor query performance, or even out of memory.&#xA;To limit the number of sorted runs, we have to merge several sorted runs into one big sorted run once in a while.</description>
-    </item>
-    <item>
       <title>Configurations</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/iceberg/configurations/</link>
+      <link>//localhost:1313/iceberg/configurations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/iceberg/configurations/</guid>
+      <guid>//localhost:1313/iceberg/configurations/</guid>
       <description>Configurations&#xD;#&#xD;Options for Iceberg Compatibility.&#xA;Key&#xD;Default&#xD;Type&#xD;Description&#xD;metadata.iceberg.compaction.max.file-num&#xD;50&#xD;Integer&#xD;If number of small Iceberg manifest metadata files exceeds this limit, always trigger manifest metadata compaction regardless of their total size.&#xD;metadata.iceberg.compaction.min.file-num&#xD;10&#xD;Integer&#xD;Minimum number of Iceberg manifest metadata files to trigger manifest metadata compaction.&#xD;metadata.iceberg.database&#xD;(none)&#xD;String&#xD;Metastore database name for Iceberg Catalog. Set this as an iceberg database alias if using a centralized Catalog.</description>
     </item>
     <item>
       <title>Rescale Bucket</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/</link>
+      <link>//localhost:1313/maintenance/rescale-bucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/</guid>
+      <guid>//localhost:1313/maintenance/rescale-bucket/</guid>
       <description>Rescale Bucket&#xD;#&#xD;Since the number of total buckets dramatically influences the performance, Paimon allows users to tune bucket numbers by ALTER TABLE command and reorganize data layout by INSERT OVERWRITE without recreating the table/partition. When executing overwrite jobs, the framework will automatically scan the data with the old bucket number and hash the record according to the current bucket number.&#xA;Rescale Overwrite&#xD;#&#xD;-- rescale number of total buckets ALTER TABLE table_identifier SET (&amp;#39;bucket&amp;#39; = &amp;#39;.</description>
     </item>
     <item>
       <title>SQL Alter</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/sql-alter/</link>
+      <link>//localhost:1313/flink/sql-alter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/sql-alter/</guid>
+      <guid>//localhost:1313/flink/sql-alter/</guid>
       <description>Altering Tables&#xD;#&#xD;Changing/Adding Table Properties&#xD;#&#xD;The following SQL sets write-buffer-size table property to 256 MB.&#xA;ALTER TABLE my_table SET ( &amp;#39;write-buffer-size&amp;#39; = &amp;#39;256 MB&amp;#39; ); Removing Table Properties&#xD;#&#xD;The following SQL removes write-buffer-size table property.&#xA;ALTER TABLE my_table RESET (&amp;#39;write-buffer-size&amp;#39;); Changing/Adding Table Comment&#xD;#&#xD;The following SQL changes comment of table my_table to table comment.&#xA;ALTER TABLE my_table SET ( &amp;#39;comment&amp;#39; = &amp;#39;table comment&amp;#39; ); Removing Table Comment&#xD;#&#xD;The following SQL removes table comment.</description>
     </item>
     <item>
-      <title>文件索引 File Index</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/</link>
+      <title>合并 Compaction</title>
+      <link>//localhost:1313/primary-key-table/compaction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/</guid>
+      <guid>//localhost:1313/primary-key-table/compaction/</guid>
+      <description>合并 Compaction&#xD;#&#xD;随着越来越多的记录写入 LSM 树，排序运行（sorted runs）的数量也会增加。由于查询 LSM 树需要合并所有的排序运行，过多的排序运行会导致查询性能下降，甚至出现内存不足。&#xA;为了限制排序运行的数量，我们需要不时将多个排序运行合并成一个更大的排序运行，这个过程称为compaction。&#xA;但是，compaction 是一个资源密集型过程，会消耗一定的 CPU 时间和磁盘 IO，过于频繁的compaction反而可能导致写入变慢。这是在查询性能和写入性能之间的权衡。Paimon 当前采用了类似 RocksDB 的compaction策略 universal compaction.&#xA;Compaction 解决的问题：&#xA;减少 Level 0 文件数量，避免查询性能下降。 通过 changelog-producer 生成 changelog。 为 MOW 模式 生成 deletion vectors。 支持 Snapshot 过期、Tag 过期和分区过期。 限制：&#xA;同一个分区只能有一个 compaction 任务在运行，否则会导致冲突，且一方会抛出异常失败。 写入性能几乎总是会受到 compaction 的影响，因此调优非常关键。&#xA;异步合并 Asynchronous Compaction&#xD;#&#xD;Compaction 本质上是异步的，但如果你希望它完全异步且不阻塞写入操作，以追求最大写入吞吐量，可以让 compaction 过程更缓慢，不急于完成。&#xA;你可以为表配置以下策略：&#xA;num-sorted-run.stop-trigger = 2147483647 sort-spill-threshold = 10 lookup-wait = false 这项配置会在写入高峰期产生更多文件，并在写入低谷期逐步合并这些文件，从而实现最佳的读取性能&#xA;Dedicated compaction job&#xD;#&#xD;一般来说，如果你期望多个写入任务同时写同一个表，必须将 compaction 任务单独分离出来。你可以使用以下方式： dedicated compaction job.</description>
+    </item>
+    <item>
+      <title>文件索引 File Index</title>
+      <link>//localhost:1313/concepts/spec/fileindex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/concepts/spec/fileindex/</guid>
       <description>File index&#xD;#&#xD;定义 file-index.${index_type}.columns 后，Paimon 会为每个数据文件创建对应的索引文件。&#xA;如果索引文件过小，会直接存储在 manifest 中，或者存放在数据文件的目录中。&#xA;每个数据文件对应一个索引文件，索引文件有独立的文件定义，可以包含多列的多种类型索引。&#xA;Index File&#xD;#&#xD;文件索引文件格式：&#xA;将所有列信息和偏移量存放在文件头部。&#xA;______________________________________ _____________________&#xD;| magic ｜version｜head length |&#xD;|--------------------------------------|&#xD;| column number |&#xD;|--------------------------------------|&#xD;| column 1 ｜ index number |&#xD;|--------------------------------------|&#xD;| index name 1 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 2 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 3 ｜start pos ｜length |&#xD;|--------------------------------------| HEAD&#xD;| column 2 ｜ index number |&#xD;|--------------------------------------|&#xD;| index name 1 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 2 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 3 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| .</description>
     </item>
     <item>
       <title>系统表 System Tables</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/</link>
+      <link>//localhost:1313/concepts/system-tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/</guid>
+      <guid>//localhost:1313/concepts/system-tables/</guid>
       <description>System Tables&#xD;#&#xD;Paimon 提供了非常丰富的系统表，帮助用户更好地分析和查询 Paimon 表的状态：&#xA;查询数据表状态：数据系统表（Data System Table）。 查询整个 Catalog 的全局状态：全局系统表（Global System Table）。 Data System Table&#xD;#&#xD;数据系统表包含每个 Paimon 数据表的元数据和信息，如创建的快照及使用的选项。用户可以通过批量查询访问系统表。&#xA;目前，Flink、Spark、Trino 和 StarRocks 支持查询系统表。&#xA;在某些情况下，表名需要用反引号括起来以避免语法解析冲突，例如三重访问模式：&#xA;SELECT * FROM my_catalog.my_db.`my_table$snapshots`; Snapshots Table&#xD;#&#xD;你可以通过 snapshots 表查询表的快照历史信息，包括快照中发生的记录数。&#xA;SELECT * FROM my_table$snapshots; /* +--------------+------------+-----------------+-------------------+--------------+-------------------------+--------------------------------+------------------------------- +--------------------------------+---------------------+---------------------+-------------------------+----------------+ | snapshot_id | schema_id | commit_user | commit_identifier | commit_kind | commit_time | base_manifest_list | delta_manifest_list | changelog_manifest_list | total_record_count | delta_record_count | changelog_record_count | watermark | +--------------+------------+-----------------+-------------------+--------------+-------------------------+--------------------------------+------------------------------- +--------------------------------+---------------------+---------------------+-------------------------+----------------+ | 2 | 0 | 7ca4cd28-98e.</description>
     </item>
     <item>
       <title>Manage Tags</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/</link>
+      <link>//localhost:1313/maintenance/manage-tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/</guid>
+      <guid>//localhost:1313/maintenance/manage-tags/</guid>
       <description>Manage Tags&#xD;#&#xD;Paimon&amp;rsquo;s snapshots can provide an easy way to query historical data. But in most scenarios, a job will generate too many snapshots and table will expire old snapshots according to table configuration. Snapshot expiration will also delete old data files, and the historical data of expired snapshots cannot be queried anymore.&#xA;To solve this problem, you can create a tag based on a snapshot. The tag will maintain the manifests and data files of the snapshot.</description>
     </item>
     <item>
-      <title>Query Performance</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/query-performance/</link>
+      <title>查询性能 Query Performance</title>
+      <link>//localhost:1313/primary-key-table/query-performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/query-performance/</guid>
-      <description>Query Performance&#xD;#&#xD;Table Mode&#xD;#&#xD;The table schema has the greatest impact on query performance. See Table Mode.&#xA;For Merge On Read table, the most important thing you should pay attention to is the number of buckets, which will limit the concurrency of reading data.&#xA;For MOW (Deletion Vectors) or COW table or Read Optimized table, there is no limit to the concurrency of reading data, and they can also utilize some filtering conditions for non-primary-key columns.</description>
+      <guid>//localhost:1313/primary-key-table/query-performance/</guid>
+      <description>查询性能 Query Performance&#xD;#&#xD;Table Mode&#xD;#&#xD;表结构对查询性能影响最大。详见 Table Mode。&#xA;对于 Merge On Read 表，最重要的是关注 bucket 的数量，因为它限制了数据读取的并发度。&#xA;对于 MOW（Deletion Vectors）、COW 表或 Read Optimized 表，读取数据的并发度没有限制，并且可以利用非主键列的部分过滤条件。&#xA;通过主键过滤进行数据跳过&#xD;#&#xD;对于普通的分桶表（例如，bucket = 5），主键的过滤条件将极大地加速查询，减少大量文件的读取。&#xA;通过文件索引进行数据跳过&#xD;#&#xD;对于启用了 Deletion Vectors 的表，可以使用文件索引，在读取端通过索引过滤文件。&#xA;CREATE TABLE &amp;lt;PAIMON_TABLE&amp;gt; WITH ( &amp;#39;deletion-vectors.enabled&amp;#39; = &amp;#39;true&amp;#39;, &amp;#39;file-index.bloom-filter.columns&amp;#39; = &amp;#39;c1,c2&amp;#39;, &amp;#39;file-index.bloom-filter.c1.items&amp;#39; = &amp;#39;200&amp;#39; ); 支持的 filter 类型:&#xA;Bloom Filter:&#xA;file-index.bloom-filter.columns:指定需要布隆过滤器索引的列。 file-index.bloom-filter.&amp;lt;column_name&amp;gt;.fpp 配置误报概率（false positive probability）。 file-index.bloom-filter.&amp;lt;column_name&amp;gt;.items 配置单个数据文件中预期的不同项数量。 Bitmap:&#xA;file-index.bitmap.columns: 指定需要建立 bitmap 索引的列。详见 Index Bitmap. Bit-Slice Index Bitmap</description>
     </item>
     <item>
       <title>数据类型 Data Types</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/</link>
+      <link>//localhost:1313/concepts/data-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/</guid>
+      <guid>//localhost:1313/concepts/data-types/</guid>
       <description>Data Types&#xD;#&#xD;数据类型描述了表生态系统中值的逻辑类型。它可用于声明操作的输入和/或输出类型。&#xA;Paimon 支持的所有数据类型如下：&#xA;DataType&#xD;Description&#xD;BOOLEAN&#xD;布尔类型，支持三值逻辑：TRUE、FALSE 和 UNKNOWN。&#xD;CHAR&#xA;CHAR(n)&#xD;定长字符类型。&#xA;该类型可以用 CHAR(n) 声明，其中 n 是代码点的数量。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。&#xD;VARCHAR&#xA;VARCHAR(n)&#xA;STRING&#xD;变长字符类型。&#xA;该类型可以用 VARCHAR(n) 声明，其中 n 是最大代码点数量。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。&#xA;STRING 是 VARCHAR(2147483647) 的同义词。&#xD;BINARY&#xA;BINARY(n)&#xA;定长二进制字符串类型（即字节序列）。&#xA;该类型可以用 BINARY(n) 声明，其中 n 是字节数。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。&#xD;VARBINARY&#xA;VARBINARY(n)&#xA;BYTES&#xD;变长二进制字符串类型（即字节序列）。&#xA;该类型可以用 VARBINARY(n) 声明，其中 n 是最大字节数。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。</description>
     </item>
     <item>
       <title>Metrics</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/metrics/</link>
+      <link>//localhost:1313/maintenance/metrics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/metrics/</guid>
+      <guid>//localhost:1313/maintenance/metrics/</guid>
       <description>Paimon Metrics&#xD;#&#xD;Paimon has built a metrics system to measure the behaviours of reading and writing, like how many manifest files it scanned in the last planning, how long it took in the last commit operation, how many files it deleted in the last compact operation.&#xA;In Paimon&amp;rsquo;s metrics system, metrics are updated and reported at table granularity.&#xA;There are three types of metrics provided in the Paimon metric system, Gauge, Counter, Histogram.</description>
     </item>
     <item>
       <title>函数 Functions</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/functions/</link>
+      <link>//localhost:1313/concepts/functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/functions/</guid>
+      <guid>//localhost:1313/concepts/functions/</guid>
       <description>Functions&#xD;#&#xD;Paimon 引入了一种 Function 抽象，旨在为计算引擎提供标准格式的函数支持，解决以下问题：&#xA;统一的列级过滤与处理：&#xA;支持在列级别进行操作，包括数据的加密与解密等任务。&#xA;参数化视图能力：&#xA;支持在视图中进行参数化操作，增强数据检索过程的动态性和可用性。&#xA;支持的函数类型&#xD;#&#xD;目前，Paimon 支持三种类型的函数：&#xA;文件函数（File Function）：&#xA;用户可以在文件中定义函数，为函数定义提供灵活且模块化的支持。&#xA;Lambda 函数（Lambda Function）：&#xA;支持用户使用 Java Lambda 表达式定义函数，实现内联、简洁、函数式的操作方式。&#xA;SQL 函数（SQL Function）：&#xA;用户可以直接在 SQL 中定义函数，与基于 SQL 的数据处理无缝集成。&#xA;File Function Usage in Flink&#xD;#&#xD;Paimon 函数可在 Apache Flink 中用于执行复杂的数据操作。以下是在 Flink 环境中创建、修改和删除函数的 SQL 命令：&#xA;Create Function&#xD;#&#xD;使用 FLink SQL创建一个新的函数&#xA;-- Flink SQL CREATE FUNCTION mydb.parse_str AS &amp;#39;com.streaming.flink.udf.StrUdf&amp;#39; LANGUAGE JAVA USING JAR &amp;#39;oss://my_bucket/my_location/udf.jar&amp;#39; [, JAR &amp;#39;oss://my_bucket/my_location/a.jar&amp;#39;]; 这条语句在 mydb 数据库中创建了一个基于 Java 的用户自定义函数（UDF），函数名为 parse_str，该函数使用了来自对象存储位置的指定 JAR 文件：</description>
     </item>
     <item>
       <title>Manage Privileges</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-privileges/</link>
+      <link>//localhost:1313/maintenance/manage-privileges/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-privileges/</guid>
+      <guid>//localhost:1313/maintenance/manage-privileges/</guid>
       <description>Manage Privileges&#xD;#&#xD;Paimon provides a privilege system on catalogs. Privileges determine which users can perform which operations on which objects, so that you can manage table access in a fine-grained manner.&#xA;Currently, Paimon adopts the identity-based access control (IBAC) privilege model. That is, privileges are directly assigned to users.&#xA;This privilege system only prevents unwanted users from accessing tables through catalogs. It does not block access through temporary table (by specifying table path on filesystem), nor does it prevent user from directly modifying data files on filesystem.</description>
     </item>
     <item>
       <title>Manage Branches</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-branches/</link>
+      <link>//localhost:1313/maintenance/manage-branches/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-branches/</guid>
+      <guid>//localhost:1313/maintenance/manage-branches/</guid>
       <description>Manage Branches&#xD;#&#xD;In streaming data processing, it&amp;rsquo;s difficult to correct data for it may affect the existing data, and users will see the streaming provisional results, which is not expected.&#xA;We suppose the branch that the existing workflow is processing on is &amp;lsquo;main&amp;rsquo; branch, by creating custom data branch, it can help to do experimental tests and data validating for the new job on the existing table, which doesn&amp;rsquo;t need to stop the existing reading / writing workflows and no need to copy data from the main branch.</description>
     </item>
     <item>
       <title>Manage Partitions</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-partitions/</link>
+      <link>//localhost:1313/maintenance/manage-partitions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-partitions/</guid>
+      <guid>//localhost:1313/maintenance/manage-partitions/</guid>
       <description>Manage Partitions&#xD;#&#xD;Paimon provides multiple ways to manage partitions, including expire historical partitions by different strategies or mark a partition done to notify the downstream application that the partition has finished writing.&#xA;Expiring Partitions&#xD;#&#xD;You can set partition.expiration-time when creating a partitioned table. Paimon streaming sink will periodically check the status of partitions and delete expired partitions according to time.&#xA;How to determine whether a partition has expired: you can set partition.</description>
     </item>
     <item>
       <title>Procedures</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/procedures/</link>
+      <link>//localhost:1313/flink/procedures/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/procedures/</guid>
+      <guid>//localhost:1313/flink/procedures/</guid>
       <description>Procedures&#xD;#&#xD;Flink 1.18 and later versions support Call Statements, which make it easier to manipulate data and metadata of Paimon table by writing SQLs instead of submitting Flink jobs.&#xA;In 1.18, the procedure only supports passing arguments by position. You must pass all arguments in order, and if you don&amp;rsquo;t want to pass some arguments, you must use &#39;&#39; as placeholder. For example, if you want to compact table default.</description>
     </item>
     <item>
       <title>Action Jars</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/action-jars/</link>
+      <link>//localhost:1313/flink/action-jars/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/action-jars/</guid>
+      <guid>//localhost:1313/flink/action-jars/</guid>
       <description>Action Jars&#xD;#&#xD;After the Flink Local Cluster has been started, you can execute the action jar by using the following command.&#xA;&amp;lt;FLINK_HOME&amp;gt;/bin/flink run \ /path/to/paimon-flink-action-1.2.0.jar \ &amp;lt;action&amp;gt; &amp;lt;args&amp;gt; The following command is used to compact a table.&#xA;&amp;lt;FLINK_HOME&amp;gt;/bin/flink run \ /path/to/paimon-flink-action-1.2.0.jar \ compact \ --path &amp;lt;TABLE_PATH&amp;gt; Merging into table&#xD;#&#xD;Paimon supports &amp;ldquo;MERGE INTO&amp;rdquo; via submitting the &amp;lsquo;merge_into&amp;rsquo; job through flink run.&#xA;Important table properties setting:&#xA;Only primary key table supports this feature.</description>
     </item>
     <item>
       <title>Procedures</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/spark/procedures/</link>
+      <link>//localhost:1313/spark/procedures/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/spark/procedures/</guid>
+      <guid>//localhost:1313/spark/procedures/</guid>
       <description>Procedures&#xD;#&#xD;This section introduce all available spark procedures about paimon.&#xA;Procedure Name&#xD;Explanation&#xD;Example&#xD;compact&#xD;To compact files. Argument:&#xD;table: the target table identifier. Cannot be empty.&#xD;partitions: partition filter. the comma (&#34;,&#34;) represents &#34;AND&#34;, the semicolon (&#34;;&#34;) represents &#34;OR&#34;. If you want to compact one partition with date=01 and day=01, you need to write &#39;date=01,day=01&#39;. Left empty for all partitions. (Can&#39;t be used together with &#34;where&#34;)&#xD;where: partition predicate.</description>
     </item>
     <item>
       <title>Savepoint</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/savepoint/</link>
+      <link>//localhost:1313/flink/savepoint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/savepoint/</guid>
+      <guid>//localhost:1313/flink/savepoint/</guid>
       <description>Savepoint&#xD;#&#xD;Paimon has its own snapshot management, this may conflict with Flink&amp;rsquo;s checkpoint management, causing exceptions when restoring from savepoint (don&amp;rsquo;t worry, it will not cause the storage to be damaged).&#xA;It is recommended that you use the following methods to savepoint:&#xA;Use Flink Stop with savepoint. Use Paimon Tag with Flink Savepoint, and rollback-to-tag before restoring from savepoint. Stop with savepoint&#xD;#&#xD;This feature of Flink ensures that the last checkpoint is fully processed, which means there will be no more uncommitted metadata left.</description>
     </item>
     <item>
       <title>Configurations</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/</link>
+      <link>//localhost:1313/maintenance/configurations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/</guid>
+      <guid>//localhost:1313/maintenance/configurations/</guid>
       <description>Configuration&#xD;#&#xD;CoreOptions&#xD;#&#xD;Core options for paimon.&#xA;Key&#xD;Default&#xD;Type&#xD;Description&#xD;aggregation.remove-record-on-delete&#xD;false&#xD;Boolean&#xD;Whether to remove the whole row in aggregation engine when -D records are received.&#xD;alter-column-null-to-not-null.disabled&#xD;true&#xD;Boolean&#xD;If true, it disables altering column type from null to not null. Default is true. Users can disable this option to explicitly convert null column type to not null.&#xD;async-file-write&#xD;true&#xD;Boolean&#xD;Whether to enable asynchronous IO writing when writing files.</description>
     </item>
     <item>
       <title>REST API</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/rest-api/</link>
+      <link>//localhost:1313/concepts/rest/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/rest/rest-api/</guid>
+      <guid>//localhost:1313/concepts/rest/rest-api/</guid>
       <description>&#xD;</description>
     </item>
     <item>
       <title>Versions</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/versions/</link>
+      <link>//localhost:1313/versions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/versions/</guid>
+      <guid>//localhost:1313/versions/</guid>
       <description>&#xD;Versions&#xD;#&#xD;An appendix of hosted documentation for all versions of Apache Paimon.&#xA;master&#xD;stable&#xD;1.2&#xD;1.1&#xD;1.0&#xD;</description>
     </item>
   </channel>

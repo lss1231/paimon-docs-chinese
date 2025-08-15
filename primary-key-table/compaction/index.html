@@ -2,27 +2,43 @@
 <!DOCTYPE html>
 <html lang="zh" dir=ZgotmplZ>
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta name="generator" content="Hugo 0.124.1">
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Compaction#When more and more records are written into the LSM tree, the number of sorted runs will increase. Because querying an LSM tree requires all sorted runs to be combined, too many sorted runs will result in a poor query performance, or even out of memory.
-To limit the number of sorted runs, we have to merge several sorted runs into one big sorted run once in a while.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Compaction" />
-<meta property="og:description" content="Compaction#When more and more records are written into the LSM tree, the number of sorted runs will increase. Because querying an LSM tree requires all sorted runs to be combined, too many sorted runs will result in a poor query performance, or even out of memory.
-To limit the number of sorted runs, we have to merge several sorted runs into one big sorted run once in a while." />
+<meta name="description" content="合并 Compaction#随着越来越多的记录写入 LSM 树，排序运行（sorted runs）的数量也会增加。由于查询 LSM 树需要合并所有的排序运行，过多的排序运行会导致查询性能下降，甚至出现内存不足。
+为了限制排序运行的数量，我们需要不时将多个排序运行合并成一个更大的排序运行，这个过程称为compaction。
+但是，compaction 是一个资源密集型过程，会消耗一定的 CPU 时间和磁盘 IO，过于频繁的compaction反而可能导致写入变慢。这是在查询性能和写入性能之间的权衡。Paimon 当前采用了类似 RocksDB 的compaction策略 universal compaction.
+Compaction 解决的问题：
+减少 Level 0 文件数量，避免查询性能下降。 通过 changelog-producer 生成 changelog。 为 MOW 模式 生成 deletion vectors。 支持 Snapshot 过期、Tag 过期和分区过期。 限制：
+同一个分区只能有一个 compaction 任务在运行，否则会导致冲突，且一方会抛出异常失败。 写入性能几乎总是会受到 compaction 的影响，因此调优非常关键。
+异步合并 Asynchronous Compaction#Compaction 本质上是异步的，但如果你希望它完全异步且不阻塞写入操作，以追求最大写入吞吐量，可以让 compaction 过程更缓慢，不急于完成。
+你可以为表配置以下策略：
+num-sorted-run.stop-trigger = 2147483647 sort-spill-threshold = 10 lookup-wait = false 这项配置会在写入高峰期产生更多文件，并在写入低谷期逐步合并这些文件，从而实现最佳的读取性能
+Dedicated compaction job#一般来说，如果你期望多个写入任务同时写同一个表，必须将 compaction 任务单独分离出来。你可以使用以下方式： dedicated compaction job.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="合并 Compaction" />
+<meta property="og:description" content="合并 Compaction#随着越来越多的记录写入 LSM 树，排序运行（sorted runs）的数量也会增加。由于查询 LSM 树需要合并所有的排序运行，过多的排序运行会导致查询性能下降，甚至出现内存不足。
+为了限制排序运行的数量，我们需要不时将多个排序运行合并成一个更大的排序运行，这个过程称为compaction。
+但是，compaction 是一个资源密集型过程，会消耗一定的 CPU 时间和磁盘 IO，过于频繁的compaction反而可能导致写入变慢。这是在查询性能和写入性能之间的权衡。Paimon 当前采用了类似 RocksDB 的compaction策略 universal compaction.
+Compaction 解决的问题：
+减少 Level 0 文件数量，避免查询性能下降。 通过 changelog-producer 生成 changelog。 为 MOW 模式 生成 deletion vectors。 支持 Snapshot 过期、Tag 过期和分区过期。 限制：
+同一个分区只能有一个 compaction 任务在运行，否则会导致冲突，且一方会抛出异常失败。 写入性能几乎总是会受到 compaction 的影响，因此调优非常关键。
+异步合并 Asynchronous Compaction#Compaction 本质上是异步的，但如果你希望它完全异步且不阻塞写入操作，以追求最大写入吞吐量，可以让 compaction 过程更缓慢，不急于完成。
+你可以为表配置以下策略：
+num-sorted-run.stop-trigger = 2147483647 sort-spill-threshold = 10 lookup-wait = false 这项配置会在写入高峰期产生更多文件，并在写入低谷期逐步合并这些文件，从而实现最佳的读取性能
+Dedicated compaction job#一般来说，如果你期望多个写入任务同时写同一个表，必须将 compaction 任务单独分离出来。你可以使用以下方式： dedicated compaction job." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/" /><meta property="article:section" content="primary-key-table" />
+<meta property="og:url" content="//localhost:1313/primary-key-table/compaction/" /><meta property="article:section" content="primary-key-table" />
 
 
-<title>Compaction | Paimon文档</title>
-<link rel="manifest" href="/paimon-docs-chinese/manifest.json">
-<link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
-<link rel="alternate" hreflang="en" href="https://lss1231.github.io/paimon-docs-chinese/en/primary-key-table/compaction/" title="Compaction">
+<title>合并 Compaction | Paimon文档</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="alternate" hreflang="en" href="//localhost:1313/en/primary-key-table/compaction/" title="Compaction">
 
-<link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/zh.search.min.c23864ab8f3b1cc63fad53d53a6f532da8a47cb499d4cdca1413ffb6f92dcc5d.js" integrity="sha256-wjhkq487HMY/rVPVOm9TLaikfLSZ1M3KFBP/tvktzF0="></script>
+<link rel="stylesheet" href="/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
+<script defer src="/zh.search.min.1092aeece9f3a871211d0360b674964f57ab02c6cf8cace5e841694ede2c9ebc.js" integrity="sha256-EJKu7OnzqHEhHQNgtnSWT1erAsbPjKzl6EFpTt4snrw="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -31,9 +47,9 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-<link rel="stylesheet" type="text/css" href="https://lss1231.github.io/paimon-docs-chinese//font-awesome/css/font-awesome.min.css">
-<script src="https://lss1231.github.io/paimon-docs-chinese//js/anchor.min.js"></script>
-<script src="https://lss1231.github.io/paimon-docs-chinese//js/flink.js"></script>
+<link rel="stylesheet" type="text/css" href="//localhost:1313//font-awesome/css/font-awesome.min.css">
+<script src="//localhost:1313//js/anchor.min.js"></script>
+<script src="//localhost:1313//js/flink.js"></script>
 
 
 
@@ -72,8 +88,8 @@ https://github.com/alex-shpak/hugo-book
 <nav>
 
 
-<a id="logo" href="https://lss1231.github.io/paimon-docs-chinese/">
-    <img width="100%" src="https://lss1231.github.io/paimon-docs-chinese//paimon_black.svg">
+<a id="logo" href="//localhost:1313/">
+    <img width="100%" src="//localhost:1313//paimon_black.svg">
 </a>
 <p style="text-align:right">1.2.0</p>
 
@@ -125,7 +141,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/overview/" class="">概述</a>
+    <a href="//localhost:1313/concepts/overview/" class="">概述</a>
   
 
         </li>
@@ -139,7 +155,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/" class="">基础概念 Basic Concepts</a>
+    <a href="//localhost:1313/concepts/basic-concepts/" class="">基础概念 Basic Concepts</a>
   
 
         </li>
@@ -153,7 +169,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/" class="">并发控制 Concurrency Control</a>
+    <a href="//localhost:1313/concepts/concurrency-control/" class="">并发控制 Concurrency Control</a>
   
 
         </li>
@@ -167,7 +183,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/" class="">Catalog</a>
+    <a href="//localhost:1313/concepts/catalog/" class="">Catalog</a>
   
 
         </li>
@@ -197,7 +213,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/overview/" class="">Overview</a>
+    <a href="//localhost:1313/concepts/rest/overview/" class="">Overview</a>
   
 
         </li>
@@ -211,7 +227,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/bear/" class="">Bear Token</a>
+    <a href="//localhost:1313/concepts/rest/bear/" class="">Bear Token</a>
   
 
         </li>
@@ -225,7 +241,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/dlf/" class="">DLF Token</a>
+    <a href="//localhost:1313/concepts/rest/dlf/" class="">DLF Token</a>
   
 
         </li>
@@ -239,7 +255,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/rest/rest-api/" class="">REST API</a>
+    <a href="//localhost:1313/concepts/rest/rest-api/" class="">REST API</a>
   
 
         </li>
@@ -258,7 +274,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/" class="">表类型 Table Types</a>
+    <a href="//localhost:1313/concepts/table-types/" class="">表类型 Table Types</a>
   
 
         </li>
@@ -272,7 +288,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/" class="">系统表 System Tables</a>
+    <a href="//localhost:1313/concepts/system-tables/" class="">系统表 System Tables</a>
   
 
         </li>
@@ -286,7 +302,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/" class="">数据类型 Data Types</a>
+    <a href="//localhost:1313/concepts/data-types/" class="">数据类型 Data Types</a>
   
 
         </li>
@@ -300,7 +316,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/functions/" class="">函数 Functions</a>
+    <a href="//localhost:1313/concepts/functions/" class="">函数 Functions</a>
   
 
         </li>
@@ -330,7 +346,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/" class="">概述 Overview</a>
+    <a href="//localhost:1313/concepts/spec/overview/" class="">概述 Overview</a>
   
 
         </li>
@@ -344,7 +360,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/" class="">模式文件 Schema</a>
+    <a href="//localhost:1313/concepts/spec/schema/" class="">模式文件 Schema</a>
   
 
         </li>
@@ -358,7 +374,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/" class="">快照文件 Snapshot</a>
+    <a href="//localhost:1313/concepts/spec/snapshot/" class="">快照文件 Snapshot</a>
   
 
         </li>
@@ -372,7 +388,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/" class="">清单文件 Manifest</a>
+    <a href="//localhost:1313/concepts/spec/manifest/" class="">清单文件 Manifest</a>
   
 
         </li>
@@ -386,7 +402,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/" class="">数据文件 DataFile</a>
+    <a href="//localhost:1313/concepts/spec/datafile/" class="">数据文件 DataFile</a>
   
 
         </li>
@@ -400,7 +416,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/" class="">表索引 Table Index</a>
+    <a href="//localhost:1313/concepts/spec/tableindex/" class="">表索引 Table Index</a>
   
 
         </li>
@@ -414,7 +430,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/" class="">文件索引 File Index</a>
+    <a href="//localhost:1313/concepts/spec/fileindex/" class="">文件索引 File Index</a>
   
 
         </li>
@@ -439,7 +455,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-13198e701ffb9c73ec7a3177a4f953f1" class="toggle" checked />
-    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Table with PK</div><span>▾</span>
+    <label for="section-13198e701ffb9c73ec7a3177a4f953f1" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-database title maindish" aria-hidden="true"></i>&nbsp;&nbsp;主键表 Table with PK</div><span>▾</span>
     </label>
   
 
@@ -454,7 +470,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/" class="">Overview</a>
+    <a href="//localhost:1313/primary-key-table/overview/" class="">概览 Overview</a>
   
 
         </li>
@@ -468,7 +484,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/data-distribution/" class="">Data Distribution</a>
+    <a href="//localhost:1313/primary-key-table/data-distribution/" class="">数据分布 Data Distribution</a>
   
 
         </li>
@@ -482,7 +498,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/" class="">Table Mode</a>
+    <a href="//localhost:1313/primary-key-table/table-mode/" class="">表模式 Table Mode</a>
   
 
         </li>
@@ -512,7 +528,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/" class="">Overview</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/overview/" class="">Overview</a>
   
 
         </li>
@@ -526,7 +542,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/partial-update/" class="">Partial Update</a>
   
 
         </li>
@@ -540,7 +556,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/aggregation/" class="">Aggregation</a>
   
 
         </li>
@@ -554,7 +570,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/first-row/" class="">First Row</a>
+    <a href="//localhost:1313/primary-key-table/merge-engine/first-row/" class="">First Row</a>
   
 
         </li>
@@ -573,7 +589,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/" class="">Changelog Producer</a>
+    <a href="//localhost:1313/primary-key-table/changelog-producer/" class="">变化日志生产者 Changelog Producer</a>
   
 
         </li>
@@ -587,7 +603,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/sequence-rowkind/" class="">Sequence & Rowkind</a>
+    <a href="//localhost:1313/primary-key-table/sequence-rowkind/" class="">Sequence 和 Rowkind</a>
   
 
         </li>
@@ -601,7 +617,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/" class=" active">Compaction</a>
+    <a href="//localhost:1313/primary-key-table/compaction/" class=" active">合并 Compaction</a>
   
 
         </li>
@@ -615,7 +631,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/query-performance/" class="">Query Performance</a>
+    <a href="//localhost:1313/primary-key-table/query-performance/" class="">查询性能 Query Performance</a>
   
 
         </li>
@@ -650,7 +666,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
+    <a href="//localhost:1313/append-table/overview/" class="">Overview</a>
   
 
         </li>
@@ -664,7 +680,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="//localhost:1313/append-table/streaming/" class="">Streaming</a>
   
 
         </li>
@@ -678,7 +694,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
+    <a href="//localhost:1313/append-table/query-performance/" class="">Query Performance</a>
   
 
         </li>
@@ -692,7 +708,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">Update</a>
+    <a href="//localhost:1313/append-table/update/" class="">Update</a>
   
 
         </li>
@@ -706,7 +722,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
+    <a href="//localhost:1313/append-table/bucketed/" class="">Bucketed</a>
   
 
         </li>
@@ -741,7 +757,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
+    <a href="//localhost:1313/flink/quick-start/" class="">Quick Start</a>
   
 
         </li>
@@ -755,7 +771,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-ddl/" class="">SQL DDL</a>
+    <a href="//localhost:1313/flink/sql-ddl/" class="">SQL DDL</a>
   
 
         </li>
@@ -769,7 +785,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-write/" class="">SQL Write</a>
+    <a href="//localhost:1313/flink/sql-write/" class="">SQL Write</a>
   
 
         </li>
@@ -783,7 +799,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-query/" class="">SQL Query</a>
+    <a href="//localhost:1313/flink/sql-query/" class="">SQL Query</a>
   
 
         </li>
@@ -797,7 +813,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/" class="">Consumer ID</a>
+    <a href="//localhost:1313/flink/consumer-id/" class="">Consumer ID</a>
   
 
         </li>
@@ -811,7 +827,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-lookup/" class="">SQL Lookup</a>
+    <a href="//localhost:1313/flink/sql-lookup/" class="">SQL Lookup</a>
   
 
         </li>
@@ -825,7 +841,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/sql-alter/" class="">SQL Alter</a>
+    <a href="//localhost:1313/flink/sql-alter/" class="">SQL Alter</a>
   
 
         </li>
@@ -839,7 +855,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/" class="">Procedures</a>
+    <a href="//localhost:1313/flink/procedures/" class="">Procedures</a>
   
 
         </li>
@@ -853,7 +869,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/action-jars/" class="">Action Jars</a>
+    <a href="//localhost:1313/flink/action-jars/" class="">Action Jars</a>
   
 
         </li>
@@ -867,7 +883,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/savepoint/" class="">Savepoint</a>
+    <a href="//localhost:1313/flink/savepoint/" class="">Savepoint</a>
   
 
         </li>
@@ -902,7 +918,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/" class="">Quick Start</a>
+    <a href="//localhost:1313/spark/quick-start/" class="">Quick Start</a>
   
 
         </li>
@@ -916,7 +932,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-ddl/" class="">SQL DDL</a>
+    <a href="//localhost:1313/spark/sql-ddl/" class="">SQL DDL</a>
   
 
         </li>
@@ -930,7 +946,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-functions/" class="">SQL Functions</a>
+    <a href="//localhost:1313/spark/sql-functions/" class="">SQL Functions</a>
   
 
         </li>
@@ -944,7 +960,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/" class="">SQL Write</a>
+    <a href="//localhost:1313/spark/sql-write/" class="">SQL Write</a>
   
 
         </li>
@@ -958,7 +974,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-query/" class="">SQL Query</a>
+    <a href="//localhost:1313/spark/sql-query/" class="">SQL Query</a>
   
 
         </li>
@@ -972,7 +988,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-alter/" class="">SQL Alter</a>
+    <a href="//localhost:1313/spark/sql-alter/" class="">SQL Alter</a>
   
 
         </li>
@@ -986,7 +1002,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/auxiliary/" class="">Auxiliary</a>
+    <a href="//localhost:1313/spark/auxiliary/" class="">Auxiliary</a>
   
 
         </li>
@@ -1000,7 +1016,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/spark/procedures/" class="">Procedures</a>
+    <a href="//localhost:1313/spark/procedures/" class="">Procedures</a>
   
 
         </li>
@@ -1035,7 +1051,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/overview/" class="">Overview</a>
+    <a href="//localhost:1313/ecosystem/overview/" class="">Overview</a>
   
 
         </li>
@@ -1049,7 +1065,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/" class="">StarRocks</a>
+    <a href="//localhost:1313/ecosystem/starrocks/" class="">StarRocks</a>
   
 
         </li>
@@ -1063,7 +1079,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/doris/" class="">Doris</a>
+    <a href="//localhost:1313/ecosystem/doris/" class="">Doris</a>
   
 
         </li>
@@ -1077,7 +1093,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/hive/" class="">Hive</a>
+    <a href="//localhost:1313/ecosystem/hive/" class="">Hive</a>
   
 
         </li>
@@ -1091,7 +1107,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/trino/" class="">Trino</a>
+    <a href="//localhost:1313/ecosystem/trino/" class="">Trino</a>
   
 
         </li>
@@ -1105,7 +1121,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/amoro/" class="">Amoro</a>
+    <a href="//localhost:1313/ecosystem/amoro/" class="">Amoro</a>
   
 
         </li>
@@ -1140,7 +1156,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/" class="">Overview</a>
+    <a href="//localhost:1313/cdc-ingestion/overview/" class="">Overview</a>
   
 
         </li>
@@ -1154,7 +1170,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/mysql-cdc/" class="">Mysql CDC</a>
   
 
         </li>
@@ -1168,7 +1184,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/postgres-cdc/" class="">Postgres CDC</a>
   
 
         </li>
@@ -1182,7 +1198,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/kafka-cdc/" class="">Kafka CDC</a>
   
 
         </li>
@@ -1196,7 +1212,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/mongo-cdc/" class="">Mongo CDC</a>
   
 
         </li>
@@ -1210,7 +1226,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
+    <a href="//localhost:1313/cdc-ingestion/pulsar-cdc/" class="">Pulsar CDC</a>
   
 
         </li>
@@ -1224,7 +1240,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
+    <a href="//localhost:1313/cdc-ingestion/debezium-bson/" class="">Debezium BSON</a>
   
 
         </li>
@@ -1259,7 +1275,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/filesystems/" class="">Filesystems</a>
+    <a href="//localhost:1313/maintenance/filesystems/" class="">Filesystems</a>
   
 
         </li>
@@ -1273,7 +1289,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/" class="">Write Performance</a>
+    <a href="//localhost:1313/maintenance/write-performance/" class="">Write Performance</a>
   
 
         </li>
@@ -1287,7 +1303,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
+    <a href="//localhost:1313/maintenance/dedicated-compaction/" class="">Dedicated Compaction</a>
   
 
         </li>
@@ -1301,7 +1317,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
+    <a href="//localhost:1313/maintenance/manage-snapshots/" class="">Manage Snapshots</a>
   
 
         </li>
@@ -1315,7 +1331,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
+    <a href="//localhost:1313/maintenance/rescale-bucket/" class="">Rescale Bucket</a>
   
 
         </li>
@@ -1329,7 +1345,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-tags/" class="">Manage Tags</a>
+    <a href="//localhost:1313/maintenance/manage-tags/" class="">Manage Tags</a>
   
 
         </li>
@@ -1343,7 +1359,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/metrics/" class="">Metrics</a>
+    <a href="//localhost:1313/maintenance/metrics/" class="">Metrics</a>
   
 
         </li>
@@ -1357,7 +1373,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-privileges/" class="">Manage Privileges</a>
+    <a href="//localhost:1313/maintenance/manage-privileges/" class="">Manage Privileges</a>
   
 
         </li>
@@ -1371,7 +1387,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-branches/" class="">Manage Branches</a>
+    <a href="//localhost:1313/maintenance/manage-branches/" class="">Manage Branches</a>
   
 
         </li>
@@ -1385,7 +1401,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/manage-partitions/" class="">Manage Partitions</a>
+    <a href="//localhost:1313/maintenance/manage-partitions/" class="">Manage Partitions</a>
   
 
         </li>
@@ -1399,7 +1415,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/configurations/" class="">Configurations</a>
+    <a href="//localhost:1313/maintenance/configurations/" class="">Configurations</a>
   
 
         </li>
@@ -1434,7 +1450,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/rest-api/" class="">REST API</a>
+    <a href="//localhost:1313/program-api/rest-api/" class="">REST API</a>
   
 
         </li>
@@ -1448,7 +1464,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/flink-api/" class="">Flink API</a>
+    <a href="//localhost:1313/program-api/flink-api/" class="">Flink API</a>
   
 
         </li>
@@ -1462,7 +1478,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/java-api/" class="">Java API</a>
+    <a href="//localhost:1313/program-api/java-api/" class="">Java API</a>
   
 
         </li>
@@ -1476,7 +1492,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/catalog-api/" class="">Catalog API</a>
+    <a href="//localhost:1313/program-api/catalog-api/" class="">Catalog API</a>
   
 
         </li>
@@ -1490,7 +1506,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/program-api/python-api/" class="">Python API</a>
+    <a href="//localhost:1313/program-api/python-api/" class="">Python API</a>
   
 
         </li>
@@ -1525,7 +1541,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-hive/" class="">Migration From Hive</a>
+    <a href="//localhost:1313/migration/migration-from-hive/" class="">Migration From Hive</a>
   
 
         </li>
@@ -1539,7 +1555,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
+    <a href="//localhost:1313/migration/migration-from-iceberg/" class="">Migration From Iceberg</a>
   
 
         </li>
@@ -1553,7 +1569,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
+    <a href="//localhost:1313/migration/upsert-to-partitioned/" class="">Upsert To Partitioned</a>
   
 
         </li>
@@ -1567,7 +1583,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/migration/clone-to-paimon/" class="">Clone To Paimon</a>
+    <a href="//localhost:1313/migration/clone-to-paimon/" class="">Clone To Paimon</a>
   
 
         </li>
@@ -1602,7 +1618,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/overview/" class="">Overview</a>
+    <a href="//localhost:1313/iceberg/overview/" class="">Overview</a>
   
 
         </li>
@@ -1616,7 +1632,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/append-table/" class="">Append Table</a>
+    <a href="//localhost:1313/iceberg/append-table/" class="">Append Table</a>
   
 
         </li>
@@ -1630,7 +1646,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/primary-key-table/" class="">Primary Key Table</a>
+    <a href="//localhost:1313/iceberg/primary-key-table/" class="">Primary Key Table</a>
   
 
         </li>
@@ -1644,7 +1660,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/iceberg-tags/" class="">Iceberg Tags</a>
+    <a href="//localhost:1313/iceberg/iceberg-tags/" class="">Iceberg Tags</a>
   
 
         </li>
@@ -1658,7 +1674,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/hive-catalog/" class="">Hive Catalogs</a>
+    <a href="//localhost:1313/iceberg/hive-catalog/" class="">Hive Catalogs</a>
   
 
         </li>
@@ -1672,7 +1688,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/ecosystem/" class="">Ecosystem</a>
+    <a href="//localhost:1313/iceberg/ecosystem/" class="">Ecosystem</a>
   
 
         </li>
@@ -1686,7 +1702,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/iceberg/configurations/" class="">Configurations</a>
+    <a href="//localhost:1313/iceberg/configurations/" class="">Configurations</a>
   
 
         </li>
@@ -1723,7 +1739,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/roadmap/" class="">Roadmap</a>
+    <a href="//localhost:1313/project/roadmap/" class="">Roadmap</a>
   
 
         </li>
@@ -1737,7 +1753,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/download/" class="">Download</a>
+    <a href="//localhost:1313/project/download/" class="">Download</a>
   
 
         </li>
@@ -1751,7 +1767,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/contributing/" class="">Contributing</a>
+    <a href="//localhost:1313/project/contributing/" class="">Contributing</a>
   
 
         </li>
@@ -1765,7 +1781,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/project/committer/" class="">Committer</a>
+    <a href="//localhost:1313/project/committer/" class="">Committer</a>
   
 
         </li>
@@ -1800,7 +1816,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/learn-paimon/understand-files/" class="">Understand Files</a>
+    <a href="//localhost:1313/learn-paimon/understand-files/" class="">Understand Files</a>
   
 
         </li>
@@ -1846,7 +1862,7 @@ https://github.com/alex-shpak/hugo-book
      <span>▾</span>
   </label>
   <ul>
-    <a href="https://lss1231.github.io/paimon-docs-chinese/">
+    <a href="//localhost:1313/">
       1.2 (✓)
     </a>
     <hr class="menu-break">
@@ -1883,7 +1899,7 @@ https://github.com/alex-shpak/hugo-book
     
     <hr class="menu-break">
     <li>
-      <a href="https://lss1231.github.io/paimon-docs-chinese//versions">
+      <a href="//localhost:1313//versions">
           All Versions
       </a>
     </li>
@@ -1904,7 +1920,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-<a  href="https://lss1231.github.io/paimon-docs-chinese/en/primary-key-table/compaction/" class="flex align-center">
+<a  href="//localhost:1313/en/primary-key-table/compaction/" class="flex align-center">
   <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;
   English
 </a>
@@ -1929,14 +1945,14 @@ https://github.com/alex-shpak/hugo-book
           
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Compaction</strong>
+  <strong>合并 Compaction</strong>
 
   <label for="toc-control">
     
-    <img src="/paimon-docs-chinese/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
@@ -1949,7 +1965,7 @@ https://github.com/alex-shpak/hugo-book
 
 <nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
-    <li><a href="#asynchronous-compaction">Asynchronous Compaction</a></li>
+    <li><a href="#异步合并-asynchronous-compaction">异步合并 Asynchronous Compaction</a></li>
     <li><a href="#dedicated-compaction-job">Dedicated compaction job</a></li>
     <li><a href="#record-level-expire">Record-Level expire</a></li>
     <li><a href="#full-compaction">Full Compaction</a></li>
@@ -1996,91 +2012,83 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
-<h1 id="compaction">
-  Compaction
-  <a class="anchor" href="#compaction">#</a>
+<h1 id="合并-compaction">
+  合并 Compaction
+  <a class="anchor" href="#%e5%90%88%e5%b9%b6-compaction">#</a>
 </h1>
-<p>When more and more records are written into the LSM tree, the number of sorted runs will increase. Because querying an
-LSM tree requires all sorted runs to be combined, too many sorted runs will result in a poor query performance, or even
-out of memory.</p>
-<p>To limit the number of sorted runs, we have to merge several sorted runs into one big sorted run once in a while. This
-procedure is called compaction.</p>
-<p>However, compaction is a resource intensive procedure which consumes a certain amount of CPU time and disk IO, so too
-frequent compaction may in turn result in slower writes. It is a trade-off between query and write performance. Paimon
-currently adopts a compaction strategy similar to Rocksdb&rsquo;s <a href="https://github.com/facebook/rocksdb/wiki/Universal-Compaction">universal compaction</a>.</p>
-<p>Compaction solves:</p>
+<p>随着越来越多的记录写入 LSM 树，排序运行（sorted runs）的数量也会增加。由于查询 LSM 树需要合并所有的排序运行，过多的排序运行会导致查询性能下降，甚至出现内存不足。</p>
+<p>为了限制排序运行的数量，我们需要不时将多个排序运行合并成一个更大的排序运行，这个过程称为compaction。</p>
+<p>但是，compaction 是一个资源密集型过程，会消耗一定的 CPU 时间和磁盘 IO，过于频繁的compaction反而可能导致写入变慢。这是在查询性能和写入性能之间的权衡。Paimon 当前采用了类似 RocksDB 的compaction策略 <a href="https://github.com/facebook/rocksdb/wiki/Universal-Compaction">universal compaction</a>.</p>
+<p>Compaction 解决的问题：</p>
 <ol>
-<li>Reduce Level 0 files to avoid poor query performance.</li>
-<li>Produce changelog via <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/">changelog-producer</a>.</li>
-<li>Produce deletion vectors for <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/#merge-on-write">MOW mode</a>.</li>
-<li>Snapshot Expiration, Tag Expiration, Partitions Expiration.</li>
+<li>减少 Level 0 文件数量，避免查询性能下降。</li>
+<li>通过 <a href="//localhost:1313/primary-key-table/changelog-producer/">changelog-producer</a> 生成 changelog。</li>
+<li>为 <a href="//localhost:1313/primary-key-table/table-mode/#merge-on-write">MOW 模式</a> 生成 deletion vectors。</li>
+<li>支持 Snapshot 过期、Tag 过期和分区过期。</li>
 </ol>
-<p>Limitation:</p>
+<p>限制：</p>
 <ul>
-<li>There can only be one job working on the same partition&rsquo;s compaction, otherwise it will cause conflicts and one side will throw an exception failure.</li>
+<li>同一个分区只能有一个 compaction 任务在运行，否则会导致冲突，且一方会抛出异常失败。</li>
 </ul>
-<p>Writing performance is almost always affected by compaction, so its tuning is crucial.</p>
-<h2 id="asynchronous-compaction">
-  Asynchronous Compaction
-  <a class="anchor" href="#asynchronous-compaction">#</a>
+<p>写入性能几乎总是会受到 compaction 的影响，因此调优非常关键。</p>
+<h2 id="异步合并-asynchronous-compaction">
+  异步合并 Asynchronous Compaction
+  <a class="anchor" href="#%e5%bc%82%e6%ad%a5%e5%90%88%e5%b9%b6-asynchronous-compaction">#</a>
 </h2>
-<p>Compaction is inherently asynchronous, but if you want it to be completely asynchronous without blocking writes,
-expecting a mode for maximum writing throughput, the compaction can be done slowly and not in a hurry.
-You can use the following strategies for your table:</p>
+<p>Compaction 本质上是异步的，但如果你希望它完全异步且不阻塞写入操作，以追求最大写入吞吐量，可以让 compaction 过程更缓慢，不急于完成。</p>
+<p>你可以为表配置以下策略：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">num-sorted-run.stop-trigger <span class="o">=</span> <span class="m">2147483647</span>
 </span></span><span class="line"><span class="cl">sort-spill-threshold <span class="o">=</span> <span class="m">10</span>
 </span></span><span class="line"><span class="cl">lookup-wait <span class="o">=</span> <span class="nb">false</span>
-</span></span></code></pre></div><p>This configuration will generate more files during peak write periods and gradually merge them for optimal read
-performance during low write periods.</p>
+</span></span></code></pre></div><p>这项配置会在写入高峰期产生更多文件，并在写入低谷期逐步合并这些文件，从而实现最佳的读取性能</p>
 <h2 id="dedicated-compaction-job">
   Dedicated compaction job
   <a class="anchor" href="#dedicated-compaction-job">#</a>
 </h2>
-<p>In general, if you expect multiple jobs to be written to the same table, you need to separate the compaction. You can
-use <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/#dedicated-compaction-job">dedicated compaction job</a>.</p>
+<p>一般来说，如果你期望多个写入任务同时写同一个表，必须将 compaction 任务单独分离出来。你可以使用以下方式： <a href="//localhost:1313/maintenance/dedicated-compaction/#dedicated-compaction-job">dedicated compaction job</a>.</p>
 <h2 id="record-level-expire">
   Record-Level expire
   <a class="anchor" href="#record-level-expire">#</a>
 </h2>
-<p>In compaction, you can configure record-Level expire time to expire records, you should configure:</p>
+<p>在 compaction 中，你可以配置记录级别的过期时间来过期记录，你需要配置：</p>
 <ol>
-<li><code>'record-level.expire-time'</code>: time retain for records.</li>
-<li><code>'record-level.time-field'</code>: time field for record level expire.</li>
+<li><code>'record-level.expire-time'</code>：记录的保留时间。</li>
+<li><code>'record-level.time-field'</code>：记录级别过期的时间字段。</li>
 </ol>
-<p>Expiration happens in compaction, and there is no strong guarantee to expire records in time.
-You can trigger a full compaction manually to expire records which were not expired in time.</p>
+<p>过期操作发生在 compaction 中，并不能强保证记录能准时过期。
+你可以手动触发一次全量 compaction 来过期那些未能及时过期的记录。</p>
 <h2 id="full-compaction">
   Full Compaction
   <a class="anchor" href="#full-compaction">#</a>
 </h2>
-<p>Paimon Compaction uses <a href="https://github.com/facebook/rocksdb/wiki/Universal-Compaction">Universal-Compaction</a>.
-By default, when there is too much incremental data, Full Compaction will be automatically performed. You don&rsquo;t usually
-have to worry about it.</p>
-<p>Paimon also provides a configuration that allows for regular execution of Full Compaction.</p>
+<p>Paimon Compaction 使用了 <a href="https://github.com/facebook/rocksdb/wiki/Universal-Compaction">Universal-Compaction</a>。
+默认情况下，当增量数据过多时，会自动执行 Full Compaction，通常你不必过多担心它。</p>
+<p>Paimon 还提供了配置，可以定期执行 Full Compaction。</p>
 <ol>
-<li>&lsquo;compaction.optimization-interval&rsquo;: Implying how often to perform an optimization full compaction, this
-configuration is used to ensure the query timeliness of the read-optimized system table.</li>
-<li>&lsquo;full-compaction.delta-commits&rsquo;: Full compaction will be constantly triggered after delta commits. Its disadvantage
-is that it can only perform compaction synchronously, which will affect writing efficiency.</li>
+<li><code>'compaction.optimization-interval'</code>：表示执行优化全量 compaction 的频率，该配置用于确保读优化系统表的查询时效性。</li>
+<li><code>'full-compaction.delta-commits'</code>：全量 compaction 会在每次增量提交后持续触发。缺点是只能同步执行 compaction，会影响写入效率。</li>
 </ol>
 <h2 id="lookup-compaction">
   Lookup Compaction
   <a class="anchor" href="#lookup-compaction">#</a>
 </h2>
-<p>When primary key table is configured with <code>lookup</code> <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/">changelog producer</a>
-or <code>first-row</code> <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/">merge-engine</a>
-or has enabled <code>deletion vectors</code> for <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/table-mode/#merge-on-write">MOW mode</a>, Paimon will
-use a radical compaction strategy to force compacting level 0 files to higher levels for every compaction trigger.</p>
-<p>Paimon also provides configurations to optimize the frequency of this compaction.</p>
+<p>当主键表配置了 <code>lookup</code> <a href="//localhost:1313/primary-key-table/changelog-producer/">changelog producer</a><br>
+或 <code>first-row</code> <a href="//localhost:1313/primary-key-table/merge-engine/">merge-engine</a><br>
+或启用了用于 <a href="//localhost:1313/primary-key-table/table-mode/#merge-on-write">MOW 模式</a> 的 <code>deletion vectors</code>，<br>
+Paimon 会使用激进的 compaction 策略，强制将 level 0 文件压缩到更高层级，每次触发 compaction 都执行此操作。</p>
+<p>Paimon 还提供配置来优化此 compaction 的频率：</p>
 <ol>
-<li>&rsquo;lookup-compact&rsquo;: compact mode used for lookup compaction. Possible values: <code>radical</code>, will use
-<code>ForceUpLevel0Compaction</code> strategy to radically compact new files; <code>gentle</code>, will use <code>UniversalCompaction</code> strategy
-to gently compact new files;</li>
-<li>&rsquo;lookup-compact.max-interval&rsquo;: The max interval for a forced L0 lookup compaction to be triggered in <code>gentle</code> mode.
-This option is only valid when <code>lookup-compact</code> mode is <code>gentle</code>.</li>
+<li><code>'lookup-compact'</code>：lookup compaction 使用的压缩模式。可选值：
+<ul>
+<li><code>radical</code>：使用 <code>ForceUpLevel0Compaction</code> 策略激进地压缩新文件；</li>
+<li><code>gentle</code>：使用 <code>UniversalCompaction</code> 策略温和地压缩新文件；</li>
+</ul>
+</li>
+<li><code>'lookup-compact.max-interval'</code>：在 <code>gentle</code> 模式下，强制触发 L0 lookup compaction 的最大时间间隔。<br>
+仅在 <code>'lookup-compact'</code> 设置为 <code>gentle</code> 时有效。</li>
 </ol>
-<p>By configuring &rsquo;lookup-compact&rsquo; as <code>gentle</code>, new files in L0 will not be compacted immediately, this may greatly
-reduce the overall resource usage at the expense of worse data freshness in certain cases.</p>
+<p>将 <code>'lookup-compact'</code> 配置为 <code>gentle</code> 后，L0 新文件不会立即被压缩，<br>
+这可能大幅降低整体资源消耗，但在某些情况下会牺牲数据的新鲜度。</p>
 <h2 id="compaction-options">
   Compaction Options
   <a class="anchor" href="#compaction-options">#</a>
@@ -2089,10 +2097,10 @@ reduce the overall resource usage at the expense of worse data freshness in cert
   Number of Sorted Runs to Pause Writing
   <a class="anchor" href="#number-of-sorted-runs-to-pause-writing">#</a>
 </h3>
-<p>When the number of sorted runs is small, Paimon writers will perform compaction asynchronously in separated threads, so
-records can be continuously written into the table. However, to avoid unbounded growth of sorted runs, writers will
-pause writing when the number of sorted runs hits the threshold. The following table property determines
-the threshold.</p>
+<p>当排序运行（sorted runs）的数量较少时，Paimon 写入器会在独立线程中异步执行 compaction，<br>
+从而使记录可以持续写入表中。</p>
+<p>但是，为了避免排序运行数量无限增长，当排序运行数量达到阈值时，写入器会暂停写入。<br>
+该阈值由以下表属性决定。</p>
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -2109,14 +2117,12 @@ the threshold.</p>
       <td>No</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>Integer</td>
-      <td>The number of sorted runs that trigger the stopping of writes, the default value is 'num-sorted-run.compaction-trigger' + 3.</td>
+      <td>T触发写入停止的排序运行（sorted runs）数量，默认值为 `num-sorted-run.compaction-trigger` + 3。.</td>
     </tr>
     </tbody>
 </table>
-<p>Write stalls will become less frequent when <code>num-sorted-run.stop-trigger</code> becomes larger, thus improving writing
-performance. However, if this value becomes too large, more memory and CPU time will be needed when querying the
-table. If you are concerned about the OOM problem, please configure the following option.
-Its value depends on your memory size.</p>
+<p>当 <code>num-sorted-run.stop-trigger</code> 设置得较大时，写入阻塞（write stalls）会变得较少，从而提升写入性能。然而，如果该值设置得过大，查询表时将消耗更多的内存和 CPU 时间。如果担心内存溢出（OOM）问题，请配置以下选项。</p>
+<p>该值应根据您的内存大小进行调整。</p>
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -2133,7 +2139,7 @@ Its value depends on your memory size.</p>
       <td>No</td>
       <td style="word-wrap: break-word;">(none)</td>
       <td>Integer</td>
-      <td>If the maximum number of sort readers exceeds this value, a spill will be attempted. This prevents too many readers from consuming too much memory and causing OOM.</td>
+      <td>如果排序读取器的最大数量超过此值，将尝试进行溢写（spill）。这样可以防止过多的读取器占用过多内存，从而导致内存溢出（OOM）。</td>
     </tr>
     </tbody>
 </table>
@@ -2141,8 +2147,8 @@ Its value depends on your memory size.</p>
   Number of Sorted Runs to Trigger Compaction
   <a class="anchor" href="#number-of-sorted-runs-to-trigger-compaction">#</a>
 </h3>
-<p>Paimon uses <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/#lsm-trees">LSM tree</a> which supports a large number of updates. LSM organizes files in several <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/#sorted-runs">sorted runs</a>. When querying records from an LSM tree, all sorted runs must be combined to produce a complete view of all records.</p>
-<p>One can easily see that too many sorted runs will result in poor query performance. To keep the number of sorted runs in a reasonable range, Paimon writers will automatically perform <a href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/compaction/">compactions</a>. The following table property determines the minimum number of sorted runs to trigger a compaction.</p>
+<p>Paimon 使用支持大量更新的 <a href="//localhost:1313/primary-key-table/overview/#lsm-trees">LSM tree</a>。LSM 将文件组织成多个 <a href="//localhost:1313/primary-key-table/overview/#sorted-runs">sorted runs</a>。查询 LSM 树中的记录时，必须合并所有排序运行，才能得到完整的记录视图。</p>
+<p>显而易见，过多的排序运行会导致查询性能下降。为了将排序运行数量控制在合理范围内，Paimon 写入器会自动执行 <a href="//localhost:1313/primary-key-table/compaction/">compaction</a>。以下表属性决定触发 compaction 的最小排序运行数量。</p>
 <table class="table table-bordered">
     <thead>
     <tr>
@@ -2159,11 +2165,11 @@ Its value depends on your memory size.</p>
       <td>No</td>
       <td style="word-wrap: break-word;">5</td>
       <td>Integer</td>
-      <td>The sorted run number to trigger compaction. Includes level0 files (one file one sorted run) and high-level runs (one level one sorted run).</td>
+      <td>触发 compaction 的排序运行（sorted run）数量。包括 level0 文件（每个文件对应一个排序运行）和高层级的排序运行（每个层级对应一个排序运行）。</td>
     </tr>
     </tbody>
 </table>
-<p>Compaction will become less frequent when <code>num-sorted-run.compaction-trigger</code> becomes larger, thus improving writing performance. However, if this value becomes too large, more memory and CPU time will be needed when querying the table. This is a trade-off between writing and query performance.</p>
+<p>当 <code>num-sorted-run.compaction-trigger</code> 变大时，compaction 发生的频率会降低，从而提升写入性能。但如果该值过大，查询表时将需要更多的内存和 CPU 时间。这是在写入性能和查询性能之间的权衡。</p>
 </article>
  
       
@@ -2215,7 +2221,7 @@ Its value depends on your memory size.</p>
 
 <nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
-    <li><a href="#asynchronous-compaction">Asynchronous Compaction</a></li>
+    <li><a href="#异步合并-asynchronous-compaction">异步合并 Asynchronous Compaction</a></li>
     <li><a href="#dedicated-compaction-job">Dedicated compaction job</a></li>
     <li><a href="#record-level-expire">Record-Level expire</a></li>
     <li><a href="#full-compaction">Full Compaction</a></li>

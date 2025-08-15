@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>规范说明 Specification on Paimon文档</title>
-    <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/</link>
+    <link>//localhost:1313/concepts/spec/</link>
     <description>Recent content in 规范说明 Specification on Paimon文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/concepts/spec/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概述 Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/</link>
+      <link>//localhost:1313/concepts/spec/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/</guid>
+      <guid>//localhost:1313/concepts/spec/overview/</guid>
       <description>Spec Overview&#xD;#&#xD;这是 Paimon 表格式的规范，本文档规范了 Paimon 的底层文件结构和设计。&#xA;术语&#xD;#&#xD;Schema：字段、主键定义、分区键定义及选项。 Snapshot：某一特定时间点提交的所有数据的入口。 Manifest list：包含多个 manifest 文件的列表。 Manifest：包含多个数据文件或变更日志文件。 Data File：包含增量记录。 Changelog File：包含由变更日志生成器产生的记录。 Global Index：桶或分区的索引。 Data File Index：数据文件的索引。 使用 Paimon 运行 Flink SQL：&#xA;CREATE CATALOG my_catalog WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;/your/path&amp;#39; ); USE CATALOG my_catalog; CREATE TABLE my_table ( k INT PRIMARY KEY NOT ENFORCED, f0 INT, f1 STRING ); INSERT INTO my_table VALUES (1, 11, &amp;#39;111&amp;#39;); Take a look to the disk:</description>
     </item>
     <item>
       <title>模式文件 Schema</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/</link>
+      <link>//localhost:1313/concepts/spec/schema/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/</guid>
+      <guid>//localhost:1313/concepts/spec/schema/</guid>
       <description>Schema&#xD;#&#xD;Schema 文件的版本从 0 开始，目前保留所有版本的 schema。可能存在依赖旧 schema 版本的旧文件，因此删除时需谨慎。&#xA;Schema 文件是 JSON 格式，内容包括：&#xA;fields：数据字段列表，数据字段包含 id、name、type，字段 id 用于支持 schema 演进。 partitionKeys：字段名列表，表的分区定义，不可修改。 primaryKeys：字段名列表，表的主键定义，不可修改。 options：map&amp;lt;string, string&amp;gt;，无序，表的选项，包括很多功能和优化。 示例 Example&#xD;#&#xD;{ &amp;#34;version&amp;#34; : 3, &amp;#34;id&amp;#34; : 0, &amp;#34;fields&amp;#34; : [ { &amp;#34;id&amp;#34; : 0, &amp;#34;name&amp;#34; : &amp;#34;order_id&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;BIGINT NOT NULL&amp;#34; }, { &amp;#34;id&amp;#34; : 1, &amp;#34;name&amp;#34; : &amp;#34;order_name&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;STRING&amp;#34; }, { &amp;#34;id&amp;#34; : 2, &amp;#34;name&amp;#34; : &amp;#34;order_user_id&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;BIGINT&amp;#34; }, { &amp;#34;id&amp;#34; : 3, &amp;#34;name&amp;#34; : &amp;#34;order_shop_id&amp;#34;, &amp;#34;type&amp;#34; : &amp;#34;BIGINT&amp;#34; } ], &amp;#34;highestFieldId&amp;#34; : 3, &amp;#34;partitionKeys&amp;#34; : [ ], &amp;#34;primaryKeys&amp;#34; : [ &amp;#34;order_id&amp;#34; ], &amp;#34;options&amp;#34; : { &amp;#34;bucket&amp;#34; : &amp;#34;5&amp;#34; }, &amp;#34;comment&amp;#34; : &amp;#34;&amp;#34;, &amp;#34;timeMillis&amp;#34; : 1720496663041 } 兼容性 Compatibility&#xD;#&#xD;针对旧版本：</description>
     </item>
     <item>
       <title>快照文件 Snapshot</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/</link>
+      <link>//localhost:1313/concepts/spec/snapshot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/snapshot/</guid>
+      <guid>//localhost:1313/concepts/spec/snapshot/</guid>
       <description>快照文件 Snapshot&#xD;#&#xD;每次提交都会生成一个 snapshot 文件，snapshot 文件的版本从 1 开始且必须连续。&#xA;EARLIEST 和 LATEST 是 snapshot 列表的起始和结束提示文件，但它们可能不准确。&#xA;当提示文件不准确时，读取操作会扫描所有 snapshot 文件以确定起始和结束位置。&#xA;warehouse └── default.db └── my_table ├── snapshot ├── EARLIEST ├── LATEST ├── snapshot-1 ├── snapshot-2 └── snapshot-3 写入提交时会预占下一个 snapshot ID，一旦 snapshot 文件成功写入，该提交即对外可见。&#xA;Snapshot 文件是 JSON 格式，内容包括：&#xA;version：Snapshot 文件版本，目前为 3。 id：snapshot ID，与文件名相同。 schemaId：该提交对应的 schema 版本。 baseManifestList：记录从上一个 snapshot 以来所有变更的 manifest 列表。 deltaManifestList：记录本次 snapshot 中发生的所有新增变更的 manifest 列表。 changelogManifestList：记录本次 snapshot 产生的所有变更日志的 manifest 列表，如果无变更日志则为 null。 indexManifest：记录该表所有索引文件的 manifest，如果无表索引文件则为 null。 commitUser：通常由 UUID 生成，用于流式写入的恢复，一个流写作业对应一个用户。 commitIdentifier：流式写入对应的事务 ID，每个事务可能因不同的 commitKind 导致多次提交。 commitKind：本次 snapshot 中变更的类型，包括 append（追加）、compact（压缩）、overwrite（覆盖）和 analyze（分析）。 timeMillis：提交时间（毫秒）。 logOffsets：提交日志偏移量。 totalRecordCount：本次 snapshot 中所有变更的记录数。 deltaRecordCount：本次 snapshot 中新增变更的记录数。 changelogRecordCount：本次 snapshot 中产生的变更日志记录数。 watermark：输入记录的 watermark，来源于 Flink 的 watermark 机制，无 watermark 时为 Long.</description>
     </item>
     <item>
       <title>清单文件 Manifest</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/</link>
+      <link>//localhost:1313/concepts/spec/manifest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/</guid>
+      <guid>//localhost:1313/concepts/spec/manifest/</guid>
       <description>Manifest&#xD;#&#xD;Manifest List&#xD;#&#xD;├── manifest └── manifest-list-51c16f7b-421c-4bc0-80a0-17677f343358-1 Manifest List 包含多个 manifest 文件的元信息。其文件名包含 UUID，是一个 Avro 文件，schema 如下：&#xA;_FILE_NAME：STRING，manifest 文件名。 _FILE_SIZE：BIGINT，manifest 文件大小。 _NUM_ADDED_FILES：BIGINT，manifest 中新增文件数量。 _NUM_DELETED_FILES：BIGINT，manifest 中删除文件数量。 _PARTITION_STATS：SimpleStats，分区统计信息，该 manifest 中分区字段的最小值和最大值，有助于查询时跳过某些 manifest 文件。 _SCHEMA_ID：BIGINT，写入该 manifest 文件时的 schema ID。 Manifest&#xD;#&#xD;Manifest 包含多个数据文件、变更日志文件或表索引文件的元信息。其文件名包含 UUID，是一个 Avro 文件。&#xA;文件的变更记录保存在 manifest 中，文件可以被添加或删除。Manifest 应保持有序，同一个文件可能被多次添加或删除，最终以最新版本为准。 该设计使得提交操作更轻量，支持由压缩操作产生的文件删除。&#xA;Data Manifest&#xD;#&#xD;Data Manifest 包含多个数据文件或变更日志文件的元信息。&#xA;├── manifest └── manifest-6758823b-2010-4d06-aef0-3b1b597723d6-0 Schema 如下：&#xA;_KIND：TINYINT，表示操作类型，ADD（添加）或 DELETE（删除）。 _PARTITION：BYTES，分区规格，BinaryRow 格式。 _BUCKET：INT，该文件所属的桶。 _TOTAL_BUCKETS：INT，写入该文件时的总桶数，用于桶变更后的校验。 _FILE：数据文件元信息。 数据文件元信息包括：&#xA;_FILE_NAME：STRING，文件名。 _FILE_SIZE：BIGINT，文件大小。 _ROW_COUNT：BIGINT，该文件中总行数（包含添加和删除）。 _MIN_KEY：STRING，该文件的最小键。 _MAX_KEY：STRING，该文件的最大键。 _KEY_STATS：SimpleStats，键的统计信息。 _VALUE_STATS：SimpleStats，值的统计信息。 _MIN_SEQUENCE_NUMBER：BIGINT，最小序列号。 _MAX_SEQUENCE_NUMBER：BIGINT，最大序列号。 _SCHEMA_ID：BIGINT，写入该文件时的 schema ID。 _LEVEL：INT，文件在 LSM 中的层级。 _EXTRA_FILES：ARRAY，该文件的额外文件，例如数据文件索引文件。 _CREATION_TIME：TIMESTAMP_MILLIS，文件创建时间。 _DELETE_ROW_COUNT：BIGINT，删除的行数，行数计算为 addRowCount + deleteRowCount。 _EMBEDDED_FILE_INDEX：BYTES，如果数据文件索引过小，则存储在 manifest 中。 _FILE_SOURCE：TINYINT，指示该文件是作为追加（APPEND）还是压缩（COMPACT）文件生成。 _VALUE_STATS_COLS：ARRAY，元数据中的统计列。 _EXTERNAL_PATH：该文件的外部路径，如果在仓库中则为 null。 Index Manifest&#xD;#&#xD;Index Manifest 包含多个 table-index 文件的元信息。</description>
     </item>
     <item>
       <title>数据文件 DataFile</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/</link>
+      <link>//localhost:1313/concepts/spec/datafile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/</guid>
+      <guid>//localhost:1313/concepts/spec/datafile/</guid>
       <description>数据文件 DataFile&#xD;#&#xD;Partition&#xD;#&#xD;通过 Flink SQL 创建分区表示例：&#xA;CREATE TABLE part_t ( f0 INT, f1 STRING, dt STRING ) PARTITIONED BY (dt); INSERT INTO part_t VALUES (1, &amp;#39;11&amp;#39;, &amp;#39;20240514&amp;#39;); 文件系统结构如下：&#xA;part_t ├── dt=20240514 │ └── bucket-0 │ └── data-ca1c3c38-dc8d-4533-949b-82e195b41bd4-0.orc ├── manifest │ ├── manifest-08995fe5-c2ac-4f54-9a5f-d3af1fcde41d-0 │ ├── manifest-list-51c16f7b-421c-4bc0-80a0-17677f343358-0 │ └── manifest-list-51c16f7b-421c-4bc0-80a0-17677f343358-1 ├── schema │ └── schema-0 └── snapshot ├── EARLIEST ├── LATEST └── snapshot-1 Paimon 采用与 Apache Hive 相同的分区概念来划分数据。分区的数据文件会被放置在独立的分区目录中。</description>
     </item>
     <item>
       <title>表索引 Table Index</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/</link>
+      <link>//localhost:1313/concepts/spec/tableindex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/tableindex/</guid>
+      <guid>//localhost:1313/concepts/spec/tableindex/</guid>
       <description>表索引 Table index&#xD;#&#xD;表索引文件存放在 index 目录中。&#xA;Dynamic Bucket Index&#xD;#&#xD;动态桶索引用于存储主键哈希值与桶的对应关系。&#xA;其结构非常简单，文件中只存储哈希值：&#xA;HASH_VALUE | HASH_VALUE | HASH_VALUE | HASH_VALUE | &amp;hellip;&#xA;HASH_VALUE 是主键的哈希值，4 字节，采用大端（BIG_ENDIAN）存储。&#xA;Deletion Vectors&#xD;#&#xD;Deletion file 用于存储每个数据文件中被删除记录的位置。主键表中每个桶对应一个 Deletion file 。&#xA;Deletion file 是二进制文件，格式如下：&#xA;首先，用 1 字节记录版本号，当前版本为 1。 然后，依次记录 &amp;lt;序列化位图大小、序列化位图、序列化位图的校验和&amp;gt;。 大小和校验和均为大端（BIG_ENDIAN）整数。 每个序列化位图的序列化格式由 deletion-vectors.bitmap64 决定。 Paimon 默认使用 32 位位图存储删除记录，但如果设置了 deletion-vectors.bitmap64 为 true，则使用 64 位位图。 两种位图的序列化方式不同。注意，只有 64 位位图实现与 Iceberg 兼容。&#xA;32 位位图的序列化（默认）：&#xA;先用一个大端整数（BIG_ENDIAN）记录一个固定魔数，当前魔数为 1581511376。 然后记录一个 32 位序列化位图，即一个 RoaringBitmap（org.roaringbitmap.RoaringBitmap）。 64 位位图的序列化：</description>
     </item>
     <item>
       <title>文件索引 File Index</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/</link>
+      <link>//localhost:1313/concepts/spec/fileindex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/</guid>
+      <guid>//localhost:1313/concepts/spec/fileindex/</guid>
       <description>File index&#xD;#&#xD;定义 file-index.${index_type}.columns 后，Paimon 会为每个数据文件创建对应的索引文件。&#xA;如果索引文件过小，会直接存储在 manifest 中，或者存放在数据文件的目录中。&#xA;每个数据文件对应一个索引文件，索引文件有独立的文件定义，可以包含多列的多种类型索引。&#xA;Index File&#xD;#&#xD;文件索引文件格式：&#xA;将所有列信息和偏移量存放在文件头部。&#xA;______________________________________ _____________________&#xD;| magic ｜version｜head length |&#xD;|--------------------------------------|&#xD;| column number |&#xD;|--------------------------------------|&#xD;| column 1 ｜ index number |&#xD;|--------------------------------------|&#xD;| index name 1 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 2 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 3 ｜start pos ｜length |&#xD;|--------------------------------------| HEAD&#xD;| column 2 ｜ index number |&#xD;|--------------------------------------|&#xD;| index name 1 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 2 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| index name 3 ｜start pos ｜length |&#xD;|--------------------------------------|&#xD;| .</description>
     </item>
   </channel>
