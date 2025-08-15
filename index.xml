@@ -30,13 +30,6 @@
     </item>
     <item>
       <title>Overview</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</guid>
-      <description>Overview&#xD;#&#xD;If a table does not have a primary key defined, it is an append table. Compared to the primary key table, it does not have the ability to directly receive changelogs. It cannot be directly updated with data through upsert. It can only receive incoming data from append data.&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &amp;#39;target-file-size&amp;#39; = &amp;#39;256 MB&amp;#39;, -- &amp;#39;file.</description>
-    </item>
-    <item>
-      <title>Overview</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/</guid>
@@ -69,13 +62,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/</guid>
       <description>Overview&#xD;#&#xD;When Paimon sink receives two or more records with the same primary keys, it will merge them into one record to keep primary keys unique. By specifying the merge-engine table property, users can choose how records are merged together.&#xA;Always set table.exec.sink.upsert-materialize to NONE in Flink SQL TableConfig, sink upsert-materialize may result in strange behavior. When the input is out of order, we recommend that you use Sequence Field to correct disorder.</description>
-    </item>
-    <item>
-      <title>Quick Start</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</guid>
-      <description>Quick Start&#xD;#&#xD;This documentation is a guide for using Paimon in Flink.&#xA;Jars&#xD;#&#xD;Paimon currently supports Flink 2.0, 1.20, 1.19, 1.18, 1.17, 1.16, 1.15. We recommend the latest Flink version for a better experience.&#xA;Download the jar file with corresponding version.&#xA;Currently, paimon provides two types jar: one of which(the bundled jar) is used for read/write data, and the other(action jar) for operations such as manually compaction, Version Type Jar Flink 2.</description>
     </item>
     <item>
       <title>Quick Start</title>
@@ -114,6 +100,13 @@
     </item>
     <item>
       <title>概览 Overview</title>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</guid>
+      <description>&#xD;Overview&#xD;#&#xD;如果一个表没有定义主键，它就是一个 append 表。与主键表相比，append 表没有直接接收 changelog 的能力，不能通过 upsert 直接更新数据，只能接收新增的 append 数据。&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &amp;#39;target-file-size&amp;#39; = &amp;#39;256 MB&amp;#39;, -- &amp;#39;file.format&amp;#39; = &amp;#39;parquet&amp;#39;, -- &amp;#39;file.compression&amp;#39; = &amp;#39;zstd&amp;#39;, -- &amp;#39;file.compression.zstd-level&amp;#39; = &amp;#39;3&amp;#39; ); 在典型应用场景中支持批量写入和批量读取，类似于常规的 Hive 分区表，但相比 Hive 表，它可以带来以下优势：&#xA;对象存储（S3、OSS）友好 支持 Time Travel 与 Rollback 低成本的 DELETE / UPDATE 在流式写入中自动合并小文件 支持类似队列的流式读写 结合排序与索引的高性能查询 </description>
+    </item>
+    <item>
+      <title>概览 Overview</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/</guid>
@@ -132,6 +125,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/</guid>
       <description>Spec Overview&#xD;#&#xD;这是 Paimon 表格式的规范，本文档规范了 Paimon 的底层文件结构和设计。&#xA;术语&#xD;#&#xD;Schema：字段、主键定义、分区键定义及选项。 Snapshot：某一特定时间点提交的所有数据的入口。 Manifest list：包含多个 manifest 文件的列表。 Manifest：包含多个数据文件或变更日志文件。 Data File：包含增量记录。 Changelog File：包含由变更日志生成器产生的记录。 Global Index：桶或分区的索引。 Data File Index：数据文件的索引。 使用 Paimon 运行 Flink SQL：&#xA;CREATE CATALOG my_catalog WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;/your/path&amp;#39; ); USE CATALOG my_catalog; CREATE TABLE my_table ( k INT PRIMARY KEY NOT ENFORCED, f0 INT, f1 STRING ); INSERT INTO my_table VALUES (1, 11, &amp;#39;111&amp;#39;); Take a look to the disk:</description>
+    </item>
+    <item>
+      <title>快速开始 Quick Start</title>
+      <link>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</guid>
+      <description>Quick Start&#xD;#&#xD;本指南用于指导在 Flink 中使用 Paimon。&#xA;Jar包 Jars&#xD;#&#xD;Paimon 目前支持 Flink 2.0、1.20、1.19、1.18、1.17、1.16、1.15。我们推荐使用最新的 Flink 版本以获得更好的体验。&#xA;请下载对应版本的 jar 文件。&#xA;当前，Paimon 提供两种类型的 jar 文件：一种（bundled jar）用于读写数据，另一种（action jar）用于手动 compaction 等操作，&#xA;Version Type Jar Flink 2.0 Bundled Jar paimon-flink-2.0-1.2.0.jar Flink 1.20 Bundled Jar paimon-flink-1.20-1.2.0.jar Flink 1.19 Bundled Jar paimon-flink-1.19-1.2.0.jar Flink 1.18 Bundled Jar paimon-flink-1.18-1.2.0.jar Flink 1.17 Bundled Jar paimon-flink-1.17-1.2.0.jar Flink 1.16 Bundled Jar paimon-flink-1.16-1.2.0.jar Flink 1.15 Bundled Jar paimon-flink-1.15-1.2.0.jar Flink Action Action Jar paimon-flink-action-1.</description>
     </item>
     <item>
       <title>Append Table</title>
@@ -225,18 +225,18 @@
       <description>StarRocks&#xD;#&#xD;This documentation is a guide for using Paimon in StarRocks.&#xA;Version&#xD;#&#xD;Paimon currently supports StarRocks 3.1 and above. Recommended version is StarRocks 3.2.6 or above.&#xA;Create Paimon Catalog&#xD;#&#xD;Paimon catalogs are registered by executing a CREATE EXTERNAL CATALOG SQL in StarRocks. For example, you can use the following SQL to create a Paimon catalog named paimon_catalog.&#xA;CREATE EXTERNAL CATALOG paimon_catalog PROPERTIES( &amp;#34;type&amp;#34; = &amp;#34;paimon&amp;#34;, &amp;#34;paimon.catalog.type&amp;#34; = &amp;#34;filesystem&amp;#34;, &amp;#34;paimon.</description>
     </item>
     <item>
-      <title>Streaming</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</guid>
-      <description>Streaming&#xD;#&#xD;You can stream write to the Append table in a very flexible way through Flink, or read the Append table through Flink, using it like a queue. The only difference is that its latency is in minutes. Its advantages are very low cost and the ability to push down filters and projection.&#xA;Pre small files merging&#xD;#&#xD;&amp;ldquo;Pre&amp;rdquo; means that this compact occurs before committing files to the snapshot.</description>
-    </item>
-    <item>
       <title>基础概念 Basic Concepts</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</guid>
       <description>基础概念&#xD;#&#xD;文件布局&#xD;#&#xD;一个表的所有文件都存储在同一个基础目录下。Paimon 的文件采用分层结构组织。下图展示了文件布局。从快照文件开始，Paimon 读取器可以递归访问表中的所有记录。&#xA;快照（Snapshot）&#xD;#&#xD;所有快照文件存储在 snapshot 目录下。&#xA;快照文件是一个 JSON 文件，包含该快照的信息，包括：&#xA;使用的 schema 文件 包含该快照所有变更的 manifest 列表 快照捕获了表在某一时间点的状态。用户可以通过最新快照访问表的最新数据。通过时间旅行，用户也可以通过更早的快照访问表的历史状态。&#xA;Manifest 文件&#xD;#&#xD;所有 manifest 列表和 manifest 文件存储在 manifest 目录下。&#xA;manifest 列表是 manifest 文件名的列表。&#xA;manifest 文件包含有关 LSM 数据文件和变更日志文件的变更信息，例如在对应快照中新建了哪些 LSM 数据文件，删除了哪些文件。&#xA;数据文件&#xD;#&#xD;数据文件按分区分组。目前 Paimon 支持使用 parquet（默认）、orc 和 avro 作为数据文件格式。&#xA;分区&#xD;#&#xD;Paimon 采用与 Apache Hive 相同的分区概念来划分数据。&#xA;分区是一种可选的方式，根据特定列（如日期、城市、部门）的值将表划分为相关部分。每个表可以有一个或多个分区键来标识特定分区。&#xA;通过分区，用户可以高效地操作表中的某一部分记录。&#xA;一致性保证&#xD;#&#xD;Paimon 写入器使用两阶段提交协议，原子性地提交一批记录到表中。每次提交最多产生两个 快照，具体取决于增量写入和压缩策略。如果只执行增量写入且未触发压缩操作，则只创建增量快照；如果触发压缩操作，则同时创建增量快照和压缩快照。&#xA;对于同时修改同一张表的多个写入器，只要它们不修改同一分区，其提交可以并行进行。如果修改同一分区，则只保证快照隔离。也就是说，最终的表状态可能是两次提交的混合，但不会丢失任何更改。&#xA;更多信息请参见 dedicated compaction job。</description>
+    </item>
+    <item>
+      <title>流 Streaming</title>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</guid>
+      <description>Streaming&#xD;#&#xD;你可以通过 Flink 以非常灵活的方式向 Append 表进行流式写入，或者通过 Flink 读取 Append 表，将其当作队列来使用。唯一的区别是其延迟以分钟为单位。它的优势是成本极低，并且支持下推过滤和projection。&#xA;前置小文件合并 Pre small files merging&#xD;#&#xD;“Pre” 表示该 compact 发生在将文件提交到快照之前。&#xA;如果 Flink 的 checkpoint 间隔较短（例如 30 秒），每个快照可能会产生大量的小型 changelog 文件。过多的文件可能会给分布式存储集群带来压力。&#xA;为了将小的 changelog 文件压缩为较大的文件，可以设置表选项 precommit-compact = true。该选项默认值为 false，如果设为 true，将会在 writer 算子之后添加一个 compact 协调器和 worker 算子，用于将 changelog 文件合并成较大的文件。&#xA;后置小文件合并 Post small files merging&#xD;#&#xD;“Post” 表示该 compact 发生在将文件提交到快照之后。&#xA;在流式写入作业中，如果没有定义 bucket，writer 中不会进行 compact，而是会通过 Compact Coordinator 扫描小文件，并将 compact 任务分配给 Compact Worker。在流式模式下，如果在 Flink 中运行 insert SQL，拓扑结构将如下所示：</description>
     </item>
     <item>
       <title>模式文件 Schema</title>
@@ -302,13 +302,6 @@
       <description>Primary Key Tables&#xD;#&#xD;Let&amp;rsquo;s walk through a simple example, where we query Paimon tables with Iceberg connectors in Flink and Spark. Before trying out this example, make sure that your compute engine already supports Iceberg. Please refer to Iceberg&amp;rsquo;s document if you haven&amp;rsquo;t set up Iceberg.&#xA;Flink: Preparation when using Flink SQL Client Spark: Using Iceberg in Spark 3 Flink SQL&#xD;CREATE CATALOG paimon_catalog WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;&amp;lt;path-to-warehouse&amp;gt;&amp;#39; ); CREATE TABLE paimon_catalog.</description>
     </item>
     <item>
-      <title>Query Performance</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</guid>
-      <description>Query Performance&#xD;#&#xD;Data Skipping By Order&#xD;#&#xD;Paimon by default records the maximum and minimum values of each field in the manifest file.&#xA;In the query, according to the WHERE condition of the query, together with the statistics in the manifest we can perform file filtering. If the filtering effect is good, the query that would have cost minutes will be accelerated to milliseconds to complete the execution.</description>
-    </item>
-    <item>
       <title>Write Performance</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -328,6 +321,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/</guid>
       <description>并发控制&#xD;#&#xD;Paimon 支持多写入任务的乐观并发控制。&#xA;每个任务以自己的节奏写入数据，并在提交时基于当前快照应用增量文件（删除或添加文件）生成新的快照。&#xA;这里可能出现两种提交失败的情况：&#xA;快照冲突：快照 ID 已被抢占，表已由其他任务生成了新的快照。此时可以重新提交。 文件冲突：任务想删除的文件已被其他任务删除，此时任务只能失败。（对于流处理任务，会失败并重启，故意进行一次故障切换） 快照冲突&#xD;#&#xD;Paimon 的快照 ID 唯一，只要任务成功将快照文件写入文件系统，即认为提交成功。&#xA;Paimon 使用文件系统的重命名机制提交快照，这对于 HDFS 来说是安全的，因为它保证了事务性和原子性重命名。&#xA;但对于 OSS、S3 等对象存储，其 &#39;RENAME&#39; 操作没有原子语义。此时需要配置 Hive 或 jdbc metastore，并为目录启用 &#39;lock.enabled&#39; 选项，否则可能会丢失快照。&#xA;文件冲突&#xD;#&#xD;当 Paimon 提交文件删除（仅为逻辑删除）时，会检查与最新快照的冲突。&#xA;如果存在冲突（即该文件已被逻辑删除），该提交节点无法继续，只能故意触发故障切换重启，任务会从文件系统重新获取最新状态，期望解决冲突。&#xA;Paimon 会确保此过程无数据丢失或重复，但如果两个流任务同时写入且产生冲突，就会不断重启，这并不好。&#xA;冲突本质来源于文件的逻辑删除，而文件删除源自压缩操作，因此只要关闭写任务的压缩（将 &#39;write-only&#39; 设为 true），并启动单独的任务做压缩工作，一切都会很好。&#xA;更多信息请参见 dedicated compaction job。</description>
+    </item>
+    <item>
+      <title>查询性能 Query Performance</title>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</guid>
+      <description>查询性能 Query Performance&#xD;#&#xD;Data Skipping By Order&#xD;#&#xD;Paimon 默认会在 manifest 文件中记录每个字段的最大值和最小值。&#xA;在查询时，可以根据查询的 WHERE 条件，结合 manifest 中的统计信息来执行文件过滤。如果过滤效果良好，本来需要几分钟的查询可以加速到毫秒级完成。&#xA;通常，数据分布并不总是理想的以便过滤，那么我们能否按 WHERE 条件中的字段对数据进行排序呢？你可以参考 Flink COMPACT Action, Flink COMPACT Procedure or Spark COMPACT Procedure.&#xA;Data Skipping By File Index&#xD;#&#xD;你也可以使用文件索引，它会在读取端通过索引对文件进行过滤。&#xA;CREATE TABLE &amp;lt;PAIMON_TABLE&amp;gt; (&amp;lt;COLUMN&amp;gt; &amp;lt;COLUMN_TYPE&amp;gt; , ...) WITH ( &amp;#39;file-index.bloom-filter.columns&amp;#39; = &amp;#39;c1,c2&amp;#39;, &amp;#39;file-index.bloom-filter.c1.items&amp;#39; = &amp;#39;200&amp;#39; ); 定义 file-index.bloom-filter.columns。数据文件索引是一个外部索引文件，Paimon 会为每个数据文件创建对应的索引文件。如果索引文件过小，会直接存储在 manifest 中，否则存储在数据文件所在目录中。每个数据文件对应一个索引文件，索引文件有独立的文件定义，可以包含多列的不同类型索引。&#xA;不同的文件索引在不同场景下效率不同。例如，Bloom Filter 在点查场景下可能加速查询，而使用 Bitmap 虽然占用更多空间，但能提供更高的准确性。&#xA;Bloom Filter 配置示例：&#xA;file-index.bloom-filter.columns：指定需要 Bloom Filter 索引的列。 file-index.</description>
     </item>
     <item>
       <title>快照文件 Snapshot</title>
@@ -407,11 +407,11 @@
       <description>SQL Query&#xD;#&#xD;Just like all other tables, Paimon tables can be queried with SELECT statement.&#xA;Batch Query&#xD;#&#xD;Paimon&amp;rsquo;s batch read returns all the data in a snapshot of the table. By default, batch reads return the latest snapshot.&#xA;-- read all columns SELECT * FROM t; Paimon also supports reading some hidden metadata columns, currently supporting the following columns:&#xA;__paimon_file_path: the file path of the record. __paimon_partition: the partition of the record.</description>
     </item>
     <item>
-      <title>Update</title>
+      <title>更新 Update</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</guid>
-      <description>Update&#xD;#&#xD;Now, only Spark SQL supports DELETE &amp;amp; UPDATE, you can take a look at Spark Write.&#xA;Example:&#xA;DELETE FROM my_table WHERE currency = &amp;#39;UNKNOWN&amp;#39;; Update append table has two modes:&#xA;COW (Copy on Write): search for the hit files and then rewrite each file to remove the data that needs to be deleted from the files. This operation is costly. MOW (Merge on Write): By specifying &#39;deletion-vectors.enabled&#39; = &#39;true&#39;, the Deletion Vectors mode can be enabled.</description>
+      <description>&#xD;Update&#xD;#&#xD;目前，只有 Spark SQL 支持 DELETE 和 UPDATE，你可以参考 Spark Write。&#xA;示例：&#xA;DELETE FROM my_table WHERE currency = &amp;#39;UNKNOWN&amp;#39;; 更新 Append 表有两种模式：&#xA;COW（Copy on Write）：搜索命中数据的文件，然后重写每个文件，从文件中移除需要删除的数据。该操作代价较高。 MOW（Merge on Write）：通过指定 &#39;deletion-vectors.enabled&#39; = &#39;true&#39; 启用 Deletion Vectors 模式。仅标记对应文件的部分记录为删除，并写入删除文件，而无需重写整个文件。 </description>
     </item>
     <item>
       <title>清单文件 Manifest</title>
@@ -419,13 +419,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/</guid>
       <description>Manifest&#xD;#&#xD;Manifest List&#xD;#&#xD;├── manifest └── manifest-list-51c16f7b-421c-4bc0-80a0-17677f343358-1 Manifest List 包含多个 manifest 文件的元信息。其文件名包含 UUID，是一个 Avro 文件，schema 如下：&#xA;_FILE_NAME：STRING，manifest 文件名。 _FILE_SIZE：BIGINT，manifest 文件大小。 _NUM_ADDED_FILES：BIGINT，manifest 中新增文件数量。 _NUM_DELETED_FILES：BIGINT，manifest 中删除文件数量。 _PARTITION_STATS：SimpleStats，分区统计信息，该 manifest 中分区字段的最小值和最大值，有助于查询时跳过某些 manifest 文件。 _SCHEMA_ID：BIGINT，写入该 manifest 文件时的 schema ID。 Manifest&#xD;#&#xD;Manifest 包含多个数据文件、变更日志文件或表索引文件的元信息。其文件名包含 UUID，是一个 Avro 文件。&#xA;文件的变更记录保存在 manifest 中，文件可以被添加或删除。Manifest 应保持有序，同一个文件可能被多次添加或删除，最终以最新版本为准。 该设计使得提交操作更轻量，支持由压缩操作产生的文件删除。&#xA;Data Manifest&#xD;#&#xD;Data Manifest 包含多个数据文件或变更日志文件的元信息。&#xA;├── manifest └── manifest-6758823b-2010-4d06-aef0-3b1b597723d6-0 Schema 如下：&#xA;_KIND：TINYINT，表示操作类型，ADD（添加）或 DELETE（删除）。 _PARTITION：BYTES，分区规格，BinaryRow 格式。 _BUCKET：INT，该文件所属的桶。 _TOTAL_BUCKETS：INT，写入该文件时的总桶数，用于桶变更后的校验。 _FILE：数据文件元信息。 数据文件元信息包括：&#xA;_FILE_NAME：STRING，文件名。 _FILE_SIZE：BIGINT，文件大小。 _ROW_COUNT：BIGINT，该文件中总行数（包含添加和删除）。 _MIN_KEY：STRING，该文件的最小键。 _MAX_KEY：STRING，该文件的最大键。 _KEY_STATS：SimpleStats，键的统计信息。 _VALUE_STATS：SimpleStats，值的统计信息。 _MIN_SEQUENCE_NUMBER：BIGINT，最小序列号。 _MAX_SEQUENCE_NUMBER：BIGINT，最大序列号。 _SCHEMA_ID：BIGINT，写入该文件时的 schema ID。 _LEVEL：INT，文件在 LSM 中的层级。 _EXTRA_FILES：ARRAY，该文件的额外文件，例如数据文件索引文件。 _CREATION_TIME：TIMESTAMP_MILLIS，文件创建时间。 _DELETE_ROW_COUNT：BIGINT，删除的行数，行数计算为 addRowCount + deleteRowCount。 _EMBEDDED_FILE_INDEX：BYTES，如果数据文件索引过小，则存储在 manifest 中。 _FILE_SOURCE：TINYINT，指示该文件是作为追加（APPEND）还是压缩（COMPACT）文件生成。 _VALUE_STATS_COLS：ARRAY，元数据中的统计列。 _EXTERNAL_PATH：该文件的外部路径，如果在仓库中则为 null。 Index Manifest&#xD;#&#xD;Index Manifest 包含多个 table-index 文件的元信息。</description>
-    </item>
-    <item>
-      <title>Bucketed</title>
-      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</guid>
-      <description>Bucketed Append&#xD;#&#xD;You can define the bucket and bucket-key to get a bucketed append table.&#xA;Example to create bucketed append table:&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &amp;#39;bucket&amp;#39; = &amp;#39;8&amp;#39;, &amp;#39;bucket-key&amp;#39; = &amp;#39;product_id&amp;#39; ); Streaming&#xD;#&#xD;An ordinary Append table has no strict ordering guarantees for its streaming writes and reads, but there are some cases where you need to define a key similar to Kafka&amp;rsquo;s.</description>
     </item>
     <item>
       <title>Clone To Paimon</title>
@@ -482,6 +475,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/</guid>
       <description>Changelog Producer&#xD;#&#xD;流式写入可以持续产生最新变更，供流式读取使用。&#xA;通过在创建表时指定 changelog-producer 表属性，用户可以选择从表文件中产生变更的方式。&#xA;changelog-producer 可能会显著降低压缩性能，除非必要，请勿启用。&#xD;None&#xD;#&#xD;默认情况下，表的写入端不会应用额外的变更日志（changelog）生成器。Paimon 源仅能看到跨快照合并后的变更，比如哪些键被删除，某些键的新值是什么。&#xA;然而，这些合并后的变更无法形成完整的变更日志，因为我们无法直接从中读取键的旧值。合并变更要求消费者“记住”每个键的值，并在看不到旧值的情况下重写新值。但有些消费者需要旧值来保证正确性或效率。&#xA;例如，有个消费者计算某些分组键（可能与主键不同）的求和。如果消费者只看到一个新值 5，它无法判断应该对求和结果加多少。如果旧值是 4，应加 1；如果旧值是 6，则应减 1。旧值对于这类消费者非常重要。&#xA;综上所述，none 类型的变更日志生成器最适合数据库系统等消费者。Flink 内置了一个“normalize”操作符，会将每个键的值保存在状态中。显而易见，这个操作符开销很大，应该避免使用。（你可以通过 &#39;scan.remove-normalize&#39; 强制移除该操作符。）&#xA;Input&#xD;#&#xD;通过指定 &#39;changelog-producer&#39; = &#39;input&#39;，Paimon 写入端依赖其输入作为完整变更日志的来源。所有输入记录都会被保存到独立的变更日志文件中，并由 Paimon 源提供给消费者。&#xA;当 Paimon 写入端的输入本身就是完整变更日志时（例如来自数据库 CDC，或由 Flink 有状态计算生成），可以使用 input 类型的变更日志生成器。&#xA;Lookup&#xD;#&#xD;如果你的输入无法生成完整的变更日志，但仍希望避免高开销的 normalize 操作符，可以考虑使用 &#39;lookup&#39; 类型的变更日志生成器。&#xA;通过指定 &#39;changelog-producer&#39; = &#39;lookup&#39;，Paimon 会在提交数据写入前，通过 &#39;lookup&#39; 方式生成变更日志。（你也可以启用 Async Compaction).&#xA;Lookup 会将数据缓存到内存和本地磁盘，你可以使用以下选项来调优性能：&#xA;Option&#xD;Default&#xD;Type&#xD;Description&#xD;lookup.cache-file-retention&#xD;1 h&#xD;Duration&#xD;用于 lookup 的缓存文件保留时间。文件过期后，如果仍需要访问，它将会从分布式文件系统（DFS）重新读取，并在本地磁盘上重建索引。&#xD;lookup.</description>
+    </item>
+    <item>
+      <title>分桶 Bucketed</title>
+      <link>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</guid>
+      <description>Bucketed Append&#xD;#&#xD;你可以定义 bucket 和 bucket-key 来创建一个分桶的 Append 表。&#xA;创建分桶 Append 表示例：&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &amp;#39;bucket&amp;#39; = &amp;#39;8&amp;#39;, &amp;#39;bucket-key&amp;#39; = &amp;#39;product_id&amp;#39; ); Streaming&#xD;#&#xD;普通的 Append 表在流式写入和读取时没有严格的顺序保证，但在某些情况下，你可能需要定义一个类似 Kafka 的 key。&#xA;同一个 bucket 中的每条记录会严格有序，流式读取会按照写入顺序将记录准确地传递到下游。要使用此模式，无需配置特殊参数，所有数据将进入一个 bucket，像队列一样处理。&#xA;Compaction in Bucket&#xD;#&#xD;默认情况下，sink 节点会自动执行 compaction 来控制文件数量。以下选项用于控制 compaction 策略：&#xA;Key&#xD;Default&#xD;Type&#xD;Description&#xD;write-only&#xD;false&#xD;Boolean&#xD;如果设置为 true，将跳过 compaction 和快照过期。此选项通常与专用 compaction 作业一起使用。&#xD;compaction.</description>
     </item>
     <item>
       <title>数据文件 DataFile</title>

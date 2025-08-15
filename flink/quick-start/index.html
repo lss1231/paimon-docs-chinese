@@ -7,26 +7,28 @@
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Quick Start#This documentation is a guide for using Paimon in Flink.
-Jars#Paimon currently supports Flink 2.0, 1.20, 1.19, 1.18, 1.17, 1.16, 1.15. We recommend the latest Flink version for a better experience.
-Download the jar file with corresponding version.
-Currently, paimon provides two types jar: one of which(the bundled jar) is used for read/write data, and the other(action jar) for operations such as manually compaction, Version Type Jar Flink 2.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Quick Start" />
-<meta property="og:description" content="Quick Start#This documentation is a guide for using Paimon in Flink.
-Jars#Paimon currently supports Flink 2.0, 1.20, 1.19, 1.18, 1.17, 1.16, 1.15. We recommend the latest Flink version for a better experience.
-Download the jar file with corresponding version.
-Currently, paimon provides two types jar: one of which(the bundled jar) is used for read/write data, and the other(action jar) for operations such as manually compaction, Version Type Jar Flink 2." />
+<meta name="description" content="Quick Start#本指南用于指导在 Flink 中使用 Paimon。
+Jar包 Jars#Paimon 目前支持 Flink 2.0、1.20、1.19、1.18、1.17、1.16、1.15。我们推荐使用最新的 Flink 版本以获得更好的体验。
+请下载对应版本的 jar 文件。
+当前，Paimon 提供两种类型的 jar 文件：一种（bundled jar）用于读写数据，另一种（action jar）用于手动 compaction 等操作，
+Version Type Jar Flink 2.0 Bundled Jar paimon-flink-2.0-1.2.0.jar Flink 1.20 Bundled Jar paimon-flink-1.20-1.2.0.jar Flink 1.19 Bundled Jar paimon-flink-1.19-1.2.0.jar Flink 1.18 Bundled Jar paimon-flink-1.18-1.2.0.jar Flink 1.17 Bundled Jar paimon-flink-1.17-1.2.0.jar Flink 1.16 Bundled Jar paimon-flink-1.16-1.2.0.jar Flink 1.15 Bundled Jar paimon-flink-1.15-1.2.0.jar Flink Action Action Jar paimon-flink-action-1.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="快速开始 Quick Start" />
+<meta property="og:description" content="Quick Start#本指南用于指导在 Flink 中使用 Paimon。
+Jar包 Jars#Paimon 目前支持 Flink 2.0、1.20、1.19、1.18、1.17、1.16、1.15。我们推荐使用最新的 Flink 版本以获得更好的体验。
+请下载对应版本的 jar 文件。
+当前，Paimon 提供两种类型的 jar 文件：一种（bundled jar）用于读写数据，另一种（action jar）用于手动 compaction 等操作，
+Version Type Jar Flink 2.0 Bundled Jar paimon-flink-2.0-1.2.0.jar Flink 1.20 Bundled Jar paimon-flink-1.20-1.2.0.jar Flink 1.19 Bundled Jar paimon-flink-1.19-1.2.0.jar Flink 1.18 Bundled Jar paimon-flink-1.18-1.2.0.jar Flink 1.17 Bundled Jar paimon-flink-1.17-1.2.0.jar Flink 1.16 Bundled Jar paimon-flink-1.16-1.2.0.jar Flink 1.15 Bundled Jar paimon-flink-1.15-1.2.0.jar Flink Action Action Jar paimon-flink-action-1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" /><meta property="article:section" content="flink" />
 
 
-<title>Quick Start | Paimon文档</title>
+<title>快速开始 Quick Start | Paimon文档</title>
 <link rel="manifest" href="/paimon-docs-chinese/manifest.json">
 <link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://lss1231.github.io/paimon-docs-chinese/en/flink/quick-start/" title="Quick Start">
 
 <link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/zh.search.min.6ba94d695c1d559d0e9e85b8e11a5bb35db97871d0c9554a939d16ce3d9bd830.js" integrity="sha256-a6lNaVwdVZ0OnoW44Rpbs125eHHQyVVKk50Wzj2b2DA="></script>
+<script defer src="/paimon-docs-chinese/zh.search.min.3035b225cd6619b0f5dab2b1ef9b4a916e841bd1df92a5c11299790084ad4cd2.js" integrity="sha256-MDWyJc1mGbD12rKx75tKkW6EG9HfkqXBEpl5AIStTNI="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -654,7 +656,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">概览 Overview</a>
   
 
         </li>
@@ -668,7 +670,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">流 Streaming</a>
   
 
         </li>
@@ -682,7 +684,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">查询性能 Query Performance</a>
   
 
         </li>
@@ -696,7 +698,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">Update</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">更新 Update</a>
   
 
         </li>
@@ -710,7 +712,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">分桶 Bucketed</a>
   
 
         </li>
@@ -730,7 +732,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle" checked />
-    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;计算引擎 Flink Engine Flink</div><span>▾</span>
     </label>
   
 
@@ -745,7 +747,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class=" active">Quick Start</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class=" active">快速开始 Quick Start</a>
   
 
         </li>
@@ -1936,7 +1938,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Quick Start</strong>
+  <strong>快速开始 Quick Start</strong>
 
   <label for="toc-control">
     
@@ -1953,10 +1955,10 @@ https://github.com/alex-shpak/hugo-book
 
 <nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
-    <li><a href="#jars">Jars</a></li>
-    <li><a href="#start">Start</a></li>
+    <li><a href="#jar包-jars">Jar包 Jars</a></li>
+    <li><a href="#开始-start">开始 Start</a></li>
     <li><a href="#use-flink-managed-memory">Use Flink Managed Memory</a></li>
-    <li><a href="#setting-dynamic-options">Setting dynamic options</a></li>
+    <li><a href="#设置动态选项-setting-dynamic-options">设置动态选项 Setting dynamic options</a></li>
   </ul>
 </nav>
 
@@ -1997,15 +1999,16 @@ under the License.
   Quick Start
   <a class="anchor" href="#quick-start">#</a>
 </h1>
-<p>This documentation is a guide for using Paimon in Flink.</p>
-<h2 id="jars">
-  Jars
-  <a class="anchor" href="#jars">#</a>
+<p>本指南用于指导在 Flink 中使用 Paimon。</p>
+<h2 id="jar包-jars">
+  Jar包 Jars
+  <a class="anchor" href="#jar%e5%8c%85-jars">#</a>
 </h2>
-<p>Paimon currently supports Flink 2.0, 1.20, 1.19, 1.18, 1.17, 1.16, 1.15. We recommend the latest Flink version for a better experience.</p>
-<p>Download the jar file with corresponding version.</p>
+<p>Paimon 目前支持 Flink 2.0、1.20、1.19、1.18、1.17、1.16、1.15。我们推荐使用最新的 Flink 版本以获得更好的体验。</p>
+<p>请下载对应版本的 jar 文件。</p>
 <blockquote>
-<p>Currently, paimon provides two types jar: one of which(the bundled jar) is used for read/write data, and the other(action jar) for operations such as manually compaction,
+<p>当前，Paimon 提供两种类型的 jar 文件：一种（bundled jar）用于读写数据，另一种（action jar）用于手动 compaction 等操作，</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -2058,44 +2061,42 @@ under the License.
 </tbody>
 </table>
 
-</p>
-</blockquote>
 
 
-<p>You can also manually build bundled jar from the source code.</p>
-<p>To build from source code, <a href="https://github.com/apache/paimon.git">clone the git repository</a>.</p>
-<p>Build bundled jar with the following command.</p>
+
+<p>你也可以从源码手动构建 bundled jar。</p>
+<p>要从源码构建，请先 <a href="https://github.com/apache/paimon.git">克隆 git 仓库</a>。</p>
+<p>使用以下命令构建 bundled jar。</p>
 <ul>
 <li><code>mvn clean install -DskipTests</code></li>
 </ul>
-<p>You can find the bundled jar in <code>./paimon-flink/paimon-flink-&lt;flink-version&gt;/target/paimon-flink-&lt;flink-version&gt;-1.2.0.jar</code>, and the action jar in <code>./paimon-flink/paimon-flink-action/target/paimon-flink-action-1.2.0.jar</code>.</p>
-<h2 id="start">
-  Start
-  <a class="anchor" href="#start">#</a>
+<p>你可以在 <code>./paimon-flink/paimon-flink-&lt;flink-version&gt;/target/paimon-flink-&lt;flink-version&gt;-1.2.0.jar</code> 找到 bundled jar，在 <code>./paimon-flink/paimon-flink-action/target/paimon-flink-action-1.2.0.jar</code> 找到 action jar。</p>
+<h2 id="开始-start">
+  开始 Start
+  <a class="anchor" href="#%e5%bc%80%e5%a7%8b-start">#</a>
 </h2>
-<p><strong>Step 1: Download Flink</strong></p>
-<p>If you haven&rsquo;t downloaded Flink, you can <a href="https://flink.apache.org/downloads.html">download Flink</a>, then extract the archive with the following command.</p>
+<p><strong>Step 1: 下载 Flink</strong></p>
+<p>如果你还没有下载Flink，你可以<a href="https://flink.apache.org/downloads.html">download Flink</a>，然后使用以下命令解压归档文件：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xzf flink-*.tgz
-</span></span></code></pre></div><p><strong>Step 2: Copy Paimon Bundled Jar</strong></p>
-<p>Copy paimon bundled jar to the <code>lib</code> directory of your Flink home.</p>
+</span></span></code></pre></div><p><strong>Step 2: 拷贝 Paimon Bundled Jar</strong></p>
+<p>拷贝paimon的bundled jar报到 Flink 安装路径下的 lib 文件夹。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp paimon-flink-*.jar &lt;FLINK_HOME&gt;/lib/
-</span></span></code></pre></div><p><strong>Step 3: Copy Hadoop Bundled Jar</strong></p>
+</span></span></code></pre></div><p><strong>Step 3: 拷贝 Hadoop Bundled Jar</strong></p>
 <blockquote class="book-hint info">
-  If the machine is in a hadoop environment, please ensure the value of the environment variable <code>HADOOP_CLASSPATH</code> include path to the common Hadoop libraries, you do not need to use the following pre-bundled Hadoop jar.
+  如果机器处于 Hadoop 环境中，请确保环境变量 <code>HADOOP_CLASSPATH</code> 的值包含指向 Hadoop 公共库的路径，无需使用以下预打包的 Hadoop jar。
 </blockquote>
 
-<p><a href="https://flink.apache.org/downloads.html">Download</a> Pre-bundled Hadoop jar and copy the jar file to the <code>lib</code> directory of your Flink home.</p>
+<p><a href="https://flink.apache.org/downloads.html">下载</a> 预打包的 Hadoop jar，并将该 jar 文件复制到 Flink 安装目录下的 <code>lib</code> 目录。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp flink-shaded-hadoop-2-uber-*.jar &lt;FLINK_HOME&gt;/lib/
-</span></span></code></pre></div><p><strong>Step 4: Start a Flink Local Cluster</strong></p>
-<p>In order to run multiple Flink jobs at the same time, you need to modify the cluster configuration in <code>&lt;FLINK_HOME&gt;/conf/flink-conf.yaml</code>(Flink version &lt; 1.19) or <code>&lt;FLINK_HOME&gt;/conf/config.yaml</code>(Flink version &gt;= 1.19).</p>
+</span></span></code></pre></div><p><strong>Step 4: 启动一个Flink本地集群Local Cluster</strong></p>
+<p>为了同时运行多个 Flink 作业，你需要修改 <code>&lt;FLINK_HOME&gt;/conf/flink-conf.yaml</code>（Flink 版本 &lt; 1.19）或 <code>&lt;FLINK_HOME&gt;/conf/config.yaml</code>（Flink 版本 &gt;= 1.19）中的集群配置。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">taskmanager.numberOfTaskSlots</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
-</span></span></span></code></pre></div><p>To start a local cluster, run the bash script that comes with Flink:</p>
+</span></span></span></code></pre></div><p>要启动本地集群，运行 Flink 自带的 bash 脚本：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/start-cluster.sh
-</span></span></code></pre></div><p>You should be able to navigate to the web UI at <a href="http://localhost:8081">localhost:8081</a> to view
-the Flink dashboard and see that the cluster is up and running.</p>
-<p>You can now start Flink SQL client to execute SQL scripts.</p>
+</span></span></code></pre></div><p>你可以通过浏览器访问 <a href="http://localhost:8081">localhost:8081</a> 来查看 Flink 的 Web UI，确认集群已经启动并运行。</p>
+<p>此时，你可以启动 Flink SQL 客户端来执行 SQL 脚本。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;FLINK_HOME&gt;/bin/sql-client.sh
-</span></span></code></pre></div><p><strong>Step 5: Create a Catalog and a Table</strong></p>
+</span></span></code></pre></div><p><strong>Step 5: 创建一个Catalog和一张表</strong></p>
 
 
 
@@ -2112,8 +2113,8 @@ the Flink dashboard and see that the cluster is up and running.</p>
     onclick="onSwitch('Catalog')"
   />
   <label for="tabs-Create Flink Catalog-0">Catalog</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- if you&#39;re trying out Paimon in a distributed environment,
-</span></span></span><span class="line"><span class="cl"><span class="c1">-- the warehouse path should be set to a shared file system, such as HDFS or OSS
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 如果你在分布式环境中尝试 Paimon，
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- warehouse 路径应该设置为共享文件系统，例如 HDFS 或 OSS
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">my_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;type&#39;</span><span class="o">=</span><span class="s1">&#39;paimon&#39;</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;warehouse&#39;</span><span class="o">=</span><span class="s1">&#39;file:/tmp/paimon&#39;</span><span class="w">
@@ -2121,7 +2122,7 @@ the Flink dashboard and see that the cluster is up and running.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">USE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">my_catalog</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create a word count table
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 创建一张 word count 表
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">word_count</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">word</span><span class="w"> </span><span class="n">STRING</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">ENFORCED</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cnt</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w">
@@ -2137,12 +2138,11 @@ the Flink dashboard and see that the cluster is up and running.</p>
     onclick="onSwitch('Generic-Catalog')"
   />
   <label for="tabs-Create Flink Catalog-1">Generic-Catalog</label>
-  <div class="book-tabs-content markdown-inner"><p>Using FlinkGenericCatalog, you need to use Hive metastore. Then, you can use all the tables from Paimon, Hive, and
-Flink Generic Tables (Kafka and other tables)!</p>
-<p>In this mode, you should use &lsquo;connector&rsquo; option for creating tables.</p>
+  <div class="book-tabs-content markdown-inner"><p>使用 FlinkGenericCatalog 时，需要使用 Hive metastore。这样，你就可以同时使用 Paimon、Hive 以及 Flink Generic 表（Kafka 等）中的所有表！</p>
+<p>在这种模式下，创建表时应使用 <code>connector</code> 选项。</p>
 <blockquote class="book-hint info">
-  Paimon will use <code>hive.metastore.warehouse.dir</code> in your <code>hive-site.xml</code>, please use path with scheme.
-For example, <code>hdfs://...</code>. Otherwise, Paimon will use the local path.
+  Paimon 会使用你 <code>hive-site.xml</code> 中的 <code>hive.metastore.warehouse.dir</code>，请确保使用带 scheme 的路径，
+例如 <code>hdfs://...</code>。否则，Paimon 将使用本地路径。
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">my_catalog</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;type&#39;</span><span class="o">=</span><span class="s1">&#39;paimon-generic&#39;</span><span class="p">,</span><span class="w">
@@ -2152,7 +2152,7 @@ For example, <code>hdfs://...</code>. Otherwise, Paimon will use the local path.
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">USE</span><span class="w"> </span><span class="k">CATALOG</span><span class="w"> </span><span class="n">my_catalog</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- create a word count table
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 创建一张 word count 表
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">word_count</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">word</span><span class="w"> </span><span class="n">STRING</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">ENFORCED</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cnt</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w">
@@ -2161,7 +2161,7 @@ For example, <code>hdfs://...</code>. Otherwise, Paimon will use the local path.
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div></div></div>
 
-<p><strong>Step 6: Write Data</strong></p>
+<p><strong>Step 6: 写入数据</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- create a word data generator table
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TEMPORARY</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">word_table</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">word</span><span class="w"> </span><span class="n">STRING</span><span class="w">
@@ -2175,7 +2175,7 @@ For example, <code>hdfs://...</code>. Otherwise, Paimon will use the local path.
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- write streaming data to dynamic table
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">word_count</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">word</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">word_table</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">word</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><strong>Step 7: OLAP Query</strong></p>
+</span></span></span></code></pre></div><p><strong>Step 7: OLAP 查询</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- use tableau result mode
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;sql-client.execution.result-mode&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tableau&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -2185,62 +2185,64 @@ For example, <code>hdfs://...</code>. Otherwise, Paimon will use the local path.
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- olap query the table
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">word_count</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>You can execute the query multiple times and observe the changes in the results.</p>
-<p><strong>Step 8: Streaming Query</strong></p>
+</span></span></span></code></pre></div><p>你可以多次执行查询，并观察结果的变化。</p>
+<p><strong>Step 8: 流式查询</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- switch to streaming mode
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;execution.runtime-mode&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;streaming&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- track the changes of table and calculate the count interval statistics
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="nb">interval</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">interval_cnt</span><span class="w"> </span><span class="k">FROM</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="nb">interval</span><span class="o">`</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">word_count</span><span class="p">)</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">`</span><span class="nb">interval</span><span class="o">`</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><strong>Step 9: Exit</strong></p>
-<p>Cancel streaming job in <a href="http://localhost:8081">localhost:8081</a>, then execute the following SQL script to exit Flink SQL client.</p>
+</span></span></span></code></pre></div><p><strong>Step 9: 退出</strong></p>
+<p>在 <a href="http://localhost:8081">localhost:8081</a> 取消 streaming 作业，然后执行以下 SQL 脚本退出 Flink SQL 客户端。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- uncomment the following line if you want to drop the dynamic table and clear the files
 </span></span></span><span class="line"><span class="cl"><span class="c1">-- DROP TABLE word_count;
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- exit sql-client
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">EXIT</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>Stop the Flink local cluster.</p>
+</span></span></span></code></pre></div><p>停止Flink 本地集群</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./bin/stop-cluster.sh
 </span></span></code></pre></div><h2 id="use-flink-managed-memory">
   Use Flink Managed Memory
   <a class="anchor" href="#use-flink-managed-memory">#</a>
 </h2>
-<p>Paimon tasks can create memory pools based on executor memory which will be managed by Flink executor, such as managed memory in Flink task manager. It will improve the stability and performance of sinks by managing writer buffers for multiple tasks through executor.</p>
-<p>The following properties can be set if using Flink managed memory:</p>
+<p>Paimon 任务可以基于 executor 内存创建内存池，这些内存池将由 Flink executor 管理，例如 Flink Task Manager 中的 managed memory。通过 executor 管理多个任务的 writer buffer，可以提升 sink 的稳定性和性能。</p>
+<p>如果使用 Flink managed memory，可以设置以下属性：</p>
 <table>
 <thead>
 <tr>
-<th>Option</th>
-<th>Default</th>
-<th>Description</th>
+<th>选项 Option</th>
+<th>默认值 Default</th>
+<th>描述 Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>sink.use-managed-memory-allocator</td>
 <td>false</td>
-<td>If true, flink sink will use managed memory for merge tree; otherwise, it will create an independent memory allocator, which means each task allocates and manages its own memory pool (heap memory), if there are too many tasks in one Executor, it may cause performance issues and even OOM.</td>
+<td>如果设置为 true，Flink sink 将使用管理内存（managed memory）用于 merge tree；否则，将创建独立的内存分配器，这意味着每个任务都会分配并管理自己的内存池（堆内存）。如果在一个 Executor 中任务过多，可能会导致性能问题甚至 OOM。</td>
 </tr>
 <tr>
 <td>sink.managed.writer-buffer-memory</td>
 <td>256M</td>
-<td>Weight of writer buffer in managed memory, Flink will compute the memory size, for writer according to the weight, the actual memory used depends on the running environment. Now the memory size defined in this property are equals to the exact memory allocated to write buffer in runtime.</td>
+<td>管理内存中 writer 缓冲区的权重，Flink 会根据该权重计算 writer 的内存大小，实际使用的内存取决于运行环境。目前，该属性定义的内存大小等于运行时分配给写缓冲区的实际内存。</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Use In SQL</strong>
-Users can set memory weight in SQL for Flink Managed Memory, then Flink sink operator will get the memory pool size and create allocator for Paimon writer.</p>
+用户可以在 SQL 中为 Flink 管理内存设置内存权重，然后 Flink sink 操作符将获取内存池大小并为 Paimon writer 创建分配器。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;sink.use-managed-memory-allocator&#39;=&#39;true&#39;, &#39;sink.managed.writer-buffer-memory&#39;=&#39;256M&#39;) */</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">....;</span><span class="w">
-</span></span></span></code></pre></div><h2 id="setting-dynamic-options">
-  Setting dynamic options
-  <a class="anchor" href="#setting-dynamic-options">#</a>
+</span></span></span></code></pre></div><h2 id="设置动态选项-setting-dynamic-options">
+  设置动态选项 Setting dynamic options
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae%e5%8a%a8%e6%80%81%e9%80%89%e9%a1%b9-setting-dynamic-options">#</a>
 </h2>
-<p>When interacting with the Paimon table, table options can be tuned without changing the options in the catalog. Paimon will extract job-level dynamic options and take effect in the current session.
-The dynamic table option&rsquo;s key format is <code>paimon.${catalogName}.${dbName}.${tableName}.${config_key}</code>. The catalogName/dbName/tableName can be <code>*</code>, which means matching all the specific parts.
-The dynamic global option&rsquo;s key format is <code>${config_key}</code>. Global options will take effect for all the tables. Table options will override global options if there are conflicts.</p>
-<p>For example:</p>
+<p>在与 Paimon 表交互时，可以在不修改 catalog 配置的情况下调整表级选项。Paimon 会提取作业级的动态配置，并在当前会话生效。</p>
+<ul>
+<li>动态表选项的 key 格式为：<code>paimon.${catalogName}.${dbName}.${tableName}.${config_key}</code>。其中 catalogName/dbName/tableName 可以使用 <code>*</code>，表示匹配所有对应部分。</li>
+<li>动态全局选项的 key 格式为：<code>${config_key}</code>，全局选项会对所有表生效。如果表选项与全局选项冲突，表选项优先。</li>
+</ul>
+<p>例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- set scan.timestamp-millis=1697018249001 for all tables
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SET</span><span class="w"> </span><span class="s1">&#39;scan.timestamp-millis&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1697018249001&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w">
@@ -2309,10 +2311,10 @@ The dynamic global option&rsquo;s key format is <code>${config_key}</code>. Glob
 
 <nav id="TableOfContents"><h3>On This Page <button class="toc" onclick="collapseToc()"><i class="fa fa-compress" aria-hidden="true"></i></button></h3>
   <ul>
-    <li><a href="#jars">Jars</a></li>
-    <li><a href="#start">Start</a></li>
+    <li><a href="#jar包-jars">Jar包 Jars</a></li>
+    <li><a href="#开始-start">开始 Start</a></li>
     <li><a href="#use-flink-managed-memory">Use Flink Managed Memory</a></li>
-    <li><a href="#setting-dynamic-options">Setting dynamic options</a></li>
+    <li><a href="#设置动态选项-setting-dynamic-options">设置动态选项 Setting dynamic options</a></li>
   </ul>
 </nav>
 

@@ -8,39 +8,39 @@
     <language>zh</language>
     <atom:link href="https://lss1231.github.io/paimon-docs-chinese/append-table/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Overview</title>
+      <title>概览 Overview</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</guid>
-      <description>Overview&#xD;#&#xD;If a table does not have a primary key defined, it is an append table. Compared to the primary key table, it does not have the ability to directly receive changelogs. It cannot be directly updated with data through upsert. It can only receive incoming data from append data.&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &amp;#39;target-file-size&amp;#39; = &amp;#39;256 MB&amp;#39;, -- &amp;#39;file.</description>
+      <description>&#xD;Overview&#xD;#&#xD;如果一个表没有定义主键，它就是一个 append 表。与主键表相比，append 表没有直接接收 changelog 的能力，不能通过 upsert 直接更新数据，只能接收新增的 append 数据。&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &amp;#39;target-file-size&amp;#39; = &amp;#39;256 MB&amp;#39;, -- &amp;#39;file.format&amp;#39; = &amp;#39;parquet&amp;#39;, -- &amp;#39;file.compression&amp;#39; = &amp;#39;zstd&amp;#39;, -- &amp;#39;file.compression.zstd-level&amp;#39; = &amp;#39;3&amp;#39; ); 在典型应用场景中支持批量写入和批量读取，类似于常规的 Hive 分区表，但相比 Hive 表，它可以带来以下优势：&#xA;对象存储（S3、OSS）友好 支持 Time Travel 与 Rollback 低成本的 DELETE / UPDATE 在流式写入中自动合并小文件 支持类似队列的流式读写 结合排序与索引的高性能查询 </description>
     </item>
     <item>
-      <title>Streaming</title>
+      <title>流 Streaming</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</guid>
-      <description>Streaming&#xD;#&#xD;You can stream write to the Append table in a very flexible way through Flink, or read the Append table through Flink, using it like a queue. The only difference is that its latency is in minutes. Its advantages are very low cost and the ability to push down filters and projection.&#xA;Pre small files merging&#xD;#&#xD;&amp;ldquo;Pre&amp;rdquo; means that this compact occurs before committing files to the snapshot.</description>
+      <description>Streaming&#xD;#&#xD;你可以通过 Flink 以非常灵活的方式向 Append 表进行流式写入，或者通过 Flink 读取 Append 表，将其当作队列来使用。唯一的区别是其延迟以分钟为单位。它的优势是成本极低，并且支持下推过滤和projection。&#xA;前置小文件合并 Pre small files merging&#xD;#&#xD;“Pre” 表示该 compact 发生在将文件提交到快照之前。&#xA;如果 Flink 的 checkpoint 间隔较短（例如 30 秒），每个快照可能会产生大量的小型 changelog 文件。过多的文件可能会给分布式存储集群带来压力。&#xA;为了将小的 changelog 文件压缩为较大的文件，可以设置表选项 precommit-compact = true。该选项默认值为 false，如果设为 true，将会在 writer 算子之后添加一个 compact 协调器和 worker 算子，用于将 changelog 文件合并成较大的文件。&#xA;后置小文件合并 Post small files merging&#xD;#&#xD;“Post” 表示该 compact 发生在将文件提交到快照之后。&#xA;在流式写入作业中，如果没有定义 bucket，writer 中不会进行 compact，而是会通过 Compact Coordinator 扫描小文件，并将 compact 任务分配给 Compact Worker。在流式模式下，如果在 Flink 中运行 insert SQL，拓扑结构将如下所示：</description>
     </item>
     <item>
-      <title>Query Performance</title>
+      <title>查询性能 Query Performance</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</guid>
-      <description>Query Performance&#xD;#&#xD;Data Skipping By Order&#xD;#&#xD;Paimon by default records the maximum and minimum values of each field in the manifest file.&#xA;In the query, according to the WHERE condition of the query, together with the statistics in the manifest we can perform file filtering. If the filtering effect is good, the query that would have cost minutes will be accelerated to milliseconds to complete the execution.</description>
+      <description>查询性能 Query Performance&#xD;#&#xD;Data Skipping By Order&#xD;#&#xD;Paimon 默认会在 manifest 文件中记录每个字段的最大值和最小值。&#xA;在查询时，可以根据查询的 WHERE 条件，结合 manifest 中的统计信息来执行文件过滤。如果过滤效果良好，本来需要几分钟的查询可以加速到毫秒级完成。&#xA;通常，数据分布并不总是理想的以便过滤，那么我们能否按 WHERE 条件中的字段对数据进行排序呢？你可以参考 Flink COMPACT Action, Flink COMPACT Procedure or Spark COMPACT Procedure.&#xA;Data Skipping By File Index&#xD;#&#xD;你也可以使用文件索引，它会在读取端通过索引对文件进行过滤。&#xA;CREATE TABLE &amp;lt;PAIMON_TABLE&amp;gt; (&amp;lt;COLUMN&amp;gt; &amp;lt;COLUMN_TYPE&amp;gt; , ...) WITH ( &amp;#39;file-index.bloom-filter.columns&amp;#39; = &amp;#39;c1,c2&amp;#39;, &amp;#39;file-index.bloom-filter.c1.items&amp;#39; = &amp;#39;200&amp;#39; ); 定义 file-index.bloom-filter.columns。数据文件索引是一个外部索引文件，Paimon 会为每个数据文件创建对应的索引文件。如果索引文件过小，会直接存储在 manifest 中，否则存储在数据文件所在目录中。每个数据文件对应一个索引文件，索引文件有独立的文件定义，可以包含多列的不同类型索引。&#xA;不同的文件索引在不同场景下效率不同。例如，Bloom Filter 在点查场景下可能加速查询，而使用 Bitmap 虽然占用更多空间，但能提供更高的准确性。&#xA;Bloom Filter 配置示例：&#xA;file-index.bloom-filter.columns：指定需要 Bloom Filter 索引的列。 file-index.</description>
     </item>
     <item>
-      <title>Update</title>
+      <title>更新 Update</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/update/</guid>
-      <description>Update&#xD;#&#xD;Now, only Spark SQL supports DELETE &amp;amp; UPDATE, you can take a look at Spark Write.&#xA;Example:&#xA;DELETE FROM my_table WHERE currency = &amp;#39;UNKNOWN&amp;#39;; Update append table has two modes:&#xA;COW (Copy on Write): search for the hit files and then rewrite each file to remove the data that needs to be deleted from the files. This operation is costly. MOW (Merge on Write): By specifying &#39;deletion-vectors.enabled&#39; = &#39;true&#39;, the Deletion Vectors mode can be enabled.</description>
+      <description>&#xD;Update&#xD;#&#xD;目前，只有 Spark SQL 支持 DELETE 和 UPDATE，你可以参考 Spark Write。&#xA;示例：&#xA;DELETE FROM my_table WHERE currency = &amp;#39;UNKNOWN&amp;#39;; 更新 Append 表有两种模式：&#xA;COW（Copy on Write）：搜索命中数据的文件，然后重写每个文件，从文件中移除需要删除的数据。该操作代价较高。 MOW（Merge on Write）：通过指定 &#39;deletion-vectors.enabled&#39; = &#39;true&#39; 启用 Deletion Vectors 模式。仅标记对应文件的部分记录为删除，并写入删除文件，而无需重写整个文件。 </description>
     </item>
     <item>
-      <title>Bucketed</title>
+      <title>分桶 Bucketed</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</guid>
-      <description>Bucketed Append&#xD;#&#xD;You can define the bucket and bucket-key to get a bucketed append table.&#xA;Example to create bucketed append table:&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &amp;#39;bucket&amp;#39; = &amp;#39;8&amp;#39;, &amp;#39;bucket-key&amp;#39; = &amp;#39;product_id&amp;#39; ); Streaming&#xD;#&#xD;An ordinary Append table has no strict ordering guarantees for its streaming writes and reads, but there are some cases where you need to define a key similar to Kafka&amp;rsquo;s.</description>
+      <description>Bucketed Append&#xD;#&#xD;你可以定义 bucket 和 bucket-key 来创建一个分桶的 Append 表。&#xA;创建分桶 Append 表示例：&#xA;Flink&#xD;CREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &amp;#39;bucket&amp;#39; = &amp;#39;8&amp;#39;, &amp;#39;bucket-key&amp;#39; = &amp;#39;product_id&amp;#39; ); Streaming&#xD;#&#xD;普通的 Append 表在流式写入和读取时没有严格的顺序保证，但在某些情况下，你可能需要定义一个类似 Kafka 的 key。&#xA;同一个 bucket 中的每条记录会严格有序，流式读取会按照写入顺序将记录准确地传递到下游。要使用此模式，无需配置特殊参数，所有数据将进入一个 bucket，像队列一样处理。&#xA;Compaction in Bucket&#xD;#&#xD;默认情况下，sink 节点会自动执行 compaction 来控制文件数量。以下选项用于控制 compaction 策略：&#xA;Key&#xD;Default&#xD;Type&#xD;Description&#xD;write-only&#xD;false&#xD;Boolean&#xD;如果设置为 true，将跳过 compaction 和快照过期。此选项通常与专用 compaction 作业一起使用。&#xD;compaction.</description>
     </item>
   </channel>
 </rss>

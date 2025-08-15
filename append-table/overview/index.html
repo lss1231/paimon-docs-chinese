@@ -7,22 +7,24 @@
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Overview#If a table does not have a primary key defined, it is an append table. Compared to the primary key table, it does not have the ability to directly receive changelogs. It cannot be directly updated with data through upsert. It can only receive incoming data from append data.
-FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &#39;target-file-size&#39; = &#39;256 MB&#39;, -- &#39;file.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Overview" />
-<meta property="og:description" content="Overview#If a table does not have a primary key defined, it is an append table. Compared to the primary key table, it does not have the ability to directly receive changelogs. It cannot be directly updated with data through upsert. It can only receive incoming data from append data.
-FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &#39;target-file-size&#39; = &#39;256 MB&#39;, -- &#39;file." />
+<meta name="description" content="Overview#如果一个表没有定义主键，它就是一个 append 表。与主键表相比，append 表没有直接接收 changelog 的能力，不能通过 upsert 直接更新数据，只能接收新增的 append 数据。
+FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &#39;target-file-size&#39; = &#39;256 MB&#39;, -- &#39;file.format&#39; = &#39;parquet&#39;, -- &#39;file.compression&#39; = &#39;zstd&#39;, -- &#39;file.compression.zstd-level&#39; = &#39;3&#39; ); 在典型应用场景中支持批量写入和批量读取，类似于常规的 Hive 分区表，但相比 Hive 表，它可以带来以下优势：
+对象存储（S3、OSS）友好 支持 Time Travel 与 Rollback 低成本的 DELETE / UPDATE 在流式写入中自动合并小文件 支持类似队列的流式读写 结合排序与索引的高性能查询 ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="概览 Overview" />
+<meta property="og:description" content="Overview#如果一个表没有定义主键，它就是一个 append 表。与主键表相比，append 表没有直接接收 changelog 的能力，不能通过 upsert 直接更新数据，只能接收新增的 append 数据。
+FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( -- &#39;target-file-size&#39; = &#39;256 MB&#39;, -- &#39;file.format&#39; = &#39;parquet&#39;, -- &#39;file.compression&#39; = &#39;zstd&#39;, -- &#39;file.compression.zstd-level&#39; = &#39;3&#39; ); 在典型应用场景中支持批量写入和批量读取，类似于常规的 Hive 分区表，但相比 Hive 表，它可以带来以下优势：
+对象存储（S3、OSS）友好 支持 Time Travel 与 Rollback 低成本的 DELETE / UPDATE 在流式写入中自动合并小文件 支持类似队列的流式读写 结合排序与索引的高性能查询 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" /><meta property="article:section" content="append-table" />
 
 
-<title>Overview | Paimon文档</title>
+<title>概览 Overview | Paimon文档</title>
 <link rel="manifest" href="/paimon-docs-chinese/manifest.json">
 <link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/overview/" title="Overview">
 
 <link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/zh.search.min.6ba94d695c1d559d0e9e85b8e11a5bb35db97871d0c9554a939d16ce3d9bd830.js" integrity="sha256-a6lNaVwdVZ0OnoW44Rpbs125eHHQyVVKk50Wzj2b2DA="></script>
+<script defer src="/paimon-docs-chinese/zh.search.min.3035b225cd6619b0f5dab2b1ef9b4a916e841bd1df92a5c11299790084ad4cd2.js" integrity="sha256-MDWyJc1mGbD12rKx75tKkW6EG9HfkqXBEpl5AIStTNI="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -650,7 +652,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class=" active">Overview</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class=" active">概览 Overview</a>
   
 
         </li>
@@ -664,7 +666,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">流 Streaming</a>
   
 
         </li>
@@ -678,7 +680,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">查询性能 Query Performance</a>
   
 
         </li>
@@ -692,7 +694,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">Update</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">更新 Update</a>
   
 
         </li>
@@ -706,7 +708,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">分桶 Bucketed</a>
   
 
         </li>
@@ -726,7 +728,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
-    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;计算引擎 Flink Engine Flink</div><span>▾</span>
     </label>
   
 
@@ -741,7 +743,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">快速开始 Quick Start</a>
   
 
         </li>
@@ -1932,7 +1934,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Overview</strong>
+  <strong>概览 Overview</strong>
 
   <label for="toc-control">
     
@@ -1986,9 +1988,7 @@ under the License.
   Overview
   <a class="anchor" href="#overview">#</a>
 </h1>
-<p>If a table does not have a primary key defined, it is an append table. Compared to the primary key table, it does not
-have the ability to directly receive changelogs. It cannot be directly updated with data through upsert. It can only
-receive incoming data from append data.</p>
+<p>如果一个表没有定义主键，它就是一个 append 表。与主键表相比，append 表没有直接接收 changelog 的能力，不能通过 upsert 直接更新数据，只能接收新增的 append 数据。</p>
 
 
 
@@ -2017,15 +2017,14 @@ receive incoming data from append data.</p>
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div></div></div>
 
-<p>Batch write and batch read in typical application scenarios, similar to a regular Hive partition table, but compared to
-the Hive table, it can bring:</p>
+<p>在典型应用场景中支持批量写入和批量读取，类似于常规的 Hive 分区表，但相比 Hive 表，它可以带来以下优势：</p>
 <ol>
-<li>Object storage (S3, OSS) friendly</li>
-<li>Time Travel and Rollback</li>
-<li>DELETE / UPDATE with low cost</li>
-<li>Automatic small file merging in streaming sink</li>
-<li>Streaming read &amp; write like a queue</li>
-<li>High performance query with order and index</li>
+<li>对象存储（S3、OSS）友好</li>
+<li>支持 Time Travel 与 Rollback</li>
+<li>低成本的 DELETE / UPDATE</li>
+<li>在流式写入中自动合并小文件</li>
+<li>支持类似队列的流式读写</li>
+<li>结合排序与索引的高性能查询</li>
 </ol>
 </article>
  

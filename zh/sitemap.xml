@@ -38,18 +38,6 @@
                 href="https://lss1231.github.io/paimon-docs-chinese/migration/migration-from-iceberg/"
                 />
   </url><url>
-    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/"
-                />
-  </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/cdc-ingestion/overview/</loc>
     <xhtml:link
                 rel="alternate"
@@ -108,18 +96,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/merge-engine/overview/"
-                />
-  </url><url>
-    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://lss1231.github.io/paimon-docs-chinese/en/flink/quick-start/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/"
                 />
   </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/spark/quick-start/</loc>
@@ -182,6 +158,18 @@
                 href="https://lss1231.github.io/paimon-docs-chinese/migration/upsert-to-partitioned/"
                 />
   </url><url>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/overview/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/"
+                />
+  </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/primary-key-table/overview/</loc>
     <xhtml:link
                 rel="alternate"
@@ -228,6 +216,18 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/overview/"
+                />
+  </url><url>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://lss1231.github.io/paimon-docs-chinese/en/flink/quick-start/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/"
                 />
   </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/iceberg/append-table/</loc>
@@ -386,18 +386,6 @@
                 href="https://lss1231.github.io/paimon-docs-chinese/ecosystem/starrocks/"
                 />
   </url><url>
-    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/streaming/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/"
-                />
-  </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</loc>
     <xhtml:link
                 rel="alternate"
@@ -408,6 +396,18 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/"
+                />
+  </url><url>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/streaming/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/"
                 />
   </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/schema/</loc>
@@ -530,18 +530,6 @@
                 href="https://lss1231.github.io/paimon-docs-chinese/iceberg/primary-key-table/"
                 />
   </url><url>
-    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/query-performance/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/"
-                />
-  </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/maintenance/write-performance/</loc>
     <xhtml:link
                 rel="alternate"
@@ -576,6 +564,18 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/"
+                />
+  </url><url>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/query-performance/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/"
                 />
   </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/</loc>
@@ -758,18 +758,6 @@
                 href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/manifest/"
                 />
   </url><url>
-    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/bucketed/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/"
-                />
-  </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/migration/clone-to-paimon/</loc>
     <xhtml:link
                 rel="alternate"
@@ -792,18 +780,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://lss1231.github.io/paimon-docs-chinese/flink/consumer-id/"
-                />
-  </url><url>
-    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://lss1231.github.io/paimon-docs-chinese/en/flink/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://lss1231.github.io/paimon-docs-chinese/flink/"
                 />
   </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/iceberg/hive-catalog/</loc>
@@ -888,6 +864,30 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://lss1231.github.io/paimon-docs-chinese/primary-key-table/changelog-producer/"
+                />
+  </url><url>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/bucketed/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/"
+                />
+  </url><url>
+    <loc>https://lss1231.github.io/paimon-docs-chinese/flink/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://lss1231.github.io/paimon-docs-chinese/en/flink/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://lss1231.github.io/paimon-docs-chinese/flink/"
                 />
   </url><url>
     <loc>https://lss1231.github.io/paimon-docs-chinese/concepts/spec/datafile/</loc>

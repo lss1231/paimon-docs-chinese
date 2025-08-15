@@ -7,26 +7,26 @@
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Update#Now, only Spark SQL supports DELETE &amp; UPDATE, you can take a look at Spark Write.
-Example:
-DELETE FROM my_table WHERE currency = &#39;UNKNOWN&#39;; Update append table has two modes:
-COW (Copy on Write): search for the hit files and then rewrite each file to remove the data that needs to be deleted from the files. This operation is costly. MOW (Merge on Write): By specifying &#39;deletion-vectors.enabled&#39; = &#39;true&#39;, the Deletion Vectors mode can be enabled.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Update" />
-<meta property="og:description" content="Update#Now, only Spark SQL supports DELETE &amp; UPDATE, you can take a look at Spark Write.
-Example:
-DELETE FROM my_table WHERE currency = &#39;UNKNOWN&#39;; Update append table has two modes:
-COW (Copy on Write): search for the hit files and then rewrite each file to remove the data that needs to be deleted from the files. This operation is costly. MOW (Merge on Write): By specifying &#39;deletion-vectors.enabled&#39; = &#39;true&#39;, the Deletion Vectors mode can be enabled." />
+<meta name="description" content="Update#目前，只有 Spark SQL 支持 DELETE 和 UPDATE，你可以参考 Spark Write。
+示例：
+DELETE FROM my_table WHERE currency = &#39;UNKNOWN&#39;; 更新 Append 表有两种模式：
+COW（Copy on Write）：搜索命中数据的文件，然后重写每个文件，从文件中移除需要删除的数据。该操作代价较高。 MOW（Merge on Write）：通过指定 &#39;deletion-vectors.enabled&#39; = &#39;true&#39; 启用 Deletion Vectors 模式。仅标记对应文件的部分记录为删除，并写入删除文件，而无需重写整个文件。 ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="更新 Update" />
+<meta property="og:description" content="Update#目前，只有 Spark SQL 支持 DELETE 和 UPDATE，你可以参考 Spark Write。
+示例：
+DELETE FROM my_table WHERE currency = &#39;UNKNOWN&#39;; 更新 Append 表有两种模式：
+COW（Copy on Write）：搜索命中数据的文件，然后重写每个文件，从文件中移除需要删除的数据。该操作代价较高。 MOW（Merge on Write）：通过指定 &#39;deletion-vectors.enabled&#39; = &#39;true&#39; 启用 Deletion Vectors 模式。仅标记对应文件的部分记录为删除，并写入删除文件，而无需重写整个文件。 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" /><meta property="article:section" content="append-table" />
 
 
-<title>Update | Paimon文档</title>
+<title>更新 Update | Paimon文档</title>
 <link rel="manifest" href="/paimon-docs-chinese/manifest.json">
 <link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/update/" title="Update">
 
 <link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/zh.search.min.6ba94d695c1d559d0e9e85b8e11a5bb35db97871d0c9554a939d16ce3d9bd830.js" integrity="sha256-a6lNaVwdVZ0OnoW44Rpbs125eHHQyVVKk50Wzj2b2DA="></script>
+<script defer src="/paimon-docs-chinese/zh.search.min.3035b225cd6619b0f5dab2b1ef9b4a916e841bd1df92a5c11299790084ad4cd2.js" integrity="sha256-MDWyJc1mGbD12rKx75tKkW6EG9HfkqXBEpl5AIStTNI="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -654,7 +654,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">概览 Overview</a>
   
 
         </li>
@@ -668,7 +668,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">流 Streaming</a>
   
 
         </li>
@@ -682,7 +682,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">查询性能 Query Performance</a>
   
 
         </li>
@@ -696,7 +696,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class=" active">Update</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class=" active">更新 Update</a>
   
 
         </li>
@@ -710,7 +710,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">分桶 Bucketed</a>
   
 
         </li>
@@ -730,7 +730,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
-    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;计算引擎 Flink Engine Flink</div><span>▾</span>
     </label>
   
 
@@ -745,7 +745,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">快速开始 Quick Start</a>
   
 
         </li>
@@ -1936,7 +1936,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Update</strong>
+  <strong>更新 Update</strong>
 
   <label for="toc-control">
     
@@ -1990,15 +1990,13 @@ under the License.
   Update
   <a class="anchor" href="#update">#</a>
 </h1>
-<p>Now, only Spark SQL supports DELETE &amp; UPDATE, you can take a look at <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/">Spark Write</a>.</p>
-<p>Example:</p>
+<p>目前，只有 Spark SQL 支持 DELETE 和 UPDATE，你可以参考 <a href="https://lss1231.github.io/paimon-docs-chinese/spark/sql-write/">Spark Write</a>。</p>
+<p>示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">currency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;UNKNOWN&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>Update append table has two modes:</p>
+</span></span></span></code></pre></div><p>更新 Append 表有两种模式：</p>
 <ol>
-<li>COW (Copy on Write): search for the hit files and then rewrite each file to remove the data that needs to be deleted
-from the files. This operation is costly.</li>
-<li>MOW (Merge on Write): By specifying <code>'deletion-vectors.enabled' = 'true'</code>, the Deletion Vectors mode can be enabled.
-Only marks certain records of the corresponding file for deletion and writes the deletion file, without rewriting the entire file.</li>
+<li><strong>COW（Copy on Write）</strong>：搜索命中数据的文件，然后重写每个文件，从文件中移除需要删除的数据。该操作代价较高。</li>
+<li><strong>MOW（Merge on Write）</strong>：通过指定 <code>'deletion-vectors.enabled' = 'true'</code> 启用 Deletion Vectors 模式。仅标记对应文件的部分记录为删除，并写入删除文件，而无需重写整个文件。</li>
 </ol>
 </article>
  

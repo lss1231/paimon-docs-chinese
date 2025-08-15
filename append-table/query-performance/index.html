@@ -7,22 +7,34 @@
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Query Performance#Data Skipping By Order#Paimon by default records the maximum and minimum values of each field in the manifest file.
-In the query, according to the WHERE condition of the query, together with the statistics in the manifest we can perform file filtering. If the filtering effect is good, the query that would have cost minutes will be accelerated to milliseconds to complete the execution.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Query Performance" />
-<meta property="og:description" content="Query Performance#Data Skipping By Order#Paimon by default records the maximum and minimum values of each field in the manifest file.
-In the query, according to the WHERE condition of the query, together with the statistics in the manifest we can perform file filtering. If the filtering effect is good, the query that would have cost minutes will be accelerated to milliseconds to complete the execution." />
+<meta name="description" content="查询性能 Query Performance#Data Skipping By Order#Paimon 默认会在 manifest 文件中记录每个字段的最大值和最小值。
+在查询时，可以根据查询的 WHERE 条件，结合 manifest 中的统计信息来执行文件过滤。如果过滤效果良好，本来需要几分钟的查询可以加速到毫秒级完成。
+通常，数据分布并不总是理想的以便过滤，那么我们能否按 WHERE 条件中的字段对数据进行排序呢？你可以参考 Flink COMPACT Action, Flink COMPACT Procedure or Spark COMPACT Procedure.
+Data Skipping By File Index#你也可以使用文件索引，它会在读取端通过索引对文件进行过滤。
+CREATE TABLE &lt;PAIMON_TABLE&gt; (&lt;COLUMN&gt; &lt;COLUMN_TYPE&gt; , ...) WITH ( &#39;file-index.bloom-filter.columns&#39; = &#39;c1,c2&#39;, &#39;file-index.bloom-filter.c1.items&#39; = &#39;200&#39; ); 定义 file-index.bloom-filter.columns。数据文件索引是一个外部索引文件，Paimon 会为每个数据文件创建对应的索引文件。如果索引文件过小，会直接存储在 manifest 中，否则存储在数据文件所在目录中。每个数据文件对应一个索引文件，索引文件有独立的文件定义，可以包含多列的不同类型索引。
+不同的文件索引在不同场景下效率不同。例如，Bloom Filter 在点查场景下可能加速查询，而使用 Bitmap 虽然占用更多空间，但能提供更高的准确性。
+Bloom Filter 配置示例：
+file-index.bloom-filter.columns：指定需要 Bloom Filter 索引的列。 file-index.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="查询性能 Query Performance" />
+<meta property="og:description" content="查询性能 Query Performance#Data Skipping By Order#Paimon 默认会在 manifest 文件中记录每个字段的最大值和最小值。
+在查询时，可以根据查询的 WHERE 条件，结合 manifest 中的统计信息来执行文件过滤。如果过滤效果良好，本来需要几分钟的查询可以加速到毫秒级完成。
+通常，数据分布并不总是理想的以便过滤，那么我们能否按 WHERE 条件中的字段对数据进行排序呢？你可以参考 Flink COMPACT Action, Flink COMPACT Procedure or Spark COMPACT Procedure.
+Data Skipping By File Index#你也可以使用文件索引，它会在读取端通过索引对文件进行过滤。
+CREATE TABLE &lt;PAIMON_TABLE&gt; (&lt;COLUMN&gt; &lt;COLUMN_TYPE&gt; , ...) WITH ( &#39;file-index.bloom-filter.columns&#39; = &#39;c1,c2&#39;, &#39;file-index.bloom-filter.c1.items&#39; = &#39;200&#39; ); 定义 file-index.bloom-filter.columns。数据文件索引是一个外部索引文件，Paimon 会为每个数据文件创建对应的索引文件。如果索引文件过小，会直接存储在 manifest 中，否则存储在数据文件所在目录中。每个数据文件对应一个索引文件，索引文件有独立的文件定义，可以包含多列的不同类型索引。
+不同的文件索引在不同场景下效率不同。例如，Bloom Filter 在点查场景下可能加速查询，而使用 Bitmap 虽然占用更多空间，但能提供更高的准确性。
+Bloom Filter 配置示例：
+file-index.bloom-filter.columns：指定需要 Bloom Filter 索引的列。 file-index." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" /><meta property="article:section" content="append-table" />
 
 
-<title>Query Performance | Paimon文档</title>
+<title>查询性能 Query Performance | Paimon文档</title>
 <link rel="manifest" href="/paimon-docs-chinese/manifest.json">
 <link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/query-performance/" title="Query Performance">
 
 <link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/zh.search.min.6ba94d695c1d559d0e9e85b8e11a5bb35db97871d0c9554a939d16ce3d9bd830.js" integrity="sha256-a6lNaVwdVZ0OnoW44Rpbs125eHHQyVVKk50Wzj2b2DA="></script>
+<script defer src="/paimon-docs-chinese/zh.search.min.3035b225cd6619b0f5dab2b1ef9b4a916e841bd1df92a5c11299790084ad4cd2.js" integrity="sha256-MDWyJc1mGbD12rKx75tKkW6EG9HfkqXBEpl5AIStTNI="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -650,7 +662,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">概览 Overview</a>
   
 
         </li>
@@ -664,7 +676,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">流 Streaming</a>
   
 
         </li>
@@ -678,7 +690,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class=" active">Query Performance</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class=" active">查询性能 Query Performance</a>
   
 
         </li>
@@ -692,7 +704,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">Update</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">更新 Update</a>
   
 
         </li>
@@ -706,7 +718,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">Bucketed</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class="">分桶 Bucketed</a>
   
 
         </li>
@@ -726,7 +738,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
-    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;计算引擎 Flink Engine Flink</div><span>▾</span>
     </label>
   
 
@@ -741,7 +753,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">快速开始 Quick Start</a>
   
 
         </li>
@@ -1932,7 +1944,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Query Performance</strong>
+  <strong>查询性能 Query Performance</strong>
 
   <label for="toc-control">
     
@@ -1987,55 +1999,46 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
-<h1 id="query-performance">
-  Query Performance
-  <a class="anchor" href="#query-performance">#</a>
+<h1 id="查询性能-query-performance">
+  查询性能 Query Performance
+  <a class="anchor" href="#%e6%9f%a5%e8%af%a2%e6%80%a7%e8%83%bd-query-performance">#</a>
 </h1>
 <h2 id="data-skipping-by-order">
   Data Skipping By Order
   <a class="anchor" href="#data-skipping-by-order">#</a>
 </h2>
-<p>Paimon by default records the maximum and minimum values of each field in the manifest file.</p>
-<p>In the query, according to the <code>WHERE</code> condition of the query, together with the statistics in the manifest we can
-perform file filtering. If the filtering effect is good, the query that would have cost minutes will be accelerated to
-milliseconds to complete the execution.</p>
-<p>Often the data distribution is not always ideal for filtering, so can we sort the data by the field in <code>WHERE</code> condition?
-You can take a look at <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/#sort-compact">Flink COMPACT Action</a>,
+<p>Paimon 默认会在 manifest 文件中记录每个字段的最大值和最小值。</p>
+<p>在查询时，可以根据查询的 <code>WHERE</code> 条件，结合 manifest 中的统计信息来执行文件过滤。如果过滤效果良好，本来需要几分钟的查询可以加速到毫秒级完成。</p>
+<p>通常，数据分布并不总是理想的以便过滤，那么我们能否按 <code>WHERE</code> 条件中的字段对数据进行排序呢？你可以参考 <a href="https://lss1231.github.io/paimon-docs-chinese/maintenance/dedicated-compaction/#sort-compact">Flink COMPACT Action</a>,
 <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/">Flink COMPACT Procedure</a> or <a href="https://lss1231.github.io/paimon-docs-chinese/spark/procedures/">Spark COMPACT Procedure</a>.</p>
 <h2 id="data-skipping-by-file-index">
   Data Skipping By File Index
   <a class="anchor" href="#data-skipping-by-file-index">#</a>
 </h2>
-<p>You can use file index too, it filters files by indexing on the reading side.</p>
+<p>你也可以使用文件索引，它会在读取端通过索引对文件进行过滤。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">PAIMON_TABLE</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="k">COLUMN</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">COLUMN_TYPE</span><span class="o">&gt;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;file-index.bloom-filter.columns&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;c1,c2&#39;</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;file-index.bloom-filter.c1.items&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;200&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
-</span></span></span></code></pre></div><p>Define <code>file-index.bloom-filter.columns</code>, Data file index is an external index file and Paimon will create its
-corresponding index file for each file. If the index file is too small, it will be stored directly in the manifest,
-otherwise in the directory of the data file. Each data file corresponds to an index file, which has a separate file
-definition and can contain different types of indexes with multiple columns.</p>
-<p>Different file indexes may be efficient in different scenarios. For example bloom filter may speed up query in point lookup
-scenario. Using a bitmap may consume more space but can result in greater accuracy.</p>
-<p><code>Bloom Filter</code>:</p>
+</span></span></span></code></pre></div><p>定义 <code>file-index.bloom-filter.columns</code>。数据文件索引是一个外部索引文件，Paimon 会为每个数据文件创建对应的索引文件。如果索引文件过小，会直接存储在 manifest 中，否则存储在数据文件所在目录中。每个数据文件对应一个索引文件，索引文件有独立的文件定义，可以包含多列的不同类型索引。</p>
+<p>不同的文件索引在不同场景下效率不同。例如，Bloom Filter 在点查场景下可能加速查询，而使用 Bitmap 虽然占用更多空间，但能提供更高的准确性。</p>
+<p><code>Bloom Filter</code> 配置示例：</p>
 <ul>
-<li><code>file-index.bloom-filter.columns</code>: specify the columns that need bloom filter index.</li>
-<li><code>file-index.bloom-filter.&lt;column_name&gt;.fpp</code> to config false positive probability.</li>
-<li><code>file-index.bloom-filter.&lt;column_name&gt;.items</code> to config the expected distinct items in one data file.</li>
+<li><code>file-index.bloom-filter.columns</code>：指定需要 Bloom Filter 索引的列。</li>
+<li><code>file-index.bloom-filter.&lt;column_name&gt;.fpp</code>：配置假阳性率。</li>
+<li><code>file-index.bloom-filter.&lt;column_name&gt;.items</code>：配置单个数据文件中预期的不同条目数。</li>
 </ul>
-<p><code>Bitmap</code>:</p>
+<p><code>Bitmap</code>：</p>
 <ul>
-<li><code>file-index.bitmap.columns</code>: specify the columns that need bitmap index. See <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/#index-bitmap">Index Bitmap</a>.</li>
+<li><code>file-index.bitmap.columns</code>：指定需要 Bitmap 索引的列。参见 <a href="https://lss1231.github.io/paimon-docs-chinese/concepts/spec/fileindex/#index-bitmap">Index Bitmap</a>。</li>
 </ul>
-<p><code>Bit-Slice Index Bitmap</code></p>
+<p><code>Bit-Slice Index (BSI)</code>：</p>
 <ul>
-<li><code>file-index.bsi.columns</code>: specify the columns that need bsi index.</li>
+<li><code>file-index.bsi.columns</code>：指定需要 BSI 索引的列。</li>
 </ul>
-<p>More filter types will be supported&hellip;</p>
-<p>If you want to add file index to existing table, without any rewrite, you can use <code>rewrite_file_index</code> procedure. Before
-we use the procedure, you should config appropriate configurations in target table. You can use ALTER clause to config
-<code>file-index.&lt;filter-type&gt;.columns</code> to the table.</p>
-<p>How to invoke: see <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/#procedures">flink procedures</a></p>
+<p>更多过滤器类型将会被支持&hellip;</p>
+<p>如果你想在不重写表的情况下为现有表添加文件索引，可以使用 <code>rewrite_file_index</code> procedure。在使用该 procedure 之前，你需要在目标表中配置适当的配置项。你可以使用 ALTER 子句来配置 <code>file-index.&lt;filter-type&gt;.columns</code>。</p>
+<p>如何调用：参见 <a href="https://lss1231.github.io/paimon-docs-chinese/flink/procedures/#procedures">flink procedures</a></p>
 </article>
  
       

@@ -7,24 +7,30 @@
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Bucketed Append#You can define the bucket and bucket-key to get a bucketed append table.
-Example to create bucketed append table:
-FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &#39;bucket&#39; = &#39;8&#39;, &#39;bucket-key&#39; = &#39;product_id&#39; ); Streaming#An ordinary Append table has no strict ordering guarantees for its streaming writes and reads, but there are some cases where you need to define a key similar to Kafka&rsquo;s.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Bucketed" />
-<meta property="og:description" content="Bucketed Append#You can define the bucket and bucket-key to get a bucketed append table.
-Example to create bucketed append table:
-FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &#39;bucket&#39; = &#39;8&#39;, &#39;bucket-key&#39; = &#39;product_id&#39; ); Streaming#An ordinary Append table has no strict ordering guarantees for its streaming writes and reads, but there are some cases where you need to define a key similar to Kafka&rsquo;s." />
+<meta name="description" content="Bucketed Append#你可以定义 bucket 和 bucket-key 来创建一个分桶的 Append 表。
+创建分桶 Append 表示例：
+FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &#39;bucket&#39; = &#39;8&#39;, &#39;bucket-key&#39; = &#39;product_id&#39; ); Streaming#普通的 Append 表在流式写入和读取时没有严格的顺序保证，但在某些情况下，你可能需要定义一个类似 Kafka 的 key。
+同一个 bucket 中的每条记录会严格有序，流式读取会按照写入顺序将记录准确地传递到下游。要使用此模式，无需配置特殊参数，所有数据将进入一个 bucket，像队列一样处理。
+Compaction in Bucket#默认情况下，sink 节点会自动执行 compaction 来控制文件数量。以下选项用于控制 compaction 策略：
+KeyDefaultTypeDescriptionwrite-onlyfalseBoolean如果设置为 true，将跳过 compaction 和快照过期。此选项通常与专用 compaction 作业一起使用。compaction.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="分桶 Bucketed" />
+<meta property="og:description" content="Bucketed Append#你可以定义 bucket 和 bucket-key 来创建一个分桶的 Append 表。
+创建分桶 Append 表示例：
+FlinkCREATE TABLE my_table ( product_id BIGINT, price DOUBLE, sales BIGINT ) WITH ( &#39;bucket&#39; = &#39;8&#39;, &#39;bucket-key&#39; = &#39;product_id&#39; ); Streaming#普通的 Append 表在流式写入和读取时没有严格的顺序保证，但在某些情况下，你可能需要定义一个类似 Kafka 的 key。
+同一个 bucket 中的每条记录会严格有序，流式读取会按照写入顺序将记录准确地传递到下游。要使用此模式，无需配置特殊参数，所有数据将进入一个 bucket，像队列一样处理。
+Compaction in Bucket#默认情况下，sink 节点会自动执行 compaction 来控制文件数量。以下选项用于控制 compaction 策略：
+KeyDefaultTypeDescriptionwrite-onlyfalseBoolean如果设置为 true，将跳过 compaction 和快照过期。此选项通常与专用 compaction 作业一起使用。compaction." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" /><meta property="article:section" content="append-table" />
 
 
-<title>Bucketed | Paimon文档</title>
+<title>分桶 Bucketed | Paimon文档</title>
 <link rel="manifest" href="/paimon-docs-chinese/manifest.json">
 <link rel="icon" href="/paimon-docs-chinese/favicon.png" type="image/x-icon">
 <link rel="alternate" hreflang="en" href="https://lss1231.github.io/paimon-docs-chinese/en/append-table/bucketed/" title="Bucketed">
 
 <link rel="stylesheet" href="/paimon-docs-chinese/book.min.b952fefba7a2e6dac79b3035a33b021d21a5f84843c9890ad9ab605f3bfe0eac.css" integrity="sha256-uVL&#43;&#43;6ei5trHmzA1ozsCHSGl&#43;EhDyYkK2atgXzv&#43;Dqw=">
-<script defer src="/paimon-docs-chinese/zh.search.min.6ba94d695c1d559d0e9e85b8e11a5bb35db97871d0c9554a939d16ce3d9bd830.js" integrity="sha256-a6lNaVwdVZ0OnoW44Rpbs125eHHQyVVKk50Wzj2b2DA="></script>
+<script defer src="/paimon-docs-chinese/zh.search.min.3035b225cd6619b0f5dab2b1ef9b4a916e841bd1df92a5c11299790084ad4cd2.js" integrity="sha256-MDWyJc1mGbD12rKx75tKkW6EG9HfkqXBEpl5AIStTNI="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -652,7 +658,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">Overview</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/overview/" class="">概览 Overview</a>
   
 
         </li>
@@ -666,7 +672,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">Streaming</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/streaming/" class="">流 Streaming</a>
   
 
         </li>
@@ -680,7 +686,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">Query Performance</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/query-performance/" class="">查询性能 Query Performance</a>
   
 
         </li>
@@ -694,7 +700,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">Update</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/update/" class="">更新 Update</a>
   
 
         </li>
@@ -708,7 +714,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class=" active">Bucketed</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/append-table/bucketed/" class=" active">分桶 Bucketed</a>
   
 
         </li>
@@ -728,7 +734,7 @@ https://github.com/alex-shpak/hugo-book
   
   
     <input type="checkbox" id="section-23c9b577a4c36b65f28196976e8af8fd" class="toggle"  />
-    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;Engine Flink</div><span>▾</span>
+    <label for="section-23c9b577a4c36b65f28196976e8af8fd" class="flex justify-between"><div style="font-weight:450;margin-bottom:0.5em"><i class="fa fa-gear title maindish" aria-hidden="true"></i>&nbsp;&nbsp;计算引擎 Flink Engine Flink</div><span>▾</span>
     </label>
   
 
@@ -743,7 +749,7 @@ https://github.com/alex-shpak/hugo-book
 
   
   
-    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">Quick Start</a>
+    <a href="https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/" class="">快速开始 Quick Start</a>
   
 
         </li>
@@ -1934,7 +1940,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/paimon-docs-chinese/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Bucketed</strong>
+  <strong>分桶 Bucketed</strong>
 
   <label for="toc-control">
     
@@ -2000,8 +2006,8 @@ under the License.
   Bucketed Append
   <a class="anchor" href="#bucketed-append">#</a>
 </h1>
-<p>You can define the <code>bucket</code> and <code>bucket-key</code> to get a bucketed append table.</p>
-<p>Example to create bucketed append table:</p>
+<p>你可以定义 <code>bucket</code> 和 <code>bucket-key</code> 来创建一个分桶的 Append 表。</p>
+<p>创建分桶 Append 表示例：</p>
 
 
 
@@ -2032,11 +2038,8 @@ under the License.
   Streaming
   <a class="anchor" href="#streaming">#</a>
 </h2>
-<p>An ordinary Append table has no strict ordering guarantees for its streaming writes and reads, but there are some cases
-where you need to define a key similar to Kafka&rsquo;s.</p>
-<p>Every record in the same bucket is ordered strictly, streaming read will transfer the record to down-stream exactly in
-the order of writing. To use this mode, you do not need to config special configurations, all the data will go into one
-bucket as a queue.</p>
+<p>普通的 Append 表在流式写入和读取时没有严格的顺序保证，但在某些情况下，你可能需要定义一个类似 Kafka 的 key。</p>
+<p>同一个 bucket 中的每条记录会严格有序，流式读取会按照写入顺序将记录准确地传递到下游。要使用此模式，无需配置特殊参数，所有数据将进入一个 bucket，像队列一样处理。</p>
 
 <img 
   src="https://lss1231.github.io/paimon-docs-chinese//img/for-queue.png"
@@ -2049,8 +2052,7 @@ bucket as a queue.</p>
   Compaction in Bucket
   <a class="anchor" href="#compaction-in-bucket">#</a>
 </h3>
-<p>By default, the sink node will automatically perform compaction to control the number of files. The following options
-control the strategy of compaction:</p>
+<p>默认情况下，sink 节点会自动执行 compaction 来控制文件数量。以下选项用于控制 compaction 策略：</p>
 <table class="configuration table table-bordered">
     <thead>
         <tr>
@@ -2065,19 +2067,19 @@ control the strategy of compaction:</p>
             <td><h5>write-only</h5></td>
             <td style="word-wrap: break-word;">false</td>
             <td>Boolean</td>
-            <td>If set to true, compactions and snapshot expiration will be skipped. This option is used along with dedicated compact jobs.</td>
+            <td>如果设置为 true，将跳过 compaction 和快照过期。此选项通常与专用 compaction 作业一起使用。</td>
         </tr>
         <tr>
             <td><h5>compaction.min.file-num</h5></td>
             <td style="word-wrap: break-word;">5</td>
             <td>Integer</td>
-            <td>For file set [f_0,...,f_N], the minimum file number to trigger a compaction for append table.</td>
+            <td>对于文件集合 [f_0,...,f_N]，触发 append table compaction 的最小文件数量。</td>
         </tr>
         <tr>
             <td><h5>full-compaction.delta-commits</h5></td>
             <td style="word-wrap: break-word;">(none)</td>
             <td>Integer</td>
-            <td>Full compaction will be constantly triggered after delta commits.</td>
+            <td>在增量提交（delta commits）之后，将持续触发全量 compaction。</td>
         </tr>
     </tbody>
 </table>
@@ -2085,22 +2087,22 @@ control the strategy of compaction:</p>
   Streaming Read Order
   <a class="anchor" href="#streaming-read-order">#</a>
 </h3>
-<p>For streaming reads, records are produced in the following order:</p>
+<p>对于流式读取，记录的生成顺序如下：</p>
 <ul>
-<li>For any two records from two different partitions
+<li>对于来自两个不同分区的任意两条记录：
 <ul>
-<li>If <code>scan.plan-sort-partition</code> is set to true, the record with a smaller partition value will be produced first.</li>
-<li>Otherwise, the record with an earlier partition creation time will be produced first.</li>
+<li>如果 <code>scan.plan-sort-partition</code> 设置为 true，则分区值较小的记录先生成。</li>
+<li>否则，先创建的分区的记录先生成。</li>
 </ul>
 </li>
-<li>For any two records from the same partition and the same bucket, the first written record will be produced first.</li>
-<li>For any two records from the same partition but two different buckets, different buckets are processed by different tasks, there is no order guarantee between them.</li>
+<li>对于来自同一分区且属于同一 bucket 的任意两条记录，先写入的记录先生成。</li>
+<li>对于来自同一分区但属于两个不同 bucket 的任意两条记录，不同的 bucket 由不同任务处理，它们之间不保证顺序。</li>
 </ul>
 <h3 id="watermark-definition">
   Watermark Definition
   <a class="anchor" href="#watermark-definition">#</a>
 </h3>
-<p>You can define watermark for reading Paimon tables:</p>
+<p>你可以为读取 Paimon 表定义 watermark：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
@@ -2108,11 +2110,11 @@ control the strategy of compaction:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">WATERMARK</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">order_time</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">order_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;5&#39;</span><span class="w"> </span><span class="k">SECOND</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(...);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- launch a bounded streaming job to read paimon_table
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 启动一个有界流作业来读取 paimon_table
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">window_start</span><span class="p">,</span><span class="w"> </span><span class="n">window_end</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">TABLE</span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="n">TUMBLE</span><span class="p">(</span><span class="k">TABLE</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="k">DESCRIPTOR</span><span class="p">(</span><span class="n">order_time</span><span class="p">),</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;10&#39;</span><span class="w"> </span><span class="n">MINUTES</span><span class="p">))</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">window_start</span><span class="p">,</span><span class="w"> </span><span class="n">window_end</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>You can also enable <a href="https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/event-time/generating_watermarks/#watermark-alignment-_beta_">Flink Watermark alignment</a>,
-which will make sure no sources/splits/shards/partitions increase their watermarks too far ahead of the rest:</p>
+</span></span></span></code></pre></div><p>你也可以启用 <a href="https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/datastream/event-time/generating_watermarks/#watermark-alignment-_beta_">Flink Watermark 对齐</a>，
+这将确保没有 source/split/shard/partition 的 watermark 远远领先于其他部分：</p>
 <table class="configuration table table-bordered">
     <thead>
         <tr>
@@ -2127,13 +2129,13 @@ which will make sure no sources/splits/shards/partitions increase their watermar
             <td><h5>scan.watermark.alignment.group</h5></td>
             <td style="word-wrap: break-word;">(none)</td>
             <td>String</td>
-            <td>A group of sources to align watermarks.</td>
+            <td>一组 sources 用于对齐 watermark。</td>
         </tr>
         <tr>
             <td><h5>scan.watermark.alignment.max-drift</h5></td>
             <td style="word-wrap: break-word;">(none)</td>
             <td>Duration</td>
-            <td>Maximal drift to align watermarks, before we pause consuming from the source/task/partition.</td>
+            <td>对齐 watermark 的最大漂移值，在超过此值之前，会暂停从 source/task/partition 的消费。</td>
         </tr>
     </tbody>
 </table>
@@ -2141,10 +2143,8 @@ which will make sure no sources/splits/shards/partitions increase their watermar
   Bounded Stream
   <a class="anchor" href="#bounded-stream">#</a>
 </h3>
-<p>Streaming Source can also be bounded, you can specify &lsquo;scan.bounded.watermark&rsquo; to define the end condition for bounded streaming mode, stream reading will end until a larger watermark snapshot is encountered.</p>
-<p>Watermark in snapshot is generated by writer, for example, you can specify a kafka source and declare the definition of watermark.
-When using this kafka source to write to Paimon table, the snapshots of Paimon table will generate the corresponding watermark,
-so that you can use the feature of bounded watermark when streaming reads of this Paimon table.</p>
+<p>Streaming Source 也可以是有界的，你可以通过 <code>'scan.bounded.watermark'</code> 来定义有界流模式的结束条件，流读取会一直进行，直到遇到一个更大的 watermark snapshot 为止。</p>
+<p>Snapshot 中的 watermark 由写入端生成。例如，你可以指定一个 Kafka source 并声明 watermark 的定义。当使用该 Kafka source 写入 Paimon 表时，Paimon 表的 snapshot 会生成对应的 watermark，从而在流读取该 Paimon 表时可以使用有界 watermark 功能。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">kafka_table</span><span class="w"> </span><span class="p">(</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w"> </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product</span><span class="w"> </span><span class="n">STRING</span><span class="p">,</span><span class="w">
@@ -2152,17 +2152,16 @@ so that you can use the feature of bounded watermark when streaming reads of thi
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">WATERMARK</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">order_time</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">order_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">&#39;5&#39;</span><span class="w"> </span><span class="k">SECOND</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;connector&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;kafka&#39;</span><span class="p">...);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- launch a streaming insert job
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 启动一个流式写入job
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">paimon_table</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">kakfa_table</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- launch a bounded streaming job to read paimon_table
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 启动一个有界流job读取paimon表
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">paimon_table</span><span class="w"> </span><span class="cm">/*+ OPTIONS(&#39;scan.bounded.watermark&#39;=&#39;...&#39;) */</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div><h2 id="batch">
   Batch
   <a class="anchor" href="#batch">#</a>
 </h2>
-<p>Bucketed table can be used to avoid shuffle if necessary in batch query, for example, you can use the following Spark
-SQL to read a Paimon table:</p>
+<p>如果需要在批量查询中避免 shuffle，可以使用 Bucketed 表。例如，你可以使用如下 Spark SQL 来读取 Paimon 表：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SET</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">sources</span><span class="p">.</span><span class="n">v2</span><span class="p">.</span><span class="n">bucketing</span><span class="p">.</span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">FACT_TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="n">STRING</span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;bucket&#39;</span><span class="o">=</span><span class="s1">&#39;10&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bucket-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;order_id&#39;</span><span class="p">);</span><span class="w">
@@ -2170,10 +2169,8 @@ SQL to read a Paimon table:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">DIM_TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="n">STRING</span><span class="p">)</span><span class="w"> </span><span class="n">TBLPROPERTIES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;bucket&#39;</span><span class="o">=</span><span class="s1">&#39;10&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;primary-key&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;order_id&#39;</span><span class="p">);</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">FACT_TABLE</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">DIM_TABLE</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">order_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t4</span><span class="p">.</span><span class="n">order_id</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>The <code>spark.sql.sources.v2.bucketing.enabled</code> config is used to enable bucketing for V2 data sources. When turned on,
-Spark will recognize the specific distribution reported by a V2 data source through SupportsReportPartitioning, and
-will try to avoid shuffle if necessary.</p>
-<p>The costly join shuffle will be avoided if two tables have the same bucketing strategy and same number of buckets.</p>
+</span></span></span></code></pre></div><p><code>spark.sql.sources.v2.bucketing.enabled</code> 配置用于为 V2 数据源启用 bucketing。开启后，Spark 会通过 <code>SupportsReportPartitioning</code> 识别 V2 数据源报告的具体分布，并在必要时尝试避免 shuffle。</p>
+<p>如果两个表使用相同的 bucketing 策略并且桶数量相同，可以避免代价高昂的 join shuffle。</p>
 </article>
  
       

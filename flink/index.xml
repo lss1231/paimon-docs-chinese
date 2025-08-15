@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Engine Flink on Paimon文档</title>
+    <title>计算引擎 Flink Engine Flink on Paimon文档</title>
     <link>https://lss1231.github.io/paimon-docs-chinese/flink/</link>
-    <description>Recent content in Engine Flink on Paimon文档</description>
+    <description>Recent content in 计算引擎 Flink Engine Flink on Paimon文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <atom:link href="https://lss1231.github.io/paimon-docs-chinese/flink/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Quick Start</title>
+      <title>快速开始 Quick Start</title>
       <link>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://lss1231.github.io/paimon-docs-chinese/flink/quick-start/</guid>
-      <description>Quick Start&#xD;#&#xD;This documentation is a guide for using Paimon in Flink.&#xA;Jars&#xD;#&#xD;Paimon currently supports Flink 2.0, 1.20, 1.19, 1.18, 1.17, 1.16, 1.15. We recommend the latest Flink version for a better experience.&#xA;Download the jar file with corresponding version.&#xA;Currently, paimon provides two types jar: one of which(the bundled jar) is used for read/write data, and the other(action jar) for operations such as manually compaction, Version Type Jar Flink 2.</description>
+      <description>Quick Start&#xD;#&#xD;本指南用于指导在 Flink 中使用 Paimon。&#xA;Jar包 Jars&#xD;#&#xD;Paimon 目前支持 Flink 2.0、1.20、1.19、1.18、1.17、1.16、1.15。我们推荐使用最新的 Flink 版本以获得更好的体验。&#xA;请下载对应版本的 jar 文件。&#xA;当前，Paimon 提供两种类型的 jar 文件：一种（bundled jar）用于读写数据，另一种（action jar）用于手动 compaction 等操作，&#xA;Version Type Jar Flink 2.0 Bundled Jar paimon-flink-2.0-1.2.0.jar Flink 1.20 Bundled Jar paimon-flink-1.20-1.2.0.jar Flink 1.19 Bundled Jar paimon-flink-1.19-1.2.0.jar Flink 1.18 Bundled Jar paimon-flink-1.18-1.2.0.jar Flink 1.17 Bundled Jar paimon-flink-1.17-1.2.0.jar Flink 1.16 Bundled Jar paimon-flink-1.16-1.2.0.jar Flink 1.15 Bundled Jar paimon-flink-1.15-1.2.0.jar Flink Action Action Jar paimon-flink-action-1.</description>
     </item>
     <item>
       <title>SQL DDL</title>
