@@ -2,65 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>概念 Concepts on Paimon文档</title>
-    <link>http://localhost:1313/paimon-docs-chinese/concepts/</link>
+    <link>https://lss1231.github.io/paimon-docs-chinese/concepts/</link>
     <description>Recent content in 概念 Concepts on Paimon文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <atom:link href="http://localhost:1313/paimon-docs-chinese/concepts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/concepts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概述</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/overview/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/overview/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/overview/</guid>
       <description>&#xD;概述&#xD;#&#xD;Apache Paimon 的架构：&#xA;如上图架构所示：&#xA;读写能力： Paimon 支持多样化的数据读写方式及 OLAP 查询。&#xA;读取方面，支持 从历史快照读取（批处理模式）， 从最新偏移量读取（流处理模式）， 或以混合方式读取增量快照。 写入方面，支持 从数据库变更日志（CDC）进行流式同步， 从离线数据批量插入或覆盖。 生态系统： 除了 Apache Flink，Paimon 还支持 Apache Spark、StarRocks、Apache Doris、Apache Hive 和 Trino 等计算引擎的读取。&#xA;内部实现：&#xA;Paimon 底层将列式文件存储在文件系统或对象存储中。 文件的元数据保存在 manifest 文件中，支持大规模存储与数据跳过。 对于主键表，采用 LSM 树结构支持大量数据更新和高性能查询。 统一存储&#xD;#&#xD;对于像 Apache Flink 这样的流式引擎，通常有三类连接器：&#xA;消息队列，如 Apache Kafka，既用作数据源，也用作流水线中的中间环节，保证延迟维持在秒级以内。 OLAP 系统，如 ClickHouse，以流式方式接收处理后的数据，支持用户的临时查询。 批处理存储，如 Apache Hive，支持传统批处理的各种操作，包括 INSERT OVERWRITE。 Paimon 提供了表抽象，其使用方式与传统数据库无异：&#xA;在 batch 执行模式下，表现如 Hive 表，支持多种批量 SQL 操作，可查询最新快照。 在 streaming 执行模式下，表现如消息队列，查询时就像查询一个永不过期的流式变更日志。 </description>
     </item>
     <item>
       <title>基础概念 Basic Concepts</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/basic-concepts/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/basic-concepts/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/basic-concepts/</guid>
       <description>基础概念&#xD;#&#xD;文件布局&#xD;#&#xD;一个表的所有文件都存储在同一个基础目录下。Paimon 的文件采用分层结构组织。下图展示了文件布局。从快照文件开始，Paimon 读取器可以递归访问表中的所有记录。&#xA;快照（Snapshot）&#xD;#&#xD;所有快照文件存储在 snapshot 目录下。&#xA;快照文件是一个 JSON 文件，包含该快照的信息，包括：&#xA;使用的 schema 文件 包含该快照所有变更的 manifest 列表 快照捕获了表在某一时间点的状态。用户可以通过最新快照访问表的最新数据。通过时间旅行，用户也可以通过更早的快照访问表的历史状态。&#xA;Manifest 文件&#xD;#&#xD;所有 manifest 列表和 manifest 文件存储在 manifest 目录下。&#xA;manifest 列表是 manifest 文件名的列表。&#xA;manifest 文件包含有关 LSM 数据文件和变更日志文件的变更信息，例如在对应快照中新建了哪些 LSM 数据文件，删除了哪些文件。&#xA;数据文件&#xD;#&#xD;数据文件按分区分组。目前 Paimon 支持使用 parquet（默认）、orc 和 avro 作为数据文件格式。&#xA;分区&#xD;#&#xD;Paimon 采用与 Apache Hive 相同的分区概念来划分数据。&#xA;分区是一种可选的方式，根据特定列（如日期、城市、部门）的值将表划分为相关部分。每个表可以有一个或多个分区键来标识特定分区。&#xA;通过分区，用户可以高效地操作表中的某一部分记录。&#xA;一致性保证&#xD;#&#xD;Paimon 写入器使用两阶段提交协议，原子性地提交一批记录到表中。每次提交最多产生两个 快照，具体取决于增量写入和压缩策略。如果只执行增量写入且未触发压缩操作，则只创建增量快照；如果触发压缩操作，则同时创建增量快照和压缩快照。&#xA;对于同时修改同一张表的多个写入器，只要它们不修改同一分区，其提交可以并行进行。如果修改同一分区，则只保证快照隔离。也就是说，最终的表状态可能是两次提交的混合，但不会丢失任何更改。&#xA;更多信息请参见 dedicated compaction job。</description>
     </item>
     <item>
       <title>并发控制 Concurrency Control</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/concurrency-control/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/concurrency-control/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/concurrency-control/</guid>
       <description>并发控制&#xD;#&#xD;Paimon 支持多写入任务的乐观并发控制。&#xA;每个任务以自己的节奏写入数据，并在提交时基于当前快照应用增量文件（删除或添加文件）生成新的快照。&#xA;这里可能出现两种提交失败的情况：&#xA;快照冲突：快照 ID 已被抢占，表已由其他任务生成了新的快照。此时可以重新提交。 文件冲突：任务想删除的文件已被其他任务删除，此时任务只能失败。（对于流处理任务，会失败并重启，故意进行一次故障切换） 快照冲突&#xD;#&#xD;Paimon 的快照 ID 唯一，只要任务成功将快照文件写入文件系统，即认为提交成功。&#xA;Paimon 使用文件系统的重命名机制提交快照，这对于 HDFS 来说是安全的，因为它保证了事务性和原子性重命名。&#xA;但对于 OSS、S3 等对象存储，其 &#39;RENAME&#39; 操作没有原子语义。此时需要配置 Hive 或 jdbc metastore，并为目录启用 &#39;lock.enabled&#39; 选项，否则可能会丢失快照。&#xA;文件冲突&#xD;#&#xD;当 Paimon 提交文件删除（仅为逻辑删除）时，会检查与最新快照的冲突。&#xA;如果存在冲突（即该文件已被逻辑删除），该提交节点无法继续，只能故意触发故障切换重启，任务会从文件系统重新获取最新状态，期望解决冲突。&#xA;Paimon 会确保此过程无数据丢失或重复，但如果两个流任务同时写入且产生冲突，就会不断重启，这并不好。&#xA;冲突本质来源于文件的逻辑删除，而文件删除源自压缩操作，因此只要关闭写任务的压缩（将 &#39;write-only&#39; 设为 true），并启动单独的任务做压缩工作，一切都会很好。&#xA;更多信息请参见 dedicated compaction job。</description>
     </item>
     <item>
       <title>Catalog</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/catalog/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/catalog/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/catalog/</guid>
       <description>Catalog&#xD;#&#xD;Paimon 提供了 Catalog 抽象来管理目录和元数据。Catalog 抽象提供了一系列方法，帮助你更好地与计算引擎集成。我们始终建议使用 Catalog 来访问 Paimon 表。&#xA;Catalog 类型&#xD;#&#xD;Paimon 目前支持四种类型的元存储（metastore）：&#xA;filesystem metastore（默认），在文件系统中存储元数据和表文件。 hive metastore，额外将元数据存储在 Hive metastore 中，用户可以直接通过 Hive 访问表。 jdbc metastore，额外将元数据存储在关系型数据库中，如 MySQL、Postgres 等。 rest metastore，设计用于通过单一客户端轻量访问任意 Catalog 后端。 Filesystem Catalog&#xD;#&#xD;元数据和表文件存储在 hdfs:///path/to/warehouse 目录下。&#xA;-- Flink SQL CREATE CATALOG my_catalog WITH ( &amp;#39;type&amp;#39; = &amp;#39;paimon&amp;#39;, &amp;#39;warehouse&amp;#39; = &amp;#39;hdfs:///path/to/warehouse&amp;#39; ); Hive Catalog&#xD;#&#xD;使用 Paimon Hive Catalog 时，对 Catalog 的变更会直接影响对应的 Hive metastore。在该 Catalog 中创建的表也可以直接通过 Hive 访问。元数据和表文件存储在 hdfs:///path/to/warehouse，同时 schema 也存储在 Hive metastore 中。</description>
     </item>
     <item>
       <title>表类型 Table Types</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/table-types/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/table-types/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/table-types/</guid>
       <description>表类型&#xD;#&#xD;Paimon 支持的表类型：&#xD;#&#xD;table with pk: 带主键的 Paimon 数据表 table w/o pk: 不带主键的 Paimon 数据表 view: 需要 metastore 的 SQL 视图，是一种虚拟表 format-table: 文件格式表指向一个包含多个相同格式文件的目录，对该表的操作允许读取或写入这些文件，兼容 Hive 表 object table: 为指定对象存储目录中的非结构化数据对象提供元数据索引 materialized-table: 用于简化批处理和流处理数据管道，提供一致的开发体验，详见 Flink Materialized Table Table with PK&#xD;#&#xD;See Paimon with Primary key.&#xA;主键由一组列组成，每条记录的这些列的值都是唯一的。Paimon 通过在每个 bucket 内对主键排序来强制数据有序，从而支持流式更新和流式变更日志读取。&#xA;主键的定义类似于标准 SQL，它确保在批量查询时，对于相同的主键只存在一条数据记录。&#xA;Flink SQL&#xD;CREATE TABLE my_table ( a INT PRIMARY KEY NOT ENFORCED, b STRING ) WITH ( &amp;#39;bucket&amp;#39;=&amp;#39;8&amp;#39; ) Spark SQL&#xD;CREATE TABLE my_table ( a INT, b STRING ) TBLPROPERTIES ( &amp;#39;primary-key&amp;#39; = &amp;#39;a&amp;#39;, &amp;#39;bucket&amp;#39; = &amp;#39;8&amp;#39; ) Table w/o PK&#xD;#&#xD;See Paimon w/o Primary key.</description>
     </item>
     <item>
       <title>系统表 System Tables</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/system-tables/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/system-tables/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/system-tables/</guid>
       <description>System Tables&#xD;#&#xD;Paimon 提供了非常丰富的系统表，帮助用户更好地分析和查询 Paimon 表的状态：&#xA;查询数据表状态：数据系统表（Data System Table）。 查询整个 Catalog 的全局状态：全局系统表（Global System Table）。 Data System Table&#xD;#&#xD;数据系统表包含每个 Paimon 数据表的元数据和信息，如创建的快照及使用的选项。用户可以通过批量查询访问系统表。&#xA;目前，Flink、Spark、Trino 和 StarRocks 支持查询系统表。&#xA;在某些情况下，表名需要用反引号括起来以避免语法解析冲突，例如三重访问模式：&#xA;SELECT * FROM my_catalog.my_db.`my_table$snapshots`; Snapshots Table&#xD;#&#xD;你可以通过 snapshots 表查询表的快照历史信息，包括快照中发生的记录数。&#xA;SELECT * FROM my_table$snapshots; /* +--------------+------------+-----------------+-------------------+--------------+-------------------------+--------------------------------+------------------------------- +--------------------------------+---------------------+---------------------+-------------------------+----------------+ | snapshot_id | schema_id | commit_user | commit_identifier | commit_kind | commit_time | base_manifest_list | delta_manifest_list | changelog_manifest_list | total_record_count | delta_record_count | changelog_record_count | watermark | +--------------+------------+-----------------+-------------------+--------------+-------------------------+--------------------------------+------------------------------- +--------------------------------+---------------------+---------------------+-------------------------+----------------+ | 2 | 0 | 7ca4cd28-98e.</description>
     </item>
     <item>
       <title>数据类型 Data Types</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/data-types/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/data-types/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/data-types/</guid>
       <description>Data Types&#xD;#&#xD;数据类型描述了表生态系统中值的逻辑类型。它可用于声明操作的输入和/或输出类型。&#xA;Paimon 支持的所有数据类型如下：&#xA;DataType&#xD;Description&#xD;BOOLEAN&#xD;布尔类型，支持三值逻辑：TRUE、FALSE 和 UNKNOWN。&#xD;CHAR&#xA;CHAR(n)&#xD;定长字符类型。&#xA;该类型可以用 CHAR(n) 声明，其中 n 是代码点的数量。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。&#xD;VARCHAR&#xA;VARCHAR(n)&#xA;STRING&#xD;变长字符类型。&#xA;该类型可以用 VARCHAR(n) 声明，其中 n 是最大代码点数量。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。&#xA;STRING 是 VARCHAR(2147483647) 的同义词。&#xD;BINARY&#xA;BINARY(n)&#xA;定长二进制字符串类型（即字节序列）。&#xA;该类型可以用 BINARY(n) 声明，其中 n 是字节数。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。&#xD;VARBINARY&#xA;VARBINARY(n)&#xA;BYTES&#xD;变长二进制字符串类型（即字节序列）。&#xA;该类型可以用 VARBINARY(n) 声明，其中 n 是最大字节数。n 的取值范围是 1 到 2,147,483,647（含）。如果未指定长度，默认 n 为 1。</description>
     </item>
     <item>
       <title>函数 Functions</title>
-      <link>http://localhost:1313/paimon-docs-chinese/concepts/functions/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/concepts/functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/concepts/functions/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/concepts/functions/</guid>
       <description>Functions&#xD;#&#xD;Paimon 引入了一种 Function 抽象，旨在为计算引擎提供标准格式的函数支持，解决以下问题：&#xA;统一的列级过滤与处理：&#xA;支持在列级别进行操作，包括数据的加密与解密等任务。&#xA;参数化视图能力：&#xA;支持在视图中进行参数化操作，增强数据检索过程的动态性和可用性。&#xA;支持的函数类型&#xD;#&#xD;目前，Paimon 支持三种类型的函数：&#xA;文件函数（File Function）：&#xA;用户可以在文件中定义函数，为函数定义提供灵活且模块化的支持。&#xA;Lambda 函数（Lambda Function）：&#xA;支持用户使用 Java Lambda 表达式定义函数，实现内联、简洁、函数式的操作方式。&#xA;SQL 函数（SQL Function）：&#xA;用户可以直接在 SQL 中定义函数，与基于 SQL 的数据处理无缝集成。&#xA;File Function Usage in Flink&#xD;#&#xD;Paimon 函数可在 Apache Flink 中用于执行复杂的数据操作。以下是在 Flink 环境中创建、修改和删除函数的 SQL 命令：&#xA;Create Function&#xD;#&#xD;使用 FLink SQL创建一个新的函数&#xA;-- Flink SQL CREATE FUNCTION mydb.parse_str AS &amp;#39;com.streaming.flink.udf.StrUdf&amp;#39; LANGUAGE JAVA USING JAR &amp;#39;oss://my_bucket/my_location/udf.jar&amp;#39; [, JAR &amp;#39;oss://my_bucket/my_location/a.jar&amp;#39;]; 这条语句在 mydb 数据库中创建了一个基于 Java 的用户自定义函数（UDF），函数名为 parse_str，该函数使用了来自对象存储位置的指定 JAR 文件：</description>
     </item>
   </channel>

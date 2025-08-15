@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project on Paimon文档</title>
-    <link>http://localhost:1313/paimon-docs-chinese/project/</link>
+    <link>https://lss1231.github.io/paimon-docs-chinese/project/</link>
     <description>Recent content in Project on Paimon文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <atom:link href="http://localhost:1313/paimon-docs-chinese/project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lss1231.github.io/paimon-docs-chinese/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Roadmap</title>
-      <link>http://localhost:1313/paimon-docs-chinese/project/roadmap/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/roadmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/project/roadmap/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/roadmap/</guid>
       <description>Roadmap&#xD;#&#xD;Flink Lookup Join&#xD;#&#xD;Support Flink Custom Data Distribution Lookup Join to reach large-scale data lookup join.&#xA;Produce Iceberg snapshots&#xD;#&#xD;Introduce a mode to produce Iceberg snapshots.&#xA;Variant Type&#xD;#&#xD;Support Variant Type with Spark 4.0 and Flink 2.0. Unlocking support for semi-structured data.&#xA;File Index&#xD;#&#xD;Add more index:&#xA;Inverse Vector Compaction&#xD;#&#xD;Support Vector Compaction for super Wide Table.&#xA;Function support&#xD;#&#xD;Paimon Catalog supports functions.</description>
     </item>
     <item>
       <title>Download</title>
-      <link>http://localhost:1313/paimon-docs-chinese/project/download/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/download/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/project/download/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/download/</guid>
       <description>Download&#xD;#&#xD;This documentation is a guide for downloading Paimon Jars.&#xA;Engine Jars&#xD;#&#xD;Version Jar Flink 2.0 paimon-flink-2.0-1.2.0.jar Flink 1.20 paimon-flink-1.20-1.2.0.jar Flink 1.19 paimon-flink-1.19-1.2.0.jar Flink 1.18 paimon-flink-1.18-1.2.0.jar Flink 1.17 paimon-flink-1.17-1.2.0.jar Flink 1.16 paimon-flink-1.16-1.2.0.jar Flink 1.15 paimon-flink-1.15-1.2.0.jar Flink Action paimon-flink-action-1.2.0.jar Spark 3.5 paimon-spark-3.5-1.2.0.jar Spark 3.4 paimon-spark-3.4-1.2.0.jar Spark 3.3 paimon-spark-3.3-1.2.0.jar Spark 3.2 paimon-spark-3.2-1.2.0.jar Hive 3.1 paimon-hive-connector-3.1-1.2.0.jar Hive 2.3 paimon-hive-connector-2.3-1.2.0.jar Hive 2.2 paimon-hive-connector-2.2-1.2.0.jar Hive 2.1 paimon-hive-connector-2.1-1.2.0.jar Hive 2.1-cdh-6.3 paimon-hive-connector-2.1-cdh-6.3-1.2.0.jar Trino Download from master Filesystem Jars&#xD;#&#xD;Version Jar paimon-oss paimon-oss-1.</description>
     </item>
     <item>
       <title>Contributing</title>
-      <link>http://localhost:1313/paimon-docs-chinese/project/contributing/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/contributing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/project/contributing/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/contributing/</guid>
       <description>&#xD;Contributing&#xD;#&#xD;Apache Paimon 由一个开放且友好的社区开发。热忱欢迎每个人加入社区并为 Apache Paimon 做出贡献。参与社区和贡献 Paimon 的方式有很多，包括提问、提交缺陷报告、提出新功能建议、加入邮件列表讨论、贡献代码或文档、改进网站、测试发布候选版本以及撰写相关博客等。&#xA;你想做什么？&#xD;#&#xD;为 Apache Paimon 贡献不仅仅限于为项目编写代码。以下列出了帮助项目的不同途径：&#xA;Area&#xD;Further information&#xD;Report Bug&#xD;要报告 Paimon 的问题，请前往 Paimon 的 Issues 页面。 请提供关于你遇到的问题的详细信息，如果可能的话，请添加有助于重现该问题的描述。&#xD;Contribute Code&#xD;阅读 Code Contribution Guide&#xD;Code Reviews&#xD;阅读 Code Review Guide&#xD;Release Version&#xD;发布新的 Paimon 版本。&#xD;Support Users&#xD;回复 用户邮件列表上的问题，&#xD;查看 Issues 中最新的问题，寻找实际用户提问的工单。&#xD;宣传 Apache Paimon&#xD;组织或参加 Paimon 线下交流会，撰写 Paimon 博客，或者在 dev@paimon.apache.org 邮件列表 分享你的会议、交流会或博客文章。&#xD;还有其他问题吗？请联系 dev@paimon.apache.org 邮件列表</description>
     </item>
     <item>
       <title>Committer</title>
-      <link>http://localhost:1313/paimon-docs-chinese/project/committer/</link>
+      <link>https://lss1231.github.io/paimon-docs-chinese/project/committer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/paimon-docs-chinese/project/committer/</guid>
+      <guid>https://lss1231.github.io/paimon-docs-chinese/project/committer/</guid>
       <description>Committer&#xD;#&#xD;Become a Committer&#xD;#&#xD;How to become a committer&#xD;#&#xD;There is no strict protocol for becoming a committer. Candidates for new committers are typically people that are active contributors and community members. Candidates are suggested by current committers or PPMC members, and voted upon by the PPMC.&#xA;If you would like to become a committer, you should engage with the community and start contributing to Apache Paimon in any of the above ways.</description>
     </item>
   </channel>
