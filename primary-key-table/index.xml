@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>主键表 Table with PK on Paimon文档</title>
-    <link>//localhost:1313/primary-key-table/</link>
+    <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/</link>
     <description>Recent content in 主键表 Table with PK on Paimon文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <atom:link href="//localhost:1313/primary-key-table/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/paimon-docs-chinese/primary-key-table/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概览 Overview</title>
-      <link>//localhost:1313/primary-key-table/overview/</link>
+      <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/primary-key-table/overview/</guid>
+      <guid>http://localhost:1313/paimon-docs-chinese/primary-key-table/overview/</guid>
       <description>概览 Overview&#xD;#&#xD;如果你定义了一个具有主键的表，则可以对该表执行插入、更新或删除操作。&#xA;主键由一组列组成，这些列对于每条记录来说具有唯一值。Paimon 通过在每个 bucket 中对主键进行排序来强制数据有序，从而支持在主键上应用过滤条件以实现高性能查询。详见： CREATE TABLE。&#xA;桶 Bucket&#xD;#&#xD;未分区表，或分区表中的各个分区，都会被进一步划分为 bucket，以为数据提供额外的结构，从而实现更高效的查询。&#xA;每个 bucket 目录中包含一个 LSM 树，其内容包括： changelog files。&#xA;每个 bucket 的范围是通过记录中一个或多个列的哈希值来确定的。&#xA;用户可以通过设置 bucket-key 选项 来指定分桶列。&#xA;如果未指定 bucket-key，则默认使用主键（如果定义了主键）或整条记录作为分桶键。&#xA;Bucket 是读写的最小存储单元，因此 bucket 的数量会限制最大处理并行度。&#xA;但这个数量也不宜过大，否则会产生大量小文件，导致读取性能下降。&#xA;一般建议每个 bucket 中的数据量保持在约 200MB 到 1GB 之间。&#xA;如果你希望在建表后调整 bucket 的数量，请参考 调整 bucket 数量。&#xA;LSM Trees&#xD;#&#xD;Paimon 采用 LSM 树（Log-Structured Merge-Tree）作为文件存储的数据结构。本文档将简要介绍有关 LSM 树的基本概念。&#xA;Sorted Runs&#xD;#&#xD;LSM 树将文件组织成多个 Sorted Run（有序运行）。每个 Sorted Run 由一个或多个数据文件组成，且每个数据文件只属于一个 Sorted Run。</description>
     </item>
     <item>
       <title>数据分布 Data Distribution</title>
-      <link>//localhost:1313/primary-key-table/data-distribution/</link>
+      <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/data-distribution/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/primary-key-table/data-distribution/</guid>
+      <guid>http://localhost:1313/paimon-docs-chinese/primary-key-table/data-distribution/</guid>
       <description>数据分布 Data Distribution&#xD;#&#xD;Bucket 是读写的最小存储单元，每个 bucket 目录包含一个 LSM tree。&#xA;Fixed Bucket&#xD;#&#xD;配置一个大于 0 的桶数，即使用固定桶模式，通过计算 Math.abs(key_hashcode % numBuckets) 来确定记录所属的桶。&#xA;桶的重新调整只能通过离线流程完成，详见 调整桶数量。&#xA;桶数量过多会导致大量小文件，桶数量过少则写入性能较差，需合理权衡。&#xA;Dynamic Bucket&#xD;#&#xD;主键表的默认模式，或配置 &#39;bucket&#39; = &#39;-1&#39;。&#xA;先到的数据会落入旧桶，新到的数据会落入新桶，桶与键的分布取决于数据到达的顺序。Paimon 维护索引以确定每个键对应的桶。&#xA;Paimon 会自动扩展桶的数量。&#xA;选项1：&#39;dynamic-bucket.target-row-num&#39;：控制每个桶的目标行数。 选项2：&#39;dynamic-bucket.initial-buckets&#39;：控制初始化的桶数量。 选项3：&#39;dynamic-bucket.max-buckets&#39;：控制桶的最大数量。 动态桶模式仅支持单个写入作业。请勿启动多个作业写入同一分区（否则可能导致数据重复）。即使启用 &#39;write-only&#39; 并启动专门的压缩作业，也无法解决此问题。&#xD;Normal Dynamic Bucket Mode&#xD;#&#xD;当更新操作不跨分区（无分区，或主键包含所有分区字段）时，动态桶模式使用哈希索引维护键到桶的映射，相比固定桶模式需要更多内存。&#xA;性能表现：&#xA;一般不会有性能损失，但会有额外内存消耗，约 1 亿 条目占用 1 GB 内存，非活跃分区不占用内存。 对于更新频率较低的表，推荐使用该模式以显著提升性能。 Normal Dynamic Bucket Mode 支持排序压缩（sort-compact）以加速查询。详见： Sort Compact.&#xA;Cross Partitions Upsert Dynamic Bucket Mode&#xD;#&#xD;当需要跨分区更新（主键不包含所有分区字段）时，动态桶模式会直接维护键到分区和桶的映射，使用本地磁盘，并在启动流写入作业时通过读取表中所有已有键来初始化索引。不同的合并引擎行为如下：</description>
     </item>
     <item>
       <title>表模式 Table Mode</title>
-      <link>//localhost:1313/primary-key-table/table-mode/</link>
+      <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/table-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/primary-key-table/table-mode/</guid>
+      <guid>http://localhost:1313/paimon-docs-chinese/primary-key-table/table-mode/</guid>
       <description>表模式 Table Mode&#xD;#&#xD;主键表的文件结构大致如上图所示。表或分区包含多个桶（bucket），每个桶是一个独立的 LSM 树结构，包含多个文件。&#xA;LSM 的写入过程大致如下：Flink 检查点时刷新 L0 文件，并根据需要触发压缩以合并数据。根据写入时的不同处理方式，存在三种模式：&#xA;MOR（Merge On Read）：默认模式，只执行小规模压缩，读取时需要合并数据。 COW（Copy On Write）：通过设置 &#39;full-compaction.delta-commits&#39; = &#39;1&#39; 启用全量压缩，同步完成合并操作，写入即完成合并。 MOW（Merge On Write）：通过启用 &#39;deletion-vectors.enabled&#39; = &#39;true&#39;，写入阶段查询 LSM 生成数据文件的删除向量文件，读取时可直接过滤无效行。 一般主键表推荐使用 Merge On Write 模式（默认合并引擎为 deduplicate）。&#xA;Merge On Read&#xD;#&#xD;MOR（Merge On Read）是主键表的默认模式。&#xA;在 MOR 模式下，读取时需要合并所有文件，因为所有文件都是有序的，采用多路合并方式，过程中会对主键进行比较计算。&#xA;这里存在一个明显的问题：单个 LSM 树只能使用单线程读取，导致读的并行度受限。如果桶中的数据量过大，可能导致读取性能下降。&#xA;因此，为了优化读取性能，建议根据查询需求合理分析表，设置每个桶的数据量在 200MB 到 1GB 之间。&#xA;但如果桶过小，会产生大量小文件读写，给文件系统带来压力。&#xA;另外，由于存在合并过程，基于过滤器的跳过数据操作不能作用于非主键列，否则会错误地过滤掉新数据，导致旧数据不正确。&#xA;写入性能：非常好。 Copy On Write&#xD;#&#xD;ALTER TABLE orders SET (&amp;#39;full-compaction.delta-commits&amp;#39; = &amp;#39;1&amp;#39;); 将 full-compaction.</description>
     </item>
     <item>
       <title>变化日志生产者 Changelog Producer</title>
-      <link>//localhost:1313/primary-key-table/changelog-producer/</link>
+      <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/changelog-producer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/primary-key-table/changelog-producer/</guid>
+      <guid>http://localhost:1313/paimon-docs-chinese/primary-key-table/changelog-producer/</guid>
       <description>Changelog Producer&#xD;#&#xD;流式写入可以持续产生最新变更，供流式读取使用。&#xA;通过在创建表时指定 changelog-producer 表属性，用户可以选择从表文件中产生变更的方式。&#xA;changelog-producer 可能会显著降低压缩性能，除非必要，请勿启用。&#xD;None&#xD;#&#xD;默认情况下，表的写入端不会应用额外的变更日志（changelog）生成器。Paimon 源仅能看到跨快照合并后的变更，比如哪些键被删除，某些键的新值是什么。&#xA;然而，这些合并后的变更无法形成完整的变更日志，因为我们无法直接从中读取键的旧值。合并变更要求消费者“记住”每个键的值，并在看不到旧值的情况下重写新值。但有些消费者需要旧值来保证正确性或效率。&#xA;例如，有个消费者计算某些分组键（可能与主键不同）的求和。如果消费者只看到一个新值 5，它无法判断应该对求和结果加多少。如果旧值是 4，应加 1；如果旧值是 6，则应减 1。旧值对于这类消费者非常重要。&#xA;综上所述，none 类型的变更日志生成器最适合数据库系统等消费者。Flink 内置了一个“normalize”操作符，会将每个键的值保存在状态中。显而易见，这个操作符开销很大，应该避免使用。（你可以通过 &#39;scan.remove-normalize&#39; 强制移除该操作符。）&#xA;Input&#xD;#&#xD;通过指定 &#39;changelog-producer&#39; = &#39;input&#39;，Paimon 写入端依赖其输入作为完整变更日志的来源。所有输入记录都会被保存到独立的变更日志文件中，并由 Paimon 源提供给消费者。&#xA;当 Paimon 写入端的输入本身就是完整变更日志时（例如来自数据库 CDC，或由 Flink 有状态计算生成），可以使用 input 类型的变更日志生成器。&#xA;Lookup&#xD;#&#xD;如果你的输入无法生成完整的变更日志，但仍希望避免高开销的 normalize 操作符，可以考虑使用 &#39;lookup&#39; 类型的变更日志生成器。&#xA;通过指定 &#39;changelog-producer&#39; = &#39;lookup&#39;，Paimon 会在提交数据写入前，通过 &#39;lookup&#39; 方式生成变更日志。（你也可以启用 Async Compaction).&#xA;Lookup 会将数据缓存到内存和本地磁盘，你可以使用以下选项来调优性能：&#xA;Option&#xD;Default&#xD;Type&#xD;Description&#xD;lookup.cache-file-retention&#xD;1 h&#xD;Duration&#xD;用于 lookup 的缓存文件保留时间。文件过期后，如果仍需要访问，它将会从分布式文件系统（DFS）重新读取，并在本地磁盘上重建索引。&#xD;lookup.</description>
     </item>
     <item>
       <title>Sequence 和 Rowkind</title>
-      <link>//localhost:1313/primary-key-table/sequence-rowkind/</link>
+      <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/sequence-rowkind/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/primary-key-table/sequence-rowkind/</guid>
+      <guid>http://localhost:1313/paimon-docs-chinese/primary-key-table/sequence-rowkind/</guid>
       <description>Sequence 和 Rowkind&#xD;#&#xD;创建表时，可以通过指定 &#39;sequence.field&#39; 来确定更新的顺序，或者通过指定 &#39;rowkind.field&#39; 来确定记录的变更日志（changelog）类型。&#xA;Sequence Field&#xD;#&#xD;默认情况下，主键表根据输入顺序决定合并顺序（最后输入的记录最后合并）。但在分布式计算中，可能会出现数据乱序的情况，此时可以使用时间字段作为 sequence.field，例如：&#xA;Flink&#xD;CREATE TABLE my_table ( pk BIGINT PRIMARY KEY NOT ENFORCED, v1 DOUBLE, v2 BIGINT, update_time TIMESTAMP ) WITH ( &amp;#39;sequence.field&amp;#39; = &amp;#39;update_time&amp;#39; ); sequence.field 值最大的记录将会是最后合并的，如果值相同，则使用输入顺序来决定哪条记录是最后的。sequence.field 支持所有数据类型的字段。&#xA;你也可以定义多个字段作为 sequence.field，例如 &#39;update_time,flag&#39;，多个字段将按顺序依次比较。&#xA;用户自定义的 sequence 字段与 first_row 和 first_value 等特性可能存在冲突，可能导致意料之外的结果。&#xD;Row Kind Field&#xD;#&#xD;默认情况下，主键表根据输入行确定行类型（row kind）。你也可以定义 &#39;rowkind.field&#39;，通过指定字段来提取行类型。&#xA;有效的行类型字符串应为 &#39;+I&#39;、&#39;-U&#39;、&#39;+U&#39; 或 &#39;-D&#39;。</description>
     </item>
     <item>
       <title>合并 Compaction</title>
-      <link>//localhost:1313/primary-key-table/compaction/</link>
+      <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/compaction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/primary-key-table/compaction/</guid>
+      <guid>http://localhost:1313/paimon-docs-chinese/primary-key-table/compaction/</guid>
       <description>合并 Compaction&#xD;#&#xD;随着越来越多的记录写入 LSM 树，排序运行（sorted runs）的数量也会增加。由于查询 LSM 树需要合并所有的排序运行，过多的排序运行会导致查询性能下降，甚至出现内存不足。&#xA;为了限制排序运行的数量，我们需要不时将多个排序运行合并成一个更大的排序运行，这个过程称为compaction。&#xA;但是，compaction 是一个资源密集型过程，会消耗一定的 CPU 时间和磁盘 IO，过于频繁的compaction反而可能导致写入变慢。这是在查询性能和写入性能之间的权衡。Paimon 当前采用了类似 RocksDB 的compaction策略 universal compaction.&#xA;Compaction 解决的问题：&#xA;减少 Level 0 文件数量，避免查询性能下降。 通过 changelog-producer 生成 changelog。 为 MOW 模式 生成 deletion vectors。 支持 Snapshot 过期、Tag 过期和分区过期。 限制：&#xA;同一个分区只能有一个 compaction 任务在运行，否则会导致冲突，且一方会抛出异常失败。 写入性能几乎总是会受到 compaction 的影响，因此调优非常关键。&#xA;异步合并 Asynchronous Compaction&#xD;#&#xD;Compaction 本质上是异步的，但如果你希望它完全异步且不阻塞写入操作，以追求最大写入吞吐量，可以让 compaction 过程更缓慢，不急于完成。&#xA;你可以为表配置以下策略：&#xA;num-sorted-run.stop-trigger = 2147483647 sort-spill-threshold = 10 lookup-wait = false 这项配置会在写入高峰期产生更多文件，并在写入低谷期逐步合并这些文件，从而实现最佳的读取性能&#xA;Dedicated compaction job&#xD;#&#xD;一般来说，如果你期望多个写入任务同时写同一个表，必须将 compaction 任务单独分离出来。你可以使用以下方式： dedicated compaction job.</description>
     </item>
     <item>
       <title>查询性能 Query Performance</title>
-      <link>//localhost:1313/primary-key-table/query-performance/</link>
+      <link>http://localhost:1313/paimon-docs-chinese/primary-key-table/query-performance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/primary-key-table/query-performance/</guid>
+      <guid>http://localhost:1313/paimon-docs-chinese/primary-key-table/query-performance/</guid>
       <description>查询性能 Query Performance&#xD;#&#xD;Table Mode&#xD;#&#xD;表结构对查询性能影响最大。详见 Table Mode。&#xA;对于 Merge On Read 表，最重要的是关注 bucket 的数量，因为它限制了数据读取的并发度。&#xA;对于 MOW（Deletion Vectors）、COW 表或 Read Optimized 表，读取数据的并发度没有限制，并且可以利用非主键列的部分过滤条件。&#xA;通过主键过滤进行数据跳过&#xD;#&#xD;对于普通的分桶表（例如，bucket = 5），主键的过滤条件将极大地加速查询，减少大量文件的读取。&#xA;通过文件索引进行数据跳过&#xD;#&#xD;对于启用了 Deletion Vectors 的表，可以使用文件索引，在读取端通过索引过滤文件。&#xA;CREATE TABLE &amp;lt;PAIMON_TABLE&amp;gt; WITH ( &amp;#39;deletion-vectors.enabled&amp;#39; = &amp;#39;true&amp;#39;, &amp;#39;file-index.bloom-filter.columns&amp;#39; = &amp;#39;c1,c2&amp;#39;, &amp;#39;file-index.bloom-filter.c1.items&amp;#39; = &amp;#39;200&amp;#39; ); 支持的 filter 类型:&#xA;Bloom Filter:&#xA;file-index.bloom-filter.columns:指定需要布隆过滤器索引的列。 file-index.bloom-filter.&amp;lt;column_name&amp;gt;.fpp 配置误报概率（false positive probability）。 file-index.bloom-filter.&amp;lt;column_name&amp;gt;.items 配置单个数据文件中预期的不同项数量。 Bitmap:&#xA;file-index.bitmap.columns: 指定需要建立 bitmap 索引的列。详见 Index Bitmap. Bit-Slice Index Bitmap</description>
     </item>
   </channel>
